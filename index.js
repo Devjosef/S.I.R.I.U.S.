@@ -37,7 +37,7 @@ app.use(express.json());
 // Middleware for parsing URL-encoded bodies
 app.use(express.urlencoded({ extended: true }));
 
-// Use routes from the separate routes file
+// Mounts the api from the separate routes file
 app.use(routes);
 
 // Serves static Files from the public folder
@@ -177,7 +177,7 @@ app.get('/', (req, res) => {
 
 
 // Global error handler
-app.use((err, req, res) => {
+app.use((err, _req, res, _next) => {
   console.error(err.stack);
   res.status(500).json({ error: 'Something went wrong!' });
 });

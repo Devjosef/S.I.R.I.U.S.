@@ -1,0 +1,21 @@
+{
+  "name": "AI Assistant Siri",
+  "short_name": "Siri",
+  "description": "A powerful AI assistant for your daily tasks.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#000",
+  "theme_color": "#00c6ff",
+  "icons": [
+    {
+      "src": "/icons/siri-icon-192.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "/icons/siri-icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ]
+}
