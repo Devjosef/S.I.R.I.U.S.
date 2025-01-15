@@ -1,6 +1,6 @@
-# Ai Assistant Siri
+# S.I.R.I.U.S. (SMART, INTELLIGENT, RESPONSIVE, INTEGRATIVE, USER-FRIENDLY, SYSTEM)
 
-Ai Assistant Siri is an open-source web application designed to enhance productivity by integrating with multiple services such as Trello, Notion, Google Calendar, and Pinecone. This application allows users to manage tasks and events seamlessly across different platforms through a unified interface.
+S.I.R.I.U.S. is an open-source web application designed to enhance productivity by integrating with multiple services such as Trello, Notion, Google Calendar, and Pinecone. This application allows users to manage tasks and events seamlessly across different platforms through a unified interface.
 
 ## Features
 
@@ -11,7 +11,7 @@ Ai Assistant Siri is an open-source web application designed to enhance producti
 
 ## Additional Features
 
-While the current implementation includes the integrations listed above, there are numerous other functionalities that could be integrated to further enhance the capabilities of Ai Assistant Siri:
+While the current implementation includes the integrations listed above, there are numerous other functionalities that could be integrated to further enhance the capabilities of S.I.R.I.U.S.:
 
 - **Personal Task Management**: Integration with task management tools like Todoist or Asana to handle personal tasks and reminders.
 - **Calendar and Scheduling**: Advanced scheduling features, such as syncing with multiple calendar platforms or automated reminders. Including events on MEETUP.
@@ -26,7 +26,7 @@ While the current implementation includes the integrations listed above, there a
 
 ## Getting Started
 
-Follow these steps to set up and run Ai Assistant Siri on your local machine.
+Follow these steps to set up and run S.I.R.I.U.S. on your local machine.
 
 ### Prerequisites
 
@@ -39,8 +39,8 @@ Follow these steps to set up and run Ai Assistant Siri on your local machine.
 Open your terminal and clone the repository. Run the commands separately:
 
   ```bash
-   git clone https://github.com/Devjosef/Ai-Assistant-Siri.git
-   cd Ai-Assistant-Siri
+   git clone https://github.com/Devjosef/S.I.R.I.U.S..git
+   cd S.I.R.I.U.S.
    npm install
    npm start
    ```
@@ -219,9 +219,9 @@ Here’s an example of integrating the Create Trello Board endpoint:
 - **Invalid Response**: Check the API documentation and ensure the request is correctly formatted.
 - **Shortcut Not Triggering**: Verify the shortcut setup and test with different phrases.
 
-## Contributing to Ai-Assistant-Siri
+## Contributing to S.I.R.I.U.S.
 
-Thank you for considering contributing to Ai-Assistant-Siri! I welcome contributions from the community.
+Thank you for considering contributing to S.I.R.I.U.S.! I welcome contributions from the community.
 
 ### How to Contribute
 
@@ -231,8 +231,8 @@ Thank you for considering contributing to Ai-Assistant-Siri! I welcome contribut
 2. **Clone Your Fork**:
 
    ```bash
-   git clone https://github.com/YOUR_USERNAME/Ai-Assistant-Siri.git
-   cd Ai-Assistant-Siri
+   git clone https://github.com/YOUR_USERNAME/S.I.R.I.U.S..git
+   cd S.I.R.I.U.S.
    ```
 
 3. **Create a Branch**:
