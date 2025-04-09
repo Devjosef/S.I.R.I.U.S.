@@ -1,0 +1,349 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>S.I.R.I.U.S. API Documentation</title>
+  <style>
+    :root {
+      --primary: #00c6ff;
+      --primary-dark: #0073b1;
+      --background: #0a0a0a;
+      --text: #f8f8f8;
+      --code-bg: #1e1e1e;
+      --border: #303030;
+      --secondary-bg: #181818;
+    }
+    
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+      background-color: var(--background);
+      color: var(--text);
+      line-height: 1.6;
+      padding: 20px;
+    }
+    
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+    
+    header {
+      text-align: center;
+      margin-bottom: 40px;
+      padding-bottom: 20px;
+      border-bottom: 1px solid var(--border);
+    }
+    
+    h1, h2, h3, h4 {
+      color: var(--primary);
+      margin: 1rem 0;
+    }
+    
+    h1 {
+      font-size: 2.5rem;
+    }
+    
+    h2 {
+      font-size: 1.8rem;
+      margin-top: 2rem;
+    }
+    
+    h3 {
+      font-size: 1.4rem;
+      margin-top: 1.5rem;
+    }
+    
+    .endpoint {
+      background-color: var(--secondary-bg);
+      border-radius: 8px;
+      padding: 20px;
+      margin-bottom: 20px;
+      border-left: 4px solid var(--primary);
+    }
+    
+    .method {
+      display: inline-block;
+      padding: 4px 8px;
+      background: var(--primary);
+      color: #000;
+      border-radius: 4px;
+      font-weight: bold;
+      margin-right: 10px;
+    }
+    
+    .path {
+      font-family: monospace;
+      font-size: 1.1rem;
+      padding: 4px 8px;
+      background: var(--code-bg);
+      border-radius: 4px;
+    }
+    
+    .description {
+      margin: 15px 0;
+    }
+    
+    .params, .body {
+      margin-bottom: 15px;
+    }
+    
+    .params h4, .body h4, .example h4 {
+      margin-bottom: 10px;
+    }
+    
+    .param-name, .body-name {
+      font-family: monospace;
+      color: var(--primary);
+    }
+    
+    pre {
+      background-color: var(--code-bg);
+      padding: 15px;
+      border-radius: 4px;
+      overflow-x: auto;
+      margin: 10px 0;
+    }
+    
+    code {
+      font-family: 'Courier New', Courier, monospace;
+      font-size: 0.9rem;
+    }
+    
+    .response {
+      margin-top: 15px;
+    }
+    
+    .note {
+      background-color: rgba(255, 220, 0, 0.1);
+      border-left: 4px solid #ffdc00;
+      padding: 10px 15px;
+      margin: 15px 0;
+      border-radius: 0 4px 4px 0;
+    }
+    
+    .footer {
+      text-align: center;
+      margin-top: 50px;
+      padding-top: 20px;
+      border-top: 1px solid var(--border);
+      color: #888;
+    }
+    
+    @media (max-width: 768px) {
+      .container {
+        padding: 10px;
+      }
+      
+      h1 {
+        font-size: 2rem;
+      }
+      
+      pre {
+        font-size: 0.8rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <header>
+      <h1>S.I.R.I.U.S. API</h1>
+      <p>SMART, INTELLIGENT, RESPONSIVE, INTEGRATIVE, USER-FRIENDLY, SYSTEM</p>
+      <div id="api-version"></div>
+      <div id="api-environment"></div>
+    </header>
+    
+    <main>
+      <section>
+        <h2>Overview</h2>
+        <p>S.I.R.I.U.S. API provides access to vector embeddings and integrations with various services. This documentation provides details about available endpoints and how to use them.</p>
+      </section>
+      
+      <section id="endpoints">
+        <h2>Endpoints</h2>
+        <div id="endpoints-container">Loading endpoints...</div>
+      </section>
+      
+      <section id="legacy">
+        <h2>Legacy Endpoints</h2>
+        <div class="note">
+          <p><strong>Note:</strong> These endpoints are maintained for backward compatibility and will be removed in v2.0.0.</p>
+        </div>
+        <div id="legacy-container">Loading legacy endpoints...</div>
+      </section>
+      
+      <section id="examples">
+        <h2>Usage Examples</h2>
+        <div id="examples-container">Loading examples...</div>
+      </section>
+    </main>
+    
+    <footer class="footer">
+      <p>&copy; 2024 S.I.R.I.U.S. API Documentation</p>
+    </footer>
+  </div>
+  
+  <script>
+    // Fetch API documentation from the server
+    async function fetchApiDocs() {
+      try {
+        const response = await fetch('/api');
+        const data = await response.json();
+        renderApiDocs(data);
+      } catch (error) {
+        console.error('Error fetching API docs:', error);
+        document.getElementById('endpoints-container').innerHTML = 
+          `<div class="note">Error loading API documentation. Please try again later.</div>`;
+      }
+    }
+    
+    // Render API documentation
+    function renderApiDocs(data) {
+      // Set version and environment
+      document.getElementById('api-version').textContent = `Version: ${data.version}`;
+      document.getElementById('api-environment').textContent = `Environment: ${data.environment}`;
+      
+      // Render Pinecone endpoints
+      const pineconeEndpoints = data.endpoints.pinecone;
+      const endpointsContainer = document.getElementById('endpoints-container');
+      
+      if (pineconeEndpoints && pineconeEndpoints.endpoints) {
+        endpointsContainer.innerHTML = '';
+        
+        pineconeEndpoints.endpoints.forEach(endpoint => {
+          const endpointEl = document.createElement('div');
+          endpointEl.className = 'endpoint';
+          
+          let content = `
+            <div>
+              <span class="method">${endpoint.method}</span>
+              <span class="path">${pineconeEndpoints.base}${endpoint.path}</span>
+            </div>
+            <div class="description">
+              <p>${endpoint.description}</p>
+            </div>
+          `;
+          
+          // Add parameters if available
+          if (endpoint.params) {
+            content += `<div class="params">
+              <h4>Path Parameters:</h4>
+              <ul>
+                ${Object.entries(endpoint.params).map(([name, desc]) => 
+                  `<li><span class="param-name">${name}</span>: ${desc}</li>`
+                ).join('')}
+              </ul>
+            </div>`;
+          }
+          
+          // Add body if available
+          if (endpoint.body) {
+            content += `<div class="body">
+              <h4>Request Body:</h4>
+              <ul>
+                ${Object.entries(endpoint.body).map(([name, desc]) => 
+                  `<li><span class="body-name">${name}</span>: ${desc}</li>`
+                ).join('')}
+              </ul>
+            </div>`;
+          }
+          
+          // Add example if available
+          if (endpoint.example) {
+            content += `
+              <div class="example">
+                <h4>Example:</h4>
+                <h5>Request</h5>
+                <pre><code>${JSON.stringify(endpoint.example.request, null, 2)}</code></pre>
+                
+                <h5>Response</h5>
+                <pre><code>${JSON.stringify(endpoint.example.response, null, 2)}</code></pre>
+              </div>
+            `;
+          }
+          
+          endpointEl.innerHTML = content;
+          endpointsContainer.appendChild(endpointEl);
+        });
+      }
+      
+      // Render legacy endpoints
+      const legacyEndpoints = data.endpoints.legacy;
+      const legacyContainer = document.getElementById('legacy-container');
+      
+      if (legacyEndpoints && legacyEndpoints.endpoints) {
+        legacyContainer.innerHTML = '';
+        
+        legacyEndpoints.endpoints.forEach(endpoint => {
+          const endpointEl = document.createElement('div');
+          endpointEl.className = 'endpoint';
+          
+          let content = `
+            <div>
+              <span class="method">${endpoint.method}</span>
+              <span class="path">${endpoint.path}</span>
+            </div>
+            <div class="description">
+              <p>${endpoint.description}</p>
+              <p>Replacement: <span class="path">${endpoint.replacement}</span></p>
+            </div>
+          `;
+          
+          endpointEl.innerHTML = content;
+          legacyContainer.appendChild(endpointEl);
+        });
+      }
+      
+      // Render examples
+      const examples = data.examples;
+      const examplesContainer = document.getElementById('examples-container');
+      
+      if (examples) {
+        examplesContainer.innerHTML = '';
+        
+        // Curl examples
+        if (examples.curl) {
+          const curlSection = document.createElement('div');
+          curlSection.innerHTML = `
+            <h3>cURL Examples</h3>
+            <div class="endpoint">
+              <h4>Store Embedding</h4>
+              <pre><code>${examples.curl.store}</code></pre>
+              
+              <h4>Query Embedding</h4>
+              <pre><code>${examples.curl.query}</code></pre>
+            </div>
+          `;
+          examplesContainer.appendChild(curlSection);
+        }
+        
+        // JavaScript examples
+        if (examples.javascript) {
+          const jsSection = document.createElement('div');
+          jsSection.innerHTML = `
+            <h3>JavaScript Examples</h3>
+            <div class="endpoint">
+              <h4>Store Embedding</h4>
+              <pre><code>${examples.javascript.store}</code></pre>
+              
+              <h4>Query Embedding</h4>
+              <pre><code>${examples.javascript.query}</code></pre>
+            </div>
+          `;
+          examplesContainer.appendChild(jsSection);
+        }
+      }
+    }
+    
+    // Initialize the page
+    document.addEventListener('DOMContentLoaded', fetchApiDocs);
+  </script>
+</body>
+</html> 

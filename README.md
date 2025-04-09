@@ -1,275 +1,263 @@
-# S.I.R.I.U.S. (SMART, INTELLIGENT, RESPONSIVE, INTEGRATIVE, USER-FRIENDLY, SYSTEM)
+# S.I.R.I.U.S.
 
-S.I.R.I.U.S. is an open-source web application designed to enhance productivity by integrating with multiple services such as Trello, Notion, Google Calendar, and Pinecone. This application allows users to manage tasks and events seamlessly across different platforms through a unified interface.
+Hey there! Welcome to S.I.R.I.U.S. (SMART, INTELLIGENT, RESPONSIVE, INTEGRATIVE, USER-FRIENDLY, SYSTEM) - my little project to make life easier by bringing together all the tools we use daily.
 
-## Features
+## What's this all about?
 
-- **Trello Integration**: Create and manage Trello boards via API.
-- **Notion Integration**: Generate and manage Notion templates.
-- **Google Calendar Integration**: Add and organize events in Google Calendar.
-- **Pinecone Integration**: Store and query vector embeddings for advanced applications.
+S.I.R.I.U.S. connects your favorite productivity apps like Trello, Notion, Google Calendar, and Pinecone in one place. No more jumping between tabs and apps - just one interface to rule them all.
 
-## Additional Features
+## Cool stuff it can do
 
-While the current implementation includes the integrations listed above, there are numerous other functionalities that could be integrated to further enhance the capabilities of S.I.R.I.U.S.:
+- **Trello**: Create boards right from the app
+- **Notion**: Generate templates without the hassle
+- **Google Calendar**: Add events without opening another tab
+- **Pinecone**: Store and search vector embeddings if you're into that AI stuff
 
-- **Personal Task Management**: Integration with task management tools like Todoist or Asana to handle personal tasks and reminders.
-- **Calendar and Scheduling**: Advanced scheduling features, such as syncing with multiple calendar platforms or automated reminders. Including events on MEETUP.
-- **Email and Communication**: Connect with email services like Gmail, MailChimp, or Outlook to manage communications and automate responses.
-- **Information Retrieval**: Use APIs to fetch and organize information from various sources, such as news or knowledge bases.
-- **Personalized Health and Fitness**: Integration with health apps or fitness trackers to monitor and manage health data.
-- **Home Automation**: Connect with smart home devices and platforms for home automation and control.
-- **Finance and Budgeting**: Tools for managing personal finances, tracking expenses, and budgeting.
-- **Travel and Navigation**: Integrate with travel services and navigation tools for planning and managing travel itineraries.
-- **Learning and Development**: Features for accessing educational resources, courses, or tracking learning progress.
-- **Entertainment and Media**: Integration with media services for managing and enjoying entertainment content.
+## What's on the roadmap?
 
-## Getting Started
+I've got big dreams for this project. Here are some ideas I'm playing with:
 
-Follow these steps to set up and run S.I.R.I.U.S. on your local machine.
+- Personal task manager (Todoist/Asana integration)
+- Better calendar tools (including Meetup events)
+- Email stuff (Gmail, etc.)
+- News and info grabber
+- Health tracking
+- Smart home controls
+- Money management
+- Travel planning
+- Learning resources
+- Media and entertainment
 
-### Prerequisites
+## Getting this up and running
 
-- **Node.js**: Ensure you have Node.js installed. You can download it from [nodejs.org](https://nodejs.org). (Important note: this project was written on Replit, where the current version for Node is v20.12.2)
+### What you'll need
 
-### Installation
+- **Node.js**: Grab it from [nodejs.org](https://nodejs.org) (I built this on Node v20.12.2)
 
-#### Clone the Repository
+### Setup
 
-Open your terminal and clone the repository. Run the commands separately:
+1. **Grab the code**
 
-  ```bash
+   ```bash
    git clone https://github.com/Devjosef/S.I.R.I.U.S..git
    cd S.I.R.I.U.S.
    npm install
    npm start
    ```
 
-#### Set Up Environment Variables
+2. **Set up your secrets**
 
-Create a `.env` file in the root directory of the project. This file will store your API keys and configuration settings. Use the following template and replace the placeholders with your actual keys:
-```bash
-OPENAI_API_KEY=your_openai_api_key
-PINECONE_API_KEY=your_pinecone_api_key
-PINECONE_ENVIRONMENT=your_pinecone_environment
-PINECONE_INDEX_NAME=your_pinecone_index_name
-TRELLO_API_KEY=your_trello_api_key
-TRELLO_TOKEN=your_trello_token
-NOTION_API_KEY=your_notion_api_key
-NOTION_DATABASE_ID=your_notion_database_id
-GOOGLE_API_KEY=your_google_api_key
+   Make a `.env` file in the project folder with your API keys:
+
+   ```
+   OPENAI_API_KEY=your_openai_api_key
+   PINECONE_API_KEY=your_pinecone_api_key
+   PINECONE_ENVIRONMENT=your_pinecone_environment
+   PINECONE_INDEX_NAME=your_pinecone_index_name
+   TRELLO_API_KEY=your_trello_api_key
+   TRELLO_TOKEN=your_trello_token
+   NOTION_API_KEY=your_notion_api_key
+   NOTION_DATABASE_ID=your_notion_database_id
+   GOOGLE_API_KEY=your_google_api_key
    ```
 
-### API Endpoints
+## API Endpoints
 
-#### Create Trello Board Endpoint: `/create-trello-board`
+Here's how to talk to S.I.R.I.U.S.:
 
-- **Method**: POST
-- **Request Body**:
+### Create a Trello Board: `/create-trello-board`
 
-  ```json
-  {
-    "boardName": "My New Board",
-    "templateId": "template_id_here"
-  }
-  ```
+**POST** with:
+```json
+{
+  "boardName": "My New Board",
+  "templateId": "template_id_here"
+}
+```
 
-- **Response**:
+You'll get back:
+```json
+{
+  "id": "board_id",
+  "name": "My New Board"
+}
+```
 
-  ```json
-  {
-    "id": "board_id",
-    "name": "My New Board"
-  }
-  ```
+### Create a Notion Template: `/create-notion-template`
 
-#### Create Notion Template Endpoint: `/create-notion-template`
-
-- **Method**: POST
-- **Request Body**:
-
-  ```json
-  {
-    "templateName": "Template Title",
-    "templateContent": [
-      {
-        "object": "block",
-        "type": "paragraph",
-        "paragraph": {
-          "text": [
-            {
-              "type": "text",
-              "text": {
-                "content": "Template content here"
-              }
+**POST** with:
+```json
+{
+  "templateName": "Template Title",
+  "templateContent": [
+    {
+      "object": "block",
+      "type": "paragraph",
+      "paragraph": {
+        "text": [
+          {
+            "type": "text",
+            "text": {
+              "content": "Template content here"
             }
-          ]
-        }
-      }
-    ]
-  }
-  ```
-
-- **Response**:
-
-  ```json
-  {
-    "id": "page_id",
-    "object": "page",
-    "properties": {
-      "title": [
-        {
-          "type": "text",
-          "text": {
-            "content": "Template Title"
           }
-        }
-      ]
+        ]
+      }
     }
-  }
-  ```
+  ]
+}
+```
 
-#### Create Google Calendar Event Endpoint: `/create-calendar-event`
+### Add a Google Calendar Event: `/create-calendar-event`
 
-- **Method**: POST
-- **Request Body**:
+**POST** with:
+```json
+{
+  "summary": "Meeting with Team",
+  "location": "Office",
+  "description": "Discuss project milestones",
+  "startDateTime": "2024-07-21T09:00:00",
+  "endDateTime": "2024-07-21T10:00:00"
+}
+```
 
-  ```json
-  {
-    "summary": "Meeting with Team",
-    "location": "Office",
-    "description": "Discuss project milestones",
-    "startDateTime": "2024-07-21T09:00:00",
-    "endDateTime": "2024-07-21T10:00:00"
-  }
-  ```
+## Apple Shortcuts Integration
 
-- **Response**:
+Want to control S.I.R.I.U.S. with Apple's Shortcuts app? Here's how:
 
-  ```json
-  {
-    "id": "event_id",
-    "summary": "Meeting with Team",
-    "start": {
-      "dateTime": "2024-07-21T09:00:00"
-    },
-    "end": {
-      "dateTime": "2024-07-21T10:00:00"
-    }
-  }
-  ```
+### What you need
+- iPhone or iPad with iOS 12+
+- Shortcuts app installed
+- Your server running and accessible
 
-## Integration with Siri Shortcuts
+### Setting it up
 
-To integrate this AI Assistant with Siri Shortcuts, follow these steps:
+1. Open the Shortcuts app on your iOS device
+2. Tap + to create a new shortcut
+3. Add "Get Contents of URL" action
+4. Enter your server URL (like `https://your-server-url/api/create-trello-board`)
+5. Switch method to POST
+6. Add your parameters as JSON
+7. Name your shortcut something snappy
+8. Add the shortcut to Siri with a custom phrase like "Create Trello Board"
+9. Try it out!
 
-### Prerequisites
+## Help me make this better!
 
-- **Apple Device**: Ensure you have an iPhone or iPad with iOS 12 or later.
-- **Shortcuts App**: Make sure the Shortcuts app is installed on your device.
-- **Server Running**: Ensure your server is running and accessible from your device.
+I'd love your help improving S.I.R.I.U.S.! Here's how:
 
-### Steps to Create a Siri Shortcut
-
-1. **Open the Shortcuts App**:
-   - On your iPhone or iPad, open the Shortcuts app.
-
-2. **Create a New Shortcut**:
-   - Tap the + icon in the top-right corner to create a new shortcut.
-
-3. **Add a Web Request Action**:
-   - Tap Add Action. Search for Web and select Get Contents of URL.
-   - In the URL field, enter the endpoint you want to interact with from your server (e.g., `https://your-server-url/api/create-trello-board`).
-
-4. **Configure the Request**:
-   - Change the method to POST if it’s not already.
-   - Add necessary Request Body parameters, such as `boardName` and `templateId` for creating a Trello board.
-   - Set the Content Type to `application/json` if required.
-
-5. **Add Input Data**:
-   - If your API requires user input, tap Show More and add Text Fields or Ask for Input actions to collect data.
-
-6. **Handle Response**:
-   - You can add additional actions to handle the response from your API, such as displaying results or saving data.
-
-7. **Name Your Shortcut**:
-   - Tap on the Settings icon at the top-right corner and give your shortcut a name, like “Create Trello Board”.
-
-8. **Add to Siri**:
-   - Tap Add to Siri. Record a custom phrase that will trigger this shortcut.
-
-9. **Test Your Shortcut**:
-   - Use Siri with the custom phrase to ensure it interacts with your API as expected.
-
-### Example Integration
-
-Here’s an example of integrating the Create Trello Board endpoint:
-
-- **Shortcut Setup**:
-  - URL: `https://your-server-url/api/create-trello-board`
-  - Method: POST
-  - Body: `{ "boardName": "My New Board", "templateId": "template123" }`
-
-- **Use Siri**:
-  - Say: "Create Trello Board" to trigger the shortcut.
-
-## Troubleshooting
-
-- **Server Not Accessible**: Ensure your server is publicly accessible and running.
-- **Invalid Response**: Check the API documentation and ensure the request is correctly formatted.
-- **Shortcut Not Triggering**: Verify the shortcut setup and test with different phrases.
-
-## Contributing to S.I.R.I.U.S.
-
-Thank you for considering contributing to S.I.R.I.U.S.! I welcome contributions from the community.
-
-### How to Contribute
-
-1. **Fork the Repository**:
-   - Click the Fork button at the top-right corner of this repository to create your copy.
-
-2. **Clone Your Fork**:
-
+1. Fork the repo
+2. Clone your fork:
    ```bash
    git clone https://github.com/YOUR_USERNAME/S.I.R.I.U.S..git
    cd S.I.R.I.U.S.
    ```
-
-3. **Create a Branch**:
-
+3. Create a branch for your feature:
    ```bash
-   git checkout -b feature/your-feature-name
+   git checkout -b feature/your-cool-idea
    ```
-
-4. **Make Changes**: Implement your changes or fixes. Write clear commit messages.
-
-5. **Test Your Changes**: Ensure your changes work and pass all tests.
-
-6. **Commit and Push**:
-
+4. Make your changes
+5. Test to make sure nothing breaks
+6. Commit and push:
    ```bash
    git add .
-   git commit -m "message"
-   git push origin feature/your-feature-name
+   git commit -m "Added this awesome thing"
+   git push origin feature/your-cool-idea
    ```
+7. Open a pull request
 
-7. **Create a Pull Request**: Open a pull request in the original repository and describe your changes.
-
-### Reporting Issues
-
-Please report any bugs or feature requests in the Issues section.
+Found a bug? Open an issue and let me know!
 
 ## License
 
-This project is licensed under the MIT License. See the LICENSE file for details.
+This project is under the MIT License. See the LICENSE file for details.
 
-## Acknowledgments
+## Thanks to
 
-- **OpenAI**: For providing the powerful GPT-4 API.
-- **Pinecone**: For their vector database service.
-- **Trello**: For their project management tool.
-- **Notion**: For their versatile workspace platform.
-- **Google Calendar API**: For enabling calendar event management.
+- OpenAI for their amazing APIs
+- Pinecone for vector storage
+- Trello, Notion, and Google for their platforms
+- You for checking this out!
 
-    
+# How it's organized
+
+The project structure looks like this:
+
+```
+S.I.R.I.U.S/
+├── public/                 # Static files
+│   ├── icons/              # SVG icons
+│   └── index.html          # Main HTML page
+├── src/                    # Code
+│   ├── config/             # Settings
+│   ├── controllers/        # Request handlers
+│   ├── middleware/         # Express middleware
+│   ├── routes/             # API routes
+│   ├── services/           # Business logic
+│   └── utils/              # Helper functions
+├── index.js                # Entry point
+└── package.json            # Dependencies
+```
+
+## What's improved in this version
+
+1. Modular code that's easier to maintain
+2. Better error handling
+3. Proper config management
+4. Better security
+5. Modern responsive design
+6. Works offline as a PWA
+7. Improved type safety
+8. RESTful API design
+
+# Running in different places
+
+## On Replit
+
+1. Fork to your Replit account
+2. Set secrets in the Replit Secrets tab
+3. Hit Run
+
+## On your computer
+
+1. Clone the repo
+2. Run setup:
+   ```bash
+   ./setup.sh
+   ```
+3. Start it up:
+   ```bash
+   # Recommended way:
+   ./run.sh
+   
+   # Or with npm:
+   npm run local
+   
+   # For production:
+   npm start
+   ```
+
+## Environment Variables
+
+Required variables for `.env`:
+```
+OPENAI_API_KEY=your_openai_api_key
+PINECONE_API_KEY=your_pinecone_api_key
+PINECONE_INDEX_NAME=your_pinecone_index_name
+```
+
+Optional variables (defaults shown):
+```
+PORT=3000
+NODE_ENV=development
+RATE_LIMIT_WINDOW_MS=900000  # 15 minutes
+RATE_LIMIT_MAX=100
+```
+
+## Troubleshooting
+
+- If you see `nodemon: command not found`, run `npm install -g nodemon`
+- Check the logs if the app won't start
+- Double-check your API keys if you're getting authentication errors
+
 
