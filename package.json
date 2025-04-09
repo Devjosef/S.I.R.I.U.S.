@@ -5,7 +5,7 @@
   "description": "Productivity integration system with Trello, Notion, Google Calendar and Pinecone connections",
   "main": "index.js",
   "scripts": {
-    "prestart": "npm run build:sw",
+    "prestart": "echo 'Skipping service worker generation for deployment'",
     "start": "NODE_ENV=production node index.js",
     "dev": "NODE_ENV=development nodemon index.js",
     "local": "NODE_ENV=development node index.js",
