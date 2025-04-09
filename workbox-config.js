@@ -3,7 +3,7 @@ export default {
   globPatterns: [
     "**/*.{html,js,css,png,jpg,svg,json}"
   ],
-  swDest: "sw.js",
+  swDest: "public/sw.js",
   ignoreURLParametersMatching: [
     /^utm_/,
     /^fbclid$/
