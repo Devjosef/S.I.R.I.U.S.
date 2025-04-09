@@ -1,20 +1,33 @@
 {
-  "name": "nodejs",
+  "name": "sirius",
   "version": "1.0.0",
   "type": "module",
-  "description": "",
+  "description": "Productivity integration system with Trello, Notion, Google Calendar and Pinecone connections",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node index.js"  
+    "prestart": "npm run build:sw",
+    "start": "NODE_ENV=production node index.js",
+    "dev": "NODE_ENV=development nodemon index.js",
+    "local": "NODE_ENV=development node index.js",
+    "test": "NODE_ENV=test node --experimental-vm-modules node_modules/jest/bin/jest.js",
+    "lint": "eslint .",
+    "build:sw": "workbox generateSW workbox-config.js"
   },
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
+  "keywords": [
+    "productivity",
+    "integration",
+    "system",
+    "trello",
+    "notion",
+    "google-calendar",
+    "pinecone",
+    "openai"
+  ],
+  "author": "Devjosef",
+  "license": "MIT",
   "dependencies": {
     "@notionhq/client": "^2.2.15",
     "@pinecone-database/pinecone": "^2.2.2",
-    "@types/node": "^18.0.6",
     "axios": "^1.7.2",
     "cors": "^2.8.5",
     "dotenv": "^16.4.5",
@@ -26,11 +39,16 @@
     "lru-cache": "^11.0.1",
     "morgan": "^1.10.0",
     "node-fetch": "^3.3.2",
-    "openai": "^4.52.2",
-    "pinecone-client": "^2.0.0",
-    "twitter-lite": "^1.1.0"
+    "openai": "^4.52.2"
   },
   "devDependencies": {
-    "workbox-build": "^7.3.0"
+    "eslint": "^8.56.0",
+    "jest": "^29.7.0",
+    "nodemon": "^3.0.3",
+    "supertest": "^6.3.4",
+    "workbox-cli": "^7.0.0"
+  },
+  "engines": {
+    "node": ">=18.0.0"
   }
 }

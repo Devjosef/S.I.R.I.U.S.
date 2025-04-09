@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="S.I.R.I.U.S. - Productivity integration system with Trello, Notion, Google Calendar, and Pinecone connections">
+  <link rel="manifest" href="/manifest.json">
+  <meta name="theme-color" content="#00c6ff">
+  <title>S.I.R.I.U.S. - Productivity System</title>
+  <style>
+    /* Base styles with Tailwind-inspired utility classes */
+    :root {
+      --primary: #00c6ff;
+      --primary-dark: #0073b1;
+      --background: #000;
+      --text: #fff;
+      --gray-100: #f7fafc;
+      --gray-900: #1a202c;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html {
+      font-size: 16px;
+    }
+
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen,
+        Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+      background-color: var(--background);
+      color: var(--text);
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      line-height: 1.5;
+    }
+
+    .container {
+      width: 100%;
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 1rem;
+    }
+
+    .main-content {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      padding: 2rem 1rem;
+    }
+
+    .title {
+      font-size: 2.5rem;
+      font-weight: bold;
+      margin-bottom: 1rem;
+      letter-spacing: 0.1em;
+    }
+
+    @media (min-width: 768px) {
+      .title {
+        font-size: 3.5rem;
+      }
+    }
+
+    .title span {
+      display: inline-block;
+      opacity: 0;
+      animation: fadeIn 1.5s ease forwards;
+      animation-delay: calc(var(--index) * 0.1s);
+    }
+
+    @keyframes fadeIn {
+      0% { opacity: 0; transform: translateY(-10px); }
+      100% { opacity: 1; transform: translateY(0); }
+    }
+
+    .subtitle {
+      font-size: 1.25rem;
+      margin-bottom: 2rem;
+      max-width: 32rem;
+      opacity: 0.9;
+    }
+
+    .button {
+      display: inline-block;
+      padding: 0.75rem 1.5rem;
+      margin: 0.5rem;
+      color: var(--gray-900);
+      background-color: var(--primary);
+      border: none;
+      border-radius: 0.375rem;
+      font-weight: bold;
+      font-size: 1rem;
+      text-decoration: none;
+      transition: all 0.2s ease;
+    }
+
+    .button:hover {
+      background-color: var(--primary-dark);
+      transform: translateY(-2px);
+      box-shadow: 0 4px 6px rgba(0, 198, 255, 0.3);
+    }
+
+    .button:focus {
+      outline: none;
+      box-shadow: 0 0 0 3px rgba(0, 198, 255, 0.5);
+    }
+
+    .button-secondary {
+      background-color: transparent;
+      color: var(--primary);
+      border: 1px solid var(--primary);
+    }
+
+    .button-secondary:hover {
+      background-color: rgba(0, 198, 255, 0.1);
+    }
+
+    .features {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 1.5rem;
+      margin: 3rem 0;
+    }
+
+    .feature {
+      flex: 1 1 300px;
+      max-width: 350px;
+      background-color: rgba(255, 255, 255, 0.05);
+      border-radius: 0.5rem;
+      padding: 1.5rem;
+      transition: transform 0.3s ease;
+    }
+
+    .feature:hover {
+      transform: translateY(-5px);
+    }
+
+    .feature-icon {
+      width: 48px;
+      height: 48px;
+      margin-bottom: 1rem;
+      filter: drop-shadow(0 0 5px var(--primary));
+    }
+
+    .feature-title {
+      font-size: 1.25rem;
+      font-weight: bold;
+      margin-bottom: 0.5rem;
+      color: var(--primary);
+    }
+
+    .integrations {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 2rem;
+      margin: 2rem 0;
+    }
+
+    .integration {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      color: var(--primary);
+    }
+
+    .integration img {
+      width: 40px;
+      height: 40px;
+      margin-bottom: 0.5rem;
+      filter: drop-shadow(0 0 5px var(--primary));
+      transition: transform 0.2s ease;
+    }
+
+    .integration img:hover {
+      transform: scale(1.1);
+    }
+
+    .footer {
+      margin-top: auto;
+      padding: 1.5rem;
+      text-align: center;
+      font-size: 0.875rem;
+      opacity: 0.7;
+      border-top: 1px solid rgba(255, 255, 255, 0.1);
+    }
+
+    /* Accessibility improvements */
+    .sr-only {
+      position: absolute;
+      width: 1px;
+      height: 1px;
+      padding: 0;
+      margin: -1px;
+      overflow: hidden;
+      clip: rect(0, 0, 0, 0);
+      white-space: nowrap;
+      border-width: 0;
+    }
+
+    a:focus, button:focus {
+      outline: 2px solid var(--primary);
+      outline-offset: 2px;
+    }
+  </style>
+</head>
+<body>
+  <main class="main-content">
+    <h1 class="title" aria-label="S.I.R.I.U.S. Productivity System">
+      <span style="--index: 1;">S</span>
+      <span style="--index: 2;">.</span>
+      <span style="--index: 3;">I</span>
+      <span style="--index: 4;">.</span>
+      <span style="--index: 5;">R</span>
+      <span style="--index: 6;">.</span>
+      <span style="--index: 7;">I</span>
+      <span style="--index: 8;">.</span>
+      <span style="--index: 9;">U</span>
+      <span style="--index: 10;">.</span>
+      <span style="--index: 11;">S</span>
+      <span style="--index: 12;">.</span>
+    </h1>
+    <p class="subtitle">SMART, INTELLIGENT, RESPONSIVE, INTEGRATIVE, USER-FRIENDLY, SYSTEM</p>
+    <p class="subtitle">Enhance your productivity with our integration system that seamlessly connects with your favorite tools.</p>
+    
+    <div>
+      <a href="/api-docs.html" class="button" aria-label="Explore API">Explore API</a>
+      <a href="https://github.com/Devjosef/S.I.R.I.U.S." target="_blank" rel="noopener noreferrer" class="button button-secondary" aria-label="View on GitHub">GitHub</a>
+    </div>
+
+    <section class="features">
+      <div class="feature">
+        <img src="/icons/trello.svg" alt="" class="feature-icon" aria-hidden="true" />
+        <h2 class="feature-title">Trello Integration</h2>
+        <p>Create and manage Trello boards for your projects with simple API calls.</p>
+      </div>
+      <div class="feature">
+        <img src="/icons/notion.svg" alt="" class="feature-icon" aria-hidden="true" />
+        <h2 class="feature-title">Notion Integration</h2>
+        <p>Generate and organize Notion templates to streamline your documentation.</p>
+      </div>
+      <div class="feature">
+        <img src="/icons/google-calendar.svg" alt="" class="feature-icon" aria-hidden="true" />
+        <h2 class="feature-title">Calendar Integration</h2>
+        <p>Schedule and manage events in Google Calendar to stay organized.</p>
+      </div>
+    </section>
+
+    <h2>Powered by</h2>
+    <div class="integrations">
+      <div class="integration">
+        <img src="/icons/openai.svg" alt="OpenAI" title="OpenAI" />
+        <span>OpenAI</span>
+      </div>
+      <div class="integration">
+        <img src="/icons/pinecone.svg" alt="Pinecone" title="Pinecone" />
+        <span>Pinecone</span>
+      </div>
+    </div>
+  </main>
+
+  <footer class="footer">
+    <p>&copy; 2024 S.I.R.I.U.S. All rights reserved.</p>
+  </footer>
+
+  <script>
+    // Register service worker for PWA functionality
+    if ('serviceWorker' in navigator) {
+      window.addEventListener('load', () => {
+        navigator.serviceWorker.register('/sw.js')
+          .then(registration => {
+            console.log('ServiceWorker registration successful with scope: ', registration.scope);
+          })
+          .catch(error => {
+            console.log('ServiceWorker registration failed: ', error);
+          });
+      });
+    }
+  </script>
+</body>
+</html> 
