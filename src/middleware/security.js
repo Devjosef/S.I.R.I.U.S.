@@ -51,10 +51,17 @@ export const configureSecurityMiddleware = (app) => {
     contentSecurityPolicy: {
       directives: {
         defaultSrc: ["'self'"],
-        scriptSrc: ["'self'", "'unsafe-inline'"],
+        scriptSrc: ["'self'", "'unsafe-inline'", "'unsafe-eval'", "https://unpkg.com", "https://cdn.jsdelivr.net"],
         styleSrc: ["'self'", "'unsafe-inline'"],
         imgSrc: ["'self'", "data:"],
-        connectSrc: ["'self'", "https://*.openai.com", "https://*.pinecone.io"]
+        connectSrc: ["'self'", "https://*.pinecone.io"],
+        fontSrc: ["'self'", "https:", "data:"],
+        baseUri: ["'self'"],
+        formAction: ["'self'"],
+        frameAncestors: ["'self'"],
+        objectSrc: ["'none'"],
+        scriptSrcAttr: ["'none'"],
+        upgradeInsecureRequests: []
       }
     }
   }));

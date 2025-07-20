@@ -11,17 +11,7 @@ export default {
   skipWaiting: true,
   clientsClaim: true,
   runtimeCaching: [
-    {
-      urlPattern: /^https:\/\/api\.openai\.com\/v1/,
-      handler: "NetworkFirst",
-      options: {
-        cacheName: "openai-api-cache",
-        expiration: {
-          maxEntries: 50,
-          maxAgeSeconds: 60 * 60 * 24 // 24 hours
-        }
-      }
-    },
+
     {
       urlPattern: /^https:\/\/api\.pinecone\.io/,
       handler: "NetworkFirst",

@@ -1,0 +1,257 @@
+{
+  "userId": "default-user",
+  "preferences": {
+    "workHours": {
+      "start": 9,
+      "end": 17
+    },
+    "focusBlocks": [
+      "morning-focus",
+      "afternoon-focus"
+    ],
+    "breakTimes": [
+      "lunch-break",
+      "evening-wrapup"
+    ],
+    "noMeetingTimes": [
+      "evening-personal",
+      "night-rest"
+    ],
+    "preferredMeetingDuration": 30,
+    "emailCheckFrequency": 15,
+    "notificationPreferences": {
+      "urgent": true,
+      "meetings": true,
+      "emails": false,
+      "todos": true
+    }
+  },
+  "patterns": {
+    "timeBlocks": {
+      "undefined": {
+        "count": 6,
+        "avgUrgency": 0,
+        "commonFocus": {},
+        "commonActions": {}
+      }
+    },
+    "interactions": [
+      {
+        "type": "autonomous_action",
+        "actionId": "action-1752821428615-euq793t47",
+        "actionType": "productivity",
+        "success": true,
+        "context": {
+          "timeBlock": "morning-startup",
+          "urgency": "medium",
+          "focus": "meeting-prep",
+          "energy": "medium"
+        },
+        "timestamp": "2025-07-18T06:51:28.831Z"
+      },
+      {
+        "type": "autonomous_action",
+        "actionId": "action-1752822047713-hotlv69qj",
+        "actionType": "productivity",
+        "success": true,
+        "context": {
+          "timeBlock": "morning-focus",
+          "urgency": "medium",
+          "focus": "deep-work",
+          "energy": "high"
+        },
+        "timestamp": "2025-07-18T07:02:05.609Z"
+      },
+      {
+        "type": "autonomous_action",
+        "actionId": "action-1752822538917-xzr6o3ql2",
+        "actionType": "productivity",
+        "success": true,
+        "context": {
+          "timeBlock": "morning-focus",
+          "urgency": "medium",
+          "focus": "deep-work",
+          "energy": "high"
+        },
+        "timestamp": "2025-07-18T07:10:05.411Z"
+      },
+      {
+        "type": "autonomous_action",
+        "actionId": "action-1752824048447-6t8f6ineq",
+        "actionType": "productivity",
+        "success": true,
+        "context": {
+          "timeBlock": "morning-focus",
+          "urgency": "medium",
+          "focus": "deep-work",
+          "energy": "high"
+        },
+        "timestamp": "2025-07-18T07:35:08.731Z"
+      },
+      {
+        "type": "autonomous_action",
+        "actionId": "action-1752824126890-e6mtyyurc",
+        "actionType": "productivity",
+        "success": true,
+        "context": {
+          "timeBlock": "morning-focus",
+          "urgency": "medium",
+          "focus": "deep-work",
+          "energy": "high"
+        },
+        "timestamp": "2025-07-18T07:36:27.136Z"
+      },
+      {
+        "type": "autonomous_action",
+        "actionId": "action-1752824256758-6dghz92zr",
+        "actionType": "productivity",
+        "success": true,
+        "context": {
+          "timeBlock": "morning-focus",
+          "urgency": "medium",
+          "focus": "deep-work",
+          "energy": "high"
+        },
+        "timestamp": "2025-07-18T07:38:37.029Z"
+      },
+      {
+        "timeBlock": "morning-focus",
+        "urgency": "medium",
+        "focus": "deep-work",
+        "energy": "high",
+        "actions": [
+          {
+            "id": "focus-mode",
+            "label": "Enable focus mode",
+            "type": "productivity",
+            "priority": "medium"
+          }
+        ],
+        "timestamp": "2025-07-19T07:38:38.444Z"
+      },
+      {
+        "timeBlock": "morning-focus",
+        "urgency": "medium",
+        "focus": "deep-work",
+        "energy": "high",
+        "actions": [
+          {
+            "id": "focus-mode",
+            "label": "Enable focus mode",
+            "type": "productivity",
+            "priority": "medium"
+          }
+        ],
+        "timestamp": "2025-07-19T07:38:39.541Z"
+      },
+      {
+        "timeBlock": "morning-focus",
+        "urgency": "critical",
+        "focus": "deep-work",
+        "energy": "high",
+        "actions": [
+          {
+            "id": "focus-mode",
+            "label": "Enable focus mode",
+            "type": "productivity",
+            "priority": "medium"
+          },
+          {
+            "id": "urgent-tasks",
+            "label": "Handle urgent tasks",
+            "type": "todo",
+            "priority": "high"
+          }
+        ],
+        "timestamp": "2025-07-20T08:01:41.783Z"
+      },
+      {
+        "timeBlock": "morning-focus",
+        "urgency": "critical",
+        "focus": "deep-work",
+        "energy": "high",
+        "actions": [
+          {
+            "id": "focus-mode",
+            "label": "Enable focus mode",
+            "type": "productivity",
+            "priority": "medium"
+          },
+          {
+            "id": "urgent-tasks",
+            "label": "Handle urgent tasks",
+            "type": "todo",
+            "priority": "high"
+          }
+        ],
+        "timestamp": "2025-07-20T08:06:01.888Z"
+      },
+      {
+        "timeBlock": "morning-focus",
+        "urgency": "critical",
+        "focus": "deep-work",
+        "energy": "high",
+        "actions": [
+          {
+            "id": "focus-mode",
+            "label": "Enable focus mode",
+            "type": "productivity",
+            "priority": "medium"
+          },
+          {
+            "id": "urgent-tasks",
+            "label": "Handle urgent tasks",
+            "type": "todo",
+            "priority": "high"
+          }
+        ],
+        "timestamp": "2025-07-20T08:06:19.584Z"
+      },
+      {
+        "type": "jira_operation",
+        "operation": "get_assigned_issues",
+        "success": true,
+        "result": "empty_list",
+        "timestamp": "2025-07-20T08:06:58.046Z"
+      },
+      {
+        "type": "jira_operation",
+        "operation": "get_projects",
+        "success": true,
+        "result": {
+          "projectCount": 3,
+          "projectKeys": [
+            "LEARNJIRA",
+            "SCRUM",
+            "TEST"
+          ]
+        },
+        "timestamp": "2025-07-20T08:11:39.328Z"
+      }
+    ],
+    "productivity": {
+      "bestWorkHours": [],
+      "commonDistractions": [],
+      "focusDuration": 25
+    }
+  },
+  "learnedBehaviors": {
+    "meetingPreferences": {},
+    "emailHandling": {},
+    "taskPrioritization": {},
+    "communicationStyle": {},
+    "actionSuccess": {
+      "productivity_meeting-prep": {
+        "value": true,
+        "timestamp": "2025-07-18T06:51:28.832Z",
+        "confidence": 1
+      },
+      "productivity_deep-work": {
+        "value": true,
+        "timestamp": "2025-07-18T07:38:37.030Z",
+        "confidence": 1
+      }
+    }
+  },
+  "timestamp": "2025-07-20T08:11:39.329Z"
+}

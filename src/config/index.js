@@ -9,6 +9,7 @@ import dotenv from 'dotenv';
 import { fileURLToPath } from 'url';
 import { dirname, join } from 'path';
 import fs from 'fs';
+import os from 'os';
 
 /**
  * Environment detection
@@ -41,10 +42,16 @@ const getRootDir = () => {
 
 const ROOT_DIR = getRootDir();
 const PUBLIC_DIR = join(ROOT_DIR, 'public');
+const TEMP_DIR = join(ROOT_DIR, 'temp');
 
 // Ensure public directory exists
 if (!fs.existsSync(PUBLIC_DIR)) {
   fs.mkdirSync(PUBLIC_DIR, { recursive: true });
+}
+
+// Ensure temp directory exists
+if (!fs.existsSync(TEMP_DIR)) {
+  fs.mkdirSync(TEMP_DIR, { recursive: true });
 }
 
 /**
@@ -62,14 +69,9 @@ const config = {
   },
   
   // External APIs
-  OPENAI: {
-    API_KEY: process.env.OPENAI_API_KEY,
-    EMBEDDING_MODEL: process.env.OPENAI_EMBEDDING_MODEL || 'text-embedding-ada-002'
-  },
-  
   PINECONE: {
     API_KEY: process.env.PINECONE_API_KEY,
-    INDEX_NAME: process.env.PINECONE_INDEX_NAME || 'sirius-index'
+    INDEX_NAME: process.env.PINECONE_INDEX_NAME || 'SIRIUS'
   },
   
   TRELLO: {
@@ -83,13 +85,58 @@ const config = {
   },
   
   GOOGLE: {
-    API_KEY: process.env.GOOGLE_API_KEY
+    API_KEY: process.env.GOOGLE_API_KEY,
+    CLIENT_ID: process.env.GOOGLE_CLIENT_ID,
+    CLIENT_SECRET: process.env.GOOGLE_CLIENT_SECRET
+  },
+  
+  JIRA: {
+    BASE_URL: process.env.JIRA_BASE_URL,
+    EMAIL: process.env.JIRA_EMAIL,
+    API_TOKEN: process.env.JIRA_API_TOKEN
+  },
+  
+  ASANA: {
+    ACCESS_TOKEN: process.env.ASANA_ACCESS_TOKEN
+  },
+  
+  SLACK: {
+    BOT_TOKEN: process.env.SLACK_BOT_TOKEN,
+    USER_TOKEN: process.env.SLACK_USER_TOKEN
+  },
+  
+  // Ollama settings
+  OLLAMA: {
+    BASE_URL: process.env.OLLAMA_BASE_URL || 'http://localhost:11434'
+  },
+  
+  // Worker thread settings
+  WORKERS: {
+    // Enable/disable worker threads
+    ENABLED: process.env.DISABLE_WORKERS !== 'true',
+    // Maximum number of worker threads to use (defaults to CPU count - 1, minimum 1)
+    MAX_THREADS: parseInt(process.env.MAX_WORKER_THREADS || Math.max(1, os.cpus().length - 1), 10),
+    // Timeout for worker operations in ms
+    TIMEOUT_MS: parseInt(process.env.WORKER_TIMEOUT_MS || '30000', 10),
+    // Directory for worker scripts
+    DIR: join(ROOT_DIR, 'workers')
+  },
+  
+  // Device detection
+  DEVICE: {
+    // Detect if running on mobile (will be set by the client)
+    IS_MOBILE: process.env.IS_MOBILE === 'true',
+    // Available memory (MB)
+    MEMORY_LIMIT: parseInt(process.env.MEMORY_LIMIT || (os.totalmem() / (1024 * 1024)).toFixed(0), 10),
+    // CPU cores available
+    CPU_CORES: parseInt(process.env.CPU_CORES || os.cpus().length, 10)
   },
   
   // Paths
   PATHS: {
     ROOT: ROOT_DIR,
-    PUBLIC: PUBLIC_DIR
+    PUBLIC: PUBLIC_DIR,
+    TEMP: TEMP_DIR
   }
 };
 
@@ -97,7 +144,6 @@ const config = {
  * Validation
  */
 const requiredConfigs = [
-  { key: 'OPENAI.API_KEY', value: config.OPENAI.API_KEY },
   { key: 'PINECONE.API_KEY', value: config.PINECONE.API_KEY },
   { key: 'PINECONE.INDEX_NAME', value: config.PINECONE.INDEX_NAME }
 ];
@@ -114,5 +160,6 @@ if (missingConfigs.length > 0) {
 // Log minimal configuration info
 console.log(`Environment: ${ENV.PRODUCTION ? 'production' : ENV.TEST ? 'test' : 'development'}`);
 console.log(`Platform: ${ENV.REPLIT ? 'Replit' : 'Local'}`);
+console.log(`Worker Threads: ${config.WORKERS.ENABLED ? 'Enabled (max: ' + config.WORKERS.MAX_THREADS + ')' : 'Disabled'}`);
 
 export default config; 

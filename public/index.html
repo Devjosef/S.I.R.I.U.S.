@@ -3,19 +3,28 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="S.I.R.I.U.S. - Productivity integration system with Trello, Notion, Google Calendar, and Pinecone connections">
+  <meta name="description" content="S.I.R.I.U.S. - Living AI Assistant with Neural Network Interface">
   <link rel="manifest" href="/manifest.json">
   <meta name="theme-color" content="#00c6ff">
-  <title>S.I.R.I.U.S. - Productivity System</title>
+  <title>S.I.R.I.U.S. - Living AI Assistant</title>
+  
+  <!-- HTMX for dynamic content -->
+  <script src="https://unpkg.com/htmx.org@1.9.10"></script>
+  
+  <!-- Alpine.js for reactive UI -->
+  <script defer src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js"></script>
+  
   <style>
-    /* Base styles with Tailwind-inspired utility classes */
     :root {
       --primary: #00c6ff;
       --primary-dark: #0073b1;
+      --neural-glow: #00c6ff;
+      --web-glow: #ff6b35;
       --background: #000;
       --text: #fff;
-      --gray-100: #f7fafc;
-      --gray-900: #1a202c;
+      --neural-line: rgba(0, 198, 255, 0.3);
+      --pulse-color: rgba(0, 198, 255, 0.8);
+      --web-color: rgba(255, 107, 53, 0.6);
     }
 
     * {
@@ -24,266 +33,859 @@
       box-sizing: border-box;
     }
 
-    html {
-      font-size: 16px;
-    }
-
     body {
-      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen,
-        Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+      font-family: 'Courier New', monospace;
       background-color: var(--background);
       color: var(--text);
       min-height: 100vh;
-      display: flex;
-      flex-direction: column;
-      line-height: 1.5;
+      overflow-x: hidden;
+      position: relative;
     }
 
-    .container {
+    /* Neural Network Background */
+    .neural-background {
+      position: fixed;
+      top: 0;
+      left: 0;
       width: 100%;
-      max-width: 1200px;
-      margin: 0 auto;
-      padding: 1rem;
+      height: 100%;
+      z-index: -1;
+      opacity: 0.15;
     }
 
-    .main-content {
-      flex: 1;
+    .neural-node {
+      position: absolute;
+      width: 8px;
+      height: 8px;
+      background: var(--neural-glow);
+      border-radius: 50%;
+      box-shadow: 0 0 16px var(--neural-glow);
+      animation: pulse 3s infinite;
+    }
+
+    .neural-connection {
+      position: absolute;
+      height: 2px;
+      background: linear-gradient(90deg, transparent, var(--neural-glow), var(--web-color), var(--neural-glow), transparent);
+      animation: webFlow 4s infinite;
+      border-radius: 1px;
+      box-shadow: 0 0 8px var(--neural-glow);
+    }
+
+    .neural-connection:nth-child(even) {
+      background: linear-gradient(90deg, transparent, var(--web-color), var(--neural-glow), var(--web-color), transparent);
+      box-shadow: 0 0 8px var(--web-color);
+    }
+
+    @keyframes pulse {
+      0%, 100% { opacity: 0.4; transform: scale(1); }
+      50% { opacity: 1; transform: scale(1.8); }
+    }
+
+    @keyframes webFlow {
+      0% { opacity: 0; transform: scaleX(0); }
+      50% { opacity: 1; transform: scaleX(1); }
+      100% { opacity: 0.3; transform: scaleX(1); }
+    }
+
+    /* Heartbeat Container */
+    .heartbeat-container {
+      position: relative;
+      min-height: 100vh;
       display: flex;
       flex-direction: column;
       justify-content: center;
       align-items: center;
-      text-align: center;
-      padding: 2rem 1rem;
     }
 
+    /* Central Neural Core */
+    .neural-core {
+      position: relative;
+      width: 304px;
+      height: 304px;
+      margin: 32px auto;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .core-circle {
+      width: 200px;
+      height: 200px;
+      border: 3px solid var(--neural-glow);
+      border-radius: 50%;
+      position: relative;
+      animation: heartbeat 2s ease-in-out infinite;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background: radial-gradient(circle, rgba(0, 198, 255, 0.1) 0%, transparent 70%);
+    }
+
+    .core-inner {
+      width: 152px;
+      height: 152px;
+      border: 2px solid var(--neural-glow);
+      border-radius: 50%;
+      animation: heartbeat 2s ease-in-out infinite reverse;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background: radial-gradient(circle, rgba(0, 198, 255, 0.2) 0%, transparent 70%);
+    }
+
+    .core-center {
+      width: 104px;
+      height: 104px;
+      background: var(--neural-glow);
+      border-radius: 50%;
+      animation: heartbeat 2s ease-in-out infinite;
+      box-shadow: 0 0 40px var(--neural-glow);
+      position: relative;
+    }
+
+    .core-center::before {
+      content: '';
+      position: absolute;
+      width: 80px;
+      height: 80px;
+      border: 2px solid rgba(255, 255, 255, 0.3);
+      border-radius: 50%;
+      animation: heartbeat 2s ease-in-out infinite reverse;
+    }
+
+    .core-center::after {
+      content: '';
+      position: absolute;
+      width: 64px;
+      height: 64px;
+      border: 1px solid rgba(255, 255, 255, 0.5);
+      border-radius: 50%;
+      animation: heartbeat 2s ease-in-out infinite;
+    }
+
+    @keyframes heartbeat {
+      0%, 100% { transform: scale(1); }
+      50% { transform: scale(1.15); }
+    }
+
+    /* Title with Neural Animation */
     .title {
       font-size: 2.5rem;
       font-weight: bold;
-      margin-bottom: 1rem;
-      letter-spacing: 0.1em;
-    }
-
-    @media (min-width: 768px) {
-      .title {
-        font-size: 3.5rem;
-      }
+      margin-bottom: 16px;
+      letter-spacing: 0.2em;
+      text-align: center;
     }
 
     .title span {
       display: inline-block;
       opacity: 0;
-      animation: fadeIn 1.5s ease forwards;
+      animation: neuralFadeIn 2s ease forwards;
       animation-delay: calc(var(--index) * 0.1s);
+      position: relative;
     }
 
-    @keyframes fadeIn {
-      0% { opacity: 0; transform: translateY(-10px); }
-      100% { opacity: 1; transform: translateY(0); }
-    }
-
-    .subtitle {
-      font-size: 1.25rem;
-      margin-bottom: 2rem;
-      max-width: 32rem;
-      opacity: 0.9;
-    }
-
-    .button {
-      display: inline-block;
-      padding: 0.75rem 1.5rem;
-      margin: 0.5rem;
-      color: var(--gray-900);
-      background-color: var(--primary);
-      border: none;
-      border-radius: 0.375rem;
-      font-weight: bold;
-      font-size: 1rem;
-      text-decoration: none;
-      transition: all 0.2s ease;
-    }
-
-    .button:hover {
-      background-color: var(--primary-dark);
-      transform: translateY(-2px);
-      box-shadow: 0 4px 6px rgba(0, 198, 255, 0.3);
-    }
-
-    .button:focus {
-      outline: none;
-      box-shadow: 0 0 0 3px rgba(0, 198, 255, 0.5);
-    }
-
-    .button-secondary {
-      background-color: transparent;
-      color: var(--primary);
-      border: 1px solid var(--primary);
-    }
-
-    .button-secondary:hover {
-      background-color: rgba(0, 198, 255, 0.1);
-    }
-
-    .features {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
-      gap: 1.5rem;
-      margin: 3rem 0;
-    }
-
-    .feature {
-      flex: 1 1 300px;
-      max-width: 350px;
-      background-color: rgba(255, 255, 255, 0.05);
-      border-radius: 0.5rem;
-      padding: 1.5rem;
-      transition: transform 0.3s ease;
-    }
-
-    .feature:hover {
-      transform: translateY(-5px);
-    }
-
-    .feature-icon {
-      width: 48px;
-      height: 48px;
-      margin-bottom: 1rem;
-      filter: drop-shadow(0 0 5px var(--primary));
-    }
-
-    .feature-title {
-      font-size: 1.25rem;
-      font-weight: bold;
-      margin-bottom: 0.5rem;
-      color: var(--primary);
-    }
-
-    .integrations {
-      display: flex;
-      justify-content: center;
-      flex-wrap: wrap;
-      gap: 2rem;
-      margin: 2rem 0;
-    }
-
-    .integration {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      color: var(--primary);
-    }
-
-    .integration img {
-      width: 40px;
-      height: 40px;
-      margin-bottom: 0.5rem;
-      filter: drop-shadow(0 0 5px var(--primary));
-      transition: transform 0.2s ease;
-    }
-
-    .integration img:hover {
-      transform: scale(1.1);
-    }
-
-    .footer {
-      margin-top: auto;
-      padding: 1.5rem;
-      text-align: center;
-      font-size: 0.875rem;
-      opacity: 0.7;
-      border-top: 1px solid rgba(255, 255, 255, 0.1);
-    }
-
-    /* Accessibility improvements */
-    .sr-only {
+    .title span::after {
+      content: '';
       position: absolute;
-      width: 1px;
-      height: 1px;
-      padding: 0;
-      margin: -1px;
-      overflow: hidden;
-      clip: rect(0, 0, 0, 0);
-      white-space: nowrap;
-      border-width: 0;
+      bottom: -8px;
+      left: 0;
+      width: 100%;
+      height: 2px;
+      background: var(--neural-glow);
+      transform: scaleX(0);
+      animation: neuralLine 1s ease forwards;
+      animation-delay: calc(var(--index) * 0.1s + 0.5s);
     }
 
-    a:focus, button:focus {
-      outline: 2px solid var(--primary);
-      outline-offset: 2px;
+    @keyframes neuralFadeIn {
+      to { opacity: 1; }
+    }
+
+    @keyframes neuralLine {
+      to { transform: scaleX(1); }
+    }
+
+    /* Status Display */
+    .status-display {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 16px;
+      margin: 32px 0;
+      max-width: 800px;
+      width: 100%;
+    }
+
+    .status-card {
+      background: rgba(0, 198, 255, 0.1);
+      border: 1px solid var(--neural-glow);
+      border-radius: 8px;
+      padding: 16px;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .status-card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: -100%;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(90deg, transparent, rgba(0, 198, 255, 0.2), transparent);
+      animation: scan 3s infinite;
+    }
+
+    @keyframes scan {
+      0% { left: -100%; }
+      100% { left: 100%; }
+    }
+
+    .status-label {
+      font-size: 0.9rem;
+      color: var(--neural-glow);
+      margin-bottom: 8px;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+    }
+
+    .status-value {
+      font-size: 1.2rem;
+      font-weight: bold;
+      color: var(--text);
+    }
+
+    /* Data Stream */
+    .data-stream {
+      max-width: 800px;
+      width: 100%;
+      margin: 32px 0;
+      background: rgba(0, 0, 0, 0.8);
+      border: 1px solid var(--neural-glow);
+      border-radius: 8px;
+      padding: 16px;
+      max-height: 300px;
+      overflow-y: auto;
+    }
+
+    .data-stream-title {
+      font-size: 1.1rem;
+      color: var(--neural-glow);
+      margin-bottom: 16px;
+      text-align: center;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+    }
+
+    /* Binary Progress Bar */
+    .binary-progress {
+      width: 100%;
+      height: 24px;
+      background: rgba(0, 0, 0, 0.5);
+      border: 1px solid var(--neural-glow);
+      border-radius: 4px;
+      margin-bottom: 16px;
+      overflow: hidden;
+      position: relative;
+    }
+
+    .binary-stream {
+      display: flex;
+      height: 100%;
+      animation: binaryFlow 10s linear infinite;
+      white-space: nowrap;
+      width: max-content;
+      min-width: 100%;
+    }
+
+    .binary-digit {
+      width: 16px;
+      height: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 12px;
+      font-weight: bold;
+      color: var(--neural-glow);
+      text-shadow: 0 0 4px var(--neural-glow);
+      animation: binaryPulse 0.5s ease-in-out;
+      flex-shrink: 0;
+      border-right: 1px solid rgba(0, 198, 255, 0.2);
+      background: rgba(0, 0, 0, 0.3);
+    }
+
+    .binary-digit.one {
+      color: var(--text);
+      background: var(--neural-glow);
+      box-shadow: 0 0 8px var(--neural-glow);
+    }
+
+    @keyframes binaryFlow {
+      0% { transform: translateX(100%); }
+      100% { transform: translateX(-100%); }
+    }
+
+    @keyframes binaryPulse {
+      0%, 100% { opacity: 0.7; }
+      50% { opacity: 1; }
+    }
+
+    .data-entry {
+      font-size: 0.9rem;
+      margin-bottom: 8px;
+      padding: 8px;
+      background: rgba(0, 198, 255, 0.05);
+      border-left: 3px solid var(--neural-glow);
+      border-radius: 4px;
+      animation: fadeInUp 0.5s ease;
+    }
+
+    @keyframes fadeInUp {
+      from {
+        opacity: 0;
+        transform: translateY(10px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    /* Action Buttons */
+    .action-buttons {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 16px;
+      justify-content: center;
+      margin: 32px 0;
+      max-width: 800px;
+      width: 100%;
+    }
+
+    .neural-button {
+      background: linear-gradient(45deg, var(--primary), var(--primary-dark));
+      border: 2px solid var(--neural-glow);
+      color: var(--text);
+      padding: 12px 24px;
+      border-radius: 8px;
+      cursor: pointer;
+      font-family: 'Courier New', monospace;
+      font-size: 1rem;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      transition: all 0.3s ease;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .neural-button::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: -100%;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+      transition: left 0.5s;
+    }
+
+    .neural-button:hover::before {
+      left: 100%;
+    }
+
+    .neural-button:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 25px rgba(0, 198, 255, 0.3);
+      border-color: var(--text);
+    }
+
+    .neural-button:active {
+      transform: translateY(0);
+    }
+
+    .neural-button:disabled {
+      opacity: 0.5;
+      cursor: not-allowed;
+      transform: none;
+    }
+
+    /* Responsive Design */
+    @media (max-width: 768px) {
+      .title {
+        font-size: 2rem;
+      }
+      
+      .neural-core {
+        width: 250px;
+        height: 250px;
+      }
+      
+      .core-circle {
+        width: 160px;
+        height: 160px;
+      }
+      
+      .core-inner {
+        width: 120px;
+        height: 120px;
+      }
+      
+      .core-center {
+        width: 80px;
+        height: 80px;
+      }
+      
+      .status-display {
+        grid-template-columns: 1fr;
+        gap: 12px;
+      }
+      
+      .action-buttons {
+        flex-direction: column;
+        align-items: center;
+      }
+      
+      .neural-button {
+        width: 100%;
+        max-width: 300px;
+      }
+    }
+
+    /* Loading Animation */
+    .loading-dots {
+      display: inline-block;
+    }
+
+    .loading-dots::after {
+      content: '';
+      animation: dots 1.5s infinite;
+    }
+
+    @keyframes dots {
+      0%, 20% { content: ''; }
+      40% { content: '.'; }
+      60% { content: '..'; }
+      80%, 100% { content: '...'; }
+    }
+
+    /* HTMX Indicators */
+    .htmx-indicator {
+      display: none;
+      text-align: center;
+      padding: 16px;
+      color: var(--neural-glow);
+      font-size: 0.9rem;
+    }
+
+    .htmx-request .htmx-indicator {
+      display: block;
+    }
+
+    .htmx-request.htmx-indicator {
+      display: block;
+    }
+
+    /* Result containers */
+    #digest-result, #context-result, #autonomous-result, #status-result {
+      margin-top: 16px;
+      padding: 16px;
+      background: rgba(0, 198, 255, 0.1);
+      border: 1px solid var(--neural-glow);
+      border-radius: 8px;
+      min-height: 50px;
     }
   </style>
 </head>
 <body>
-  <main class="main-content">
-    <h1 class="title" aria-label="S.I.R.I.U.S. Productivity System">
-      <span style="--index: 1;">S</span>
-      <span style="--index: 2;">.</span>
-      <span style="--index: 3;">I</span>
-      <span style="--index: 4;">.</span>
-      <span style="--index: 5;">R</span>
-      <span style="--index: 6;">.</span>
-      <span style="--index: 7;">I</span>
-      <span style="--index: 8;">.</span>
-      <span style="--index: 9;">U</span>
-      <span style="--index: 10;">.</span>
-      <span style="--index: 11;">S</span>
-      <span style="--index: 12;">.</span>
+  <!-- Neural Network Background -->
+  <div class="neural-background" x-data="neuralBackground()" x-init="init()"></div>
+
+  <!-- Main Interface -->
+  <div class="heartbeat-container" x-data="siriusInterface()" x-init="init()">
+    <!-- Neural Core -->
+    <div class="neural-core">
+      <div class="core-circle">
+        <div class="core-inner">
+          <div class="core-center"></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Title -->
+    <h1 class="title">
+      <span style="--index: 0">S</span>
+      <span style="--index: 1">.</span>
+      <span style="--index: 2">I</span>
+      <span style="--index: 3">.</span>
+      <span style="--index: 4">R</span>
+      <span style="--index: 5">.</span>
+      <span style="--index: 6">I</span>
+      <span style="--index: 7">.</span>
+      <span style="--index: 8">U</span>
+      <span style="--index: 9">.</span>
+      <span style="--index: 10">S</span>
     </h1>
-    <p class="subtitle">SMART, INTELLIGENT, RESPONSIVE, INTEGRATIVE, USER-FRIENDLY, SYSTEM</p>
-    <p class="subtitle">Enhance your productivity with our integration system that seamlessly connects with your favorite tools.</p>
-    
-    <div>
-      <a href="/api-docs.html" class="button" aria-label="Explore API">Explore API</a>
-      <a href="https://github.com/Devjosef/S.I.R.I.U.S." target="_blank" rel="noopener noreferrer" class="button button-secondary" aria-label="View on GitHub">GitHub</a>
+
+    <!-- Status Display -->
+    <div class="status-display">
+      <div class="status-card">
+        <div class="status-label">Neural Core</div>
+        <div class="status-value" x-text="status.neuralCore"></div>
+      </div>
+      <div class="status-card">
+        <div class="status-label">Autonomous Engine</div>
+        <div class="status-value" x-text="status.autonomousEngine"></div>
+      </div>
+      <div class="status-card">
+        <div class="status-label">Context Engine</div>
+        <div class="status-value" x-text="status.contextEngine"></div>
+      </div>
+      <div class="status-card">
+        <div class="status-label">Memory System</div>
+        <div class="status-value" x-text="status.memorySystem"></div>
+      </div>
     </div>
 
-    <section class="features">
-      <div class="feature">
-        <img src="/icons/trello.svg" alt="" class="feature-icon" aria-hidden="true" />
-        <h2 class="feature-title">Trello Integration</h2>
-        <p>Create and manage Trello boards for your projects with simple API calls.</p>
+    <!-- Data Stream -->
+    <div class="data-stream">
+      <div class="data-stream-title">Neural Data Stream</div>
+      
+      <!-- Binary Progress Bar -->
+      <div class="binary-progress">
+        <div class="binary-stream">
+          <template x-for="digit in binaryStream" :key="digit.id">
+            <div class="binary-digit" :class="{ one: digit.value === 1 }" x-text="digit.value"></div>
+          </template>
+        </div>
       </div>
-      <div class="feature">
-        <img src="/icons/notion.svg" alt="" class="feature-icon" aria-hidden="true" />
-        <h2 class="feature-title">Notion Integration</h2>
-        <p>Generate and organize Notion templates to streamline your documentation.</p>
-      </div>
-      <div class="feature">
-        <img src="/icons/google-calendar.svg" alt="" class="feature-icon" aria-hidden="true" />
-        <h2 class="feature-title">Calendar Integration</h2>
-        <p>Schedule and manage events in Google Calendar to stay organized.</p>
-      </div>
-    </section>
+      
 
-    <h2>Powered by</h2>
-    <div class="integrations">
-      <div class="integration">
-        <img src="/icons/openai.svg" alt="OpenAI" title="OpenAI" />
-        <span>OpenAI</span>
-      </div>
-      <div class="integration">
-        <img src="/icons/pinecone.svg" alt="Pinecone" title="Pinecone" />
-        <span>Pinecone</span>
-      </div>
+      
+      <template x-for="entry in dataStream.slice(-10)" :key="entry.id">
+        <div class="data-entry" x-text="entry.message"></div>
+      </template>
     </div>
-  </main>
 
-  <footer class="footer">
-    <p>&copy; 2024 S.I.R.I.U.S. All rights reserved.</p>
-  </footer>
+    <!-- Action Buttons -->
+    <div class="action-buttons">
+      <button class="neural-button" 
+              hx-post="/api/daily-digest/generate" 
+              hx-target="#digest-result"
+              hx-swap="innerHTML"
+              hx-indicator="#digest-loading"
+              @click="generateDailyDigest()" 
+              :disabled="processing">
+        <span x-show="!processing">📊 Generate Daily Digest</span>
+        <span x-show="processing">Processing<span class="loading-dots"></span></span>
+      </button>
+      <div id="digest-loading" class="htmx-indicator" style="display: none;">
+        <div class="loading-dots">Generating digest...</div>
+      </div>
+      <div id="digest-result"></div>
+      
+      <button class="neural-button" 
+              hx-post="/api/context/analyze" 
+              hx-target="#context-result"
+              hx-swap="innerHTML"
+              hx-indicator="#context-loading"
+              @click="analyzeContext()" 
+              :disabled="processing">
+        <span x-show="!processing">🧠 Analyze Context</span>
+        <span x-show="processing">Analyzing<span class="loading-dots"></span></span>
+      </button>
+      <div id="context-loading" class="htmx-indicator" style="display: none;">
+        <div class="loading-dots">Analyzing context...</div>
+      </div>
+      <div id="context-result"></div>
+      
+      <button class="neural-button" 
+              hx-post="/api/autonomous/trigger" 
+              hx-target="#autonomous-result"
+              hx-swap="innerHTML"
+              hx-indicator="#autonomous-loading"
+              @click="triggerAutonomousAction()" 
+              :disabled="processing">
+        <span x-show="!processing">🤖 Autonomous Action</span>
+        <span x-show="processing">Executing<span class="loading-dots"></span></span>
+      </button>
+      <div id="autonomous-loading" class="htmx-indicator" style="display: none;">
+        <div class="loading-dots">Executing action...</div>
+      </div>
+      <div id="autonomous-result"></div>
+      
+      <button class="neural-button" 
+              hx-get="/api/status" 
+              hx-target="#status-result"
+              hx-swap="innerHTML"
+              hx-indicator="#status-loading"
+              @click="checkSystemStatus()" 
+              :disabled="processing">
+        <span x-show="!processing">🔍 System Status</span>
+        <span x-show="processing">Checking<span class="loading-dots"></span></span>
+      </button>
+      <div id="status-loading" class="htmx-indicator" style="display: none;">
+        <div class="loading-dots">Checking status...</div>
+      </div>
+      <div id="status-result"></div>
+    </div>
+  </div>
 
   <script>
-    // Register service worker for PWA functionality
-    if ('serviceWorker' in navigator) {
-      window.addEventListener('load', () => {
-        navigator.serviceWorker.register('/sw.js')
-          .then(registration => {
-            console.log('ServiceWorker registration successful with scope: ', registration.scope);
-          })
-          .catch(error => {
-            console.log('ServiceWorker registration failed: ', error);
+    // Neural Background Component
+    function neuralBackground() {
+      return {
+        nodes: [],
+        connections: [],
+        
+        init() {
+          this.createNeuralNetwork();
+        },
+        
+        createNeuralNetwork() {
+          const nodeCount = 15;
+          const connectionCount = 20;
+          
+          // Create nodes
+          for (let i = 0; i < nodeCount; i++) {
+            this.nodes.push({
+              id: i,
+              x: Math.random() * window.innerWidth,
+              y: Math.random() * window.innerHeight,
+              delay: Math.random() * 3
+            });
+          }
+          
+          // Create connections
+          for (let i = 0; i < connectionCount; i++) {
+            const node1 = this.nodes[Math.floor(Math.random() * this.nodes.length)];
+            const node2 = this.nodes[Math.floor(Math.random() * this.nodes.length)];
+            
+            if (node1.id !== node2.id) {
+              this.connections.push({
+                id: i,
+                from: node1,
+                to: node2,
+                delay: Math.random() * 4
+              });
+            }
+          }
+        }
+      };
+    }
+
+    // Main S.I.R.I.U.S. Interface Component
+    function siriusInterface() {
+      return {
+        status: {
+          neuralCore: 'Online',
+          autonomousEngine: 'Active',
+          contextEngine: 'Online',
+          memorySystem: 'Active'
+        },
+        dataStream: [],
+        binaryStream: [],
+        processing: false,
+        neuralNodes: [],
+        neuralConnections: [],
+
+        init() {
+          this.createNeuralNetwork();
+          this.startHeartbeat();
+          this.startDataStream();
+          this.initializeWebSocket();
+          this.generateBinaryStream();
+        },
+
+        createNeuralNetwork() {
+          // Create neural network visualization
+          this.neuralNodes = Array.from({ length: 8 }, (_, i) => ({
+            id: i,
+            x: Math.random() * 100,
+            y: Math.random() * 100,
+            connections: []
+          }));
+          
+          this.neuralConnections = this.neuralNodes.map((node, i) => ({
+            from: node.id,
+            to: this.neuralNodes[(i + 1) % this.neuralNodes.length].id
+          }));
+        },
+
+        startHeartbeat() {
+          setInterval(() => {
+            this.addDataStream('[HEARTBEAT] Neural core pulse detected');
+          }, 5000);
+        },
+
+        generateBinaryStream() {
+          console.log('Generating binary stream...');
+          // Generate a long stream of binary digits
+          const binaryLength = 100; // Reduced for better performance
+          this.binaryStream = Array.from({ length: binaryLength }, (_, i) => ({
+            id: i,
+            value: Math.random() > 0.5 ? 1 : 0
+          }));
+          
+          console.log('Binary stream generated:', this.binaryStream.length, 'digits');
+          
+          // Update binary stream periodically
+          setInterval(() => {
+            this.binaryStream = this.binaryStream.map(digit => ({
+              ...digit,
+              value: Math.random() > 0.5 ? 1 : 0
+            }));
+            console.log('Binary stream updated');
+          }, 2000); // Update every 2 seconds
+        },
+
+        startDataStream() {
+          const messages = [
+            '[INIT] Neural network initialized',
+            '[LOAD] Context engine online',
+            '[READY] Autonomous systems active',
+            '[SYNC] Memory system synchronized'
+          ];
+          
+          messages.forEach((message, index) => {
+            setTimeout(() => {
+              this.addDataStream(message);
+            }, index * 1000);
           });
-      });
+        },
+
+        initializeWebSocket() {
+          try {
+            const ws = new WebSocket(`ws://${window.location.host}`);
+            
+            ws.onopen = () => {
+              this.addDataStream('[WEBSOCKET] Connection established');
+            };
+            
+            ws.onmessage = (event) => {
+              const data = JSON.parse(event.data);
+              this.addDataStream(`[REALTIME] ${data.message}`);
+            };
+            
+            ws.onerror = () => {
+              this.addDataStream('[ERROR] WebSocket connection failed');
+            };
+          } catch (error) {
+            this.addDataStream('[ERROR] WebSocket not available');
+          }
+        },
+
+        addDataStream(message) {
+          this.dataStream.push({
+            id: Date.now(),
+            message,
+            timestamp: new Date().toLocaleTimeString()
+          });
+          
+          // Keep only last 50 entries
+          if (this.dataStream.length > 50) {
+            this.dataStream.shift();
+          }
+        },
+
+        async generateDailyDigest() {
+          this.processing = true;
+          this.addDataStream('[DIGEST] Generating daily digest...');
+          
+          try {
+            const response = await fetch('/api/daily-digest/generate', {
+              method: 'POST',
+              headers: { 'Content-Type': 'application/json' },
+              body: JSON.stringify({ userId: 'default-user' })
+            });
+            
+            if (response.ok) {
+              const result = await response.json();
+              this.addDataStream('[DIGEST] Daily digest generated successfully');
+              this.addDataStream(`[DIGEST] Summary: ${result.data.summary?.overview?.substring(0, 50)}...`);
+            } else {
+              this.addDataStream('[ERROR] Failed to generate daily digest');
+            }
+          } catch (error) {
+            this.addDataStream('[ERROR] Network error during digest generation');
+          }
+          
+          this.processing = false;
+        },
+
+        async analyzeContext() {
+          this.processing = true;
+          this.addDataStream('[CONTEXT] Analyzing current context...');
+          
+          try {
+            const response = await fetch('/api/context/analyze', {
+              method: 'POST',
+              headers: { 'Content-Type': 'application/json' },
+              body: JSON.stringify({ userId: 'default-user' })
+            });
+            
+            if (response.ok) {
+              const result = await response.json();
+              this.addDataStream('[CONTEXT] Context analysis completed');
+              this.addDataStream(`[CONTEXT] Focus level: ${result.data.focusLevel}`);
+            } else {
+              this.addDataStream('[ERROR] Failed to analyze context');
+            }
+          } catch (error) {
+            this.addDataStream('[ERROR] Network error during context analysis');
+          }
+          
+          this.processing = false;
+        },
+
+        async triggerAutonomousAction() {
+          this.processing = true;
+          this.addDataStream('[AUTONOMOUS] Triggering autonomous action...');
+          
+          try {
+            const response = await fetch('/api/autonomous/trigger', {
+              method: 'POST',
+              headers: { 'Content-Type': 'application/json' },
+              body: JSON.stringify({ userId: 'default-user' })
+            });
+            
+            if (response.ok) {
+              const result = await response.json();
+              this.addDataStream('[AUTONOMOUS] Action executed successfully');
+              this.addDataStream(`[AUTONOMOUS] Action: ${result.data.action}`);
+            } else {
+              this.addDataStream('[ERROR] Failed to execute autonomous action');
+            }
+          } catch (error) {
+            this.addDataStream('[ERROR] Network error during autonomous action');
+          }
+          
+          this.processing = false;
+        },
+
+        async checkSystemStatus() {
+          this.processing = true;
+          this.addDataStream('[STATUS] Checking system status...');
+          
+          try {
+            const response = await fetch('/api/status');
+            
+            if (response.ok) {
+              const result = await response.json();
+              this.addDataStream('[STATUS] System status retrieved');
+              this.addDataStream(`[STATUS] Ollama: ${result.data.ollama ? 'Online' : 'Offline'}`);
+              this.addDataStream(`[STATUS] Memory: ${result.data.memory ? 'Active' : 'Inactive'}`);
+            } else {
+              this.addDataStream('[ERROR] Failed to retrieve system status');
+            }
+          } catch (error) {
+            this.addDataStream('[ERROR] Network error during status check');
+          }
+          
+          this.processing = false;
+        }
+      };
     }
   </script>
 </body>

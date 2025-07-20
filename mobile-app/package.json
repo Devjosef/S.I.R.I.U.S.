@@ -1,0 +1,135 @@
+{
+  "name": "sirius-mobile",
+  "version": "1.0.0",
+  "description": "S.I.R.I.U.S. Native Mobile App",
+  "main": "index.js",
+  "scripts": {
+    "start": "expo start",
+    "android": "expo start --android",
+    "ios": "expo start --ios",
+    "web": "expo start --web",
+    "build:android": "expo build:android",
+    "build:ios": "expo build:ios",
+    "eject": "expo eject",
+    "test": "jest",
+    "lint": "eslint ."
+  },
+  "dependencies": {
+    "expo": "~50.0.0",
+    "expo-status-bar": "~1.11.1",
+    "react": "18.2.0",
+    "react-native": "0.73.6",
+    "react-native-webview": "13.6.4",
+    "expo-speech": "~11.7.0",
+    "expo-av": "~13.10.5",
+    "expo-location": "~16.5.5",
+    "expo-notifications": "~0.27.6",
+    "expo-device": "~5.9.3",
+    "expo-constants": "~15.4.5",
+    "expo-secure-store": "~12.8.1",
+    "expo-file-system": "~16.0.5",
+    "expo-sqlite": "~13.2.2",
+    "expo-background-fetch": "~11.8.1",
+    "expo-task-manager": "~11.7.2",
+    "@react-native-async-storage/async-storage": "1.21.0",
+    "@react-native-community/netinfo": "11.1.0",
+    "react-native-vector-icons": "^10.0.3",
+    "react-native-gesture-handler": "~2.14.0",
+    "react-native-reanimated": "~3.6.2",
+    "react-native-screens": "~3.29.0",
+    "@react-navigation/native": "^6.1.9",
+    "@react-navigation/stack": "^6.3.20",
+    "@react-navigation/bottom-tabs": "^6.5.11",
+    "react-native-safe-area-context": "4.8.2",
+    "react-native-svg": "14.1.0",
+    "react-native-linear-gradient": "^2.8.3",
+    "react-native-paper": "^5.12.1",
+    "react-native-elements": "^3.4.3",
+    "socket.io-client": "^4.7.4",
+    "axios": "^1.6.2",
+    "zustand": "^4.4.7",
+    "react-query": "^3.39.3",
+    "react-native-voice": "^0.3.0",
+    "react-native-tts": "^4.1.0",
+    "react-native-permissions": "^4.1.1",
+    "react-native-background-job": "^2.2.0",
+    "react-native-push-notification": "^8.1.1",
+    "@react-native-community/geolocation": "^3.1.0"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.20.0",
+    "@types/react": "~18.2.45",
+    "@types/react-native": "~0.73.0",
+    "typescript": "^5.1.3",
+    "jest": "^29.2.1",
+    "eslint": "^8.19.0",
+    "@typescript-eslint/eslint-plugin": "^5.59.0",
+    "@typescript-eslint/parser": "^5.59.0"
+  },
+  "private": true,
+  "expo": {
+    "name": "S.I.R.I.U.S.",
+    "slug": "sirius-mobile",
+    "version": "1.0.0",
+    "orientation": "portrait",
+    "icon": "./assets/icon.png",
+    "userInterfaceStyle": "light",
+    "splash": {
+      "image": "./assets/splash.png",
+      "resizeMode": "contain",
+      "backgroundColor": "#00c6ff"
+    },
+    "assetBundlePatterns": [
+      "**/*"
+    ],
+    "ios": {
+      "supportsTablet": true,
+      "bundleIdentifier": "com.sirius.mobile",
+      "infoPlist": {
+        "NSMicrophoneUsageDescription": "S.I.R.I.U.S. needs microphone access for voice commands",
+        "NSLocationWhenInUseUsageDescription": "S.I.R.I.U.S. uses location for context-aware assistance",
+        "NSLocationAlwaysAndWhenInUseUsageDescription": "S.I.R.I.U.S. uses location for background context",
+        "NSCameraUsageDescription": "S.I.R.I.U.S. uses camera for visual assistance",
+        "NSPhotoLibraryUsageDescription": "S.I.R.I.U.S. accesses photos for document analysis"
+      }
+    },
+    "android": {
+      "adaptiveIcon": {
+        "foregroundImage": "./assets/adaptive-icon.png",
+        "backgroundColor": "#00c6ff"
+      },
+      "package": "com.sirius.mobile",
+      "permissions": [
+        "android.permission.RECORD_AUDIO",
+        "android.permission.ACCESS_FINE_LOCATION",
+        "android.permission.ACCESS_COARSE_LOCATION",
+        "android.permission.CAMERA",
+        "android.permission.READ_EXTERNAL_STORAGE",
+        "android.permission.WRITE_EXTERNAL_STORAGE",
+        "android.permission.WAKE_LOCK",
+        "android.permission.FOREGROUND_SERVICE",
+        "android.permission.RECEIVE_BOOT_COMPLETED"
+      ]
+    },
+    "web": {
+      "favicon": "./assets/favicon.png"
+    },
+    "plugins": [
+      "expo-speech",
+      "expo-av",
+      "expo-location",
+      "expo-notifications",
+      "expo-device",
+      "expo-secure-store",
+      "expo-file-system",
+      "expo-sqlite",
+      "expo-background-fetch",
+      "expo-task-manager"
+    ],
+    "extra": {
+      "eas": {
+        "projectId": "your-project-id"
+      }
+    }
+  }
+} 

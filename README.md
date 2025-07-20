@@ -1,263 +1,220 @@
-# S.I.R.I.U.S.
+# S.I.R.I.U.S. 🤖
 
-Hey there! Welcome to S.I.R.I.U.S. (SMART, INTELLIGENT, RESPONSIVE, INTEGRATIVE, USER-FRIENDLY, SYSTEM) - my little project to make life easier by bringing together all the tools we use daily.
+> **S**mart **I**ntelligent **R**esponsive **I**nterface for **U**niversal **S**upport
 
-## What's this all about?
+[![Node.js](https://img.shields.io/badge/Node.js-18+-green.svg)](https://nodejs.org/)
+[![License](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE)
+[![Platform](https://img.shields.io/badge/Platform-Web%20%7C%20Mobile%20%7C%20Desktop-lightgrey.svg)](https://github.com/yourusername/sirius)
+[![AI](https://img.shields.io/badge/AI-Ollama%20Powered-orange.svg)](https://ollama.ai/)
+[![Status](https://img.shields.io/badge/Status-Active-brightgreen.svg)](https://github.com/yourusername/sirius)
 
-S.I.R.I.U.S. connects your favorite productivity apps like Trello, Notion, Google Calendar, and Pinecone in one place. No more jumping between tabs and apps - just one interface to rule them all.
+S.I.R.I.U.S. is a **privacy-first**, **offline-capable** AI assistant that runs entirely on your local machine. It serves as an intelligent companion for managing daily tasks, emails, calendars, and more, with a strong emphasis on keeping all data secure and local. The system learns from user patterns, including circadian rhythms (distinguishing morning or evening person behaviors), and provides personalized recommendations while maintaining complete data privacy through self-hosted, local processing.
 
-## Cool stuff it can do
+## ✨ Features
 
-- **Trello**: Create boards right from the app
-- **Notion**: Generate templates without the hassle
-- **Google Calendar**: Add events without opening another tab
-- **Pinecone**: Store and search vector embeddings if you're into that AI stuff
+### 🤖 **AI-Powered Intelligence**
+- **Smart Task Management** - AI-driven task prioritization, scheduling, and autonomous actions
+- **Email Intelligence** - Integration with Gmail for reading, summarizing, and composing emails with context
+- **Calendar Optimization** - Smart scheduling with Google Calendar, including conflict resolution
+- **Daily Digest** - Personalized daily summaries and insights via dailyDigestService
+- **Context Awareness** - Learns user preferences, patterns, and adapts over time using contextEngine
+- **Circadian Rhythm Analysis** - Detects and learns from user patterns to identify morning/evening preferences, with predictive modeling using transition matrices and confidence scoring
+- **ML Predictions** - Next action prediction, optimal timing, success probability, and personalized recommendations via predictionService
 
-## What's on the roadmap?
+### 🔒 **Privacy & Security**
+- **100% Local** - All processing (including AI via Ollama) runs on your computer, no cloud dependencies required
+- **Offline First** - Core features, including AI processing and memory storage, work without an internet connection
+- **Data Ownership** - All user data stays local and private; no data is shared with third parties
+- **Encrypted Storage** - Sensitive data is stored securely in local JSON files (e.g., data/memory/)
+- **Self-Hosted Design** - No external authentication; all APIs are local and accessible only on your machine
 
-I've got big dreams for this project. Here are some ideas I'm playing with:
+### 📱 **Multi-Platform Support**
+- **Web Interface** - Modern, responsive web app built with accessibility-first principles (ARIA labels, responsive design)
+- **Mobile App** - Native React Native app with offline support (mobile-app/)
+- **Browser Extension** - Quick access via Chrome/Edge extension (browser-extension/)
+- **Desktop Integration** - System-level notifications and worker threads for efficient processing
 
-- Personal task manager (Todoist/Asana integration)
-- Better calendar tools (including Meetup events)
-- Email stuff (Gmail, etc.)
-- News and info grabber
-- Health tracking
-- Smart home controls
-- Money management
-- Travel planning
-- Learning resources
-- Media and entertainment
+### 🔧 **Integrations**
+- **Asana** - Project management with best practices via asanaService and asanaBestPracticesService
+- **Google Workspace** - Calendar, Gmail, and Drive integration through googleWorkspaceService
+- **Jira** - Issue tracking and management via jiraService
+- **Trello** - Board and card management with butlerAutomationService
+- **n8n** - Workflow automation via n8nIntegrationService
+- **Pinecone** - Vector database for advanced memory storage via pineconeService
+- **Notion** - Note-taking integration via notionService
+- **Ollama** - Local AI engine for offline processing via ollamaService
+- **Multi-Platform** - Unified handling of multiple platforms via multiPlatformService
 
-## Getting this up and running
+### ⚙️ **Technical Highlights**
+- **Local AI** - Powered by Ollama for privacy-preserving AI operations
+- **Memory System** - Persistent local storage for user patterns and learning (memoryService)
+- **Worker Threads** - Efficient handling of CPU-intensive tasks (workers/ and workerManager)
+- **WebSocket** - Real-time communication via websocketService
+- **Testing Suite** - Comprehensive tests for memory, Ollama, workers, circadian patterns, ML predictions, and integrations (/tests/)
 
-### What you'll need
+## 🚀 Quick Start
 
-- **Node.js**: Grab it from [nodejs.org](https://nodejs.org) (I built this on Node v20.12.2)
+### Prerequisites
+- **Node.js 18+** - [Download here](https://nodejs.org/)
+- **Ollama** - Local AI engine - [Install here](https://ollama.ai/) and pull a model (e.g., `ollama pull llama3.1:8b`)
 
-### Setup
+### Installation
 
-1. **Grab the code**
-
+1. **Clone the repository**
    ```bash
-   git clone https://github.com/Devjosef/S.I.R.I.U.S..git
-   cd S.I.R.I.U.S.
+   git clone https://github.com/yourusername/sirius.git
+   cd sirius
+   ```
+
+2. **Install dependencies**
+   ```bash
    npm install
+   ```
+
+3. **Set up environment**
+   ```bash
+   cp .env.example .env
+   # Edit .env with your local configurations (e.g., API keys for integrations, if needed)
+   ```
+
+4. **Start S.I.R.I.U.S.**
+   ```bash
    npm start
+   # Or for development: npm run dev
    ```
 
-2. **Set up your secrets**
+5. **Access the interface**
+   - Web: Open `http://localhost:3000` in your browser
+   - Mobile: Run `npm run mobile` in mobile-app/
+   - Extension: Load browser-extension/ in your browser's extension manager
 
-   Make a `.env` file in the project folder with your API keys:
+## 📚 Documentation
 
-   ```
-   OPENAI_API_KEY=your_openai_api_key
-   PINECONE_API_KEY=your_pinecone_api_key
-   PINECONE_ENVIRONMENT=your_pinecone_environment
-   PINECONE_INDEX_NAME=your_pinecone_index_name
-   TRELLO_API_KEY=your_trello_api_key
-   TRELLO_TOKEN=your_trello_token
-   NOTION_API_KEY=your_notion_api_key
-   NOTION_DATABASE_ID=your_notion_database_id
-   GOOGLE_API_KEY=your_google_api_key
-   ```
+### 🎯 **Getting Started**
+- **[Setup Guide](docs/SETUP_SIMPLE.md)** - Detailed installation and configuration
+- **[User Guide](docs/USER_GUIDE_SIMPLE.md)** - Effective usage of S.I.R.I.U.S.
+- **[API Reference](docs/API_SIMPLE.md)** - Connecting external applications
+- **[Troubleshooting](docs/TROUBLESHOOTING_SIMPLE.md)** - Solutions to common issues
 
-## API Endpoints
+### 🔧 **Technical Documentation**
+- **[Memory System](docs/MEMORY.md)** - How S.I.R.I.U.S. learns from user patterns (including circadian rhythms)
+- **[Deployment Guide](docs/DEPLOYMENT.md)** - Local deployment instructions
+- **[Ollama Setup](docs/OLLAMA_SETUP.md)** - Configuring the local AI engine
+- **[Logging System](docs/LOGGING.md)** - Debugging and monitoring with logger.js
+- **[AI Optimization](docs/MATRYOSHKA_QUANTIZATION.md)** - Performance tuning with matryoshkaQuantization
 
-Here's how to talk to S.I.R.I.U.S.:
+### 🎤 **Advanced Features**
+- **[Voice Integration](docs/VOICE_ROADMAP.md)** - Planned voice commands and synthesis
+- **[Platform Integrations](docs/HYPER_FUNCTIONAL_INTEGRATIONS.md)** - Connecting to Asana, Jira, Trello, etc.
+- **[Testing](tests/README.md)** - Running and understanding the test suite
 
-### Create a Trello Board: `/create-trello-board`
-
-**POST** with:
-```json
-{
-  "boardName": "My New Board",
-  "templateId": "template_id_here"
-}
-```
-
-You'll get back:
-```json
-{
-  "id": "board_id",
-  "name": "My New Board"
-}
-```
-
-### Create a Notion Template: `/create-notion-template`
-
-**POST** with:
-```json
-{
-  "templateName": "Template Title",
-  "templateContent": [
-    {
-      "object": "block",
-      "type": "paragraph",
-      "paragraph": {
-        "text": [
-          {
-            "type": "text",
-            "text": {
-              "content": "Template content here"
-            }
-          }
-        ]
-      }
-    }
-  ]
-}
-```
-
-### Add a Google Calendar Event: `/create-calendar-event`
-
-**POST** with:
-```json
-{
-  "summary": "Meeting with Team",
-  "location": "Office",
-  "description": "Discuss project milestones",
-  "startDateTime": "2024-07-21T09:00:00",
-  "endDateTime": "2024-07-21T10:00:00"
-}
-```
-
-## Apple Shortcuts Integration
-
-Want to control S.I.R.I.U.S. with Apple's Shortcuts app? Here's how:
-
-### What you need
-- iPhone or iPad with iOS 12+
-- Shortcuts app installed
-- Your server running and accessible
-
-### Setting it up
-
-1. Open the Shortcuts app on your iOS device
-2. Tap + to create a new shortcut
-3. Add "Get Contents of URL" action
-4. Enter your server URL (like `https://your-server-url/api/create-trello-board`)
-5. Switch method to POST
-6. Add your parameters as JSON
-7. Name your shortcut something snappy
-8. Add the shortcut to Siri with a custom phrase like "Create Trello Board"
-9. Try it out!
-
-## Help me make this better!
-
-I'd love your help improving S.I.R.I.U.S.! Here's how:
-
-1. Fork the repo
-2. Clone your fork:
-   ```bash
-   git clone https://github.com/YOUR_USERNAME/S.I.R.I.U.S..git
-   cd S.I.R.I.U.S.
-   ```
-3. Create a branch for your feature:
-   ```bash
-   git checkout -b feature/your-cool-idea
-   ```
-4. Make your changes
-5. Test to make sure nothing breaks
-6. Commit and push:
-   ```bash
-   git add .
-   git commit -m "Added this awesome thing"
-   git push origin feature/your-cool-idea
-   ```
-7. Open a pull request
-
-Found a bug? Open an issue and let me know!
-
-## License
-
-This project is under the MIT License. See the LICENSE file for details.
-
-## Thanks to
-
-- OpenAI for their amazing APIs
-- Pinecone for vector storage
-- Trello, Notion, and Google for their platforms
-- You for checking this out!
-
-# How it's organized
-
-The project structure looks like this:
+## 🏗️ Architecture
 
 ```
-S.I.R.I.U.S/
-├── public/                 # Static files
-│   ├── icons/              # SVG icons
-│   └── index.html          # Main HTML page
-├── src/                    # Code
-│   ├── config/             # Settings
-│   ├── controllers/        # Request handlers
-│   ├── middleware/         # Express middleware
-│   ├── routes/             # API routes
-│   ├── services/           # Business logic
-│   └── utils/              # Helper functions
-├── index.js                # Entry point
-└── package.json            # Dependencies
+S.I.R.I.U.S.
+├── 🤖 AI Engine (Ollama) - Local AI processing
+├── 🧠 Memory System (Local JSON + Pinecone) - User patterns and circadian learning
+├── 🔌 WebSocket Server - Real-time updates
+├── 📱 Multi-Platform Interfaces (Web, Mobile, Extension)
+├── 🔧 Services (asanaService, jiraService, etc.) - Integrations and logic
+├── ⚙️ Workers (actionWorker, contextWorker, etc.) - Efficient processing
+└── 🔒 Local Security - No external auth, fully self-hosted
 ```
 
-## What's improved in this version
+## 🛠️ Development
 
-1. Modular code that's easier to maintain
-2. Better error handling
-3. Proper config management
-4. Better security
-5. Modern responsive design
-6. Works offline as a PWA
-7. Improved type safety
-8. RESTful API design
+### Prerequisites
+- Node.js 18+
+- npm
+- Git
+- Optional: Ollama for AI features, API keys for integrations
 
-# Running in different places
+### Setup Development Environment
+```bash
+# Clone repository
+git clone https://github.com/yourusername/sirius.git
+cd sirius
 
-## On Replit
+# Install dependencies
+npm install
 
-1. Fork to your Replit account
-2. Set secrets in the Replit Secrets tab
-3. Hit Run
+# Start development server
+npm run dev
 
-## On your computer
-
-1. Clone the repo
-2. Run setup:
-   ```bash
-   ./setup.sh
-   ```
-3. Start it up:
-   ```bash
-   # Recommended way:
-   ./run.sh
-   
-   # Or with npm:
-   npm run local
-   
-   # For production:
-   npm start
-   ```
-
-## Environment Variables
-
-Required variables for `.env`:
-```
-OPENAI_API_KEY=your_openai_api_key
-PINECONE_API_KEY=your_pinecone_api_key
-PINECONE_INDEX_NAME=your_pinecone_index_name
+# Run tests
+npm test
 ```
 
-Optional variables (defaults shown):
+### Project Structure
 ```
-PORT=3000
-NODE_ENV=development
-RATE_LIMIT_WINDOW_MS=900000  # 15 minutes
-RATE_LIMIT_MAX=100
+S.I.R.I.U.S./
+├── src/                 # Core application code
+│   ├── config/          # Configuration files
+│   ├── controllers/     # API controllers (e.g., asanaController.js)
+│   ├── middleware/      # Express middleware (e.g., errorHandler.js)
+│   ├── routes/          # API routes (e.g., predictionRoutes.js)
+│   ├── services/        # Business logic (e.g., memoryService.js, ollamaService.js)
+│   └── utils/           # Utilities (e.g., logger.js, workerManager.js)
+├── public/              # Static assets (e.g., icons/)
+├── mobile-app/          # React Native mobile application
+├── browser-extension/   # Browser extension files
+├── data/                # Local data storage (e.g., memory/, oauth-tokens.json)
+├── tests/               # Test scripts (e.g., test-ollama.js)
+├── workers/             # Worker threads (e.g., ollamaWorker.js)
+└── README.md            # This file
 ```
 
-## Troubleshooting
+## 🤝 Contributing
 
-- If you see `nodemon: command not found`, run `npm install -g nodemon`
-- Check the logs if the app won't start
-- Double-check your API keys if you're getting authentication errors
+Contributions are welcome! Please follow the [Contributing Guide](CONTRIBUTING.md) for details.
 
+### How to Contribute
+1. **Fork** the repository
+2. **Create** a feature branch (`git checkout -b feature/amazing-feature`)
+3. **Commit** your changes (`git commit -m 'Add amazing feature'`)
+4. **Push** to the branch (`git push origin feature/amazing-feature`)
+5. **Open** a Pull Request
 
+### Development Guidelines
+- Adhere to clean code principles (SOLID, DRY, SRP)
+- Use Functional or Object-Oriented Programming as appropriate
+- Follow UI/UX rules: Accessibility first, responsive design, minimalistic, ARIA labels
+- Test-driven or Event-driven design where fitting
+- Ensure all tests pass
+
+## 📄 License
+
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+
+## 🙏 Acknowledgments
+
+- **Ollama** - For local AI capabilities
+- **Pinecone** - For vector memory storage
+- **Express.js** - Web framework
+- **React Native** - Mobile framework
+- **Community** - Contributors and users
+
+## 📞 Support
+
+- **Documentation**: [docs/](docs/)
+- **Issues**: [GitHub Issues](https://github.com/yourusername/sirius/issues)
+- **Discussions**: [GitHub Discussions](https://github.com/yourusername/sirius/discussions)
+- **Email**: support@sirius.ai (local support only)
+
+## 📊 Project Status
+
+- **Version**: 1.0.0
+- **Status**: Active Development
+- **Last Updated**: [Current Date]
+
+---
+
+<div align="center">
+
+**Made with ❤️ for Privacy and Efficiency**
+
+[![GitHub stars](https://img.shields.io/github/stars/yourusername/sirius?style=social)](https://github.com/yourusername/sirius)
+[![GitHub forks](https://img.shields.io/github/forks/yourusername/sirius?style=social)](https://github.com/yourusername/sirius)
+[![GitHub issues](https://img.shields.io/github/issues/yourusername/sirius)](https://github.com/yourusername/sirius/issues)
+
+</div>

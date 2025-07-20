@@ -10,19 +10,23 @@
 import express from 'express';
 import morgan from 'morgan';
 import { join } from 'path';
+import { createServer } from 'http';
 import config from './src/config/index.js';
 import { errorHandler } from './src/middleware/errorHandler.js';
 import { configureSecurityMiddleware } from './src/middleware/security.js';
 import apiRoutes from './src/routes/index.js';
 import legacyRoutes from './src/routes/legacyRoutes.js';
 import ensureIcons from './src/utils/setupIcons.js';
+import autonomousActionEngine from './src/services/autonomousActionEngine.js';
+import websocketService from './src/services/websocketService.js';
+import logger from './src/utils/logger.js';
 
 // Initialize the app variable at the module level
 let app;
 
 // Application initialization with improved error handling
 try {
-  console.log('Starting S.I.R.I.U.S. application...');
+  logger.info('Starting S.I.R.I.U.S. application...');
   
   // Ensure all required icons exist for PWA functionality
   ensureIcons();
@@ -35,7 +39,14 @@ try {
 
   // Logging middleware based on environment
   if (!config.ENV.TEST) {
-    app.use(morgan(config.ENV.DEV ? 'dev' : 'combined'));
+    // Use Pino for HTTP request logging in production
+    if (config.ENV.PRODUCTION) {
+      const pinoHttp = await import('pino-http').then(m => m.default);
+      app.use(pinoHttp({ logger }));
+    } else {
+      // Use Morgan for more detailed logs in development
+      app.use(morgan(config.ENV.DEV ? 'dev' : 'combined'));
+    }
   }
 
   // Body parsers
@@ -67,8 +78,14 @@ try {
   // Start the server
   const PORT = config.PORT;
   try {
-    app.listen(PORT, () => {
-      console.log(`
+    // Create HTTP server for WebSocket support
+    const server = createServer(app);
+    
+    // Initialize WebSocket service
+    websocketService.initialize(server);
+    
+    server.listen(PORT, '0.0.0.0', () => {
+      logger.info(`
 =============================================
  S.I.R.I.U.S. API Server v1.0.0
  ----------------------------------------- 
@@ -79,28 +96,33 @@ try {
  URLs:
  • API: http://localhost:${PORT}/api
  • App: http://localhost:${PORT}/
+ • WebSocket: ws://localhost:${PORT}/ws
 =============================================
       `);
+      
+      // Start the autonomous action engine
+      autonomousActionEngine.createDefaultTriggers(); // Now enabled with ML learning
+      autonomousActionEngine.start();
     });
   } catch (err) {
-    console.error('Failed to start server:', err);
+    logger.error({ err }, 'Failed to start server');
     process.exit(1);
   }
 
   // Handle uncaught exceptions
   process.on('uncaughtException', (error) => {
-    console.error('Uncaught Exception:', error);
+    logger.fatal({ err: error }, 'Uncaught Exception');
     process.exit(1);
   });
 
   // Handle unhandled promise rejections
   process.on('unhandledRejection', (reason, promise) => {
-    console.error('Unhandled Rejection at:', promise, 'reason:', reason);
+    logger.error({ reason, promise }, 'Unhandled Rejection');
     // No need to exit here as it's often not fatal
   });
 
 } catch (err) {
-  console.error('Fatal error during startup:', err);
+  logger.fatal({ err }, 'Fatal error during startup');
   process.exit(1);
 }
 

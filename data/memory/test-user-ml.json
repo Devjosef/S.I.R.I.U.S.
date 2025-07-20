@@ -1,0 +1,431 @@
+{
+  "userId": "test-user-ml",
+  "preferences": {
+    "workHours": {
+      "start": 9,
+      "end": 17
+    },
+    "focusBlocks": [
+      "morning-focus",
+      "afternoon-focus"
+    ],
+    "breakTimes": [
+      "lunch-break",
+      "evening-wrapup"
+    ],
+    "noMeetingTimes": [
+      "evening-personal",
+      "night-rest"
+    ],
+    "preferredMeetingDuration": 30,
+    "emailCheckFrequency": 15,
+    "notificationPreferences": {
+      "urgent": true,
+      "meetings": true,
+      "emails": false,
+      "todos": true
+    }
+  },
+  "patterns": {
+    "timeBlocks": {
+      "optimalHour": 10,
+      "optimalDay": 0,
+      "optimalTimeBlock": "morning",
+      "optimalWeekday": "Sunday",
+      "hourDistribution": {
+        "10": 11
+      },
+      "dayDistribution": {
+        "0": 11
+      },
+      "timeBlockDistribution": {
+        "morning": 6,
+        "afternoon": 3,
+        "evening": 2
+      },
+      "weekdayDistribution": {
+        "Sunday": 11
+      },
+      "circadianRhythm": {
+        "type": "morning_person",
+        "confidence": 0.6620000000000001,
+        "periods": {
+          "morning": {
+            "count": 11,
+            "successRate": 81.81818181818183,
+            "avgPerformance": 78.18181818181819,
+            "frequency": 11
+          }
+        },
+        "peakHours": [
+          10
+        ],
+        "recommendations": [
+          {
+            "type": "schedule_optimization",
+            "title": "Morning Person Detected",
+            "description": "You perform best in the morning. Schedule important tasks between 6-11 AM.",
+            "priority": "high"
+          },
+          {
+            "type": "energy_management",
+            "title": "Morning Energy Strategy",
+            "description": "Use your peak morning energy for complex tasks and creative work.",
+            "priority": "medium"
+          },
+          {
+            "type": "peak_hours",
+            "title": "Peak Performance Hours",
+            "description": "Your peak performance hours are: 10:00",
+            "priority": "high"
+          }
+        ]
+      }
+    },
+    "interactions": [
+      {
+        "type": "jira_operation",
+        "operation": "create_issue",
+        "timeBlock": "morning",
+        "focus": "deep-work",
+        "energy": "high",
+        "urgency": "normal",
+        "success": true,
+        "timestamp": "2025-07-20T08:50:43.636Z"
+      },
+      {
+        "type": "jira_operation",
+        "operation": "update_issue",
+        "timeBlock": "morning",
+        "focus": "deep-work",
+        "energy": "high",
+        "urgency": "normal",
+        "success": true,
+        "timestamp": "2025-07-20T08:50:43.637Z"
+      },
+      {
+        "type": "autonomous_action",
+        "actionType": "meeting_prep",
+        "timeBlock": "morning",
+        "focus": "meeting-prep",
+        "energy": "high",
+        "urgency": "normal",
+        "success": true,
+        "timestamp": "2025-07-20T08:50:43.638Z"
+      },
+      {
+        "type": "jira_operation",
+        "operation": "update_issue",
+        "timeBlock": "morning",
+        "focus": "deep-work",
+        "energy": "high",
+        "urgency": "normal",
+        "success": true,
+        "timestamp": "2025-07-20T08:50:43.638Z"
+      },
+      {
+        "type": "jira_operation",
+        "operation": "create_issue",
+        "timeBlock": "afternoon",
+        "focus": "collaboration",
+        "energy": "medium",
+        "urgency": "high",
+        "success": false,
+        "timestamp": "2025-07-20T08:50:43.639Z"
+      },
+      {
+        "type": "autonomous_action",
+        "actionType": "email_processing",
+        "timeBlock": "afternoon",
+        "focus": "collaboration",
+        "energy": "medium",
+        "urgency": "high",
+        "success": true,
+        "timestamp": "2025-07-20T08:50:43.640Z"
+      },
+      {
+        "type": "jira_operation",
+        "operation": "update_issue",
+        "timeBlock": "evening",
+        "focus": "review",
+        "energy": "low",
+        "urgency": "low",
+        "success": true,
+        "timestamp": "2025-07-20T08:50:43.641Z"
+      },
+      {
+        "type": "jira_operation",
+        "operation": "create_issue",
+        "timeBlock": "morning",
+        "focus": "deep-work",
+        "energy": "high",
+        "urgency": "normal",
+        "success": true,
+        "timestamp": "2025-07-20T08:50:43.642Z"
+      },
+      {
+        "type": "autonomous_action",
+        "actionType": "meeting_prep",
+        "timeBlock": "morning",
+        "focus": "meeting-prep",
+        "energy": "high",
+        "urgency": "normal",
+        "success": true,
+        "timestamp": "2025-07-20T08:50:43.643Z"
+      },
+      {
+        "type": "jira_operation",
+        "operation": "update_issue",
+        "timeBlock": "afternoon",
+        "focus": "collaboration",
+        "energy": "medium",
+        "urgency": "high",
+        "success": false,
+        "timestamp": "2025-07-20T08:50:43.644Z"
+      },
+      {
+        "type": "autonomous_action",
+        "actionType": "email_processing",
+        "timeBlock": "evening",
+        "focus": "review",
+        "energy": "low",
+        "urgency": "low",
+        "success": true,
+        "timestamp": "2025-07-20T08:50:43.645Z"
+      }
+    ],
+    "productivity": {
+      "bestWorkHours": [],
+      "commonDistractions": [],
+      "focusDuration": 25
+    },
+    "behavioralPreferences": {
+      "preferredFocus": {
+        "value": "deep-work",
+        "confidence": 0.36363636363636365,
+        "distribution": {
+          "deep-work": 4,
+          "meeting-prep": 2,
+          "collaboration": 3,
+          "review": 2
+        }
+      },
+      "preferredEnergy": {
+        "value": "high",
+        "confidence": 0.5454545454545454,
+        "distribution": {
+          "high": 6,
+          "medium": 3,
+          "low": 2
+        }
+      },
+      "preferredUrgency": {
+        "value": "normal",
+        "confidence": 0.5454545454545454,
+        "distribution": {
+          "normal": 6,
+          "high": 3,
+          "low": 2
+        }
+      },
+      "preferredActionType": {
+        "value": "unknown",
+        "confidence": 0
+      }
+    },
+    "successPatterns": {
+      "create_issue": {
+        "successRate": 66.66666666666666,
+        "totalAttempts": 3,
+        "successCount": 2,
+        "optimalContexts": {
+          "timeBlocks": {
+            "morning": 2
+          },
+          "focusModes": {
+            "deep-work": 2
+          },
+          "energyLevels": {
+            "high": 2
+          },
+          "urgencyLevels": {
+            "normal": 2
+          }
+        },
+        "failureContexts": {
+          "timeBlocks": {
+            "afternoon": 1
+          },
+          "focusModes": {
+            "collaboration": 1
+          },
+          "energyLevels": {
+            "medium": 1
+          },
+          "urgencyLevels": {
+            "high": 1
+          }
+        }
+      },
+      "update_issue": {
+        "successRate": 75,
+        "totalAttempts": 4,
+        "successCount": 3,
+        "optimalContexts": {
+          "timeBlocks": {
+            "morning": 2,
+            "evening": 1
+          },
+          "focusModes": {
+            "deep-work": 2,
+            "review": 1
+          },
+          "energyLevels": {
+            "high": 2,
+            "low": 1
+          },
+          "urgencyLevels": {
+            "normal": 2,
+            "low": 1
+          }
+        },
+        "failureContexts": {
+          "timeBlocks": {
+            "afternoon": 1
+          },
+          "focusModes": {
+            "collaboration": 1
+          },
+          "energyLevels": {
+            "medium": 1
+          },
+          "urgencyLevels": {
+            "high": 1
+          }
+        }
+      },
+      "meeting_prep": {
+        "successRate": 100,
+        "totalAttempts": 2,
+        "successCount": 2,
+        "optimalContexts": {
+          "timeBlocks": {
+            "morning": 2
+          },
+          "focusModes": {
+            "meeting-prep": 2
+          },
+          "energyLevels": {
+            "high": 2
+          },
+          "urgencyLevels": {
+            "normal": 2
+          }
+        },
+        "failureContexts": {}
+      },
+      "email_processing": {
+        "successRate": 100,
+        "totalAttempts": 2,
+        "successCount": 2,
+        "optimalContexts": {
+          "timeBlocks": {
+            "afternoon": 1,
+            "evening": 1
+          },
+          "focusModes": {
+            "collaboration": 1,
+            "review": 1
+          },
+          "energyLevels": {
+            "medium": 1,
+            "low": 1
+          },
+          "urgencyLevels": {
+            "high": 1,
+            "low": 1
+          }
+        },
+        "failureContexts": {}
+      }
+    },
+    "optimalContexts": [
+      {
+        "context": {
+          "timeBlock": "morning",
+          "focus": "deep-work",
+          "energy": "high",
+          "urgency": "normal"
+        },
+        "successRate": 100,
+        "avgPerformance": 100,
+        "frequency": 4
+      },
+      {
+        "context": {
+          "timeBlock": "morning",
+          "focus": "meeting-prep",
+          "energy": "high",
+          "urgency": "normal"
+        },
+        "successRate": 100,
+        "avgPerformance": 95,
+        "frequency": 2
+      },
+      {
+        "context": {
+          "timeBlock": "evening",
+          "focus": "review",
+          "energy": "low",
+          "urgency": "low"
+        },
+        "successRate": 100,
+        "avgPerformance": 65,
+        "frequency": 2
+      },
+      {
+        "context": {
+          "timeBlock": "afternoon",
+          "focus": "collaboration",
+          "energy": "medium",
+          "urgency": "high"
+        },
+        "successRate": 33.33333333333333,
+        "avgPerformance": 46.666666666666664,
+        "frequency": 3
+      }
+    ],
+    "predictivePatterns": {
+      "transitionMatrix": {
+        "{\"timeBlock\":\"morning\",\"focus\":\"deep-work\",\"energy\":\"high\",\"urgency\":\"normal\",\"actionType\":\"jira_operation\"}": {
+          "{\"timeBlock\":\"morning\",\"focus\":\"deep-work\",\"energy\":\"high\",\"urgency\":\"normal\",\"actionType\":\"jira_operation\"}": 0.25,
+          "{\"timeBlock\":\"morning\",\"focus\":\"meeting-prep\",\"energy\":\"high\",\"urgency\":\"normal\",\"actionType\":\"autonomous_action\"}": 0.5,
+          "{\"timeBlock\":\"afternoon\",\"focus\":\"collaboration\",\"energy\":\"medium\",\"urgency\":\"high\",\"actionType\":\"jira_operation\"}": 0.25
+        },
+        "{\"timeBlock\":\"morning\",\"focus\":\"meeting-prep\",\"energy\":\"high\",\"urgency\":\"normal\",\"actionType\":\"autonomous_action\"}": {
+          "{\"timeBlock\":\"morning\",\"focus\":\"deep-work\",\"energy\":\"high\",\"urgency\":\"normal\",\"actionType\":\"jira_operation\"}": 0.5,
+          "{\"timeBlock\":\"afternoon\",\"focus\":\"collaboration\",\"energy\":\"medium\",\"urgency\":\"high\",\"actionType\":\"jira_operation\"}": 0.5
+        },
+        "{\"timeBlock\":\"afternoon\",\"focus\":\"collaboration\",\"energy\":\"medium\",\"urgency\":\"high\",\"actionType\":\"jira_operation\"}": {
+          "{\"timeBlock\":\"afternoon\",\"focus\":\"collaboration\",\"energy\":\"medium\",\"urgency\":\"high\",\"actionType\":\"autonomous_action\"}": 0.5,
+          "{\"timeBlock\":\"evening\",\"focus\":\"review\",\"energy\":\"low\",\"urgency\":\"low\",\"actionType\":\"autonomous_action\"}": 0.5
+        },
+        "{\"timeBlock\":\"afternoon\",\"focus\":\"collaboration\",\"energy\":\"medium\",\"urgency\":\"high\",\"actionType\":\"autonomous_action\"}": {
+          "{\"timeBlock\":\"evening\",\"focus\":\"review\",\"energy\":\"low\",\"urgency\":\"low\",\"actionType\":\"jira_operation\"}": 1
+        },
+        "{\"timeBlock\":\"evening\",\"focus\":\"review\",\"energy\":\"low\",\"urgency\":\"low\",\"actionType\":\"jira_operation\"}": {
+          "{\"timeBlock\":\"morning\",\"focus\":\"deep-work\",\"energy\":\"high\",\"urgency\":\"normal\",\"actionType\":\"jira_operation\"}": 1
+        }
+      },
+      "sequenceCount": 10,
+      "lastUpdated": "2025-07-20T08:50:43.645Z"
+    }
+  },
+  "learnedBehaviors": {
+    "meetingPreferences": {},
+    "emailHandling": {},
+    "taskPrioritization": {},
+    "communicationStyle": {}
+  },
+  "timestamp": "2025-07-20T08:50:43.645Z"
+}

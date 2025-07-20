@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>S.I.R.I.U.S. Assistant</title>
+  <link rel="stylesheet" href="../css/popup.css">
+</head>
+<body>
+  <div class="container">
+    <header>
+      <div class="logo">
+        <span class="logo-icon">🌟</span>
+        <h1>S.I.R.I.U.S.</h1>
+      </div>
+      <div class="status">
+        <span id="status-indicator"></span>
+        <span id="status-text">Connecting...</span>
+      </div>
+    </header>
+    
+    <div class="content">
+      <div id="message-display">Welcome to S.I.R.I.U.S.</div>
+      
+      <div class="voice-section">
+        <button id="voice-button" class="primary-button">
+          Voice Command
+        </button>
+        <div id="voice-status">Click to speak</div>
+        <div class="wake-phrase">Wake phrase: "Hey S.I.R.I.U.S."</div>
+      </div>
+      
+      <div class="actions">
+        <button id="daily-digest-button" class="action-button">
+          <span class="icon">📋</span>
+          Daily Digest
+        </button>
+        <button id="context-button" class="action-button">
+          <span class="icon">🧠</span>
+          Analyze Context
+        </button>
+        <button id="settings-button" class="action-button">
+          <span class="icon">⚙️</span>
+          Settings
+        </button>
+      </div>
+      
+      <div class="test-section">
+        <button id="test-audio-button" class="test-button">Test Audio</button>
+        <button id="test-speech-button" class="test-button">Test Speech</button>
+      </div>
+    </div>
+    
+    <footer>
+      <div class="footer-text">S.I.R.I.U.S. Browser Assistant</div>
+    </footer>
+  </div>
+  
+  <script src="../js/popup.js"></script>
+</body>
+</html> 

@@ -1,0 +1,60 @@
+{
+  "userId": "test-user",
+  "preferences": {
+    "workHours": {
+      "start": 9,
+      "end": 17
+    },
+    "focusBlocks": [
+      "morning-focus",
+      "afternoon-focus"
+    ],
+    "breakTimes": [
+      "lunch-break",
+      "evening-wrapup"
+    ],
+    "noMeetingTimes": [
+      "evening-personal",
+      "night-rest"
+    ],
+    "preferredMeetingDuration": 30,
+    "emailCheckFrequency": 15,
+    "notificationPreferences": {
+      "urgent": true,
+      "meetings": true,
+      "emails": false,
+      "todos": true
+    }
+  },
+  "patterns": {
+    "timeBlocks": {},
+    "interactions": [
+      {
+        "type": "jira_operation",
+        "operation": "get_projects",
+        "success": true,
+        "result": {
+          "projectCount": 3,
+          "projectKeys": [
+            "LEARNJIRA",
+            "SCRUM",
+            "TEST"
+          ]
+        },
+        "timestamp": "2025-07-20T08:49:34.084Z"
+      }
+    ],
+    "productivity": {
+      "bestWorkHours": [],
+      "commonDistractions": [],
+      "focusDuration": 25
+    }
+  },
+  "learnedBehaviors": {
+    "meetingPreferences": {},
+    "emailHandling": {},
+    "taskPrioritization": {},
+    "communicationStyle": {}
+  },
+  "timestamp": "2025-07-20T08:49:34.084Z"
+}

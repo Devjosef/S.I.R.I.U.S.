@@ -6,6 +6,10 @@
  */
 
 import config from '../config/index.js';
+import { createLogger } from '../utils/logger.js';
+
+// Create component-specific logger
+const logger = createLogger('error-handler');
 
 /**
  * Base application error class
@@ -64,12 +68,27 @@ export class ForbiddenError extends AppError {
  * Global error handler middleware for Express
  */
 export const errorHandler = (err, req, res, next) => {
-  // Log the error with more details in development
-  if (config.ENV.DEV) {
-    console.error('Error:', err);
+  // Log the error with appropriate level based on status code
+  if (err.statusCode >= 500) {
+    logger.error({ 
+      err,
+      req: {
+        method: req.method,
+        url: req.originalUrl,
+        ip: req.ip,
+        userId: req.user?.id
+      }
+    }, `${err.name}: ${err.message}`);
+  } else if (err.statusCode >= 400) {
+    logger.warn({
+      err,
+      req: {
+        method: req.method,
+        url: req.originalUrl
+      }
+    }, `${err.name}: ${err.message}`);
   } else {
-    // In production, log less information
-    console.error(`${err.name}: ${err.message}`);
+    logger.info({ err }, `${err.name}: ${err.message}`);
   }
   
   // Set default values
