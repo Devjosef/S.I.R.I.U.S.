@@ -4,9 +4,9 @@
 
 [![Node.js](https://img.shields.io/badge/Node.js-18+-green.svg)](https://nodejs.org/)
 [![License](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE)
-[![Platform](https://img.shields.io/badge/Platform-Web%20%7C%20Mobile%20%7C%20Desktop-lightgrey.svg)](https://github.com/yourusername/sirius)
+[![Platform](https://img.shields.io/badge/Platform-Web%20%7C%20Mobile%20%7C%20Desktop-lightgrey.svg)](https://github.com/Devjosef/S.I.R.I.U.S.)
 [![AI](https://img.shields.io/badge/AI-Ollama%20Powered-orange.svg)](https://ollama.ai/)
-[![Status](https://img.shields.io/badge/Status-Active-brightgreen.svg)](https://github.com/yourusername/sirius)
+[![Status](https://img.shields.io/badge/Status-Active-brightgreen.svg)](https://github.com/Devjosef/S.I.R.I.U.S.)
 
 S.I.R.I.U.S. is a **privacy-first**, **offline-capable** AI assistant that runs entirely on your local machine. It serves as an intelligent companion for managing daily tasks, emails, calendars, and more, with a strong emphasis on keeping all data secure and local. The system learns from user patterns, including circadian rhythms (distinguishing morning or evening person behaviors), and provides personalized recommendations while maintaining complete data privacy through self-hosted, local processing.
 
@@ -70,8 +70,8 @@ S.I.R.I.U.S. is a **privacy-first**, **offline-capable** AI assistant that runs 
 
 1. **Clone the repository**
    ```bash
-   git clone https://github.com/yourusername/sirius.git
-   cd sirius
+   git clone https://github.com/Devjosef/S.I.R.I.U.S..git
+   cd S.I.R.I.U.S.
    ```
 
 2. **Install dependencies**
@@ -163,8 +163,8 @@ S.I.R.I.U.S.
 ### Setup Development Environment
 ```bash
 # Clone repository
-git clone https://github.com/yourusername/sirius.git
-cd sirius
+git clone https://github.com/Devjosef/S.I.R.I.U.S..git
+cd S.I.R.I.U.S.
 
 # Install dependencies
 npm install
@@ -228,9 +228,9 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 ## 📞 Support
 
 - **Documentation**: [docs/](docs/)
-- **Issues**: [GitHub Issues](https://github.com/yourusername/sirius/issues)
-- **Discussions**: [GitHub Discussions](https://github.com/yourusername/sirius/discussions)
-- **Email**: support@sirius.ai (local support only)
+- **Issues**: [GitHub Issues](https://github.com/Devjosef/S.I.R.I.U.S./issues)
+- **Discussions**: [GitHub Discussions](https://github.com/Devjosef/S.I.R.I.U.S./discussions)
+- **Email**: dev.josef1@gmail.com (local support only)
 
 ## 📊 Project Status
 
