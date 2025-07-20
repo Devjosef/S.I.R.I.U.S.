@@ -37,8 +37,7 @@
     "test:jira-auth": "NODE_ENV=development node tests/test-jira-auth.js",
     "test:jira-operations": "NODE_ENV=development node tests/test-jira-operations.js",
     "test:jira-create": "NODE_ENV=development node tests/test-jira-create-issue.js",
-    "lint": "eslint .",
-    "build:sw": "workbox generateSW workbox-config.js"
+    "lint": "eslint ."
   },
   "keywords": [
     "productivity",
@@ -75,8 +74,7 @@
     "eslint": "^8.56.0",
     "jest": "^29.7.0",
     "nodemon": "^3.0.3",
-    "supertest": "^6.3.4",
-    "workbox-cli": "^7.0.0"
+    "supertest": "^6.3.4"
   },
   "engines": {
     "node": ">=18.0.0"

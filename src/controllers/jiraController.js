@@ -303,3 +303,35 @@ export const createProject = async (req, res) => {
     });
   }
 }; 
+
+export const testConnection = async (req, res) => {
+  try {
+    const { userId } = req.query;
+    
+    if (!userId) {
+      return res.status(400).json({
+        success: false,
+        error: 'User ID is required'
+      });
+    }
+
+    // Test Jira connection by trying to get projects
+    const projects = await jiraService.getProjects(userId);
+    
+    res.status(200).json({
+      success: true,
+      message: 'Jira connection test successful',
+      data: {
+        connection: 'successful',
+        projectsCount: projects.length
+      }
+    });
+  } catch (error) {
+    console.error('Error testing Jira connection:', error);
+    res.status(500).json({
+      success: false,
+      error: 'Jira connection test failed',
+      details: error.message
+    });
+  }
+}; 

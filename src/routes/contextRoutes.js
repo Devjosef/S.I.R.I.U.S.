@@ -36,7 +36,7 @@ router.post('/analyze', [
 router.get('/summary', [
   query('userId').notEmpty().withMessage('userId is required'),
   validate
-], contextController.getContextSummary);
+], contextController.getCurrentSituation);
 
 /**
  * Update context preferences

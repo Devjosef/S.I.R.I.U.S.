@@ -24,6 +24,11 @@ import oauthRoutes from './oauthRoutes.js';
 import pineconeRoutes from './pineconeRoutes.js';
 import trelloRoutes from './trelloRoutes.js';
 
+//  AI CORE FEATURES - CRITICAL!
+import predictionRoutes from './predictionRoutes.js';
+import memoryRoutes from './memoryRoutes.js';
+import learningAnalyticsRoutes from './learningAnalyticsRoutes.js';
+
 const router = Router();
 
 // Health check endpoint
@@ -118,6 +123,11 @@ router.use('/notion', notionRoutes);
 router.use('/oauth', oauthRoutes);
 router.use('/pinecone', pineconeRoutes);
 router.use('/trello', trelloRoutes);
+
+//  MOUNT AI CORE FEATURES
+router.use('/predict', predictionRoutes);
+router.use('/memory', memoryRoutes);
+router.use('/learning-analytics', learningAnalyticsRoutes);
 
 // 404 handler for unknown API routes
 router.use('*', (req, res) => {

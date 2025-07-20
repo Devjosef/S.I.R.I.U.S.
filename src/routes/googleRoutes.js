@@ -134,46 +134,6 @@ router.post('/gmail/send', async (req, res) => {
 });
 
 /**
- * Send an email
- * POST /api/google/gmail/send
- */
-router.post('/gmail/send', async (req, res) => {
-  try {
-    const userId = req.body.userId || 'default-user';
-    const { to, subject, body, from } = req.body;
-    
-    if (!to || !subject || !body) {
-      return res.status(400).json({
-        success: false,
-        message: 'To, subject, and body are required'
-      });
-    }
-    
-    const emailData = {
-      to,
-      subject,
-      body,
-      from: from || 'me'
-    };
-    
-    const result = await gmailService.sendEmail(userId, emailData);
-    
-    res.json({
-      success: true,
-      message: 'Email sent successfully',
-      data: result
-    });
-  } catch (error) {
-    googleLogger.error({ err: error }, 'Failed to send email');
-    res.status(500).json({
-      success: false,
-      message: 'Failed to send email',
-      error: error.message
-    });
-  }
-});
-
-/**
  * Get recent Google Docs
  * GET /api/google/docs/recent
  */
