@@ -122,7 +122,7 @@ export const getAllPages = async (userId) => {
         filter: {
           value: 'page',
           property: 'object'
-        }
+          }
       })
     });
     

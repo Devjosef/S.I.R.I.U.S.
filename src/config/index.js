@@ -22,7 +22,7 @@ const ENV = {
 };
 
 // Load environment variables from .env file
-dotenv.config();
+  dotenv.config();
 
 /**
  * Path resolution

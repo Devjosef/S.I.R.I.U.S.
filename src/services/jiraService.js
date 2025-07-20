@@ -329,11 +329,11 @@ export const createIssue = async (userId, issueData) => {
 
     // Build fields object dynamically based on what's supported
     const fields = {
-      project: {
-        key: issueData.projectKey
-      },
-      summary: issueData.summary,
-      issuetype: {
+          project: {
+            key: issueData.projectKey
+          },
+          summary: issueData.summary,
+          issuetype: {
         name: validIssueType.name
       }
     };

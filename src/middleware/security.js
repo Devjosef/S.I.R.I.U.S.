@@ -68,7 +68,7 @@ export const configureSecurityMiddleware = (app) => {
   
   // Apply CORS - More restrictive in production
   app.use(cors(config.ENV.PRODUCTION ? {
-    origin: ['https://s-i-r-i-u-s.vercel.app', 'https://sirius-ai.app'],
+    origin: ['https://sirius-intelligence.onrender.com', 'https://sirius-ai.app'],
     methods: ['GET', 'POST', 'PUT', 'DELETE'],
     allowedHeaders: ['Content-Type', 'Authorization']
   } : {
