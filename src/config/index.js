@@ -21,10 +21,8 @@ const ENV = {
   DEV: process.env.NODE_ENV === 'development' || !process.env.NODE_ENV
 };
 
-// Load environment variables from .env file if not in Replit
-if (!ENV.REPLIT) {
-  dotenv.config();
-}
+// Load environment variables from .env file
+dotenv.config();
 
 /**
  * Path resolution
@@ -161,5 +159,12 @@ if (missingConfigs.length > 0) {
 console.log(`Environment: ${ENV.PRODUCTION ? 'production' : ENV.TEST ? 'test' : 'development'}`);
 console.log(`Platform: ${ENV.REPLIT ? 'Replit' : 'Local'}`);
 console.log(`Worker Threads: ${config.WORKERS.ENABLED ? 'Enabled (max: ' + config.WORKERS.MAX_THREADS + ')' : 'Disabled'}`);
+
+// Debug API keys (only show first/last few characters for security)
+if (config.NOTION.API_KEY) {
+  console.log(`Notion API Key: ${config.NOTION.API_KEY.substring(0, 4)}...${config.NOTION.API_KEY.substring(config.NOTION.API_KEY.length - 4)}`);
+} else {
+  console.log('⚠️ Notion API Key not found in environment variables');
+}
 
 export default config; 

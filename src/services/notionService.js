@@ -20,7 +20,7 @@ const notionRequest = async (endpoint, options = {}) => {
   
   const requestOptions = {
     headers: {
-      'Authorization': `Bearer ${config.NOTION_API_KEY}`,
+      'Authorization': `Bearer ${config.NOTION.API_KEY}`,
       'Notion-Version': '2022-06-28',
       'Content-Type': 'application/json',
       ...options.headers
@@ -120,15 +120,9 @@ export const getAllPages = async (userId) => {
       method: 'POST',
       body: JSON.stringify({
         filter: {
-          property: 'object',
-          value: 'page'
-        },
-        sorts: [
-          {
-            property: 'last_edited_time',
-            direction: 'descending'
-          }
-        ]
+          value: 'page',
+          property: 'object'
+        }
       })
     });
     

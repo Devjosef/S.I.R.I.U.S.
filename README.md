@@ -41,7 +41,7 @@ S.I.R.I.U.S. is a **privacy-first**, **offline-capable** AI assistant that runs 
 - **Trello** - Board and card management with butlerAutomationService
 - **n8n** - Workflow automation via n8nIntegrationService
 - **Pinecone** - Vector database for advanced memory storage via pineconeService
-- **Notion** - Note-taking integration via notionService
+- **Notion** - **Full read/write integration** via notionService with content creation, page management, and AI-powered analysis
 - **Ollama** - Local AI engine for offline processing via ollamaService
 - **Multi-Platform** - Unified handling of multiple platforms via multiPlatformService
 
@@ -51,6 +51,14 @@ S.I.R.I.U.S. is a **privacy-first**, **offline-capable** AI assistant that runs 
 - **Worker Threads** - Efficient handling of CPU-intensive tasks (workers/ and workerManager)
 - **WebSocket** - Real-time communication via websocketService
 - **Testing Suite** - Comprehensive tests for memory, Ollama, workers, circadian patterns, ML predictions, and integrations (/tests/)
+
+### 📝 **Notion Integration Features**
+- **Full Content Management** - Create, read, update, and delete Notion pages and databases
+- **AI-Powered Content Analysis** - Process Notion content with local Llama2 7B model
+- **Smart Content Extraction** - Extract structured content from headings, paragraphs, and lists
+- **Real-time Synchronization** - Live updates between S.I.R.I.U.S. and your Notion workspace
+- **Privacy-First Design** - All Notion data processing happens locally with your Internal Integration Secret
+- **Comprehensive API Coverage** - Full Notion API v2022-06-28 support with error handling and fallbacks
 
 ## 🚀 Quick Start
 
@@ -77,6 +85,15 @@ S.I.R.I.U.S. is a **privacy-first**, **offline-capable** AI assistant that runs 
    # Edit .env with your local configurations (e.g., API keys for integrations, if needed)
    ```
 
+4. **Configure Notion Integration (Optional)**
+   ```bash
+   # Add your Notion Internal Integration Secret to .env
+   NOTION_API_KEY=your_internal_integration_secret_here
+   
+   # Share pages/databases with your integration in Notion
+   # Go to any page → Share → Find your integration → Invite
+   ```
+
 4. **Start S.I.R.I.U.S.**
    ```bash
    npm start
@@ -87,6 +104,18 @@ S.I.R.I.U.S. is a **privacy-first**, **offline-capable** AI assistant that runs 
    - Web: Open `http://localhost:3000` in your browser
    - Mobile: Run `npm run mobile` in mobile-app/
    - Extension: Load browser-extension/ in your browser's extension manager
+
+6. **Test Notion Integration (Optional)**
+   ```bash
+   # Test Notion API connection
+   curl "http://localhost:3000/api/notion/test?userId=test-user"
+   
+   # Get all pages from your Notion workspace
+   curl "http://localhost:3000/api/notion/pages?userId=test-user"
+   
+   # Add content to a page (requires page ID)
+   node tests/add-notion-content.js
+   ```
 
 ## 📚 Documentation
 
@@ -102,6 +131,7 @@ S.I.R.I.U.S. is a **privacy-first**, **offline-capable** AI assistant that runs 
 - **[Ollama Setup](docs/OLLAMA_SETUP.md)** - Configuring the local AI engine
 - **[Logging System](docs/LOGGING.md)** - Debugging and monitoring with logger.js
 - **[AI Optimization](docs/MATRYOSHKA_QUANTIZATION.md)** - Performance tuning with matryoshkaQuantization
+- **[Notion Integration](docs/INTEGRATIONS.md)** - Complete guide to Notion API integration and usage
 
 ### 🎤 **Advanced Features**
 - **[Voice Integration](docs/VOICE_ROADMAP.md)** - Planned voice commands and synthesis
@@ -116,8 +146,9 @@ S.I.R.I.U.S.
 ├── 🧠 Memory System (Local JSON + Pinecone) - User patterns and circadian learning
 ├── 🔌 WebSocket Server - Real-time updates
 ├── 📱 Multi-Platform Interfaces (Web, Mobile, Extension)
-├── 🔧 Services (asanaService, jiraService, etc.) - Integrations and logic
+├── 🔧 Services (asanaService, jiraService, notionService, etc.) - Integrations and logic
 ├── ⚙️ Workers (actionWorker, contextWorker, etc.) - Efficient processing
+├── 📝 Notion API (/api/notion/*) - Full CRUD operations for pages and databases
 └── 🔒 Local Security - No external auth, fully self-hosted
 ```
 

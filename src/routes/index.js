@@ -1,10 +1,12 @@
 import { Router } from 'express';
+import { join } from 'path';
 import pineconeRoutes from './pineconeRoutes.js';
 import dailyDigestRoutes from './dailyDigestRoutes.js';
 import contextRoutes from './contextRoutes.js';
 import autonomousActionRoutes from './autonomousActionRoutes.js';
 import multiPlatformRoutes from './multiPlatformRoutes.js';
 import jiraRoutes from './jiraRoutes.js';
+import notionRoutes from './notionRoutes.js';
 
 import trelloRoutes from './trelloRoutes.js';
 import n8nRoutes from './n8nRoutes.js';
@@ -27,6 +29,14 @@ const router = Router();
  * This page shows you all the ways you can interact with your assistant
  */
 router.get('/', (req, res) => {
+  // Serve the beautiful frontend interface
+  res.sendFile(join(config.PATHS.PUBLIC, 'index.html'));
+});
+
+/**
+ * API documentation endpoint
+ */
+router.get('/api-docs', (req, res) => {
   // Build API documentation with examples
   const apiDocs = {
     message: 'Welcome to S.I.R.I.U.S. API',
@@ -627,6 +637,7 @@ router.use('/context', contextRoutes);
 router.use('/autonomous', autonomousActionRoutes);
 router.use('/platforms', multiPlatformRoutes);
 router.use('/jira', jiraRoutes);
+router.use('/notion', notionRoutes);
 
 router.use('/trello', trelloRoutes);
 router.use('/n8n', n8nRoutes);
