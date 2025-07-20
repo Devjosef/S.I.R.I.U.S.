@@ -213,8 +213,8 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 
 **Made with ❤️ for Privacy and Efficiency**
 
-[![GitHub stars](https://img.shields.io/github/stars/yourusername/sirius?style=social)](https://github.com/yourusername/sirius)
-[![GitHub forks](https://img.shields.io/github/forks/yourusername/sirius?style=social)](https://github.com/yourusername/sirius)
-[![GitHub issues](https://img.shields.io/github/issues/yourusername/sirius)](https://github.com/yourusername/sirius/issues)
+[![GitHub stars](https://img.shields.io/github/stars/Devjosef/S.I.R.I.U.S.?style=social)](https://github.com/Devjosef/S.I.R.I.U.S.)
+[![GitHub forks](https://img.shields.io/github/forks/Devjosef/S.I.R.I.U.S.?style=social)](https://github.com/Devjosef/S.I.R.I.U.S.)
+[![GitHub issues](https://img.shields.io/github/issues/Devjosef/S.I.R.I.U.S.)](https://github.com/Devjosef/S.I.R.I.U.S./issues)
 
 </div>
