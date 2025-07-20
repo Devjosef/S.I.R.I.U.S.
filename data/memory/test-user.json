@@ -27,7 +27,68 @@
     }
   },
   "patterns": {
-    "timeBlocks": {},
+    "timeBlocks": {
+      "optimalHour": 13,
+      "optimalDay": 0,
+      "optimalTimeBlock": "lunch-break",
+      "optimalWeekday": "Sunday",
+      "hourDistribution": {
+        "10": 1,
+        "13": 2
+      },
+      "dayDistribution": {
+        "0": 3
+      },
+      "timeBlockDistribution": {
+        "unknown": 1,
+        "lunch-break": 2
+      },
+      "weekdayDistribution": {
+        "Sunday": 3
+      },
+      "circadianRhythm": {
+        "type": "morning_person",
+        "confidence": 0.722,
+        "periods": {
+          "morning": {
+            "count": 1,
+            "successRate": 100,
+            "avgPerformance": 80,
+            "frequency": 1
+          },
+          "afternoon": {
+            "count": 2,
+            "successRate": 0,
+            "avgPerformance": 60,
+            "frequency": 2
+          }
+        },
+        "peakHours": [
+          10,
+          13
+        ],
+        "recommendations": [
+          {
+            "type": "schedule_optimization",
+            "title": "Morning Person Detected",
+            "description": "You perform best in the morning. Schedule important tasks between 6-11 AM.",
+            "priority": "high"
+          },
+          {
+            "type": "energy_management",
+            "title": "Morning Energy Strategy",
+            "description": "Use your peak morning energy for complex tasks and creative work.",
+            "priority": "medium"
+          },
+          {
+            "type": "peak_hours",
+            "title": "Peak Performance Hours",
+            "description": "Your peak performance hours are: 10:00, 13:00",
+            "priority": "high"
+          }
+        ]
+      }
+    },
     "interactions": [
       {
         "type": "jira_operation",
@@ -42,13 +103,113 @@
           ]
         },
         "timestamp": "2025-07-20T08:49:34.084Z"
+      },
+      {
+        "timeBlock": "lunch-break",
+        "urgency": "critical",
+        "focus": "meeting-prep",
+        "energy": "medium",
+        "actions": [
+          {
+            "id": "meeting-prep",
+            "label": "Prepare for upcoming meeting",
+            "type": "calendar",
+            "priority": "high"
+          },
+          {
+            "id": "urgent-tasks",
+            "label": "Handle urgent tasks",
+            "type": "todo",
+            "priority": "high"
+          }
+        ],
+        "timestamp": "2025-07-20T11:19:10.101Z"
+      },
+      {
+        "timeBlock": "lunch-break",
+        "urgency": "critical",
+        "focus": "meeting-prep",
+        "energy": "medium",
+        "actions": [
+          {
+            "id": "meeting-prep",
+            "label": "Prepare for upcoming meeting",
+            "type": "calendar",
+            "priority": "high"
+          },
+          {
+            "id": "urgent-tasks",
+            "label": "Handle urgent tasks",
+            "type": "todo",
+            "priority": "high"
+          }
+        ],
+        "timestamp": "2025-07-20T11:23:46.469Z"
       }
     ],
     "productivity": {
       "bestWorkHours": [],
       "commonDistractions": [],
       "focusDuration": 25
-    }
+    },
+    "behavioralPreferences": {
+      "preferredFocus": {
+        "value": "meeting-prep",
+        "confidence": 1,
+        "distribution": {
+          "meeting-prep": 2
+        }
+      },
+      "preferredEnergy": {
+        "value": "medium",
+        "confidence": 1,
+        "distribution": {
+          "medium": 2
+        }
+      },
+      "preferredUrgency": {
+        "value": "critical",
+        "confidence": 1,
+        "distribution": {
+          "critical": 2
+        }
+      },
+      "preferredActionType": {
+        "value": "todo",
+        "confidence": 0.5,
+        "distribution": {
+          "calendar": 2,
+          "todo": 2
+        }
+      }
+    },
+    "successPatterns": {
+      "get_projects": {
+        "successRate": 100,
+        "totalAttempts": 1,
+        "successCount": 1,
+        "optimalContexts": {
+          "timeBlocks": {},
+          "focusModes": {},
+          "energyLevels": {},
+          "urgencyLevels": {}
+        },
+        "failureContexts": {}
+      }
+    },
+    "optimalContexts": [
+      {
+        "context": {
+          "timeBlock": "lunch-break",
+          "focus": "meeting-prep",
+          "energy": "medium",
+          "urgency": "critical"
+        },
+        "successRate": 0,
+        "avgPerformance": 60,
+        "frequency": 2
+      }
+    ]
   },
   "learnedBehaviors": {
     "meetingPreferences": {},
@@ -56,5 +217,5 @@
     "taskPrioritization": {},
     "communicationStyle": {}
   },
-  "timestamp": "2025-07-20T08:49:34.084Z"
+  "timestamp": "2025-07-20T11:23:46.470Z"
 }

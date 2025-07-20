@@ -4,6 +4,12 @@
   "version": "1.0.0",
   "description": "S.I.R.I.U.S. productivity assistant browser extension",
   
+  "icons": {
+    "16": "icons/sirius-logo-static.svg",
+    "48": "icons/sirius-logo-static.svg",
+    "128": "icons/sirius-logo-static.svg"
+  },
+  
   "permissions": [
     "storage",
     "tabs",

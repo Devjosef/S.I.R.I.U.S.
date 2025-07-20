@@ -33,6 +33,74 @@
         "avgUrgency": 0,
         "commonFocus": {},
         "commonActions": {}
+      },
+      "optimalHour": 9,
+      "optimalDay": 0,
+      "optimalTimeBlock": "unknown",
+      "optimalWeekday": "Sunday",
+      "hourDistribution": {
+        "8": 1,
+        "9": 7,
+        "10": 5,
+        "13": 2
+      },
+      "dayDistribution": {
+        "0": 7,
+        "5": 6,
+        "6": 2
+      },
+      "timeBlockDistribution": {
+        "unknown": 8,
+        "morning-focus": 5,
+        "lunch-break": 2
+      },
+      "weekdayDistribution": {
+        "Friday": 6,
+        "Saturday": 2,
+        "Sunday": 7
+      },
+      "circadianRhythm": {
+        "type": "morning_person",
+        "confidence": 0.5813846153846154,
+        "periods": {
+          "morning": {
+            "count": 13,
+            "successRate": 61.53846153846154,
+            "avgPerformance": 77.3076923076923,
+            "frequency": 13
+          },
+          "afternoon": {
+            "count": 2,
+            "successRate": 0,
+            "avgPerformance": 60,
+            "frequency": 2
+          }
+        },
+        "peakHours": [
+          9,
+          10,
+          8
+        ],
+        "recommendations": [
+          {
+            "type": "schedule_optimization",
+            "title": "Morning Person Detected",
+            "description": "You perform best in the morning. Schedule important tasks between 6-11 AM.",
+            "priority": "high"
+          },
+          {
+            "type": "energy_management",
+            "title": "Morning Energy Strategy",
+            "description": "Use your peak morning energy for complex tasks and creative work.",
+            "priority": "medium"
+          },
+          {
+            "type": "peak_hours",
+            "title": "Peak Performance Hours",
+            "description": "Your peak performance hours are: 9:00, 10:00, 8:00",
+            "priority": "high"
+          }
+        ]
       }
     },
     "interactions": [
@@ -227,12 +295,193 @@
           ]
         },
         "timestamp": "2025-07-20T08:11:39.328Z"
+      },
+      {
+        "timeBlock": "lunch-break",
+        "urgency": "critical",
+        "focus": "meeting-prep",
+        "energy": "medium",
+        "actions": [
+          {
+            "id": "meeting-prep",
+            "label": "Prepare for upcoming meeting",
+            "type": "calendar",
+            "priority": "high"
+          },
+          {
+            "id": "urgent-tasks",
+            "label": "Handle urgent tasks",
+            "type": "todo",
+            "priority": "high"
+          }
+        ],
+        "timestamp": "2025-07-20T11:16:25.758Z"
+      },
+      {
+        "timeBlock": "lunch-break",
+        "urgency": "critical",
+        "focus": "meeting-prep",
+        "energy": "medium",
+        "actions": [
+          {
+            "id": "meeting-prep",
+            "label": "Prepare for upcoming meeting",
+            "type": "calendar",
+            "priority": "high"
+          },
+          {
+            "id": "urgent-tasks",
+            "label": "Handle urgent tasks",
+            "type": "todo",
+            "priority": "high"
+          }
+        ],
+        "timestamp": "2025-07-20T11:17:44.837Z"
       }
     ],
     "productivity": {
       "bestWorkHours": [],
       "commonDistractions": [],
       "focusDuration": 25
+    },
+    "behavioralPreferences": {
+      "preferredFocus": {
+        "value": "deep-work",
+        "confidence": 0.7142857142857143,
+        "distribution": {
+          "deep-work": 5,
+          "meeting-prep": 2
+        }
+      },
+      "preferredEnergy": {
+        "value": "high",
+        "confidence": 0.7142857142857143,
+        "distribution": {
+          "high": 5,
+          "medium": 2
+        }
+      },
+      "preferredUrgency": {
+        "value": "critical",
+        "confidence": 0.7142857142857143,
+        "distribution": {
+          "medium": 2,
+          "critical": 5
+        }
+      },
+      "preferredActionType": {
+        "value": "todo",
+        "confidence": 0.4166666666666667,
+        "distribution": {
+          "productivity": 5,
+          "todo": 5,
+          "calendar": 2
+        }
+      }
+    },
+    "successPatterns": {
+      "productivity": {
+        "successRate": 100,
+        "totalAttempts": 6,
+        "successCount": 6,
+        "optimalContexts": {
+          "timeBlocks": {},
+          "focusModes": {},
+          "energyLevels": {},
+          "urgencyLevels": {}
+        },
+        "failureContexts": {}
+      },
+      "get_assigned_issues": {
+        "successRate": 100,
+        "totalAttempts": 1,
+        "successCount": 1,
+        "optimalContexts": {
+          "timeBlocks": {},
+          "focusModes": {},
+          "energyLevels": {},
+          "urgencyLevels": {}
+        },
+        "failureContexts": {}
+      },
+      "get_projects": {
+        "successRate": 100,
+        "totalAttempts": 1,
+        "successCount": 1,
+        "optimalContexts": {
+          "timeBlocks": {},
+          "focusModes": {},
+          "energyLevels": {},
+          "urgencyLevels": {}
+        },
+        "failureContexts": {}
+      }
+    },
+    "optimalContexts": [
+      {
+        "context": {},
+        "successRate": 100,
+        "avgPerformance": 80,
+        "frequency": 8
+      },
+      {
+        "context": {
+          "timeBlock": "morning-focus",
+          "focus": "deep-work",
+          "energy": "high",
+          "urgency": "critical"
+        },
+        "successRate": 0,
+        "avgPerformance": 75,
+        "frequency": 3
+      },
+      {
+        "context": {
+          "timeBlock": "morning-focus",
+          "focus": "deep-work",
+          "energy": "high",
+          "urgency": "medium"
+        },
+        "successRate": 0,
+        "avgPerformance": 70,
+        "frequency": 2
+      },
+      {
+        "context": {
+          "timeBlock": "lunch-break",
+          "focus": "meeting-prep",
+          "energy": "medium",
+          "urgency": "critical"
+        },
+        "successRate": 0,
+        "avgPerformance": 60,
+        "frequency": 2
+      }
+    ],
+    "predictivePatterns": {
+      "transitionMatrix": {
+        "{\"actionType\":\"autonomous_action\"}": {
+          "{\"actionType\":\"autonomous_action\"}": 0.8333333333333334,
+          "{\"timeBlock\":\"morning-focus\",\"focus\":\"deep-work\",\"energy\":\"high\",\"urgency\":\"medium\"}": 0.16666666666666666
+        },
+        "{\"timeBlock\":\"morning-focus\",\"focus\":\"deep-work\",\"energy\":\"high\",\"urgency\":\"medium\"}": {
+          "{\"timeBlock\":\"morning-focus\",\"focus\":\"deep-work\",\"energy\":\"high\",\"urgency\":\"medium\"}": 0.5,
+          "{\"timeBlock\":\"morning-focus\",\"focus\":\"deep-work\",\"energy\":\"high\",\"urgency\":\"critical\"}": 0.5
+        },
+        "{\"timeBlock\":\"morning-focus\",\"focus\":\"deep-work\",\"energy\":\"high\",\"urgency\":\"critical\"}": {
+          "{\"timeBlock\":\"morning-focus\",\"focus\":\"deep-work\",\"energy\":\"high\",\"urgency\":\"critical\"}": 0.6666666666666666,
+          "{\"actionType\":\"jira_operation\"}": 0.3333333333333333
+        },
+        "{\"actionType\":\"jira_operation\"}": {
+          "{\"actionType\":\"jira_operation\"}": 0.5,
+          "{\"timeBlock\":\"lunch-break\",\"focus\":\"meeting-prep\",\"energy\":\"medium\",\"urgency\":\"critical\"}": 0.5
+        },
+        "{\"timeBlock\":\"lunch-break\",\"focus\":\"meeting-prep\",\"energy\":\"medium\",\"urgency\":\"critical\"}": {
+          "{\"timeBlock\":\"lunch-break\",\"focus\":\"meeting-prep\",\"energy\":\"medium\",\"urgency\":\"critical\"}": 1
+        }
+      },
+      "sequenceCount": 14,
+      "lastUpdated": "2025-07-20T11:17:44.837Z"
     }
   },
   "learnedBehaviors": {
@@ -253,5 +502,5 @@
       }
     }
   },
-  "timestamp": "2025-07-20T08:11:39.329Z"
+  "timestamp": "2025-07-20T11:17:44.837Z"
 }

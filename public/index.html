@@ -5,6 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="description" content="S.I.R.I.U.S. - Living AI Assistant with Neural Network Interface">
   <link rel="manifest" href="/manifest.json">
+  <link rel="icon" type="image/svg+xml" href="/icons/sirius-logo-static.svg">
   <meta name="theme-color" content="#00c6ff">
   <title>S.I.R.I.U.S. - Living AI Assistant</title>
   
@@ -98,8 +99,8 @@
       align-items: center;
     }
 
-    /* Central Neural Core */
-    .neural-core {
+    /* S.I.R.I.U.S. Logo Container */
+    .logo-container {
       position: relative;
       width: 304px;
       height: 304px;
@@ -107,61 +108,24 @@
       display: flex;
       justify-content: center;
       align-items: center;
+      animation: logoFloat 3s ease-in-out infinite;
     }
 
-    .core-circle {
+    .sirius-logo {
       width: 200px;
       height: 200px;
-      border: 3px solid var(--neural-glow);
-      border-radius: 50%;
-      position: relative;
-      animation: heartbeat 2s ease-in-out infinite;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      background: radial-gradient(circle, rgba(0, 198, 255, 0.1) 0%, transparent 70%);
+      filter: drop-shadow(0 0 20px var(--neural-glow));
+      animation: logoGlow 2s ease-in-out infinite;
     }
 
-    .core-inner {
-      width: 152px;
-      height: 152px;
-      border: 2px solid var(--neural-glow);
-      border-radius: 50%;
-      animation: heartbeat 2s ease-in-out infinite reverse;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      background: radial-gradient(circle, rgba(0, 198, 255, 0.2) 0%, transparent 70%);
+    @keyframes logoFloat {
+      0%, 100% { transform: translateY(0px); }
+      50% { transform: translateY(-10px); }
     }
 
-    .core-center {
-      width: 104px;
-      height: 104px;
-      background: var(--neural-glow);
-      border-radius: 50%;
-      animation: heartbeat 2s ease-in-out infinite;
-      box-shadow: 0 0 40px var(--neural-glow);
-      position: relative;
-    }
-
-    .core-center::before {
-      content: '';
-      position: absolute;
-      width: 80px;
-      height: 80px;
-      border: 2px solid rgba(255, 255, 255, 0.3);
-      border-radius: 50%;
-      animation: heartbeat 2s ease-in-out infinite reverse;
-    }
-
-    .core-center::after {
-      content: '';
-      position: absolute;
-      width: 64px;
-      height: 64px;
-      border: 1px solid rgba(255, 255, 255, 0.5);
-      border-radius: 50%;
-      animation: heartbeat 2s ease-in-out infinite;
+    @keyframes logoGlow {
+      0%, 100% { filter: drop-shadow(0 0 20px var(--neural-glow)); }
+      50% { filter: drop-shadow(0 0 40px var(--neural-glow)) brightness(1.2); }
     }
 
     @keyframes heartbeat {
@@ -364,6 +328,14 @@
       width: 100%;
     }
 
+    .autonomous-actions {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 12px;
+      margin: 16px 0;
+      width: 100%;
+    }
+
     .neural-button {
       background: linear-gradient(45deg, var(--primary), var(--primary-dark));
       border: 2px solid var(--neural-glow);
@@ -504,13 +476,9 @@
 
   <!-- Main Interface -->
   <div class="heartbeat-container" x-data="siriusInterface()" x-init="init()">
-    <!-- Neural Core -->
-    <div class="neural-core">
-      <div class="core-circle">
-        <div class="core-inner">
-          <div class="core-center"></div>
-        </div>
-      </div>
+    <!-- S.I.R.I.U.S. Logo -->
+    <div class="logo-container">
+      <img src="/icons/sirius-logo-animated.svg" alt="S.I.R.I.U.S. Logo" class="sirius-logo">
     </div>
 
     <!-- Title -->
@@ -600,16 +568,40 @@
       </div>
       <div id="context-result"></div>
       
-      <button class="neural-button" 
-              hx-post="/api/autonomous/trigger" 
-              hx-target="#autonomous-result"
-              hx-swap="innerHTML"
-              hx-indicator="#autonomous-loading"
-              @click="triggerAutonomousAction()" 
-              :disabled="processing">
-        <span x-show="!processing">🤖 Autonomous Action</span>
-        <span x-show="processing">Executing<span class="loading-dots"></span></span>
-      </button>
+      <div class="autonomous-actions">
+        <button class="neural-button" 
+                hx-post="/api/autonomous/trigger" 
+                hx-target="#autonomous-result"
+                hx-swap="innerHTML"
+                hx-indicator="#autonomous-loading"
+                @click="triggerAutonomousAction('focus_mode')" 
+                :disabled="processing">
+          <span x-show="!processing">🎯 Focus Mode</span>
+          <span x-show="processing">Activating<span class="loading-dots"></span></span>
+        </button>
+        
+        <button class="neural-button" 
+                hx-post="/api/autonomous/trigger" 
+                hx-target="#autonomous-result"
+                hx-swap="innerHTML"
+                hx-indicator="#autonomous-loading"
+                @click="triggerAutonomousAction('break_reminder')" 
+                :disabled="processing">
+          <span x-show="!processing">☕ Take Break</span>
+          <span x-show="processing">Preparing<span class="loading-dots"></span></span>
+        </button>
+        
+        <button class="neural-button" 
+                hx-post="/api/autonomous/trigger" 
+                hx-target="#autonomous-result"
+                hx-swap="innerHTML"
+                hx-indicator="#autonomous-loading"
+                @click="triggerAutonomousAction('meeting_prep')" 
+                :disabled="processing">
+          <span x-show="!processing">📅 Meeting Prep</span>
+          <span x-show="processing">Preparing<span class="loading-dots"></span></span>
+        </button>
+      </div>
       <div id="autonomous-loading" class="htmx-indicator" style="display: none;">
         <div class="loading-dots">Executing action...</div>
       </div>
@@ -714,9 +706,30 @@
         },
 
         startHeartbeat() {
-          setInterval(() => {
-            this.addDataStream('[HEARTBEAT] Neural core pulse detected');
-          }, 5000);
+          // Check AI engine status every 30 seconds (less frequent to avoid rate limiting)
+          setTimeout(() => {
+            setInterval(async () => {
+              try {
+                const response = await fetch('/api/status');
+                if (response.ok) {
+                  const status = await response.json();
+                  if (status.data && status.data.ollama) {
+                    this.addDataStream('[AI ENGINE] Ollama AI engine running');
+                    this.status.neuralCore = 'Online';
+                  } else {
+                    this.addDataStream('[AI ENGINE] Ollama AI engine offline');
+                    this.status.neuralCore = 'Offline';
+                  }
+                } else {
+                  this.addDataStream('[AI ENGINE] Status check failed');
+                  this.status.neuralCore = 'Unknown';
+                }
+              } catch (error) {
+                this.addDataStream('[AI ENGINE] Connection error');
+                this.status.neuralCore = 'Error';
+              }
+            }, 30000); // Check every 30 seconds instead of 5
+          }, 5000); // Start checking after 5 seconds
         },
 
         generateBinaryStream() {
@@ -839,15 +852,19 @@
           this.processing = false;
         },
 
-        async triggerAutonomousAction() {
+        async triggerAutonomousAction(actionType = 'focus_mode') {
           this.processing = true;
-          this.addDataStream('[AUTONOMOUS] Triggering autonomous action...');
+          this.addDataStream(`[AUTONOMOUS] Triggering ${actionType} action...`);
           
           try {
             const response = await fetch('/api/autonomous/trigger', {
               method: 'POST',
               headers: { 'Content-Type': 'application/json' },
-              body: JSON.stringify({ userId: 'default-user' })
+              body: JSON.stringify({ 
+                userId: 'default-user',
+                actionType: actionType,
+                context: 'general'
+              })
             });
             
             if (response.ok) {

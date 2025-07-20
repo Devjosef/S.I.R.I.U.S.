@@ -63,7 +63,7 @@ const config = {
   // Security settings
   RATE_LIMIT: {
     WINDOW_MS: parseInt(process.env.RATE_LIMIT_WINDOW_MS || '900000', 10),
-    MAX: parseInt(process.env.RATE_LIMIT_MAX || '100', 10)
+    MAX: parseInt(process.env.RATE_LIMIT_MAX || (ENV.DEV ? '1000' : '100'), 10) // More lenient in development
   },
   
   // External APIs

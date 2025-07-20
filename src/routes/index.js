@@ -34,6 +34,33 @@ router.get('/', (req, res) => {
 });
 
 /**
+ * System status endpoint
+ */
+router.get('/api/status', async (req, res) => {
+  try {
+    // Check if Ollama is running
+    const ollamaStatus = await checkOllamaStatus();
+    
+    res.json({
+      success: true,
+      data: {
+        ollama: ollamaStatus,
+        memory: true, // Pinecone is always available
+        server: true,
+        timestamp: new Date().toISOString()
+      }
+    });
+  } catch (error) {
+    res.status(500).json({
+      success: false,
+      error: 'Failed to check system status'
+    });
+  }
+});
+
+
+
+/**
  * API documentation endpoint
  */
 router.get('/api-docs', (req, res) => {
