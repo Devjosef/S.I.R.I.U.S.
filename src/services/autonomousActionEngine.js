@@ -390,8 +390,8 @@ export class AutonomousActionEngine {
   }
 
   /**
-   * Learn from action results to improve future actions
-   * @param {Object} result - Action result
+   * Learn from action execution results
+   * @param {ActionResult} result - Action result
    * @param {Object} context - Context when action was executed
    * @param {string} userId - User ID
    */
@@ -401,7 +401,7 @@ export class AutonomousActionEngine {
       if (!result.success) return;
       
       // Store the action result in memory for learning
-      await memoryService.storeMemory(userId, 'action_history', {
+      await memoryService.rememberBehavior(userId, 'action_history', result.actionId, {
         actionId: result.actionId,
         actionType: result.actionType,
         title: result.title,
@@ -464,7 +464,7 @@ export class AutonomousActionEngine {
   async optimizeTriggerConditions(userId, actionType, context, wasSuccessful) {
     try {
       // Store optimization data in memory
-      await memoryService.storeMemory(userId, 'trigger_optimization', {
+      await memoryService.rememberBehavior(userId, 'trigger_optimization', `${actionType}_${Date.now()}`, {
         actionType,
         context: {
           urgency: context.urgency,
