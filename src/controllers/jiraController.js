@@ -1,11 +1,16 @@
 /**
- * JIRA Controller
+ * Jira Controller - API Endpoints for Jira Integration
  * 
- * Handles JIRA integration business logic for S.I.R.I.U.S.
- * Manages issues, projects, sprints, and workflows
+ * Handles HTTP requests for Jira operations including issues,
+ * projects, and workflow management.
+ * 
+ * Lines: 180
  */
 
+// Jira service integration
 import * as jiraService from '../services/jiraService.js';
+
+// Internal utilities
 import logger from '../utils/logger.js';
 
 /**

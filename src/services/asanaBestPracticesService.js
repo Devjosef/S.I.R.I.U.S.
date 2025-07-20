@@ -1,11 +1,16 @@
 /**
- * Asana Best Practices Service
+ * Asana Best Practices Service - Workflow Optimization
  * 
- * Implements Asana's recommended workflows and best practices
- * Integrates with S.I.R.I.U.S. autonomous action engine
+ * Implements Asana best practices and workflow optimization
+ * patterns for improved project management.
+ * 
+ * Lines: 180
  */
 
+// Asana service integration
 import * as asanaService from './asanaService.js';
+
+// Internal utilities
 import logger from '../utils/logger.js';
 
 /**

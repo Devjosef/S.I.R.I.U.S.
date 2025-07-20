@@ -1,10 +1,14 @@
 /**
- * JIRA Service
+ * Jira Service - Issue Tracking Integration
  * 
- * Real JIRA integration for S.I.R.I.U.S.
- * Manages issues, projects, sprints, and workflows
+ * Manages Jira API integration for issue tracking, project
+ * management, and workflow automation.
+ * 
+ * Lines: 650
+ * Documentation: docs/INTEGRATIONS.md
  */
 
+// Internal configuration
 import config from '../config/index.js';
 
 const JIRA_API_BASE = process.env.JIRA_BASE_URL || 'https://your-domain.atlassian.net';

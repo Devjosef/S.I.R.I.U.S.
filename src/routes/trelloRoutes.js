@@ -1,87 +1,100 @@
 /**
- * Trello Routes
+ * Trello Routes - Trello Integration Endpoints
  * 
- * Trello integration endpoints for S.I.R.I.U.S.
- * Manages boards, lists, cards, and Kanban workflows
+ * Handles API endpoints for Trello board management, card
+ * operations, and project tracking.
+ * 
+ * Lines: 180
  */
 
+// Express routing and validation
 import { Router } from 'express';
+import { body, param, query } from 'express-validator';
+
+// Trello controller
 import * as trelloController from '../controllers/trelloController.js';
+
+// Validation middleware
 import validate from '../middleware/validator.js';
 
 const router = Router();
 
 /**
  * Get user's boards
- * GET /api/trello/boards
+ * GET /api/trello/boards?userId=string
  */
-router.get('/boards',
-  trelloController.getBoards
-);
+router.get('/boards', [
+  query('userId').notEmpty().withMessage('userId is required'),
+  validate
+], trelloController.getBoards);
 
 /**
- * Get lists from a board
+ * Get board lists
  * GET /api/trello/boards/:boardId/lists
  */
-router.get('/boards/:boardId/lists',
-  trelloController.getLists
-);
+router.get('/boards/:boardId/lists', [
+  param('boardId').notEmpty().withMessage('boardId is required'),
+  validate
+], trelloController.getLists);
 
 /**
- * Get cards from a list
+ * Get list cards
  * GET /api/trello/lists/:listId/cards
  */
-router.get('/lists/:listId/cards',
-  trelloController.getCards
-);
+router.get('/lists/:listId/cards', [
+  param('listId').notEmpty().withMessage('listId is required'),
+  validate
+], trelloController.getCards);
 
 /**
- * Get all todos (cards) from user's boards
- * GET /api/trello/todos
+ * Get all todos
+ * GET /api/trello/todos?userId=string
  */
-router.get('/todos',
-  trelloController.getAllTodos
-);
+router.get('/todos', [
+  query('userId').notEmpty().withMessage('userId is required'),
+  validate
+], trelloController.getAllTodos);
 
 /**
- * Get urgent todos (due today or overdue)
- * GET /api/trello/todos/urgent
+ * Get urgent todos
+ * GET /api/trello/todos/urgent?userId=string
  */
-router.get('/todos/urgent',
-  trelloController.getUrgentTodos
-);
+router.get('/todos/urgent', [
+  query('userId').notEmpty().withMessage('userId is required'),
+  validate
+], trelloController.getUrgentTodos);
 
 /**
- * Create a new todo (card)
+ * Create a new todo
  * POST /api/trello/todos
  */
-router.post('/todos',
-  trelloController.createTodo
-);
+router.post('/todos', [
+  body('userId').notEmpty().withMessage('userId is required'),
+  body('todoData').isObject().withMessage('todoData must be an object'),
+  body('todoData.name').notEmpty().withMessage('todo name is required'),
+  validate
+], trelloController.createTodo);
 
 /**
- * Update a todo (card)
+ * Update a todo
  * PUT /api/trello/todos/:todoId
  */
-router.put('/todos/:todoId',
-  trelloController.updateTodo
-);
+router.put('/todos/:todoId', [
+  param('todoId').notEmpty().withMessage('todoId is required'),
+  body('userId').notEmpty().withMessage('userId is required'),
+  body('todoData').isObject().withMessage('todoData must be an object'),
+  validate
+], trelloController.updateTodo);
 
 /**
- * Complete a todo (card)
+ * Complete a todo
  * POST /api/trello/todos/:todoId/complete
  */
-router.post('/todos/:todoId/complete',
-  trelloController.completeTodo
-);
-
-/**
- * Delete a todo (card)
- * DELETE /api/trello/todos/:todoId
- */
-router.delete('/todos/:todoId',
-  trelloController.deleteTodo
-);
+router.post('/todos/:todoId/complete', [
+  param('todoId').notEmpty().withMessage('todoId is required'),
+  body('userId').notEmpty().withMessage('userId is required'),
+  validate
+], trelloController.completeTodo);
 
 /**
  * Create a new board

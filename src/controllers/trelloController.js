@@ -1,11 +1,16 @@
 /**
- * Trello Controller
+ * Trello Controller - API Endpoints for Trello Integration
  * 
- * Handles Trello integration business logic for S.I.R.I.U.S.
- * Manages boards, lists, cards, and Kanban workflows
+ * Handles HTTP requests for Trello operations including boards,
+ * cards, and project management.
+ * 
+ * Lines: 150
  */
 
+// Trello service integration
 import * as trelloService from '../services/trelloService.js';
+
+// Internal utilities
 import logger from '../utils/logger.js';
 
 /**

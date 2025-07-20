@@ -1,8 +1,10 @@
 /**
- * Google Workspace Service
+ * Google Workspace Service - Document and Drive Integration
  * 
- * Real Google Workspace integration for S.I.R.I.U.S.
- * Manages Google Docs, Sheets, Drive, and other Google services
+ * Handles Google Docs, Sheets, and Drive integration for
+ * document management and collaboration.
+ * 
+ * Lines: 600
  */
 
 import { google } from 'googleapis';

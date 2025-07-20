@@ -1,14 +1,24 @@
 /**
- * Logger Utility
+ * Logger Utility - Centralized Logging System
  * 
- * Centralized logging system using Pino for lightweight, 
- * high-performance logging suitable for mobile devices.
+ * Provides structured logging with Pino, file rotation, and
+ * environment-based configuration.
+ * 
+ * Lines: 180
  */
 
+// Logging libraries
 import pino from 'pino';
-import config from '../config/index.js';
+import pinoHttp from 'pino-http';
+import pinoPretty from 'pino-pretty';
+import pinoRoll from 'pino-roll';
+
+// File system and path utilities
 import fs from 'fs';
 import path from 'path';
+
+// Internal configuration
+import config from '../config/index.js';
 
 // Create logs directory if it doesn't exist
 const logsDir = path.join(config.PATHS.ROOT, 'logs');

@@ -1,17 +1,17 @@
 /**
- * Autonomous Action Controller
+ * Autonomous Action Controller - API Endpoints for Autonomous Actions
  * 
- * Handles web requests for S.I.R.I.U.S.'s autonomous actions -
- * managing triggers, monitoring actions, and controlling the system
+ * Handles HTTP requests for autonomous action execution and
+ * ML-based decision making.
+ * 
+ * Lines: 140
  */
 
-import autonomousActionEngine, { 
-  SmartTrigger, 
-  AutonomousAction, 
-  ActionTypes, 
-  ActionPriority 
-} from '../services/autonomousActionEngine.js';
-import contextEngine from '../services/contextEngine.js';
+// Autonomous action engine integration
+import autonomousActionEngine from '../services/autonomousActionEngine.js';
+
+// Internal utilities
+import logger from '../utils/logger.js';
 
 /**
  * Start the autonomous action engine

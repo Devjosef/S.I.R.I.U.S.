@@ -1,74 +1,51 @@
 /**
- * Context Routes
+ * Context Routes - Context Analysis Endpoints
  * 
- * Web endpoints for S.I.R.I.U.S.'s brain - analyze your situation,
- * manage your memory, and get smart insights
+ * Handles API endpoints for context analysis, pattern learning,
+ * and user behavior insights.
+ * 
+ * Lines: 73
  */
 
+// Express routing and validation
 import { Router } from 'express';
+import { body, query } from 'express-validator';
+
+// Context controller
 import contextController from '../controllers/contextController.js';
+
+// Validation middleware
 import validate from '../middleware/validator.js';
 
 const router = Router();
 
 /**
- * Analyze your current situation and get smart insights
+ * Analyze current context
  * POST /api/context/analyze
- * Body: { userId: string }
  */
-router.post('/analyze',
-  contextController.analyzeContext
-);
+router.post('/analyze', [
+  body('userId').notEmpty().withMessage('userId is required'),
+  body('context').optional().isObject().withMessage('context must be an object'),
+  validate
+], contextController.analyzeContext);
 
 /**
- * Get your learned preferences and patterns
- * GET /api/context/preferences?userId=string
+ * Get context summary
+ * GET /api/context/summary?userId=string
  */
-router.get('/preferences',
-  contextController.getPreferences
-);
+router.get('/summary', [
+  query('userId').notEmpty().withMessage('userId is required'),
+  validate
+], contextController.getContextSummary);
 
 /**
- * Update your preferences
- * POST /api/context/preferences
- * Body: { userId: string, preferences: object }
+ * Update context preferences
+ * PUT /api/context/preferences
  */
-router.post('/preferences',
-  contextController.updatePreferences
-);
-
-/**
- * Remember a specific behavior or preference
- * POST /api/context/remember
- * Body: { userId: string, category: string, key: string, value: any }
- */
-router.post('/remember',
-  contextController.rememberBehavior
-);
-
-/**
- * Get a remembered behavior
- * GET /api/context/behavior?userId=string&category=string&key=string
- */
-router.get('/behavior',
-  contextController.getBehavior
-);
-
-/**
- * Get your current situation summary
- * GET /api/context/situation?userId=string
- */
-router.get('/situation',
-  contextController.getCurrentSituation
-);
-
-/**
- * Clean up old memories
- * POST /api/context/cleanup
- * Body: { userId: string, daysOld?: number }
- */
-router.post('/cleanup',
-  contextController.cleanupMemories
-);
+router.put('/preferences', [
+  body('userId').notEmpty().withMessage('userId is required'),
+  body('preferences').isObject().withMessage('preferences must be an object'),
+  validate
+], contextController.updatePreferences);
 
 export default router; 

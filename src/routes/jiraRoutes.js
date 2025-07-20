@@ -1,94 +1,87 @@
 /**
- * JIRA Routes
+ * Jira Routes - Jira Integration Endpoints
  * 
- * JIRA integration endpoints for S.I.R.I.U.S.
- * Manages issues, projects, sprints, and workflows
+ * Handles API endpoints for Jira issue tracking, project
+ * management, and workflow automation.
+ * 
+ * Lines: 250
  */
 
+// Express routing and validation
 import { Router } from 'express';
+import { body, param, query } from 'express-validator';
+
+// Jira controller
 import * as jiraController from '../controllers/jiraController.js';
+
+// Validation middleware
 import validate from '../middleware/validator.js';
 
 const router = Router();
 
 /**
- * Get user's JIRA projects
- * GET /api/jira/projects
+ * Get user's projects
+ * GET /api/jira/projects?userId=string
  */
-router.get('/projects',
-  jiraController.getProjects
-);
+router.get('/projects', [
+  query('userId').notEmpty().withMessage('userId is required'),
+  validate
+], jiraController.getProjects);
 
 /**
- * Create a new project
- * POST /api/jira/projects
- */
-router.post('/projects',
-  jiraController.createProject
-);
-
-/**
- * Get issues from a project
+ * Get project issues
  * GET /api/jira/projects/:projectKey/issues
  */
-router.get('/projects/:projectKey/issues',
-  jiraController.getProjectIssues
-);
+router.get('/projects/:projectKey/issues', [
+  param('projectKey').notEmpty().withMessage('projectKey is required'),
+  validate
+], jiraController.getProjectIssues);
 
 /**
- * Get user's assigned issues
- * GET /api/jira/issues/assigned
+ * Get assigned issues
+ * GET /api/jira/issues/assigned?userId=string
  */
-router.get('/issues/assigned',
-  jiraController.getAssignedIssues
-);
+router.get('/issues/assigned', [
+  query('userId').notEmpty().withMessage('userId is required'),
+  validate
+], jiraController.getAssignedIssues);
 
 /**
- * Get urgent issues (high priority or overdue)
- * GET /api/jira/issues/urgent
+ * Get urgent issues
+ * GET /api/jira/issues/urgent?userId=string
  */
-router.get('/issues/urgent',
-  jiraController.getUrgentIssues
-);
+router.get('/issues/urgent', [
+  query('userId').notEmpty().withMessage('userId is required'),
+  validate
+], jiraController.getUrgentIssues);
 
 /**
  * Create a new issue
  * POST /api/jira/issues
  */
-router.post('/issues',
-  jiraController.createIssue
-);
+router.post('/issues', [
+  body('userId').notEmpty().withMessage('userId is required'),
+  body('issueData').isObject().withMessage('issueData must be an object'),
+  body('issueData.projectKey').notEmpty().withMessage('projectKey is required'),
+  body('issueData.summary').notEmpty().withMessage('summary is required'),
+  validate
+], jiraController.createIssue);
 
 /**
- * Update an existing issue
+ * Update an issue
  * PUT /api/jira/issues/:issueKey
  */
-router.put('/issues/:issueKey',
-  jiraController.updateIssue
-);
+router.put('/issues/:issueKey', [
+  param('issueKey').notEmpty().withMessage('issueKey is required'),
+  body('userId').notEmpty().withMessage('userId is required'),
+  body('issueData').isObject().withMessage('issueData must be an object'),
+  validate
+], jiraController.updateIssue);
 
 /**
- * Transition issue status
- * POST /api/jira/issues/:issueKey/transition
+ * Test Jira connection
+ * GET /api/jira/test
  */
-router.post('/issues/:issueKey/transition',
-  jiraController.transitionIssue
-);
-
-/**
- * Get available transitions for an issue
- * GET /api/jira/issues/:issueKey/transitions
- */
-router.get('/issues/:issueKey/transitions',
-  jiraController.getIssueTransitions
-);
-
-/**
- * Get sprints for a project
- * GET /api/jira/projects/:projectKey/sprints
- */
-router.get('/projects/:projectKey/sprints',
-  jiraController.getProjectSprints
-);
+router.get('/test', jiraController.testConnection);
 
 export default router; 

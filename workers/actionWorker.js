@@ -1,10 +1,14 @@
 /**
- * Action Worker
+ * Action Worker - Autonomous Action Processing
  * 
- * Worker thread for executing autonomous actions without blocking the main thread.
- * This is critical for mobile performance where CPU resources are limited.
+ * Handles autonomous action execution in worker threads to prevent
+ * blocking the main event loop during complex operations.
+ * 
+ * Lines: 110
+ * Documentation: docs/WORKERS_AND_BACKGROUND.md
  */
 
+// Node.js worker thread utilities
 import { parentPort } from 'worker_threads';
 
 /**

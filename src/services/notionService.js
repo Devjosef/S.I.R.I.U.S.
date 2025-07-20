@@ -1,10 +1,14 @@
 /**
- * Notion Service
+ * Notion Service - Full CRUD Integration
  * 
- * Real Notion integration for S.I.R.I.U.S.
- * Fetches actual pages and manages content
+ * Provides complete Notion API integration including content creation,
+ * page management, and AI-powered analysis.
+ * 
+ * Lines: 520
+ * Documentation: docs/INTEGRATIONS.md
  */
 
+// Internal configuration
 import config from '../config/index.js';
 
 const NOTION_API_BASE = 'https://api.notion.com/v1';

@@ -1,10 +1,13 @@
 /**
- * Context Controller
+ * Context Controller - API Endpoints for Context Analysis
  * 
- * Handles web requests for context analysis - understands your situation,
- * manages your memory, and provides smart insights
+ * Handles HTTP requests for context analysis, pattern learning,
+ * and user behavior insights.
+ * 
+ * Lines: 100
  */
 
+// Context engine integration
 import contextEngine from '../services/contextEngine.js';
 import memoryService from '../services/memoryService.js';
 

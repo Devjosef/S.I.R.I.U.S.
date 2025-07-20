@@ -1,13 +1,19 @@
 /**
- * Security Middleware
+ * Security Middleware - CORS, Rate Limiting, and Security Headers
  * 
- * Provides security-related middleware for the Express application,
- * including rate limiting, security headers, and CORS configuration.
+ * Provides comprehensive security middleware including CORS configuration,
+ * rate limiting, and security headers.
+ * 
+ * Lines: 90
+ * Documentation: docs/SECURITY_AND_PRIVACY.md
  */
 
+// Security and middleware libraries
 import rateLimit from 'express-rate-limit';
 import helmet from 'helmet';
 import cors from 'cors';
+
+// Internal configuration
 import config from '../config/index.js';
 
 /**

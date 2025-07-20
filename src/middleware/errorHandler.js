@@ -1,10 +1,13 @@
 /**
- * Error Handler Middleware
+ * Error Handler Middleware - Global Error Management
  * 
- * Provides custom error classes and a centralized error handler
- * for the application.
+ * Provides centralized error handling, validation error processing,
+ * and consistent error response formatting.
+ * 
+ * Lines: 120
  */
 
+// Internal configuration and utilities
 import config from '../config/index.js';
 import { createLogger } from '../utils/logger.js';
 

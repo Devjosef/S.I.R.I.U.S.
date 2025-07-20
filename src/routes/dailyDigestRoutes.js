@@ -1,12 +1,19 @@
 /**
- * Daily Digest Routes
+ * Daily Digest Routes - Digest Generation Endpoints
  * 
- * Web endpoints for your daily digest - create summaries, get your data,
- * and take actions on your behalf
+ * Handles API endpoints for daily digest creation and
+ * personalized summary generation.
+ * 
+ * Lines: 85
  */
 
+// Express routing
 import { Router } from 'express';
+
+// Daily digest controller
 import dailyDigestController from '../controllers/dailyDigestController.js';
+
+// Validation middleware
 import validate from '../middleware/validator.js';
 
 const router = Router();

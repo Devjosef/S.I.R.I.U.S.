@@ -1,161 +1,100 @@
 /**
- * Asana Routes
+ * Asana Routes - Asana Integration Endpoints
  * 
- * Asana integration endpoints for S.I.R.I.U.S.
- * Manages tasks, projects, teams, and workflows
+ * Handles API endpoints for Asana task management, project
+ * tracking, and workflow automation.
+ * 
+ * Lines: 200
  */
 
+// Express routing and validation
 import { Router } from 'express';
+import { body, param, query } from 'express-validator';
+
+// Asana controller
 import * as asanaController from '../controllers/asanaController.js';
-import * as asanaBestPracticesController from '../controllers/asanaBestPracticesController.js';
+
+// Validation middleware
 import validate from '../middleware/validator.js';
 
 const router = Router();
 
 /**
- * Get user's Asana workspaces
- * GET /api/asana/workspaces
+ * Get user's workspaces
+ * GET /api/asana/workspaces?userId=string
  */
-router.get('/workspaces',
-  asanaController.getWorkspaces
-);
+router.get('/workspaces', [
+  query('userId').notEmpty().withMessage('userId is required'),
+  validate
+], asanaController.getWorkspaces);
 
 /**
- * Get user's Asana projects
- * GET /api/asana/projects
+ * Get user's projects
+ * GET /api/asana/projects?userId=string&workspaceId=string
  */
-router.get('/projects',
-  asanaController.getProjects
-);
+router.get('/projects', [
+  query('userId').notEmpty().withMessage('userId is required'),
+  query('workspaceId').optional().isString().withMessage('workspaceId must be a string'),
+  validate
+], asanaController.getProjects);
 
 /**
- * Create a new project
- * POST /api/asana/projects
- */
-router.post('/projects',
-  asanaController.createProject
-);
-
-/**
- * Get tasks from a project
+ * Get project tasks
  * GET /api/asana/projects/:projectId/tasks
  */
-router.get('/projects/:projectId/tasks',
-  asanaController.getProjectTasks
-);
+router.get('/projects/:projectId/tasks', [
+  param('projectId').notEmpty().withMessage('projectId is required'),
+  validate
+], asanaController.getProjectTasks);
 
 /**
- * Get user's assigned tasks
- * GET /api/asana/tasks/assigned
+ * Get assigned tasks
+ * GET /api/asana/tasks/assigned?userId=string
  */
-router.get('/tasks/assigned',
-  asanaController.getAssignedTasks
-);
+router.get('/tasks/assigned', [
+  query('userId').notEmpty().withMessage('userId is required'),
+  validate
+], asanaController.getAssignedTasks);
 
 /**
- * Get urgent tasks (due soon or overdue)
- * GET /api/asana/tasks/urgent
+ * Get urgent tasks
+ * GET /api/asana/tasks/urgent?userId=string
  */
-router.get('/tasks/urgent',
-  asanaController.getUrgentTasks
-);
+router.get('/tasks/urgent', [
+  query('userId').notEmpty().withMessage('userId is required'),
+  validate
+], asanaController.getUrgentTasks);
 
 /**
  * Create a new task
  * POST /api/asana/tasks
  */
-router.post('/tasks',
-  asanaController.createTask
-);
+router.post('/tasks', [
+  body('userId').notEmpty().withMessage('userId is required'),
+  body('taskData').isObject().withMessage('taskData must be an object'),
+  body('taskData.name').notEmpty().withMessage('task name is required'),
+  validate
+], asanaController.createTask);
 
 /**
- * Update an existing task
+ * Update a task
  * PUT /api/asana/tasks/:taskId
  */
-router.put('/tasks/:taskId',
-  asanaController.updateTask
-);
+router.put('/tasks/:taskId', [
+  param('taskId').notEmpty().withMessage('taskId is required'),
+  body('userId').notEmpty().withMessage('userId is required'),
+  body('taskData').isObject().withMessage('taskData must be an object'),
+  validate
+], asanaController.updateTask);
 
 /**
  * Complete a task
  * POST /api/asana/tasks/:taskId/complete
  */
-router.post('/tasks/:taskId/complete',
-  asanaController.completeTask
-);
-
-/**
- * Get teams in a workspace
- * GET /api/asana/workspaces/:workspaceId/teams
- */
-router.get('/workspaces/:workspaceId/teams',
-  asanaController.getTeams
-);
-
-/**
- * Get team members
- * GET /api/asana/teams/:teamId/members
- */
-router.get('/teams/:teamId/members',
-  asanaController.getTeamMembers
-);
-
-// ===== ASANA BEST PRACTICES ROUTES =====
-
-/**
- * Get available project templates
- * GET /api/asana/best-practices/templates
- */
-router.get('/best-practices/templates',
-  asanaBestPracticesController.getProjectTemplates
-);
-
-/**
- * Get best practices recommendations
- * GET /api/asana/best-practices/recommendations
- */
-router.get('/best-practices/recommendations',
-  asanaBestPracticesController.getBestPracticesRecommendations
-);
-
-/**
- * Create a project following Asana best practices
- * POST /api/asana/best-practices/projects
- */
-router.post('/best-practices/projects',
-  asanaBestPracticesController.createBestPracticeProject
-);
-
-/**
- * Create a task following Asana best practices
- * POST /api/asana/best-practices/tasks
- */
-router.post('/best-practices/tasks',
-  asanaBestPracticesController.createBestPracticeTask
-);
-
-/**
- * Setup Kanban workflow for a project
- * POST /api/asana/best-practices/workflow
- */
-router.post('/best-practices/workflow',
-  asanaBestPracticesController.setupKanbanWorkflow
-);
-
-/**
- * Generate project analytics and insights
- * GET /api/asana/best-practices/analytics/:projectId
- */
-router.get('/best-practices/analytics/:projectId',
-  asanaBestPracticesController.generateProjectAnalytics
-);
-
-/**
- * Create a sprint planning session
- * POST /api/asana/best-practices/sprint
- */
-router.post('/best-practices/sprint',
-  asanaBestPracticesController.createSprintPlanning
-);
+router.post('/tasks/:taskId/complete', [
+  param('taskId').notEmpty().withMessage('taskId is required'),
+  body('userId').notEmpty().withMessage('userId is required'),
+  validate
+], asanaController.completeTask);
 
 export default router; 

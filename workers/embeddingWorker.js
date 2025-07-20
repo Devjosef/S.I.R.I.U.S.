@@ -1,10 +1,14 @@
 /**
- * Embedding Worker
+ * Embedding Worker - Vector Embedding Generation
  * 
- * Worker thread for generating embeddings without blocking the main thread.
- * This is critical for mobile performance where CPU resources are limited.
+ * Generates vector embeddings in worker threads to prevent blocking
+ * during AI model operations and vector processing.
+ * 
+ * Lines: 90
+ * Documentation: docs/WORKERS_AND_BACKGROUND.md
  */
 
+// Node.js worker thread utilities and HTTP client
 import { parentPort, workerData } from 'worker_threads';
 import fetch from 'node-fetch';
 

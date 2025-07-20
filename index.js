@@ -5,18 +5,28 @@
  * 
  * This file initializes the Express application, configures middleware,
  * and starts the server.
+ * 
+ * Lines: 132
+ * Documentation: docs/OVERVIEW.md
  */
 
+// External dependencies
 import express from 'express';
 import morgan from 'morgan';
 import { join } from 'path';
 import { createServer } from 'http';
+
+// Internal configuration and utilities
 import config from './src/config/index.js';
 import { errorHandler } from './src/middleware/errorHandler.js';
 import { configureSecurityMiddleware } from './src/middleware/security.js';
+import ensureIcons from './src/utils/setupIcons.js';
+
+// API routing
 import apiRoutes from './src/routes/index.js';
 import legacyRoutes from './src/routes/legacyRoutes.js';
-import ensureIcons from './src/utils/setupIcons.js';
+
+// Core services
 import autonomousActionEngine from './src/services/autonomousActionEngine.js';
 import websocketService from './src/services/websocketService.js';
 import logger from './src/utils/logger.js';

@@ -1,18 +1,21 @@
 /**
- * Matryoshka Quantization Utility
+ * Matryoshka Quantization - AI Model Optimization
  * 
- * Implements nested quantization techniques for Ollama models to optimize
- * for different device capabilities while maintaining model quality.
+ * Implements quantization techniques for AI model optimization
+ * and performance tuning.
  * 
- * Based on recent research that allows dynamic precision switching
- * without requiring multiple model versions.
+ * Lines: 200
+ * Documentation: docs/QUANTIZATION.md
  */
 
+// System utilities and file operations
 import { execSync } from 'child_process';
 import fs from 'fs/promises';
 import path from 'path';
 import os from 'os';
 import { fileURLToPath } from 'url';
+
+// Internal utilities
 import { createLogger } from './logger.js';
 import config from '../config/index.js';
 

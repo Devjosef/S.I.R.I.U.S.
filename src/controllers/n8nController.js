@@ -1,11 +1,16 @@
 /**
- * n8n Controller
+ * n8n Controller - API Endpoints for Workflow Automation
  * 
- * Handles n8n workflow operations for S.I.R.I.U.S.
- * Manages AI-driven workflow execution and creation
+ * Handles HTTP requests for n8n workflow operations and
+ * automation management.
+ * 
+ * Lines: 160
  */
 
+// n8n service integration
 import n8nService from '../services/n8nIntegrationService.js';
+
+// Internal utilities
 import logger from '../utils/logger.js';
 
 /**

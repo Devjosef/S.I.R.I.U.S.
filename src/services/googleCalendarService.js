@@ -1,11 +1,16 @@
 /**
- * Google Calendar Service
+ * Google Calendar Service - Calendar Management
  * 
- * Real Google Calendar integration for S.I.R.I.U.S.
- * Fetches actual calendar events and manages scheduling
+ * Manages Google Calendar integration for event scheduling,
+ * conflict resolution, and smart calendar operations.
+ * 
+ * Lines: 400
  */
 
+// Google APIs
 import { google } from 'googleapis';
+
+// Internal configuration
 import config from '../config/index.js';
 
 // Initialize Google Calendar API

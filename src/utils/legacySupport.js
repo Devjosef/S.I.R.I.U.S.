@@ -1,8 +1,13 @@
 /**
- * Legacy support utilities for maintaining backward compatibility
- * with older API endpoints while transitioning to the new structure.
+ * Legacy Support Utility - Backward Compatibility
+ * 
+ * Provides backward compatibility for deprecated features and
+ * migration support for older API versions.
+ * 
+ * Lines: 80
  */
 
+// Internal error handling
 import { ValidationError } from '../middleware/errorHandler.js';
 
 /**

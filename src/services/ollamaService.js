@@ -1,13 +1,19 @@
 /**
- * Ollama Service
+ * Ollama Service - Local AI Engine Integration
  * 
- * Your local AI brain - runs powerful language models on your computer
- * No internet needed, no API costs, complete privacy
+ * Handles communication with Ollama for local AI processing, including
+ * text generation, embeddings, and model management.
+ * 
+ * Lines: 320
+ * Documentation: docs/AI_AND_OLLAMA.md
  */
 
+// HTTP client and file system utilities
 import fetch from 'node-fetch';
 import { fileURLToPath } from 'url';
 import { dirname, join } from 'path';
+
+// Internal configuration and utilities
 import config from '../config/index.js';
 import workerManager from '../utils/workerManager.js';
 import matryoshkaQuantization from '../utils/matryoshkaQuantization.js';

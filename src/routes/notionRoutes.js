@@ -1,12 +1,21 @@
 /**
- * Notion Routes
+ * Notion Routes - Notion Integration Endpoints
  * 
- * Web endpoints for S.I.R.I.U.S.'s Notion integration -
- * fetching pages, databases, and content from Notion workspaces
+ * Handles API endpoints for Notion page management, content
+ * creation, and database operations.
+ * 
+ * Lines: 306
+ * Documentation: docs/INTEGRATIONS.md
  */
 
+// Express routing and validation
 import { Router } from 'express';
+import { body, param, query } from 'express-validator';
+
+// Notion service integration
 import * as notionService from '../services/notionService.js';
+
+// Validation middleware
 import validate from '../middleware/validator.js';
 
 const router = Router();
@@ -15,17 +24,12 @@ const router = Router();
  * Get user's Notion databases
  * GET /api/notion/databases?userId=string
  */
-router.get('/databases', async (req, res) => {
+router.get('/databases', [
+  query('userId').notEmpty().withMessage('userId is required'),
+  validate
+], async (req, res) => {
   try {
     const { userId } = req.query;
-    
-    if (!userId) {
-      return res.status(400).json({
-        success: false,
-        error: 'userId is required'
-      });
-    }
-
     const databases = await notionService.getDatabases(userId);
     
     res.json({
@@ -51,17 +55,12 @@ router.get('/databases', async (req, res) => {
  * Get pages from a specific database
  * GET /api/notion/databases/:databaseId/pages
  */
-router.get('/databases/:databaseId/pages', async (req, res) => {
+router.get('/databases/:databaseId/pages', [
+  param('databaseId').notEmpty().withMessage('databaseId is required'),
+  validate
+], async (req, res) => {
   try {
     const { databaseId } = req.params;
-    
-    if (!databaseId) {
-      return res.status(400).json({
-        success: false,
-        error: 'databaseId is required'
-      });
-    }
-
     const pages = await notionService.getPagesFromDatabase(databaseId);
     
     res.json({
@@ -88,17 +87,12 @@ router.get('/databases/:databaseId/pages', async (req, res) => {
  * Get all pages from user's Notion workspace
  * GET /api/notion/pages?userId=string
  */
-router.get('/pages', async (req, res) => {
+router.get('/pages', [
+  query('userId').notEmpty().withMessage('userId is required'),
+  validate
+], async (req, res) => {
   try {
     const { userId } = req.query;
-    
-    if (!userId) {
-      return res.status(400).json({
-        success: false,
-        error: 'userId is required'
-      });
-    }
-
     const pages = await notionService.getAllPages(userId);
     
     res.json({
@@ -124,17 +118,12 @@ router.get('/pages', async (req, res) => {
  * Get content of a specific page
  * GET /api/notion/pages/:pageId/content
  */
-router.get('/pages/:pageId/content', async (req, res) => {
+router.get('/pages/:pageId/content', [
+  param('pageId').notEmpty().withMessage('pageId is required'),
+  validate
+], async (req, res) => {
   try {
     const { pageId } = req.params;
-    
-    if (!pageId) {
-      return res.status(400).json({
-        success: false,
-        error: 'pageId is required'
-      });
-    }
-
     const content = await notionService.getPageContent(pageId);
     
     res.json({
@@ -162,17 +151,13 @@ router.get('/pages/:pageId/content', async (req, res) => {
  * Create a new page in a database
  * POST /api/notion/pages
  */
-router.post('/pages', async (req, res) => {
+router.post('/pages', [
+  body('userId').notEmpty().withMessage('userId is required'),
+  body('pageData').isObject().withMessage('pageData must be an object'),
+  validate
+], async (req, res) => {
   try {
     const { userId, pageData } = req.body;
-    
-    if (!userId || !pageData) {
-      return res.status(400).json({
-        success: false,
-        error: 'userId and pageData are required'
-      });
-    }
-
     const newPage = await notionService.createPage(userId, pageData);
     
     res.json({

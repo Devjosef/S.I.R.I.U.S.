@@ -1,11 +1,16 @@
 /**
- * Gmail Service
+ * Gmail Service - Email Integration
  * 
- * Real Gmail integration for S.I.R.I.U.S.
- * Fetches actual emails and manages communication
+ * Handles Gmail API integration for reading, sending, and managing
+ * emails with AI-powered analysis.
+ * 
+ * Lines: 350
  */
 
+// Google APIs
 import { google } from 'googleapis';
+
+// Internal configuration
 import config from '../config/index.js';
 
 // Initialize Gmail API

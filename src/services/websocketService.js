@@ -1,11 +1,16 @@
 /**
- * WebSocket Service
+ * WebSocket Service - Real-time Communication
  * 
- * Real-time communication layer for S.I.R.I.U.S. - enables
- * instant updates across all connected platforms
+ * Handles WebSocket connections for real-time updates and
+ * bidirectional communication.
+ * 
+ * Lines: 120
  */
 
+// WebSocket server
 import { WebSocketServer } from 'ws';
+
+// Core services
 import multiPlatformService from './multiPlatformService.js';
 import contextEngine from './contextEngine.js';
 import autonomousActionEngine from './autonomousActionEngine.js';

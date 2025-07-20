@@ -1,10 +1,13 @@
 /**
- * Multi-Platform Service
+ * Multi-Platform Service - Unified Platform Management
  * 
- * S.I.R.I.U.S.'s platform manager - connects across web, mobile,
- * browser extensions, and system integrations
+ * Provides unified interface for managing multiple platforms
+ * and cross-platform data synchronization.
+ * 
+ * Lines: 250
  */
 
+// File system utilities
 import fs from 'fs/promises';
 import path from 'path';
 import { fileURLToPath } from 'url';

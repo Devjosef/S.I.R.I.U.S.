@@ -1,14 +1,21 @@
 /**
- * Pinecone Service
+ * Pinecone Service - Vector Database Integration
  * 
- * Provides functions to interact with Pinecone vector database
- * for storing and querying embeddings.
+ * Handles vector embeddings storage, similarity search, and memory
+ * persistence using Pinecone vector database.
+ * 
+ * Lines: 304
  */
 
+// Vector database and HTTP client
 import { Pinecone } from '@pinecone-database/pinecone';
 import axios from 'axios';
+
+// File system and path utilities
 import { fileURLToPath } from 'url';
 import { dirname, join } from 'path';
+
+// Internal configuration and utilities
 import config from '../config/index.js';
 import workerManager from '../utils/workerManager.js';
 import { createLogger } from '../utils/logger.js';

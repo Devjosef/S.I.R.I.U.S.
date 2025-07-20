@@ -1,10 +1,13 @@
 /**
- * Context Engine Service
+ * Context Engine - User Pattern Analysis
  * 
- * Your AI's brain - understands your current situation by combining
- * data from all your apps and devices to give you smart insights
+ * Analyzes user context, patterns, and provides intelligent summaries
+ * and recommendations based on current state.
+ * 
+ * Lines: 420
  */
 
+// AI and digest services
 import { generateIntelligentSummary } from './ollamaService.js';
 import dailyDigestService from './dailyDigestService.js';
 

@@ -1,10 +1,14 @@
 /**
- * Asana Service
+ * Asana Service - Task Management Integration
  * 
- * Real Asana integration for S.I.R.I.U.S.
- * Manages tasks, projects, teams, and workflows
+ * Handles Asana API integration for task management, project
+ * tracking, and workflow automation.
+ * 
+ * Lines: 576
+ * Documentation: docs/INTEGRATIONS.md
  */
 
+// Internal configuration
 import config from '../config/index.js';
 
 const ASANA_API_BASE = 'https://app.asana.com/api/1.0';

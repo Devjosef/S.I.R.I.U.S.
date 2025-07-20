@@ -1,3 +1,13 @@
+/**
+ * Icon Setup Utility - PWA Icon Management
+ * 
+ * Ensures all required icons exist for PWA functionality and
+ * browser extension compatibility.
+ * 
+ * Lines: 50
+ */
+
+// File system utilities
 import fs from 'fs';
 import path from 'path';
 import { fileURLToPath } from 'url';

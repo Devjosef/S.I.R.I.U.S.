@@ -1,10 +1,13 @@
 /**
- * Daily Digest Controller
+ * Daily Digest Controller - API Endpoints for Digest Generation
  * 
- * Handles web requests for your daily digest - creates summaries, 
- * gets your data, and runs actions you want to take
+ * Handles HTTP requests for daily digest creation and
+ * personalized summary generation.
+ * 
+ * Lines: 80
  */
 
+// Daily digest service integration
 import dailyDigestService from '../services/dailyDigestService.js';
 
 /**

@@ -1,11 +1,16 @@
 /**
- * Asana Best Practices Controller
+ * Asana Best Practices Controller - API Endpoints for Workflow Optimization
  * 
- * Handles Asana best practices and workflow automation
- * Integrates with S.I.R.I.U.S. autonomous action engine
+ * Handles HTTP requests for Asana best practices and
+ * workflow optimization patterns.
+ * 
+ * Lines: 90
  */
 
+// Asana best practices service integration
 import * as asanaBestPracticesService from '../services/asanaBestPracticesService.js';
+
+// Internal utilities
 import logger from '../utils/logger.js';
 
 /**

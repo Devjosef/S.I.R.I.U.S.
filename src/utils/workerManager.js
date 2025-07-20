@@ -1,12 +1,18 @@
 /**
- * Worker Manager
+ * Worker Manager - Thread Pool Management
  * 
- * Manages worker threads for CPU-intensive operations.
- * Provides fallback mechanisms for environments where workers aren't supported.
+ * Manages worker threads for CPU-intensive tasks, provides fallback
+ * mechanisms, and handles thread lifecycle.
+ * 
+ * Lines: 280
+ * Documentation: docs/WORKERS_AND_BACKGROUND.md
  */
 
+// Node.js worker threads and utilities
 import { Worker } from 'worker_threads';
 import { join } from 'path';
+
+// Internal configuration and utilities
 import config from '../config/index.js';
 import { LRUCache } from 'lru-cache';
 import { createLogger } from './logger.js';

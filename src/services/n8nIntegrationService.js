@@ -1,11 +1,16 @@
 /**
- * n8n Integration Service
+ * n8n Integration Service - Workflow Automation
  * 
- * Handles communication between S.I.R.I.U.S. and n8n workflows
- * Supports both API key and webhook-based integration
+ * Handles n8n workflow integration for automation and
+ * cross-platform workflow management.
+ * 
+ * Lines: 800
  */
 
+// HTTP client and utilities
 import axios from 'axios';
+
+// Internal utilities
 import logger from '../utils/logger.js';
 
 class N8nIntegrationService {

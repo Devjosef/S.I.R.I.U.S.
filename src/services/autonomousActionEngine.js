@@ -1,12 +1,17 @@
 /**
- * Autonomous Action Engine
+ * Autonomous Action Engine - ML-Based Decision Making
  * 
- * S.I.R.I.U.S.'s action system - takes actions on your behalf
- * based on context, triggers, and your preferences
+ * Handles autonomous actions, trigger management, and machine learning
+ * based decision making for automated tasks.
+ * 
+ * Lines: 380
  */
 
+// File system and path utilities
 import { fileURLToPath } from 'url';
 import { dirname } from 'path';
+
+// Core services
 import contextEngine from './contextEngine.js';
 import memoryService from './memoryService.js';
 import { generateIntelligentSummary } from './ollamaService.js';

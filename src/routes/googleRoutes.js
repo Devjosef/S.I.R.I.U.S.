@@ -1,13 +1,21 @@
 /**
- * Google Routes
+ * Google Routes - Google Workspace Integration Endpoints
  * 
- * Web endpoints for Google Workspace integration - Gmail, Calendar, Drive, Docs, Sheets
+ * Handles API endpoints for Google Calendar, Gmail, and
+ * Google Workspace integrations.
+ * 
+ * Lines: 378
  */
 
+// Express routing
 import { Router } from 'express';
+
+// Google service integrations
 import * as googleCalendarService from '../services/googleCalendarService.js';
 import * as gmailService from '../services/gmailService.js';
 import * as googleWorkspaceService from '../services/googleWorkspaceService.js';
+
+// Internal utilities
 import logger from '../utils/logger.js';
 
 const googleLogger = logger.child({ component: 'google-routes' });

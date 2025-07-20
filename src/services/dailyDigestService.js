@@ -1,15 +1,20 @@
 /**
- * Daily Digest Service
+ * Daily Digest Service - Personalized Summaries
  * 
- * Your personal daily assistant - collects everything from your calendar, 
- * todos, and emails, then gives you smart insights about your day
+ * Generates personalized daily summaries by aggregating data from
+ * multiple platforms and services.
+ * 
+ * Lines: 280
  */
 
+// AI and platform integrations
 import { generateIntelligentSummary as ollamaGenerateSummary } from './ollamaService.js';
 import { getTodayEvents, updateEvent } from './googleCalendarService.js';
 import { getUrgentTodos, createTodo } from './trelloService.js';
 import { getUnreadEmails, sendEmail } from './gmailService.js';
 import { createTask } from './asanaService.js';
+
+// Internal configuration
 import config from '../config/index.js';
 
 /**

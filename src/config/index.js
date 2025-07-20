@@ -3,8 +3,12 @@
  * 
  * Central configuration system that loads from environment variables
  * and provides defaults. Works in both local and Replit environments.
+ * 
+ * Lines: 170
+ * Documentation: docs/CONFIGURATION.md
  */
 
+// Environment variable loading and Node.js built-ins
 import dotenv from 'dotenv';
 import { fileURLToPath } from 'url';
 import { dirname, join } from 'path';

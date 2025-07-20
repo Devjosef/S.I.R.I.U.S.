@@ -1,14 +1,16 @@
 /**
- * Prediction Service
+ * Prediction Service - ML-Based Predictions
  * 
- * Advanced ML-based prediction system for S.I.R.I.U.S.
- * - Behavior prediction
- * - Optimal timing recommendations
- * - Success probability estimation
- * - Personalized suggestions
+ * Handles machine learning predictions for user behavior,
+ * task prioritization, and optimal timing recommendations.
+ * 
+ * Lines: 320
  */
 
+// Memory service integration
 import { MemoryService } from './memoryService.js';
+
+// Internal utilities
 import { createLogger } from '../utils/logger.js';
 
 const logger = createLogger('prediction-service');

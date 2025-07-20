@@ -1,13 +1,19 @@
 /**
- * Memory Service
+ * Memory Service - Advanced Pattern Learning and Circadian Rhythm Detection
  * 
- * S.I.R.I.U.S.'s long-term memory - remembers your preferences,
- * learns from your patterns, and gets smarter over time
+ * Handles persistent memory storage, user pattern learning, and circadian
+ * rhythm analysis for personalized AI responses.
+ * 
+ * Lines: 450
+ * Documentation: docs/MEMORY_AND_LEARNING.md
  */
 
+// File system and path utilities
 import fs from 'fs/promises';
 import path from 'path';
 import { fileURLToPath } from 'url';
+
+// Internal utilities
 import { createLogger } from '../utils/logger.js';
 
 const __filename = fileURLToPath(import.meta.url);

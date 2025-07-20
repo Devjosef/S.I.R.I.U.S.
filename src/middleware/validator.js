@@ -1,4 +1,16 @@
+/**
+ * Validation Middleware - Request Validation
+ * 
+ * Handles request validation using express-validator and provides
+ * consistent validation error responses.
+ * 
+ * Lines: 21
+ */
+
+// Express validation utilities
 import { validationResult } from 'express-validator';
+
+// Internal error handling
 import { ValidationError } from './errorHandler.js';
 
 /**

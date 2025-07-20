@@ -1,10 +1,13 @@
 /**
- * Trello Service
+ * Trello Service - Project Management Integration
  * 
- * Real Trello integration for S.I.R.I.U.S.
- * Fetches actual todos and manages task creation
+ * Provides Trello API integration for board management, card
+ * operations, and project tracking.
+ * 
+ * Lines: 750
  */
 
+// Internal configuration
 import config from '../config/index.js';
 
 const TRELLO_API_BASE = 'https://api.trello.com/1';

@@ -1,11 +1,16 @@
 /**
- * Asana Controller
+ * Asana Controller - API Endpoints for Asana Integration
  * 
- * Handles Asana integration business logic for S.I.R.I.U.S.
- * Manages tasks, projects, teams, and workflows
+ * Handles HTTP requests for Asana operations including tasks,
+ * projects, and workspace management.
+ * 
+ * Lines: 120
  */
 
+// Asana service integration
 import * as asanaService from '../services/asanaService.js';
+
+// Internal utilities
 import logger from '../utils/logger.js';
 
 /**

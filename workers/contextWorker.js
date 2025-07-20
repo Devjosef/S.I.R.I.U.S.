@@ -1,10 +1,14 @@
 /**
- * Context Worker
+ * Context Worker - Context Analysis Processing
  * 
- * Worker thread for analyzing user context without blocking the main thread.
- * This is critical for mobile performance where CPU resources are limited.
+ * Processes context analysis and pattern learning in worker threads
+ * to maintain responsive main thread during intensive operations.
+ * 
+ * Lines: 153
+ * Documentation: docs/WORKERS_AND_BACKGROUND.md
  */
 
+// Node.js worker thread utilities
 import { parentPort } from 'worker_threads';
 
 /**

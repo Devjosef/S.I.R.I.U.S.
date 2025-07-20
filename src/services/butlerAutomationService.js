@@ -1,11 +1,16 @@
 /**
- * Butler Automation Service
+ * Butler Automation Service - Trello Automation
  * 
- * Handles Trello Butler automation rules for marketing workflows
- * Automates card movements, notifications, and workflow management
+ * Provides advanced Trello automation capabilities using
+ * Butler rules and custom automation workflows.
+ * 
+ * Lines: 200
  */
 
+// Trello service integration
 import * as trelloService from './trelloService.js';
+
+// Internal utilities
 import logger from '../utils/logger.js';
 
 /**

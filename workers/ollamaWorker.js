@@ -1,10 +1,14 @@
 /**
- * Ollama Worker
+ * Ollama Worker - AI Model Processing
  * 
- * Worker thread for Ollama API interactions without blocking the main thread.
- * This is critical for mobile performance where CPU resources are limited.
+ * Handles Ollama AI model operations in worker threads to prevent
+ * blocking during text generation and model inference.
+ * 
+ * Lines: 58
+ * Documentation: docs/AI_AND_OLLAMA.md
  */
 
+// Node.js worker thread utilities and HTTP client
 import { parentPort } from 'worker_threads';
 import fetch from 'node-fetch';
 
