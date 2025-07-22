@@ -52,7 +52,7 @@ export const configureSecurityMiddleware = (app) => {
   // Trust proxy if behind a reverse proxy
   app.set('trust proxy', 1); 
   
-  // Apply security headers
+  // Apply security headers with CSP configured for RLVR demo functionality
   app.use(helmet({
     contentSecurityPolicy: {
       directives: {
@@ -66,7 +66,9 @@ export const configureSecurityMiddleware = (app) => {
         formAction: ["'self'"],
         frameAncestors: ["'self'"],
         objectSrc: ["'none'"],
-        scriptSrcAttr: ["'none'"],
+        // Allow inline event handlers (onclick, onsubmit, etc.) for RLVR demo functionality
+        // This is necessary for the interactive demo pages to work properly
+        scriptSrcAttr: ["'unsafe-inline'"],
         upgradeInsecureRequests: []
       }
     }

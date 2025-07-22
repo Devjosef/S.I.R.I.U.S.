@@ -1,0 +1,522 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>S.I.R.I.U.S. - RLVR Learning Demo</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            color: #333;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        .header {
+            text-align: center;
+            margin-bottom: 40px;
+            color: white;
+        }
+
+        .header h1 {
+            font-size: 2.5rem;
+            margin-bottom: 10px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
+
+        .header p {
+            font-size: 1.2rem;
+            opacity: 0.9;
+        }
+
+        .demo-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 30px;
+            margin-bottom: 30px;
+        }
+
+        .card {
+            background: white;
+            border-radius: 15px;
+            padding: 25px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+            transition: transform 0.3s ease;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+        }
+
+        .card h2 {
+            color: #667eea;
+            margin-bottom: 15px;
+            font-size: 1.5rem;
+        }
+
+        .scenario {
+            background: #f8f9fa;
+            border-radius: 10px;
+            padding: 20px;
+            margin-bottom: 15px;
+            border-left: 4px solid #667eea;
+        }
+
+        .scenario h3 {
+            color: #333;
+            margin-bottom: 10px;
+        }
+
+        .scenario p {
+            color: #666;
+            margin-bottom: 15px;
+        }
+
+        .feedback-buttons {
+            display: flex;
+            gap: 10px;
+            margin-bottom: 15px;
+        }
+
+        .btn {
+            padding: 8px 16px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-weight: 500;
+            transition: all 0.3s ease;
+        }
+
+        .btn-positive {
+            background: #28a745;
+            color: white;
+        }
+
+        .btn-positive:hover {
+            background: #218838;
+        }
+
+        .btn-negative {
+            background: #dc3545;
+            color: white;
+        }
+
+        .btn-negative:hover {
+            background: #c82333;
+        }
+
+        .btn-neutral {
+            background: #6c757d;
+            color: white;
+        }
+
+        .btn-neutral:hover {
+            background: #5a6268;
+        }
+
+        .stats-card {
+            grid-column: 1 / -1;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+        }
+
+        .stat-item {
+            text-align: center;
+            padding: 15px;
+            background: rgba(255,255,255,0.1);
+            border-radius: 10px;
+        }
+
+        .stat-value {
+            font-size: 2rem;
+            font-weight: bold;
+            margin-bottom: 5px;
+        }
+
+        .stat-label {
+            font-size: 0.9rem;
+            opacity: 0.8;
+        }
+
+        .learning-log {
+            background: #f8f9fa;
+            border-radius: 10px;
+            padding: 20px;
+            max-height: 300px;
+            overflow-y: auto;
+            font-family: 'Courier New', monospace;
+            font-size: 0.9rem;
+        }
+
+        .log-entry {
+            margin-bottom: 10px;
+            padding: 8px;
+            border-radius: 5px;
+            background: white;
+            border-left: 3px solid #667eea;
+        }
+
+        .log-success {
+            border-left-color: #28a745;
+        }
+
+        .log-error {
+            border-left-color: #dc3545;
+        }
+
+        .action-suggestion {
+            background: #e3f2fd;
+            border: 2px solid #2196f3;
+            border-radius: 10px;
+            padding: 20px;
+            margin-top: 15px;
+            text-align: center;
+        }
+
+        .suggestion-title {
+            color: #1976d2;
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+
+        .suggestion-action {
+            background: #2196f3;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-weight: 500;
+            margin: 5px;
+        }
+
+        .suggestion-action:hover {
+            background: #1976d2;
+        }
+
+        .neural-network {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: -1;
+            opacity: 0.1;
+        }
+
+        .neural-node {
+            position: absolute;
+            width: 4px;
+            height: 4px;
+            background: #667eea;
+            border-radius: 50%;
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+            0% { transform: scale(1); opacity: 0.5; }
+            50% { transform: scale(1.5); opacity: 1; }
+            100% { transform: scale(1); opacity: 0.5; }
+        }
+
+        .paper-reference {
+            background: rgba(255,255,255,0.1);
+            border-radius: 10px;
+            padding: 15px;
+            margin-top: 20px;
+            text-align: center;
+        }
+
+        .paper-reference a {
+            color: #fff;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        .paper-reference a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <div class="neural-network" id="neuralNetwork"></div>
+    
+    <div class="container">
+        <div class="header">
+            <h1>🧠 S.I.R.I.U.S. RLVR Learning Demo</h1>
+            <p>1-Shot Reinforcement Learning from Visual Reward</p>
+            <p>Based on "1-Shot RLVR: One-Shot Reinforcement Learning from Visual Reward" by Yiping Wang et al.</p>
+        </div>
+
+        <div class="demo-grid">
+            <div class="card">
+                <h2>🎯 Learning Scenarios</h2>
+                
+                <div class="scenario">
+                    <h3>Morning Coding Session</h3>
+                    <p>It's 9 AM, you're coding with high energy and focus. S.I.R.I.U.S. suggests Focus Mode.</p>
+                    <div class="feedback-buttons">
+                        <button class="btn btn-positive" onclick="learnFromScenario('morning-coding', 'focus_mode', 'positive')">👍 Helpful</button>
+                        <button class="btn btn-neutral" onclick="learnFromScenario('morning-coding', 'focus_mode', 'neutral')">😐 Neutral</button>
+                        <button class="btn btn-negative" onclick="learnFromScenario('morning-coding', 'focus_mode', 'negative')">👎 Unhelpful</button>
+                    </div>
+                </div>
+
+                <div class="scenario">
+                    <h3>Afternoon Meeting Prep</h3>
+                    <p>It's 2 PM, you have a meeting soon. S.I.R.I.U.S. suggests Meeting Preparation.</p>
+                    <div class="feedback-buttons">
+                        <button class="btn btn-positive" onclick="learnFromScenario('afternoon-meeting', 'meeting_prep', 'positive')">👍 Helpful</button>
+                        <button class="btn btn-neutral" onclick="learnFromScenario('afternoon-meeting', 'meeting_prep', 'neutral')">😐 Neutral</button>
+                        <button class="btn btn-negative" onclick="learnFromScenario('afternoon-meeting', 'meeting_prep', 'negative')">👎 Unhelpful</button>
+                    </div>
+                </div>
+
+                <div class="scenario">
+                    <h3>Evening Energy Dip</h3>
+                    <p>It's 4 PM, your energy is low. S.I.R.I.U.S. suggests taking a break.</p>
+                    <div class="feedback-buttons">
+                        <button class="btn btn-positive" onclick="learnFromScenario('evening-energy', 'break_reminder', 'positive')">👍 Helpful</button>
+                        <button class="btn btn-neutral" onclick="learnFromScenario('evening-energy', 'break_reminder', 'neutral')">😐 Neutral</button>
+                        <button class="btn btn-negative" onclick="learnFromScenario('evening-energy', 'break_reminder', 'negative')">👎 Unhelpful</button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="card">
+                <h2>🧠 Learning Statistics</h2>
+                <div class="stats-grid">
+                    <div class="stat-item">
+                        <div class="stat-value" id="experienceCount">0</div>
+                        <div class="stat-label">Learning Experiences</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-value" id="policySize">0</div>
+                        <div class="stat-label">Policy Size</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-value" id="explorationRate">10%</div>
+                        <div class="stat-label">Exploration Rate</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-value" id="learningRate">0.001</div>
+                        <div class="stat-label">Learning Rate</div>
+                    </div>
+                </div>
+
+                <div class="action-suggestion" id="actionSuggestion" style="display: none;">
+                    <div class="suggestion-title">🎯 S.I.R.I.U.S. Suggests:</div>
+                    <div id="suggestedAction"></div>
+                </div>
+            </div>
+
+            <div class="card stats-card">
+                <h2>📊 Real-Time Learning Log</h2>
+                <div class="learning-log" id="learningLog">
+                    <div class="log-entry">🚀 RLVR Learning Demo Started</div>
+                    <div class="log-entry">📄 Based on: "1-Shot RLVR: One-Shot Reinforcement Learning from Visual Reward"</div>
+                    <div class="log-entry">🔗 Paper: arXiv:2504.20571</div>
+                    <div class="log-entry">🎯 Ready to learn from your feedback!</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="paper-reference">
+            <p>📄 Research Paper: <a href="https://arxiv.org/abs/2504.20571" target="_blank">"1-Shot RLVR: One-Shot Reinforcement Learning from Visual Reward"</a></p>
+            <p>🎯 This demo shows how S.I.R.I.U.S. learns optimal behaviors from single examples with visual feedback</p>
+        </div>
+    </div>
+
+    <script>
+        // Neural network background animation
+        function createNeuralNetwork() {
+            const network = document.getElementById('neuralNetwork');
+            for (let i = 0; i < 50; i++) {
+                const node = document.createElement('div');
+                node.className = 'neural-node';
+                node.style.left = Math.random() * 100 + '%';
+                node.style.top = Math.random() * 100 + '%';
+                node.style.animationDelay = Math.random() * 2 + 's';
+                network.appendChild(node);
+            }
+        }
+
+        // Learning scenarios
+        const scenarios = {
+            'morning-coding': {
+                context: { timeBlock: 'morning', energy: 'high', focus: 'deep-work', urgency: 'normal' },
+                interfaceState: { activeComponents: ['task-manager'], userFocus: 'coding', taskQueue: [] }
+            },
+            'afternoon-meeting': {
+                context: { timeBlock: 'afternoon', energy: 'medium', focus: 'collaboration', urgency: 'high' },
+                interfaceState: { activeComponents: ['calendar'], userFocus: 'meeting', taskQueue: [] }
+            },
+            'evening-energy': {
+                context: { timeBlock: 'afternoon', energy: 'low', focus: 'review', urgency: 'low' },
+                interfaceState: { activeComponents: ['main'], userFocus: 'break', taskQueue: [] }
+            }
+        };
+
+        // Learn from user feedback
+        async function learnFromScenario(scenarioKey, actionType, feedback) {
+            try {
+                // Check if scenario exists
+                if (!scenarios[scenarioKey]) {
+                    addLogEntry(`❌ Unknown scenario: ${scenarioKey}`, 'error');
+                    return;
+                }
+                
+                const scenario = scenarios[scenarioKey];
+                const testScenario = `${scenarioKey}-${feedback}`;
+                
+                addLogEntry(`🔄 Learning from ${getActionTitle(actionType)} - Feedback: ${feedback}...`, 'info');
+                
+                const response = await fetch('/api/rlvr/test', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ testScenario })
+                });
+
+                if (!response.ok) {
+                    throw new Error(`HTTP ${response.status}: ${response.statusText}`);
+                }
+
+                const result = await response.json();
+                
+                if (result.success) {
+                    addLogEntry(`✅ Learned from ${getActionTitle(actionType)} - Feedback: ${feedback}`, 'success');
+                    await updateStats();
+                    await testOptimalAction(scenarioKey);
+                } else {
+                    addLogEntry(`❌ Learning failed: ${result.error || 'Unknown error'}`, 'error');
+                }
+            } catch (error) {
+                console.error('Learning error:', error);
+                addLogEntry(`❌ Network error: ${error.message}`, 'error');
+            }
+        }
+
+        // Test optimal action selection
+        async function testOptimalAction(scenarioKey) {
+            const scenario = scenarios[scenarioKey];
+            const visualState = {
+                interface: scenario.interfaceState,
+                context: scenario.context
+            };
+
+            const possibleActions = [
+                { type: 'focus_mode', title: 'Focus Mode' },
+                { type: 'break_reminder', title: 'Take Break' },
+                { type: 'meeting_prep', title: 'Meeting Prep' },
+                { type: 'daily_digest', title: 'Daily Digest' }
+            ];
+
+            try {
+                const response = await fetch('/api/rlvr/optimal-action', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ visualState, possibleActions })
+                });
+
+                const result = await response.json();
+                
+                if (result.success) {
+                    const suggestion = document.getElementById('actionSuggestion');
+                    const suggestedAction = document.getElementById('suggestedAction');
+                    
+                    suggestedAction.innerHTML = `
+                        <button class="suggestion-action">${result.data.optimalAction.title}</button>
+                        <p style="margin-top: 10px; font-size: 0.9rem; opacity: 0.8;">
+                            Confidence: ${Math.round(result.data.confidence * 100)}%
+                        </p>
+                    `;
+                    
+                    suggestion.style.display = 'block';
+                    addLogEntry(`🎯 Optimal action: ${result.data.optimalAction.title} (${Math.round(result.data.confidence * 100)}% confidence)`, 'success');
+                }
+            } catch (error) {
+                addLogEntry(`❌ Action selection failed: ${error.message}`, 'error');
+            }
+        }
+
+        // Update statistics
+        async function updateStats() {
+            try {
+                const response = await fetch('/api/rlvr/stats');
+                
+                if (!response.ok) {
+                    throw new Error(`HTTP ${response.status}: ${response.statusText}`);
+                }
+                
+                const result = await response.json();
+                
+                if (result.success && result.data) {
+                    const experienceCountEl = document.getElementById('experienceCount');
+                    const policySizeEl = document.getElementById('policySize');
+                    const explorationRateEl = document.getElementById('explorationRate');
+                    const learningRateEl = document.getElementById('learningRate');
+                    
+                    if (experienceCountEl) experienceCountEl.textContent = result.data.experienceCount || 0;
+                    if (policySizeEl) policySizeEl.textContent = result.data.policySize || 0;
+                    if (explorationRateEl) explorationRateEl.textContent = Math.round((result.data.explorationRate || 0) * 100) + '%';
+                    if (learningRateEl) learningRateEl.textContent = result.data.learningRate || 0;
+                    
+                    addLogEntry(`📊 Stats updated: ${result.data.experienceCount} experiences`, 'info');
+                } else {
+                    throw new Error('Invalid response format');
+                }
+            } catch (error) {
+                console.error('Stats update error:', error);
+                addLogEntry(`❌ Failed to update stats: ${error.message}`, 'error');
+            }
+        }
+
+        // Add log entry
+        function addLogEntry(message, type = 'info') {
+            const log = document.getElementById('learningLog');
+            const entry = document.createElement('div');
+            entry.className = `log-entry log-${type}`;
+            entry.textContent = `[${new Date().toLocaleTimeString()}] ${message}`;
+            log.appendChild(entry);
+            log.scrollTop = log.scrollHeight;
+        }
+
+        // Get action title
+        function getActionTitle(actionType) {
+            const titles = {
+                'focus_mode': 'Focus Mode',
+                'break_reminder': 'Take Break',
+                'meeting_prep': 'Meeting Prep',
+                'daily_digest': 'Daily Digest'
+            };
+            return titles[actionType] || actionType;
+        }
+
+        // Initialize
+        document.addEventListener('DOMContentLoaded', function() {
+            createNeuralNetwork();
+            updateStats();
+            addLogEntry('🚀 Demo initialized - Start providing feedback to see RLVR learning in action!');
+        });
+    </script>
+</body>
+</html> 

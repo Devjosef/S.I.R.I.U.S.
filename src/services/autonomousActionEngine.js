@@ -7,19 +7,12 @@
  * Lines: 380
  */
 
-// File system and path utilities
-import { fileURLToPath } from 'url';
-import { dirname } from 'path';
-
 // Core services
 import contextEngine from './contextEngine.js';
 import memoryService from './memoryService.js';
 import { generateIntelligentSummary } from './ollamaService.js';
 import workerManager from '../utils/workerManager.js';
-
-// Get directory path for worker scripts
-const __filename = fileURLToPath(import.meta.url);
-const __dirname = dirname(__filename);
+import { RLVRService } from './rlvrService.js';
 
 /**
  * Different types of actions S.I.R.I.U.S. can take
@@ -390,7 +383,7 @@ export class AutonomousActionEngine {
   }
 
   /**
-   * Learn from action execution results
+   * Learn from action execution results with RLVR
    * @param {ActionResult} result - Action result
    * @param {Object} context - Context when action was executed
    * @param {string} userId - User ID
@@ -413,6 +406,40 @@ export class AutonomousActionEngine {
           energy: context.energy
         }
       });
+      
+      // RLVR Learning: Learn from visual feedback
+      try {
+        const visualState = RLVRService.createVisualState(context, {
+          activeComponents: ['autonomous-action'],
+          userFocus: context.focus,
+          taskQueue: [],
+          notifications: [],
+          currentAction: result.actionType
+        });
+        
+        const userFeedback = {
+          positive: result.success,
+          helpful: result.success && !result.error,
+          efficient: result.executionTime < (result.expectedTime || 5000),
+          neutral: !result.success && !result.error
+        };
+        
+        await RLVRService.learnFromVisualFeedback(
+          visualState,
+          {
+            type: result.actionType,
+            title: result.title,
+            executionTime: result.executionTime,
+            expectedTime: result.expectedTime || 5000
+          },
+          userFeedback
+        );
+        
+        console.log(`🧠 RLVR learning completed for: ${result.title}`);
+        
+      } catch (rlvrError) {
+        console.warn(`⚠️ RLVR learning failed for ${result.title}:`, rlvrError.message);
+      }
       
       // Machine learning: Analyze patterns to improve trigger conditions
       await this.analyzeActionPatterns(userId, result, context);

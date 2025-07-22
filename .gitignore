@@ -126,3 +126,28 @@ dist
 .yarn/build-state.yml
 .yarn/install-state.gz
 .pnp.*data/oauth-tokens.json
+
+# articles
+medium-articles/
+substack-articles/
+articles/
+
+# Demo and documentation files
+LOOM_DEMO_GUIDE.md
+
+# OS generated files
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+
+# Editor files
+*.swp
+*.swo
+*~
+.vscode/
+.idea/
+*.sublime-*

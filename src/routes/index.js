@@ -28,6 +28,7 @@ import trelloRoutes from './trelloRoutes.js';
 import predictionRoutes from './predictionRoutes.js';
 import memoryRoutes from './memoryRoutes.js';
 import learningAnalyticsRoutes from './learningAnalyticsRoutes.js';
+import rlvrRoutes from './rlvrRoutes.js';
 
 const router = Router();
 
@@ -128,6 +129,7 @@ router.use('/trello', trelloRoutes);
 router.use('/predict', predictionRoutes);
 router.use('/memory', memoryRoutes);
 router.use('/learning-analytics', learningAnalyticsRoutes);
+router.use('/rlvr', rlvrRoutes);
 
 // 404 handler for unknown API routes
 router.use('*', (req, res) => {

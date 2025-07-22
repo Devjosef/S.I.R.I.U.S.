@@ -34,11 +34,13 @@
         "commonFocus": {},
         "commonActions": {}
       },
-      "optimalHour": 9,
-      "optimalDay": 0,
+      "optimalHour": 7,
+      "optimalDay": 2,
       "optimalTimeBlock": "unknown",
-      "optimalWeekday": "Sunday",
+      "optimalWeekday": "Tuesday",
       "hourDistribution": {
+        "6": 23,
+        "7": 35,
         "8": 1,
         "9": 7,
         "10": 5,
@@ -46,28 +48,30 @@
       },
       "dayDistribution": {
         "0": 7,
+        "2": 58,
         "5": 6,
         "6": 2
       },
       "timeBlockDistribution": {
-        "unknown": 8,
+        "unknown": 66,
         "morning-focus": 5,
         "lunch-break": 2
       },
       "weekdayDistribution": {
         "Friday": 6,
         "Saturday": 2,
-        "Sunday": 7
+        "Sunday": 7,
+        "Tuesday": 58
       },
       "circadianRhythm": {
         "type": "morning_person",
-        "confidence": 0.5813846153846154,
+        "confidence": 0.8149577464788733,
         "periods": {
           "morning": {
-            "count": 13,
-            "successRate": 61.53846153846154,
-            "avgPerformance": 77.3076923076923,
-            "frequency": 13
+            "count": 71,
+            "successRate": 90.14084507042254,
+            "avgPerformance": 78.09859154929578,
+            "frequency": 71
           },
           "afternoon": {
             "count": 2,
@@ -77,9 +81,9 @@
           }
         },
         "peakHours": [
-          9,
-          10,
-          8
+          7,
+          6,
+          9
         ],
         "recommendations": [
           {
@@ -97,7 +101,7 @@
           {
             "type": "peak_hours",
             "title": "Peak Performance Hours",
-            "description": "Your peak performance hours are: 9:00, 10:00, 8:00",
+            "description": "Your peak performance hours are: 7:00, 6:00, 9:00",
             "priority": "high"
           }
         ]
@@ -337,6 +341,3189 @@
           }
         ],
         "timestamp": "2025-07-20T11:17:44.837Z"
+      },
+      {
+        "type": "rlvr_learning",
+        "actionType": "focus_mode",
+        "reward": 0.6300000000000001,
+        "visualState": {
+          "interface": {
+            "activeComponents": [
+              "task-manager",
+              "calendar"
+            ],
+            "userFocus": "coding",
+            "taskQueue": [
+              {
+                "id": 1,
+                "title": "Fix critical bug",
+                "completed": false
+              },
+              {
+                "id": 2,
+                "title": "Code review",
+                "completed": true
+              }
+            ],
+            "notifications": [
+              "meeting in 30 min"
+            ],
+            "currentAction": null
+          },
+          "context": {
+            "timeBlock": "morning",
+            "energy": "high",
+            "focus": "deep-work",
+            "urgency": "normal",
+            "location": null
+          },
+          "history": [],
+          "timestamp": 1753159649411,
+          "encoded": [
+            12,
+            8,
+            6,
+            0,
+            0,
+            17,
+            0,
+            7,
+            4,
+            9,
+            6,
+            0
+          ]
+        },
+        "timestamp": "2025-07-22T04:47:29.412Z",
+        "success": true
+      },
+      {
+        "type": "rlvr_learning",
+        "actionType": "focus_mode",
+        "reward": 0.77,
+        "visualState": {
+          "interface": {
+            "activeComponents": [
+              "task-manager"
+            ],
+            "userFocus": null,
+            "taskQueue": [
+              {
+                "completed": true
+              }
+            ],
+            "notifications": [],
+            "currentAction": null
+          },
+          "context": {
+            "timeBlock": "morning",
+            "energy": "high",
+            "focus": null,
+            "urgency": null,
+            "location": null
+          },
+          "history": [],
+          "timestamp": 1753159649413,
+          "encoded": [
+            12,
+            0,
+            0,
+            0,
+            7,
+            4,
+            0,
+            0,
+            0
+          ]
+        },
+        "timestamp": "2025-07-22T04:47:29.413Z",
+        "success": true
+      },
+      {
+        "type": "rlvr_learning",
+        "actionType": "focus_mode",
+        "reward": 0.41,
+        "visualState": {
+          "interface": {
+            "activeComponents": [
+              "task-manager"
+            ],
+            "userFocus": null,
+            "taskQueue": [
+              {
+                "completed": true
+              }
+            ],
+            "notifications": [],
+            "currentAction": null
+          },
+          "context": {
+            "timeBlock": "morning",
+            "energy": "high",
+            "focus": null,
+            "urgency": null,
+            "location": null
+          },
+          "history": [],
+          "timestamp": 1753159649413,
+          "encoded": [
+            12,
+            0,
+            0,
+            0,
+            7,
+            4,
+            0,
+            0,
+            0
+          ]
+        },
+        "timestamp": "2025-07-22T04:47:29.414Z",
+        "success": true
+      },
+      {
+        "type": "rlvr_learning",
+        "actionType": "focus_mode",
+        "reward": -0.030000000000000027,
+        "visualState": {
+          "interface": {
+            "activeComponents": [
+              "task-manager"
+            ],
+            "userFocus": null,
+            "taskQueue": [
+              {
+                "completed": true
+              }
+            ],
+            "notifications": [],
+            "currentAction": null
+          },
+          "context": {
+            "timeBlock": "morning",
+            "energy": "high",
+            "focus": null,
+            "urgency": null,
+            "location": null
+          },
+          "history": [],
+          "timestamp": 1753159649413,
+          "encoded": [
+            12,
+            0,
+            0,
+            0,
+            7,
+            4,
+            0,
+            0,
+            0
+          ]
+        },
+        "timestamp": "2025-07-22T04:47:29.415Z",
+        "success": false
+      },
+      {
+        "type": "rlvr_learning",
+        "actionType": "focus_mode",
+        "reward": 0.6200000000000001,
+        "visualState": {
+          "interface": {
+            "activeComponents": [
+              "main"
+            ],
+            "userFocus": null,
+            "taskQueue": [],
+            "notifications": [],
+            "currentAction": null
+          },
+          "context": {
+            "timeBlock": "morning",
+            "energy": "high",
+            "focus": "deep-work",
+            "urgency": null,
+            "location": null
+          },
+          "history": [],
+          "timestamp": 1753159649415,
+          "encoded": [
+            4,
+            0,
+            0,
+            7,
+            4,
+            9,
+            0,
+            0
+          ]
+        },
+        "timestamp": "2025-07-22T04:47:29.415Z",
+        "success": true
+      },
+      {
+        "type": "rlvr_learning",
+        "actionType": "break_reminder",
+        "reward": 0.6200000000000001,
+        "visualState": {
+          "interface": {
+            "activeComponents": [
+              "main"
+            ],
+            "userFocus": null,
+            "taskQueue": [],
+            "notifications": [],
+            "currentAction": null
+          },
+          "context": {
+            "timeBlock": "afternoon",
+            "energy": "low",
+            "focus": "collaboration",
+            "urgency": null,
+            "location": null
+          },
+          "history": [],
+          "timestamp": 1753159649415,
+          "encoded": [
+            4,
+            0,
+            0,
+            9,
+            3,
+            13,
+            0,
+            0
+          ]
+        },
+        "timestamp": "2025-07-22T04:47:29.416Z",
+        "success": true
+      },
+      {
+        "type": "rlvr_learning",
+        "actionType": "daily_digest",
+        "reward": 0.6200000000000001,
+        "visualState": {
+          "interface": {
+            "activeComponents": [
+              "main"
+            ],
+            "userFocus": null,
+            "taskQueue": [],
+            "notifications": [],
+            "currentAction": null
+          },
+          "context": {
+            "timeBlock": "evening",
+            "energy": "medium",
+            "focus": "review",
+            "urgency": null,
+            "location": null
+          },
+          "history": [],
+          "timestamp": 1753159649416,
+          "encoded": [
+            4,
+            0,
+            0,
+            7,
+            6,
+            6,
+            0,
+            0
+          ]
+        },
+        "timestamp": "2025-07-22T04:47:29.416Z",
+        "success": true
+      },
+      {
+        "type": "rlvr_learning",
+        "actionType": "focus_mode",
+        "reward": 0.6200000000000001,
+        "visualState": {
+          "interface": {
+            "activeComponents": [
+              "task-manager"
+            ],
+            "userFocus": null,
+            "taskQueue": [],
+            "notifications": [],
+            "currentAction": null
+          },
+          "context": {
+            "timeBlock": "morning",
+            "energy": "high",
+            "focus": null,
+            "urgency": null,
+            "location": null
+          },
+          "history": [],
+          "timestamp": 1753159649416,
+          "encoded": [
+            12,
+            0,
+            0,
+            7,
+            4,
+            0,
+            0,
+            0
+          ]
+        },
+        "timestamp": "2025-07-22T04:47:29.417Z",
+        "success": true
+      },
+      {
+        "type": "rlvr_learning",
+        "actionType": "focus_mode",
+        "reward": 0.6300000000000001,
+        "visualState": {
+          "interface": {
+            "activeComponents": [
+              "task-manager",
+              "calendar"
+            ],
+            "userFocus": "coding",
+            "taskQueue": [
+              {
+                "id": 1,
+                "title": "Fix critical bug",
+                "completed": false
+              },
+              {
+                "id": 2,
+                "title": "Code review",
+                "completed": true
+              }
+            ],
+            "notifications": [
+              "meeting in 30 min"
+            ],
+            "currentAction": null
+          },
+          "context": {
+            "timeBlock": "morning",
+            "energy": "high",
+            "focus": "deep-work",
+            "urgency": "normal",
+            "location": null
+          },
+          "history": [],
+          "timestamp": 1753159810284,
+          "encoded": [
+            12,
+            8,
+            6,
+            0,
+            0,
+            17,
+            0,
+            7,
+            4,
+            9,
+            6,
+            0
+          ]
+        },
+        "timestamp": "2025-07-22T04:50:10.285Z",
+        "success": true
+      },
+      {
+        "type": "rlvr_learning",
+        "actionType": "focus_mode",
+        "reward": 0.77,
+        "visualState": {
+          "interface": {
+            "activeComponents": [
+              "task-manager"
+            ],
+            "userFocus": null,
+            "taskQueue": [
+              {
+                "completed": true
+              }
+            ],
+            "notifications": [],
+            "currentAction": null
+          },
+          "context": {
+            "timeBlock": "morning",
+            "energy": "high",
+            "focus": null,
+            "urgency": null,
+            "location": null
+          },
+          "history": [],
+          "timestamp": 1753159810287,
+          "encoded": [
+            12,
+            0,
+            0,
+            0,
+            7,
+            4,
+            0,
+            0,
+            0
+          ]
+        },
+        "timestamp": "2025-07-22T04:50:10.287Z",
+        "success": true
+      },
+      {
+        "type": "rlvr_learning",
+        "actionType": "focus_mode",
+        "reward": 0.41,
+        "visualState": {
+          "interface": {
+            "activeComponents": [
+              "task-manager"
+            ],
+            "userFocus": null,
+            "taskQueue": [
+              {
+                "completed": true
+              }
+            ],
+            "notifications": [],
+            "currentAction": null
+          },
+          "context": {
+            "timeBlock": "morning",
+            "energy": "high",
+            "focus": null,
+            "urgency": null,
+            "location": null
+          },
+          "history": [],
+          "timestamp": 1753159810287,
+          "encoded": [
+            12,
+            0,
+            0,
+            0,
+            7,
+            4,
+            0,
+            0,
+            0
+          ]
+        },
+        "timestamp": "2025-07-22T04:50:10.287Z",
+        "success": true
+      },
+      {
+        "type": "rlvr_learning",
+        "actionType": "focus_mode",
+        "reward": -0.030000000000000027,
+        "visualState": {
+          "interface": {
+            "activeComponents": [
+              "task-manager"
+            ],
+            "userFocus": null,
+            "taskQueue": [
+              {
+                "completed": true
+              }
+            ],
+            "notifications": [],
+            "currentAction": null
+          },
+          "context": {
+            "timeBlock": "morning",
+            "energy": "high",
+            "focus": null,
+            "urgency": null,
+            "location": null
+          },
+          "history": [],
+          "timestamp": 1753159810287,
+          "encoded": [
+            12,
+            0,
+            0,
+            0,
+            7,
+            4,
+            0,
+            0,
+            0
+          ]
+        },
+        "timestamp": "2025-07-22T04:50:10.288Z",
+        "success": false
+      },
+      {
+        "type": "rlvr_learning",
+        "actionType": "focus_mode",
+        "reward": 0.6200000000000001,
+        "visualState": {
+          "interface": {
+            "activeComponents": [
+              "main"
+            ],
+            "userFocus": null,
+            "taskQueue": [],
+            "notifications": [],
+            "currentAction": null
+          },
+          "context": {
+            "timeBlock": "morning",
+            "energy": "high",
+            "focus": "deep-work",
+            "urgency": null,
+            "location": null
+          },
+          "history": [],
+          "timestamp": 1753159810288,
+          "encoded": [
+            4,
+            0,
+            0,
+            7,
+            4,
+            9,
+            0,
+            0
+          ]
+        },
+        "timestamp": "2025-07-22T04:50:10.288Z",
+        "success": true
+      },
+      {
+        "type": "rlvr_learning",
+        "actionType": "break_reminder",
+        "reward": 0.6200000000000001,
+        "visualState": {
+          "interface": {
+            "activeComponents": [
+              "main"
+            ],
+            "userFocus": null,
+            "taskQueue": [],
+            "notifications": [],
+            "currentAction": null
+          },
+          "context": {
+            "timeBlock": "afternoon",
+            "energy": "low",
+            "focus": "collaboration",
+            "urgency": null,
+            "location": null
+          },
+          "history": [],
+          "timestamp": 1753159810289,
+          "encoded": [
+            4,
+            0,
+            0,
+            9,
+            3,
+            13,
+            0,
+            0
+          ]
+        },
+        "timestamp": "2025-07-22T04:50:10.289Z",
+        "success": true
+      },
+      {
+        "type": "rlvr_learning",
+        "actionType": "daily_digest",
+        "reward": 0.6200000000000001,
+        "visualState": {
+          "interface": {
+            "activeComponents": [
+              "main"
+            ],
+            "userFocus": null,
+            "taskQueue": [],
+            "notifications": [],
+            "currentAction": null
+          },
+          "context": {
+            "timeBlock": "evening",
+            "energy": "medium",
+            "focus": "review",
+            "urgency": null,
+            "location": null
+          },
+          "history": [],
+          "timestamp": 1753159810289,
+          "encoded": [
+            4,
+            0,
+            0,
+            7,
+            6,
+            6,
+            0,
+            0
+          ]
+        },
+        "timestamp": "2025-07-22T04:50:10.289Z",
+        "success": true
+      },
+      {
+        "type": "rlvr_learning",
+        "actionType": "focus_mode",
+        "reward": 0.6200000000000001,
+        "visualState": {
+          "interface": {
+            "activeComponents": [
+              "task-manager"
+            ],
+            "userFocus": null,
+            "taskQueue": [],
+            "notifications": [],
+            "currentAction": null
+          },
+          "context": {
+            "timeBlock": "morning",
+            "energy": "high",
+            "focus": null,
+            "urgency": null,
+            "location": null
+          },
+          "history": [],
+          "timestamp": 1753159810290,
+          "encoded": [
+            12,
+            0,
+            0,
+            7,
+            4,
+            0,
+            0,
+            0
+          ]
+        },
+        "timestamp": "2025-07-22T04:50:10.290Z",
+        "success": true
+      },
+      {
+        "type": "rlvr_learning",
+        "actionType": "focus_mode",
+        "reward": 0.6033333333333334,
+        "visualState": {
+          "interface": {
+            "activeComponents": [
+              "task-manager",
+              "calendar"
+            ],
+            "userFocus": "coding",
+            "taskQueue": [
+              {
+                "id": 1,
+                "title": "Fix bug",
+                "completed": false
+              },
+              {
+                "id": 2,
+                "title": "Code review",
+                "completed": true
+              }
+            ],
+            "notifications": [
+              "meeting in 30 min"
+            ],
+            "currentAction": null
+          },
+          "context": {
+            "timeBlock": "morning",
+            "energy": "high",
+            "focus": "deep-work",
+            "urgency": "normal",
+            "location": null
+          },
+          "history": [],
+          "timestamp": 1753159897779,
+          "encoded": [
+            12,
+            8,
+            6,
+            0,
+            0,
+            17,
+            0,
+            7,
+            4,
+            9,
+            6,
+            0
+          ]
+        },
+        "timestamp": "2025-07-22T04:51:37.780Z",
+        "success": true
+      },
+      {
+        "type": "rlvr_learning",
+        "actionType": "focus_mode",
+        "reward": 0.6033333333333334,
+        "visualState": {
+          "interface": {
+            "activeComponents": [
+              "task-manager",
+              "calendar"
+            ],
+            "userFocus": "coding",
+            "taskQueue": [
+              {
+                "id": 1,
+                "title": "Fix bug",
+                "completed": false
+              },
+              {
+                "id": 2,
+                "title": "Code review",
+                "completed": true
+              }
+            ],
+            "notifications": [
+              "meeting in 30 min"
+            ],
+            "currentAction": null
+          },
+          "context": {
+            "timeBlock": "morning",
+            "energy": "high",
+            "focus": "deep-work",
+            "urgency": "normal",
+            "location": null
+          },
+          "history": [],
+          "timestamp": 1753159907869,
+          "encoded": [
+            12,
+            8,
+            6,
+            0,
+            0,
+            17,
+            0,
+            7,
+            4,
+            9,
+            6,
+            0
+          ]
+        },
+        "timestamp": "2025-07-22T04:51:47.870Z",
+        "success": true
+      },
+      {
+        "type": "rlvr_learning",
+        "actionType": "focus_mode",
+        "reward": 0.6033333333333334,
+        "visualState": {
+          "interface": {
+            "activeComponents": [
+              "task-manager",
+              "calendar"
+            ],
+            "userFocus": "coding",
+            "taskQueue": [
+              {
+                "id": 1,
+                "title": "Fix bug",
+                "completed": false
+              },
+              {
+                "id": 2,
+                "title": "Code review",
+                "completed": true
+              }
+            ],
+            "notifications": [
+              "meeting in 30 min"
+            ],
+            "currentAction": null
+          },
+          "context": {
+            "timeBlock": "morning",
+            "energy": "high",
+            "focus": "deep-work",
+            "urgency": "normal",
+            "location": null
+          },
+          "history": [],
+          "timestamp": 1753160139613,
+          "encoded": [
+            12,
+            8,
+            6,
+            0,
+            0,
+            17,
+            0,
+            7,
+            4,
+            9,
+            6,
+            0
+          ]
+        },
+        "timestamp": "2025-07-22T04:55:39.614Z",
+        "success": true
+      },
+      {
+        "type": "rlvr_learning",
+        "actionType": "focus_mode",
+        "reward": 0.6033333333333334,
+        "visualState": {
+          "interface": {
+            "activeComponents": [
+              "task-manager",
+              "calendar"
+            ],
+            "userFocus": "coding",
+            "taskQueue": [
+              {
+                "id": 1,
+                "title": "Fix bug",
+                "completed": false
+              },
+              {
+                "id": 2,
+                "title": "Code review",
+                "completed": true
+              }
+            ],
+            "notifications": [
+              "meeting in 30 min"
+            ],
+            "currentAction": null
+          },
+          "context": {
+            "timeBlock": "morning",
+            "energy": "high",
+            "focus": "deep-work",
+            "urgency": "normal",
+            "location": null
+          },
+          "history": [],
+          "timestamp": 1753160173692,
+          "encoded": [
+            12,
+            8,
+            6,
+            0,
+            0,
+            17,
+            0,
+            7,
+            4,
+            9,
+            6,
+            0
+          ]
+        },
+        "timestamp": "2025-07-22T04:56:13.693Z",
+        "success": true
+      },
+      {
+        "type": "rlvr_learning",
+        "actionType": "focus_mode",
+        "reward": 0.6033333333333334,
+        "visualState": {
+          "interface": {
+            "activeComponents": [
+              "task-manager",
+              "calendar"
+            ],
+            "userFocus": "coding",
+            "taskQueue": [
+              {
+                "id": 1,
+                "title": "Fix bug",
+                "completed": false
+              },
+              {
+                "id": 2,
+                "title": "Code review",
+                "completed": true
+              }
+            ],
+            "notifications": [
+              "meeting in 30 min"
+            ],
+            "currentAction": null
+          },
+          "context": {
+            "timeBlock": "morning",
+            "energy": "high",
+            "focus": "deep-work",
+            "urgency": "normal",
+            "location": null
+          },
+          "history": [],
+          "timestamp": 1753160180279,
+          "encoded": [
+            12,
+            8,
+            6,
+            0,
+            0,
+            17,
+            0,
+            7,
+            4,
+            9,
+            6,
+            0
+          ]
+        },
+        "timestamp": "2025-07-22T04:56:20.279Z",
+        "success": true
+      },
+      {
+        "type": "rlvr_learning",
+        "actionType": "focus_mode",
+        "reward": 0.6033333333333334,
+        "visualState": {
+          "interface": {
+            "activeComponents": [
+              "task-manager",
+              "calendar"
+            ],
+            "userFocus": "coding",
+            "taskQueue": [
+              {
+                "id": 1,
+                "title": "Fix bug",
+                "completed": false
+              },
+              {
+                "id": 2,
+                "title": "Code review",
+                "completed": true
+              }
+            ],
+            "notifications": [
+              "meeting in 30 min"
+            ],
+            "currentAction": null
+          },
+          "context": {
+            "timeBlock": "morning",
+            "energy": "high",
+            "focus": "deep-work",
+            "urgency": "normal",
+            "location": null
+          },
+          "history": [],
+          "timestamp": 1753160194558,
+          "encoded": [
+            12,
+            8,
+            6,
+            0,
+            0,
+            17,
+            0,
+            7,
+            4,
+            9,
+            6,
+            0
+          ]
+        },
+        "timestamp": "2025-07-22T04:56:34.558Z",
+        "success": true
+      },
+      {
+        "type": "rlvr_learning",
+        "actionType": "focus_mode",
+        "reward": 0.6033333333333334,
+        "visualState": {
+          "interface": {
+            "activeComponents": [
+              "task-manager",
+              "calendar"
+            ],
+            "userFocus": "coding",
+            "taskQueue": [
+              {
+                "id": 1,
+                "title": "Fix bug",
+                "completed": false
+              },
+              {
+                "id": 2,
+                "title": "Code review",
+                "completed": true
+              }
+            ],
+            "notifications": [
+              "meeting in 30 min"
+            ],
+            "currentAction": null
+          },
+          "context": {
+            "timeBlock": "morning",
+            "energy": "high",
+            "focus": "deep-work",
+            "urgency": "normal",
+            "location": null
+          },
+          "history": [],
+          "timestamp": 1753160205375,
+          "encoded": [
+            12,
+            8,
+            6,
+            0,
+            0,
+            17,
+            0,
+            7,
+            4,
+            9,
+            6,
+            0
+          ]
+        },
+        "timestamp": "2025-07-22T04:56:45.375Z",
+        "success": true
+      },
+      {
+        "type": "rlvr_learning",
+        "actionType": "focus_mode",
+        "reward": 0.6033333333333334,
+        "visualState": {
+          "interface": {
+            "activeComponents": [
+              "task-manager",
+              "calendar"
+            ],
+            "userFocus": "coding",
+            "taskQueue": [
+              {
+                "id": 1,
+                "title": "Fix bug",
+                "completed": false
+              },
+              {
+                "id": 2,
+                "title": "Code review",
+                "completed": true
+              }
+            ],
+            "notifications": [
+              "meeting in 30 min"
+            ],
+            "currentAction": null
+          },
+          "context": {
+            "timeBlock": "morning",
+            "energy": "high",
+            "focus": "deep-work",
+            "urgency": "normal",
+            "location": null
+          },
+          "history": [],
+          "timestamp": 1753160404481,
+          "encoded": [
+            12,
+            8,
+            6,
+            0,
+            0,
+            17,
+            0,
+            7,
+            4,
+            9,
+            6,
+            0
+          ]
+        },
+        "timestamp": "2025-07-22T05:00:04.482Z",
+        "success": true
+      },
+      {
+        "type": "rlvr_learning",
+        "actionType": "focus_mode",
+        "reward": 0.6033333333333334,
+        "visualState": {
+          "interface": {
+            "activeComponents": [
+              "task-manager",
+              "calendar"
+            ],
+            "userFocus": "coding",
+            "taskQueue": [
+              {
+                "id": 1,
+                "title": "Fix bug",
+                "completed": false
+              },
+              {
+                "id": 2,
+                "title": "Code review",
+                "completed": true
+              }
+            ],
+            "notifications": [
+              "meeting in 30 min"
+            ],
+            "currentAction": null
+          },
+          "context": {
+            "timeBlock": "morning",
+            "energy": "high",
+            "focus": "deep-work",
+            "urgency": "normal",
+            "location": null
+          },
+          "history": [],
+          "timestamp": 1753161067470,
+          "encoded": [
+            12,
+            8,
+            6,
+            0,
+            0,
+            17,
+            0,
+            7,
+            4,
+            9,
+            6,
+            0
+          ]
+        },
+        "timestamp": "2025-07-22T05:11:07.470Z",
+        "success": true
+      },
+      {
+        "type": "rlvr_learning",
+        "actionType": "focus_mode",
+        "reward": 0.6033333333333334,
+        "visualState": {
+          "interface": {
+            "activeComponents": [
+              "task-manager",
+              "calendar"
+            ],
+            "userFocus": "coding",
+            "taskQueue": [
+              {
+                "id": 1,
+                "title": "Fix bug",
+                "completed": false
+              },
+              {
+                "id": 2,
+                "title": "Code review",
+                "completed": true
+              }
+            ],
+            "notifications": [
+              "meeting in 30 min"
+            ],
+            "currentAction": null
+          },
+          "context": {
+            "timeBlock": "morning",
+            "energy": "high",
+            "focus": "deep-work",
+            "urgency": "normal",
+            "location": null
+          },
+          "history": [],
+          "timestamp": 1753161072471,
+          "encoded": [
+            12,
+            8,
+            6,
+            0,
+            0,
+            17,
+            0,
+            7,
+            4,
+            9,
+            6,
+            0
+          ]
+        },
+        "timestamp": "2025-07-22T05:11:12.472Z",
+        "success": true
+      },
+      {
+        "type": "rlvr_learning",
+        "actionType": "focus_mode",
+        "reward": 0.6033333333333334,
+        "visualState": {
+          "interface": {
+            "activeComponents": [
+              "task-manager",
+              "calendar"
+            ],
+            "userFocus": "coding",
+            "taskQueue": [
+              {
+                "id": 1,
+                "title": "Fix bug",
+                "completed": false
+              },
+              {
+                "id": 2,
+                "title": "Code review",
+                "completed": true
+              }
+            ],
+            "notifications": [
+              "meeting in 30 min"
+            ],
+            "currentAction": null
+          },
+          "context": {
+            "timeBlock": "morning",
+            "energy": "high",
+            "focus": "deep-work",
+            "urgency": "normal",
+            "location": null
+          },
+          "history": [],
+          "timestamp": 1753161072479,
+          "encoded": [
+            12,
+            8,
+            6,
+            0,
+            0,
+            17,
+            0,
+            7,
+            4,
+            9,
+            6,
+            0
+          ]
+        },
+        "timestamp": "2025-07-22T05:11:12.479Z",
+        "success": true
+      },
+      {
+        "type": "rlvr_learning",
+        "actionType": "focus_mode",
+        "reward": 0.6033333333333334,
+        "visualState": {
+          "interface": {
+            "activeComponents": [
+              "task-manager",
+              "calendar"
+            ],
+            "userFocus": "coding",
+            "taskQueue": [
+              {
+                "id": 1,
+                "title": "Fix bug",
+                "completed": false
+              },
+              {
+                "id": 2,
+                "title": "Code review",
+                "completed": true
+              }
+            ],
+            "notifications": [
+              "meeting in 30 min"
+            ],
+            "currentAction": null
+          },
+          "context": {
+            "timeBlock": "morning",
+            "energy": "high",
+            "focus": "deep-work",
+            "urgency": "normal",
+            "location": null
+          },
+          "history": [],
+          "timestamp": 1753161186521,
+          "encoded": [
+            12,
+            8,
+            6,
+            0,
+            0,
+            17,
+            0,
+            7,
+            4,
+            9,
+            6,
+            0
+          ]
+        },
+        "timestamp": "2025-07-22T05:13:06.522Z",
+        "success": true
+      },
+      {
+        "type": "rlvr_learning",
+        "actionType": "focus_mode",
+        "reward": 0.6033333333333334,
+        "visualState": {
+          "interface": {
+            "activeComponents": [
+              "task-manager",
+              "calendar"
+            ],
+            "userFocus": "coding",
+            "taskQueue": [
+              {
+                "id": 1,
+                "title": "Fix bug",
+                "completed": false
+              },
+              {
+                "id": 2,
+                "title": "Code review",
+                "completed": true
+              }
+            ],
+            "notifications": [
+              "meeting in 30 min"
+            ],
+            "currentAction": null
+          },
+          "context": {
+            "timeBlock": "morning",
+            "energy": "high",
+            "focus": "deep-work",
+            "urgency": "normal",
+            "location": null
+          },
+          "history": [],
+          "timestamp": 1753161195053,
+          "encoded": [
+            12,
+            8,
+            6,
+            0,
+            0,
+            17,
+            0,
+            7,
+            4,
+            9,
+            6,
+            0
+          ]
+        },
+        "timestamp": "2025-07-22T05:13:15.053Z",
+        "success": true
+      },
+      {
+        "type": "rlvr_learning",
+        "actionType": "focus_mode",
+        "reward": 0.6033333333333334,
+        "visualState": {
+          "interface": {
+            "activeComponents": [
+              "task-manager",
+              "calendar"
+            ],
+            "userFocus": "coding",
+            "taskQueue": [
+              {
+                "id": 1,
+                "title": "Fix bug",
+                "completed": false
+              },
+              {
+                "id": 2,
+                "title": "Code review",
+                "completed": true
+              }
+            ],
+            "notifications": [
+              "meeting in 30 min"
+            ],
+            "currentAction": null
+          },
+          "context": {
+            "timeBlock": "morning",
+            "energy": "high",
+            "focus": "deep-work",
+            "urgency": "normal",
+            "location": null
+          },
+          "history": [],
+          "timestamp": 1753161256880,
+          "encoded": [
+            12,
+            8,
+            6,
+            0,
+            0,
+            17,
+            0,
+            7,
+            4,
+            9,
+            6,
+            0
+          ]
+        },
+        "timestamp": "2025-07-22T05:14:16.881Z",
+        "success": true
+      },
+      {
+        "type": "rlvr_learning",
+        "actionType": "focus_mode",
+        "reward": 0.6033333333333334,
+        "visualState": {
+          "interface": {
+            "activeComponents": [
+              "task-manager",
+              "calendar"
+            ],
+            "userFocus": "coding",
+            "taskQueue": [
+              {
+                "id": 1,
+                "title": "Fix bug",
+                "completed": false
+              },
+              {
+                "id": 2,
+                "title": "Code review",
+                "completed": true
+              }
+            ],
+            "notifications": [
+              "meeting in 30 min"
+            ],
+            "currentAction": null
+          },
+          "context": {
+            "timeBlock": "morning",
+            "energy": "high",
+            "focus": "deep-work",
+            "urgency": "normal",
+            "location": null
+          },
+          "history": [],
+          "timestamp": 1753161388000,
+          "encoded": [
+            12,
+            8,
+            6,
+            0,
+            0,
+            17,
+            0,
+            7,
+            4,
+            9,
+            6,
+            0
+          ]
+        },
+        "timestamp": "2025-07-22T05:16:28.000Z",
+        "success": true
+      },
+      {
+        "type": "rlvr_learning",
+        "actionType": "focus_mode",
+        "reward": 0.6033333333333334,
+        "visualState": {
+          "interface": {
+            "activeComponents": [
+              "task-manager",
+              "calendar"
+            ],
+            "userFocus": "coding",
+            "taskQueue": [
+              {
+                "id": 1,
+                "title": "Fix bug",
+                "completed": false
+              },
+              {
+                "id": 2,
+                "title": "Code review",
+                "completed": true
+              }
+            ],
+            "notifications": [
+              "meeting in 30 min"
+            ],
+            "currentAction": null
+          },
+          "context": {
+            "timeBlock": "morning",
+            "energy": "high",
+            "focus": "deep-work",
+            "urgency": "normal",
+            "location": null
+          },
+          "history": [],
+          "timestamp": 1753161827015,
+          "encoded": [
+            12,
+            8,
+            6,
+            0,
+            0,
+            17,
+            0,
+            7,
+            4,
+            9,
+            6,
+            0
+          ]
+        },
+        "timestamp": "2025-07-22T05:23:47.015Z",
+        "success": true
+      },
+      {
+        "type": "rlvr_learning",
+        "actionType": "focus_mode",
+        "reward": 0.6033333333333334,
+        "visualState": {
+          "interface": {
+            "activeComponents": [
+              "task-manager",
+              "calendar"
+            ],
+            "userFocus": "coding",
+            "taskQueue": [
+              {
+                "id": 1,
+                "title": "Fix bug",
+                "completed": false
+              },
+              {
+                "id": 2,
+                "title": "Code review",
+                "completed": true
+              }
+            ],
+            "notifications": [
+              "meeting in 30 min"
+            ],
+            "currentAction": null
+          },
+          "context": {
+            "timeBlock": "morning",
+            "energy": "high",
+            "focus": "deep-work",
+            "urgency": "normal",
+            "location": null
+          },
+          "history": [],
+          "timestamp": 1753161840351,
+          "encoded": [
+            12,
+            8,
+            6,
+            0,
+            0,
+            17,
+            0,
+            7,
+            4,
+            9,
+            6,
+            0
+          ]
+        },
+        "timestamp": "2025-07-22T05:24:00.351Z",
+        "success": true
+      },
+      {
+        "type": "rlvr_learning",
+        "actionType": "focus_mode",
+        "reward": 0.6033333333333334,
+        "visualState": {
+          "interface": {
+            "activeComponents": [
+              "task-manager",
+              "calendar"
+            ],
+            "userFocus": "coding",
+            "taskQueue": [
+              {
+                "id": 1,
+                "title": "Fix bug",
+                "completed": false
+              },
+              {
+                "id": 2,
+                "title": "Code review",
+                "completed": true
+              }
+            ],
+            "notifications": [
+              "meeting in 30 min"
+            ],
+            "currentAction": null
+          },
+          "context": {
+            "timeBlock": "morning",
+            "energy": "high",
+            "focus": "deep-work",
+            "urgency": "normal",
+            "location": null
+          },
+          "history": [],
+          "timestamp": 1753161864042,
+          "encoded": [
+            12,
+            8,
+            6,
+            0,
+            0,
+            17,
+            0,
+            7,
+            4,
+            9,
+            6,
+            0
+          ]
+        },
+        "timestamp": "2025-07-22T05:24:24.042Z",
+        "success": true
+      },
+      {
+        "type": "rlvr_learning",
+        "actionType": "focus_mode",
+        "reward": 0.6033333333333334,
+        "visualState": {
+          "interface": {
+            "activeComponents": [
+              "task-manager",
+              "calendar"
+            ],
+            "userFocus": "coding",
+            "taskQueue": [
+              {
+                "id": 1,
+                "title": "Fix bug",
+                "completed": false
+              },
+              {
+                "id": 2,
+                "title": "Code review",
+                "completed": true
+              }
+            ],
+            "notifications": [
+              "meeting in 30 min"
+            ],
+            "currentAction": null
+          },
+          "context": {
+            "timeBlock": "morning",
+            "energy": "high",
+            "focus": "deep-work",
+            "urgency": "normal",
+            "location": null
+          },
+          "history": [],
+          "timestamp": 1753161954970,
+          "encoded": [
+            12,
+            8,
+            6,
+            0,
+            0,
+            17,
+            0,
+            7,
+            4,
+            9,
+            6,
+            0
+          ]
+        },
+        "timestamp": "2025-07-22T05:25:54.971Z",
+        "success": true
+      },
+      {
+        "type": "rlvr_learning",
+        "actionType": "focus_mode",
+        "reward": 0.6033333333333334,
+        "visualState": {
+          "interface": {
+            "activeComponents": [
+              "task-manager",
+              "calendar"
+            ],
+            "userFocus": "coding",
+            "taskQueue": [
+              {
+                "id": 1,
+                "title": "Fix bug",
+                "completed": false
+              },
+              {
+                "id": 2,
+                "title": "Code review",
+                "completed": true
+              }
+            ],
+            "notifications": [
+              "meeting in 30 min"
+            ],
+            "currentAction": null
+          },
+          "context": {
+            "timeBlock": "morning",
+            "energy": "high",
+            "focus": "deep-work",
+            "urgency": "normal",
+            "location": null
+          },
+          "history": [],
+          "timestamp": 1753162080596,
+          "encoded": [
+            12,
+            8,
+            6,
+            0,
+            0,
+            17,
+            0,
+            7,
+            4,
+            9,
+            6,
+            0
+          ]
+        },
+        "timestamp": "2025-07-22T05:28:00.597Z",
+        "success": true
+      },
+      {
+        "type": "rlvr_learning",
+        "actionType": "focus_mode",
+        "reward": 0.6033333333333334,
+        "visualState": {
+          "interface": {
+            "activeComponents": [
+              "task-manager",
+              "calendar"
+            ],
+            "userFocus": "coding",
+            "taskQueue": [
+              {
+                "id": 1,
+                "title": "Fix bug",
+                "completed": false
+              },
+              {
+                "id": 2,
+                "title": "Code review",
+                "completed": true
+              }
+            ],
+            "notifications": [
+              "meeting in 30 min"
+            ],
+            "currentAction": null
+          },
+          "context": {
+            "timeBlock": "morning",
+            "energy": "high",
+            "focus": "deep-work",
+            "urgency": "normal",
+            "location": null
+          },
+          "history": [],
+          "timestamp": 1753162267401,
+          "encoded": [
+            12,
+            8,
+            6,
+            0,
+            0,
+            17,
+            0,
+            7,
+            4,
+            9,
+            6,
+            0
+          ]
+        },
+        "timestamp": "2025-07-22T05:31:07.402Z",
+        "success": true
+      },
+      {
+        "type": "rlvr_learning",
+        "actionType": "focus_mode",
+        "reward": 0.6033333333333334,
+        "visualState": {
+          "interface": {
+            "activeComponents": [
+              "task-manager",
+              "calendar"
+            ],
+            "userFocus": "coding",
+            "taskQueue": [
+              {
+                "id": 1,
+                "title": "Fix bug",
+                "completed": false
+              },
+              {
+                "id": 2,
+                "title": "Code review",
+                "completed": true
+              }
+            ],
+            "notifications": [
+              "meeting in 30 min"
+            ],
+            "currentAction": null
+          },
+          "context": {
+            "timeBlock": "morning",
+            "energy": "high",
+            "focus": "deep-work",
+            "urgency": "normal",
+            "location": null
+          },
+          "history": [],
+          "timestamp": 1753162267836,
+          "encoded": [
+            12,
+            8,
+            6,
+            0,
+            0,
+            17,
+            0,
+            7,
+            4,
+            9,
+            6,
+            0
+          ]
+        },
+        "timestamp": "2025-07-22T05:31:07.837Z",
+        "success": true
+      },
+      {
+        "type": "rlvr_learning",
+        "actionType": "productivity",
+        "reward": 0.6200000000000001,
+        "visualState": {
+          "interface": {
+            "activeComponents": [
+              "autonomous-action"
+            ],
+            "userFocus": "break",
+            "taskQueue": [],
+            "notifications": [],
+            "currentAction": "productivity"
+          },
+          "context": {
+            "timeBlock": null,
+            "energy": "medium",
+            "focus": "break",
+            "urgency": "high",
+            "location": null,
+            "userId": "default-user",
+            "timestamp": "2025-07-22T05:31:10.988Z",
+            "currentTimeBlock": "morning-routine",
+            "upcomingEvents": [
+              {
+                "id": "event-1",
+                "title": "Team Standup",
+                "type": "meeting",
+                "start": "2025-07-22T05:41:10.988Z",
+                "end": "2025-07-22T05:56:10.988Z",
+                "minutesUntilStart": 10,
+                "participants": [
+                  "Alice",
+                  "Bob",
+                  "Charlie"
+                ]
+              },
+              {
+                "id": "event-2",
+                "title": "Project Review",
+                "type": "meeting",
+                "start": "2025-07-22T06:31:10.988Z",
+                "end": "2025-07-22T07:01:10.988Z",
+                "minutesUntilStart": 60,
+                "participants": [
+                  "Manager",
+                  "Team Lead",
+                  "Client"
+                ]
+              },
+              {
+                "id": "task-1",
+                "title": "Complete Documentation",
+                "type": "task",
+                "dueTime": "2025-07-22T08:31:10.988Z",
+                "minutesUntilDue": 180,
+                "priority": "high"
+              }
+            ],
+            "priorities": [
+              "Complete project proposal",
+              "Prepare for meeting",
+              "Reply to urgent emails"
+            ],
+            "suggestions": [
+              "Take a short break",
+              "Focus on high-priority tasks",
+              "Prepare for upcoming meeting"
+            ]
+          },
+          "history": [],
+          "timestamp": 1753162271513,
+          "encoded": [
+            17,
+            5,
+            12,
+            0,
+            6,
+            5,
+            4,
+            0,
+            12,
+            24,
+            15,
+            0,
+            0,
+            0,
+            25,
+            19,
+            22,
+            18,
+            28,
+            28
+          ]
+        },
+        "timestamp": "2025-07-22T05:31:11.514Z",
+        "success": true
+      },
+      {
+        "type": "rlvr_learning",
+        "actionType": "focus_mode",
+        "reward": 0.6033333333333334,
+        "visualState": {
+          "interface": {
+            "activeComponents": [
+              "task-manager",
+              "calendar"
+            ],
+            "userFocus": "coding",
+            "taskQueue": [
+              {
+                "id": 1,
+                "title": "Fix bug",
+                "completed": false
+              },
+              {
+                "id": 2,
+                "title": "Code review",
+                "completed": true
+              }
+            ],
+            "notifications": [
+              "meeting in 30 min"
+            ],
+            "currentAction": null
+          },
+          "context": {
+            "timeBlock": "morning",
+            "energy": "high",
+            "focus": "deep-work",
+            "urgency": "normal",
+            "location": null
+          },
+          "history": [],
+          "timestamp": 1753162420724,
+          "encoded": [
+            12,
+            8,
+            6,
+            0,
+            0,
+            17,
+            0,
+            7,
+            4,
+            9,
+            6,
+            0
+          ]
+        },
+        "timestamp": "2025-07-22T05:33:40.724Z",
+        "success": true
+      },
+      {
+        "type": "rlvr_learning",
+        "actionType": "productivity",
+        "reward": 0.6200000000000001,
+        "visualState": {
+          "interface": {
+            "activeComponents": [
+              "autonomous-action"
+            ],
+            "userFocus": "shallow-work",
+            "taskQueue": [],
+            "notifications": [],
+            "currentAction": "productivity"
+          },
+          "context": {
+            "timeBlock": null,
+            "energy": "medium",
+            "focus": "shallow-work",
+            "urgency": "high",
+            "location": null,
+            "userId": "default-user",
+            "timestamp": "2025-07-22T05:37:10.938Z",
+            "currentTimeBlock": "morning-routine",
+            "upcomingEvents": [
+              {
+                "id": "event-1",
+                "title": "Team Standup",
+                "type": "meeting",
+                "start": "2025-07-22T05:47:10.938Z",
+                "end": "2025-07-22T06:02:10.938Z",
+                "minutesUntilStart": 10,
+                "participants": [
+                  "Alice",
+                  "Bob",
+                  "Charlie"
+                ]
+              },
+              {
+                "id": "event-2",
+                "title": "Project Review",
+                "type": "meeting",
+                "start": "2025-07-22T06:37:10.938Z",
+                "end": "2025-07-22T07:07:10.938Z",
+                "minutesUntilStart": 60,
+                "participants": [
+                  "Manager",
+                  "Team Lead",
+                  "Client"
+                ]
+              },
+              {
+                "id": "task-1",
+                "title": "Complete Documentation",
+                "type": "task",
+                "dueTime": "2025-07-22T08:37:10.938Z",
+                "minutesUntilDue": 180,
+                "priority": "high"
+              }
+            ],
+            "priorities": [
+              "Complete project proposal",
+              "Prepare for meeting",
+              "Reply to urgent emails"
+            ],
+            "suggestions": [
+              "Take a short break",
+              "Focus on high-priority tasks",
+              "Prepare for upcoming meeting"
+            ]
+          },
+          "history": [],
+          "timestamp": 1753162631445,
+          "encoded": [
+            17,
+            12,
+            12,
+            0,
+            6,
+            12,
+            4,
+            0,
+            12,
+            24,
+            15,
+            0,
+            0,
+            0,
+            25,
+            19,
+            22,
+            18,
+            28,
+            28
+          ]
+        },
+        "timestamp": "2025-07-22T05:37:11.446Z",
+        "success": true
+      },
+      {
+        "type": "rlvr_learning",
+        "actionType": "focus_mode",
+        "reward": 0.6033333333333334,
+        "visualState": {
+          "interface": {
+            "activeComponents": [
+              "task-manager",
+              "calendar"
+            ],
+            "userFocus": "coding",
+            "taskQueue": [
+              {
+                "id": 1,
+                "title": "Fix bug",
+                "completed": false
+              },
+              {
+                "id": 2,
+                "title": "Code review",
+                "completed": true
+              }
+            ],
+            "notifications": [
+              "meeting in 30 min"
+            ],
+            "currentAction": null
+          },
+          "context": {
+            "timeBlock": "morning",
+            "energy": "high",
+            "focus": "deep-work",
+            "urgency": "normal",
+            "location": null
+          },
+          "history": [],
+          "timestamp": 1753162968270,
+          "encoded": [
+            12,
+            8,
+            6,
+            0,
+            0,
+            17,
+            0,
+            7,
+            4,
+            9,
+            6,
+            0
+          ]
+        },
+        "timestamp": "2025-07-22T05:42:48.272Z",
+        "success": true
+      },
+      {
+        "type": "rlvr_learning",
+        "actionType": "focus_mode",
+        "reward": 0.6033333333333334,
+        "visualState": {
+          "interface": {
+            "activeComponents": [
+              "task-manager",
+              "calendar"
+            ],
+            "userFocus": "coding",
+            "taskQueue": [
+              {
+                "id": 1,
+                "title": "Fix bug",
+                "completed": false
+              },
+              {
+                "id": 2,
+                "title": "Code review",
+                "completed": true
+              }
+            ],
+            "notifications": [
+              "meeting in 30 min"
+            ],
+            "currentAction": null
+          },
+          "context": {
+            "timeBlock": "morning",
+            "energy": "high",
+            "focus": "deep-work",
+            "urgency": "normal",
+            "location": null
+          },
+          "history": [],
+          "timestamp": 1753162976385,
+          "encoded": [
+            12,
+            8,
+            6,
+            0,
+            0,
+            17,
+            0,
+            7,
+            4,
+            9,
+            6,
+            0
+          ]
+        },
+        "timestamp": "2025-07-22T05:42:56.387Z",
+        "success": true
+      },
+      {
+        "type": "rlvr_learning",
+        "actionType": "focus_mode",
+        "reward": 0.6033333333333334,
+        "visualState": {
+          "interface": {
+            "activeComponents": [
+              "task-manager",
+              "calendar"
+            ],
+            "userFocus": "coding",
+            "taskQueue": [
+              {
+                "id": 1,
+                "title": "Fix bug",
+                "completed": false
+              },
+              {
+                "id": 2,
+                "title": "Code review",
+                "completed": true
+              }
+            ],
+            "notifications": [
+              "meeting in 30 min"
+            ],
+            "currentAction": null
+          },
+          "context": {
+            "timeBlock": "morning",
+            "energy": "high",
+            "focus": "deep-work",
+            "urgency": "normal",
+            "location": null
+          },
+          "history": [],
+          "timestamp": 1753162977235,
+          "encoded": [
+            12,
+            8,
+            6,
+            0,
+            0,
+            17,
+            0,
+            7,
+            4,
+            9,
+            6,
+            0
+          ]
+        },
+        "timestamp": "2025-07-22T05:42:57.236Z",
+        "success": true
+      },
+      {
+        "type": "rlvr_learning",
+        "actionType": "productivity",
+        "reward": 0.6200000000000001,
+        "visualState": {
+          "interface": {
+            "activeComponents": [
+              "autonomous-action"
+            ],
+            "userFocus": "break",
+            "taskQueue": [],
+            "notifications": [],
+            "currentAction": "productivity"
+          },
+          "context": {
+            "timeBlock": null,
+            "energy": "medium",
+            "focus": "break",
+            "urgency": "low",
+            "location": null,
+            "userId": "default-user",
+            "timestamp": "2025-07-22T05:43:10.927Z",
+            "currentTimeBlock": "morning-routine",
+            "upcomingEvents": [
+              {
+                "id": "event-1",
+                "title": "Team Standup",
+                "type": "meeting",
+                "start": "2025-07-22T05:53:10.927Z",
+                "end": "2025-07-22T06:08:10.927Z",
+                "minutesUntilStart": 10,
+                "participants": [
+                  "Alice",
+                  "Bob",
+                  "Charlie"
+                ]
+              },
+              {
+                "id": "event-2",
+                "title": "Project Review",
+                "type": "meeting",
+                "start": "2025-07-22T06:43:10.927Z",
+                "end": "2025-07-22T07:13:10.927Z",
+                "minutesUntilStart": 60,
+                "participants": [
+                  "Manager",
+                  "Team Lead",
+                  "Client"
+                ]
+              },
+              {
+                "id": "task-1",
+                "title": "Complete Documentation",
+                "type": "task",
+                "dueTime": "2025-07-22T08:43:10.927Z",
+                "minutesUntilDue": 180,
+                "priority": "high"
+              }
+            ],
+            "priorities": [
+              "Complete project proposal",
+              "Prepare for meeting",
+              "Reply to urgent emails"
+            ],
+            "suggestions": [
+              "Take a short break",
+              "Focus on high-priority tasks",
+              "Prepare for upcoming meeting"
+            ]
+          },
+          "history": [],
+          "timestamp": 1753162991434,
+          "encoded": [
+            17,
+            5,
+            12,
+            0,
+            6,
+            5,
+            3,
+            0,
+            12,
+            24,
+            15,
+            0,
+            0,
+            0,
+            25,
+            19,
+            22,
+            18,
+            28,
+            28
+          ]
+        },
+        "timestamp": "2025-07-22T05:43:11.435Z",
+        "success": true
+      },
+      {
+        "type": "rlvr_learning",
+        "actionType": "focus_mode",
+        "reward": 0.6033333333333334,
+        "visualState": {
+          "interface": {
+            "activeComponents": [
+              "task-manager",
+              "calendar"
+            ],
+            "userFocus": "coding",
+            "taskQueue": [
+              {
+                "id": 1,
+                "title": "Fix bug",
+                "completed": false
+              },
+              {
+                "id": 2,
+                "title": "Code review",
+                "completed": true
+              }
+            ],
+            "notifications": [
+              "meeting in 30 min"
+            ],
+            "currentAction": null
+          },
+          "context": {
+            "timeBlock": "morning",
+            "energy": "high",
+            "focus": "deep-work",
+            "urgency": "normal",
+            "location": null
+          },
+          "history": [],
+          "timestamp": 1753163003767,
+          "encoded": [
+            12,
+            8,
+            6,
+            0,
+            0,
+            17,
+            0,
+            7,
+            4,
+            9,
+            6,
+            0
+          ]
+        },
+        "timestamp": "2025-07-22T05:43:23.768Z",
+        "success": true
+      },
+      {
+        "type": "rlvr_learning",
+        "actionType": "focus_mode",
+        "reward": 0.6033333333333334,
+        "visualState": {
+          "interface": {
+            "activeComponents": [
+              "task-manager",
+              "calendar"
+            ],
+            "userFocus": "coding",
+            "taskQueue": [
+              {
+                "id": 1,
+                "title": "Fix bug",
+                "completed": false
+              },
+              {
+                "id": 2,
+                "title": "Code review",
+                "completed": true
+              }
+            ],
+            "notifications": [
+              "meeting in 30 min"
+            ],
+            "currentAction": null
+          },
+          "context": {
+            "timeBlock": "morning",
+            "energy": "high",
+            "focus": "deep-work",
+            "urgency": "normal",
+            "location": null
+          },
+          "history": [],
+          "timestamp": 1753163004649,
+          "encoded": [
+            12,
+            8,
+            6,
+            0,
+            0,
+            17,
+            0,
+            7,
+            4,
+            9,
+            6,
+            0
+          ]
+        },
+        "timestamp": "2025-07-22T05:43:24.651Z",
+        "success": true
+      },
+      {
+        "type": "rlvr_learning",
+        "actionType": "focus_mode",
+        "reward": 0.6033333333333334,
+        "visualState": {
+          "interface": {
+            "activeComponents": [
+              "task-manager",
+              "calendar"
+            ],
+            "userFocus": "coding",
+            "taskQueue": [
+              {
+                "id": 1,
+                "title": "Fix bug",
+                "completed": false
+              },
+              {
+                "id": 2,
+                "title": "Code review",
+                "completed": true
+              }
+            ],
+            "notifications": [
+              "meeting in 30 min"
+            ],
+            "currentAction": null
+          },
+          "context": {
+            "timeBlock": "morning",
+            "energy": "high",
+            "focus": "deep-work",
+            "urgency": "normal",
+            "location": null
+          },
+          "history": [],
+          "timestamp": 1753163006567,
+          "encoded": [
+            12,
+            8,
+            6,
+            0,
+            0,
+            17,
+            0,
+            7,
+            4,
+            9,
+            6,
+            0
+          ]
+        },
+        "timestamp": "2025-07-22T05:43:26.568Z",
+        "success": true
+      },
+      {
+        "type": "rlvr_learning",
+        "actionType": "focus_mode",
+        "reward": 0.6033333333333334,
+        "visualState": {
+          "interface": {
+            "activeComponents": [
+              "task-manager",
+              "calendar"
+            ],
+            "userFocus": "coding",
+            "taskQueue": [
+              {
+                "id": 1,
+                "title": "Fix bug",
+                "completed": false
+              },
+              {
+                "id": 2,
+                "title": "Code review",
+                "completed": true
+              }
+            ],
+            "notifications": [
+              "meeting in 30 min"
+            ],
+            "currentAction": null
+          },
+          "context": {
+            "timeBlock": "morning",
+            "energy": "high",
+            "focus": "deep-work",
+            "urgency": "normal",
+            "location": null
+          },
+          "history": [],
+          "timestamp": 1753163007298,
+          "encoded": [
+            12,
+            8,
+            6,
+            0,
+            0,
+            17,
+            0,
+            7,
+            4,
+            9,
+            6,
+            0
+          ]
+        },
+        "timestamp": "2025-07-22T05:43:27.300Z",
+        "success": true
+      },
+      {
+        "type": "rlvr_learning",
+        "actionType": "focus_mode",
+        "reward": 0.6033333333333334,
+        "visualState": {
+          "interface": {
+            "activeComponents": [
+              "task-manager",
+              "calendar"
+            ],
+            "userFocus": "coding",
+            "taskQueue": [
+              {
+                "id": 1,
+                "title": "Fix bug",
+                "completed": false
+              },
+              {
+                "id": 2,
+                "title": "Code review",
+                "completed": true
+              }
+            ],
+            "notifications": [
+              "meeting in 30 min"
+            ],
+            "currentAction": null
+          },
+          "context": {
+            "timeBlock": "morning",
+            "energy": "high",
+            "focus": "deep-work",
+            "urgency": "normal",
+            "location": null
+          },
+          "history": [],
+          "timestamp": 1753163007884,
+          "encoded": [
+            12,
+            8,
+            6,
+            0,
+            0,
+            17,
+            0,
+            7,
+            4,
+            9,
+            6,
+            0
+          ]
+        },
+        "timestamp": "2025-07-22T05:43:27.885Z",
+        "success": true
+      },
+      {
+        "type": "rlvr_learning",
+        "actionType": "focus_mode",
+        "reward": 0.6033333333333334,
+        "visualState": {
+          "interface": {
+            "activeComponents": [
+              "task-manager",
+              "calendar"
+            ],
+            "userFocus": "coding",
+            "taskQueue": [
+              {
+                "id": 1,
+                "title": "Fix bug",
+                "completed": false
+              },
+              {
+                "id": 2,
+                "title": "Code review",
+                "completed": true
+              }
+            ],
+            "notifications": [
+              "meeting in 30 min"
+            ],
+            "currentAction": null
+          },
+          "context": {
+            "timeBlock": "morning",
+            "energy": "high",
+            "focus": "deep-work",
+            "urgency": "normal",
+            "location": null
+          },
+          "history": [],
+          "timestamp": 1753163014532,
+          "encoded": [
+            12,
+            8,
+            6,
+            0,
+            0,
+            17,
+            0,
+            7,
+            4,
+            9,
+            6,
+            0
+          ]
+        },
+        "timestamp": "2025-07-22T05:43:34.534Z",
+        "success": true
+      },
+      {
+        "type": "rlvr_learning",
+        "actionType": "focus_mode",
+        "reward": 0.6033333333333334,
+        "visualState": {
+          "interface": {
+            "activeComponents": [
+              "task-manager",
+              "calendar"
+            ],
+            "userFocus": "coding",
+            "taskQueue": [
+              {
+                "id": 1,
+                "title": "Fix bug",
+                "completed": false
+              },
+              {
+                "id": 2,
+                "title": "Code review",
+                "completed": true
+              }
+            ],
+            "notifications": [
+              "meeting in 30 min"
+            ],
+            "currentAction": null
+          },
+          "context": {
+            "timeBlock": "morning",
+            "energy": "high",
+            "focus": "deep-work",
+            "urgency": "normal",
+            "location": null
+          },
+          "history": [],
+          "timestamp": 1753163014983,
+          "encoded": [
+            12,
+            8,
+            6,
+            0,
+            0,
+            17,
+            0,
+            7,
+            4,
+            9,
+            6,
+            0
+          ]
+        },
+        "timestamp": "2025-07-22T05:43:34.984Z",
+        "success": true
+      },
+      {
+        "type": "rlvr_learning",
+        "actionType": "focus_mode",
+        "reward": 0.6033333333333334,
+        "visualState": {
+          "interface": {
+            "activeComponents": [
+              "task-manager",
+              "calendar"
+            ],
+            "userFocus": "coding",
+            "taskQueue": [
+              {
+                "id": 1,
+                "title": "Fix bug",
+                "completed": false
+              },
+              {
+                "id": 2,
+                "title": "Code review",
+                "completed": true
+              }
+            ],
+            "notifications": [
+              "meeting in 30 min"
+            ],
+            "currentAction": null
+          },
+          "context": {
+            "timeBlock": "morning",
+            "energy": "high",
+            "focus": "deep-work",
+            "urgency": "normal",
+            "location": null
+          },
+          "history": [],
+          "timestamp": 1753163015549,
+          "encoded": [
+            12,
+            8,
+            6,
+            0,
+            0,
+            17,
+            0,
+            7,
+            4,
+            9,
+            6,
+            0
+          ]
+        },
+        "timestamp": "2025-07-22T05:43:35.550Z",
+        "success": true
+      },
+      {
+        "type": "rlvr_learning",
+        "actionType": "focus_mode",
+        "reward": 0.6033333333333334,
+        "visualState": {
+          "interface": {
+            "activeComponents": [
+              "task-manager",
+              "calendar"
+            ],
+            "userFocus": "coding",
+            "taskQueue": [
+              {
+                "id": 1,
+                "title": "Fix bug",
+                "completed": false
+              },
+              {
+                "id": 2,
+                "title": "Code review",
+                "completed": true
+              }
+            ],
+            "notifications": [
+              "meeting in 30 min"
+            ],
+            "currentAction": null
+          },
+          "context": {
+            "timeBlock": "morning",
+            "energy": "high",
+            "focus": "deep-work",
+            "urgency": "normal",
+            "location": null
+          },
+          "history": [],
+          "timestamp": 1753163017300,
+          "encoded": [
+            12,
+            8,
+            6,
+            0,
+            0,
+            17,
+            0,
+            7,
+            4,
+            9,
+            6,
+            0
+          ]
+        },
+        "timestamp": "2025-07-22T05:43:37.301Z",
+        "success": true
+      },
+      {
+        "type": "rlvr_learning",
+        "actionType": "focus_mode",
+        "reward": 0.6033333333333334,
+        "visualState": {
+          "interface": {
+            "activeComponents": [
+              "task-manager",
+              "calendar"
+            ],
+            "userFocus": "coding",
+            "taskQueue": [
+              {
+                "id": 1,
+                "title": "Fix bug",
+                "completed": false
+              },
+              {
+                "id": 2,
+                "title": "Code review",
+                "completed": true
+              }
+            ],
+            "notifications": [
+              "meeting in 30 min"
+            ],
+            "currentAction": null
+          },
+          "context": {
+            "timeBlock": "morning",
+            "energy": "high",
+            "focus": "deep-work",
+            "urgency": "normal",
+            "location": null
+          },
+          "history": [],
+          "timestamp": 1753163017749,
+          "encoded": [
+            12,
+            8,
+            6,
+            0,
+            0,
+            17,
+            0,
+            7,
+            4,
+            9,
+            6,
+            0
+          ]
+        },
+        "timestamp": "2025-07-22T05:43:37.750Z",
+        "success": true
+      },
+      {
+        "type": "rlvr_learning",
+        "actionType": "focus_mode",
+        "reward": 0.6033333333333334,
+        "visualState": {
+          "interface": {
+            "activeComponents": [
+              "task-manager",
+              "calendar"
+            ],
+            "userFocus": "coding",
+            "taskQueue": [
+              {
+                "id": 1,
+                "title": "Fix bug",
+                "completed": false
+              },
+              {
+                "id": 2,
+                "title": "Code review",
+                "completed": true
+              }
+            ],
+            "notifications": [
+              "meeting in 30 min"
+            ],
+            "currentAction": null
+          },
+          "context": {
+            "timeBlock": "morning",
+            "energy": "high",
+            "focus": "deep-work",
+            "urgency": "normal",
+            "location": null
+          },
+          "history": [],
+          "timestamp": 1753163018199,
+          "encoded": [
+            12,
+            8,
+            6,
+            0,
+            0,
+            17,
+            0,
+            7,
+            4,
+            9,
+            6,
+            0
+          ]
+        },
+        "timestamp": "2025-07-22T05:43:38.201Z",
+        "success": true
+      },
+      {
+        "type": "rlvr_learning",
+        "actionType": "productivity",
+        "reward": 0.6200000000000001,
+        "visualState": {
+          "interface": {
+            "activeComponents": [
+              "autonomous-action"
+            ],
+            "userFocus": "deep-work",
+            "taskQueue": [],
+            "notifications": [],
+            "currentAction": "productivity"
+          },
+          "context": {
+            "timeBlock": null,
+            "energy": "medium",
+            "focus": "deep-work",
+            "urgency": "medium",
+            "location": null,
+            "userId": "default-user",
+            "timestamp": "2025-07-22T05:48:10.918Z",
+            "currentTimeBlock": "morning-routine",
+            "upcomingEvents": [
+              {
+                "id": "event-1",
+                "title": "Team Standup",
+                "type": "meeting",
+                "start": "2025-07-22T05:58:10.918Z",
+                "end": "2025-07-22T06:13:10.918Z",
+                "minutesUntilStart": 10,
+                "participants": [
+                  "Alice",
+                  "Bob",
+                  "Charlie"
+                ]
+              },
+              {
+                "id": "event-2",
+                "title": "Project Review",
+                "type": "meeting",
+                "start": "2025-07-22T06:48:10.918Z",
+                "end": "2025-07-22T07:18:10.918Z",
+                "minutesUntilStart": 60,
+                "participants": [
+                  "Manager",
+                  "Team Lead",
+                  "Client"
+                ]
+              },
+              {
+                "id": "task-1",
+                "title": "Complete Documentation",
+                "type": "task",
+                "dueTime": "2025-07-22T08:48:10.918Z",
+                "minutesUntilDue": 180,
+                "priority": "high"
+              }
+            ],
+            "priorities": [
+              "Complete project proposal",
+              "Prepare for meeting",
+              "Reply to urgent emails"
+            ],
+            "suggestions": [
+              "Take a short break",
+              "Focus on high-priority tasks",
+              "Prepare for upcoming meeting"
+            ]
+          },
+          "history": [],
+          "timestamp": 1753163291424,
+          "encoded": [
+            17,
+            9,
+            12,
+            0,
+            6,
+            9,
+            6,
+            0,
+            12,
+            24,
+            15,
+            0,
+            0,
+            0,
+            25,
+            19,
+            22,
+            18,
+            28,
+            28
+          ]
+        },
+        "timestamp": "2025-07-22T05:48:11.425Z",
+        "success": true
+      },
+      {
+        "type": "rlvr_learning",
+        "actionType": "productivity",
+        "reward": 0.6200000000000001,
+        "visualState": {
+          "interface": {
+            "activeComponents": [
+              "autonomous-action"
+            ],
+            "userFocus": "shallow-work",
+            "taskQueue": [],
+            "notifications": [],
+            "currentAction": "productivity"
+          },
+          "context": {
+            "timeBlock": null,
+            "energy": "medium",
+            "focus": "shallow-work",
+            "urgency": "medium",
+            "location": null,
+            "userId": "default-user",
+            "timestamp": "2025-07-22T05:53:10.909Z",
+            "currentTimeBlock": "morning-routine",
+            "upcomingEvents": [
+              {
+                "id": "event-1",
+                "title": "Team Standup",
+                "type": "meeting",
+                "start": "2025-07-22T06:03:10.909Z",
+                "end": "2025-07-22T06:18:10.909Z",
+                "minutesUntilStart": 10,
+                "participants": [
+                  "Alice",
+                  "Bob",
+                  "Charlie"
+                ]
+              },
+              {
+                "id": "event-2",
+                "title": "Project Review",
+                "type": "meeting",
+                "start": "2025-07-22T06:53:10.909Z",
+                "end": "2025-07-22T07:23:10.909Z",
+                "minutesUntilStart": 60,
+                "participants": [
+                  "Manager",
+                  "Team Lead",
+                  "Client"
+                ]
+              },
+              {
+                "id": "task-1",
+                "title": "Complete Documentation",
+                "type": "task",
+                "dueTime": "2025-07-22T08:53:10.909Z",
+                "minutesUntilDue": 180,
+                "priority": "high"
+              }
+            ],
+            "priorities": [
+              "Complete project proposal",
+              "Prepare for meeting",
+              "Reply to urgent emails"
+            ],
+            "suggestions": [
+              "Take a short break",
+              "Focus on high-priority tasks",
+              "Prepare for upcoming meeting"
+            ]
+          },
+          "history": [],
+          "timestamp": 1753163591414,
+          "encoded": [
+            17,
+            12,
+            12,
+            0,
+            6,
+            12,
+            6,
+            0,
+            12,
+            24,
+            15,
+            0,
+            0,
+            0,
+            25,
+            19,
+            22,
+            18,
+            28,
+            28
+          ]
+        },
+        "timestamp": "2025-07-22T05:53:11.415Z",
+        "success": true
       }
     ],
     "productivity": {
@@ -420,9 +3607,9 @@
     "optimalContexts": [
       {
         "context": {},
-        "successRate": 100,
-        "avgPerformance": 80,
-        "frequency": 8
+        "successRate": 96.96969696969697,
+        "avgPerformance": 78.48484848484848,
+        "frequency": 66
       },
       {
         "context": {
@@ -477,11 +3664,15 @@
           "{\"timeBlock\":\"lunch-break\",\"focus\":\"meeting-prep\",\"energy\":\"medium\",\"urgency\":\"critical\"}": 0.5
         },
         "{\"timeBlock\":\"lunch-break\",\"focus\":\"meeting-prep\",\"energy\":\"medium\",\"urgency\":\"critical\"}": {
-          "{\"timeBlock\":\"lunch-break\",\"focus\":\"meeting-prep\",\"energy\":\"medium\",\"urgency\":\"critical\"}": 1
+          "{\"timeBlock\":\"lunch-break\",\"focus\":\"meeting-prep\",\"energy\":\"medium\",\"urgency\":\"critical\"}": 0.5,
+          "{\"actionType\":\"rlvr_learning\"}": 0.5
+        },
+        "{\"actionType\":\"rlvr_learning\"}": {
+          "{\"actionType\":\"rlvr_learning\"}": 1
         }
       },
-      "sequenceCount": 14,
-      "lastUpdated": "2025-07-20T11:17:44.837Z"
+      "sequenceCount": 72,
+      "lastUpdated": "2025-07-22T05:53:11.415Z"
     }
   },
   "learnedBehaviors": {
@@ -500,7 +3691,187 @@
         "timestamp": "2025-07-18T07:38:37.030Z",
         "confidence": 1
       }
+    },
+    "action_history": {
+      "action-1753159796026-odbmns0qh": {
+        "value": {
+          "actionId": "action-1753159796026-odbmns0qh",
+          "actionType": "productivity",
+          "title": "Meeting Preparation",
+          "success": true,
+          "timestamp": "2025-07-22T05:26:56.422Z",
+          "context": {
+            "urgency": "low",
+            "focus": "break",
+            "energy": "high"
+          }
+        },
+        "timestamp": "2025-07-22T05:26:56.423Z",
+        "confidence": 1
+      },
+      "action-1753162210952-c8dux6bs5": {
+        "value": {
+          "actionId": "action-1753162210952-c8dux6bs5",
+          "actionType": "productivity",
+          "title": "Meeting Preparation",
+          "success": true,
+          "timestamp": "2025-07-22T05:53:11.411Z",
+          "context": {
+            "urgency": "medium",
+            "focus": "shallow-work",
+            "energy": "medium"
+          }
+        },
+        "timestamp": "2025-07-22T05:53:11.413Z",
+        "confidence": 1
+      }
+    },
+    "trigger_optimization": {
+      "productivity_1753160516538": {
+        "value": {
+          "actionType": "productivity",
+          "context": {
+            "urgency": "high",
+            "focus": "deep-work",
+            "energy": "medium",
+            "timeOfDay": 7,
+            "dayOfWeek": 2
+          },
+          "wasSuccessful": true,
+          "timestamp": "2025-07-22T05:01:56.538Z"
+        },
+        "timestamp": "2025-07-22T05:01:56.538Z",
+        "confidence": 1
+      },
+      "productivity_1753160816540": {
+        "value": {
+          "actionType": "productivity",
+          "context": {
+            "urgency": "high",
+            "focus": "shallow-work",
+            "energy": "medium",
+            "timeOfDay": 7,
+            "dayOfWeek": 2
+          },
+          "wasSuccessful": true,
+          "timestamp": "2025-07-22T05:06:56.540Z"
+        },
+        "timestamp": "2025-07-22T05:06:56.540Z",
+        "confidence": 1
+      },
+      "productivity_1753161116540": {
+        "value": {
+          "actionType": "productivity",
+          "context": {
+            "urgency": "medium",
+            "focus": "deep-work",
+            "energy": "high",
+            "timeOfDay": 7,
+            "dayOfWeek": 2
+          },
+          "wasSuccessful": true,
+          "timestamp": "2025-07-22T05:11:56.541Z"
+        },
+        "timestamp": "2025-07-22T05:11:56.541Z",
+        "confidence": 1
+      },
+      "productivity_1753161416542": {
+        "value": {
+          "actionType": "productivity",
+          "context": {
+            "urgency": "high",
+            "focus": "deep-work",
+            "energy": "medium",
+            "timeOfDay": 7,
+            "dayOfWeek": 2
+          },
+          "wasSuccessful": true,
+          "timestamp": "2025-07-22T05:16:56.542Z"
+        },
+        "timestamp": "2025-07-22T05:16:56.542Z",
+        "confidence": 1
+      },
+      "productivity_1753161716435": {
+        "value": {
+          "actionType": "productivity",
+          "context": {
+            "urgency": "high",
+            "focus": "meetings",
+            "energy": "medium",
+            "timeOfDay": 7,
+            "dayOfWeek": 2
+          },
+          "wasSuccessful": true,
+          "timestamp": "2025-07-22T05:21:56.435Z"
+        },
+        "timestamp": "2025-07-22T05:21:56.435Z",
+        "confidence": 1
+      },
+      "productivity_1753162016424": {
+        "value": {
+          "actionType": "productivity",
+          "context": {
+            "urgency": "low",
+            "focus": "break",
+            "energy": "high",
+            "timeOfDay": 7,
+            "dayOfWeek": 2
+          },
+          "wasSuccessful": true,
+          "timestamp": "2025-07-22T05:26:56.424Z"
+        },
+        "timestamp": "2025-07-22T05:26:56.425Z",
+        "confidence": 1
+      },
+      "productivity_1753162991438": {
+        "value": {
+          "actionType": "productivity",
+          "context": {
+            "urgency": "low",
+            "focus": "break",
+            "energy": "medium",
+            "timeOfDay": 7,
+            "dayOfWeek": 2
+          },
+          "wasSuccessful": true,
+          "timestamp": "2025-07-22T05:43:11.438Z"
+        },
+        "timestamp": "2025-07-22T05:43:11.438Z",
+        "confidence": 1
+      },
+      "productivity_1753163291426": {
+        "value": {
+          "actionType": "productivity",
+          "context": {
+            "urgency": "medium",
+            "focus": "deep-work",
+            "energy": "medium",
+            "timeOfDay": 7,
+            "dayOfWeek": 2
+          },
+          "wasSuccessful": true,
+          "timestamp": "2025-07-22T05:48:11.426Z"
+        },
+        "timestamp": "2025-07-22T05:48:11.427Z",
+        "confidence": 1
+      },
+      "productivity_1753163591416": {
+        "value": {
+          "actionType": "productivity",
+          "context": {
+            "urgency": "medium",
+            "focus": "shallow-work",
+            "energy": "medium",
+            "timeOfDay": 7,
+            "dayOfWeek": 2
+          },
+          "wasSuccessful": true,
+          "timestamp": "2025-07-22T05:53:11.416Z"
+        },
+        "timestamp": "2025-07-22T05:53:11.417Z",
+        "confidence": 1
+      }
     }
   },
-  "timestamp": "2025-07-20T11:17:44.837Z"
+  "timestamp": "2025-07-22T05:53:11.417Z"
 }

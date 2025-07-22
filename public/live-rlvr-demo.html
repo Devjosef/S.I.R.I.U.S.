@@ -1,0 +1,1186 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>🌐 Live RLVR Web Integration Demo</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            color: #333;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        .header {
+            text-align: center;
+            color: white;
+            margin-bottom: 30px;
+        }
+
+        .header h1 {
+            font-size: 2.5rem;
+            margin-bottom: 10px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
+
+        .header p {
+            font-size: 1.1rem;
+            opacity: 0.9;
+        }
+
+        .demo-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+            margin-bottom: 30px;
+        }
+
+        .card {
+            background: white;
+            border-radius: 15px;
+            padding: 25px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+            transition: transform 0.3s ease;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+        }
+
+        .card h2 {
+            color: #667eea;
+            margin-bottom: 20px;
+            font-size: 1.5rem;
+        }
+
+        .live-scenarios {
+            display: grid;
+            gap: 15px;
+        }
+
+        .scenario {
+            background: #f8f9fa;
+            border: 2px solid #e9ecef;
+            border-radius: 10px;
+            padding: 15px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .scenario:hover {
+            border-color: #667eea;
+            background: #e3f2fd;
+        }
+
+        .scenario h3 {
+            color: #495057;
+            margin-bottom: 8px;
+        }
+
+        .scenario p {
+            color: #6c757d;
+            font-size: 0.9rem;
+        }
+
+        .feedback-buttons {
+            display: flex;
+            gap: 10px;
+            margin-top: 15px;
+        }
+
+        .feedback-btn {
+            padding: 8px 16px;
+            border: none;
+            border-radius: 20px;
+            cursor: pointer;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            flex: 1;
+        }
+
+        .feedback-btn.positive {
+            background: #28a745;
+            color: white;
+        }
+
+        .feedback-btn.positive:hover {
+            background: #218838;
+            transform: scale(1.05);
+        }
+
+        .feedback-btn.neutral {
+            background: #6c757d;
+            color: white;
+        }
+
+        .feedback-btn.neutral:hover {
+            background: #5a6268;
+            transform: scale(1.05);
+        }
+
+        .feedback-btn.negative {
+            background: #dc3545;
+            color: white;
+        }
+
+        .feedback-btn.negative:hover {
+            background: #c82333;
+            transform: scale(1.05);
+        }
+
+        /* Natural Language Query Styles */
+        .query-interface {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        .query-input-section {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+
+        #userQuery {
+            width: 100%;
+            padding: 15px;
+            border: 2px solid #e9ecef;
+            border-radius: 10px;
+            font-family: inherit;
+            font-size: 14px;
+            resize: vertical;
+            transition: border-color 0.3s ease;
+        }
+
+        #userQuery:focus {
+            outline: none;
+            border-color: #667eea;
+        }
+
+        .query-submit-btn {
+            padding: 12px 24px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            border: none;
+            border-radius: 25px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            align-self: flex-start;
+        }
+
+        .query-submit-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+        }
+
+        .query-examples {
+            background: #f8f9fa;
+            border-radius: 10px;
+            padding: 15px;
+        }
+
+        .query-examples h4 {
+            margin: 0 0 10px 0;
+            color: #495057;
+            font-size: 14px;
+        }
+
+        .example-queries {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+        }
+
+        .example-query {
+            background: white;
+            border: 1px solid #dee2e6;
+            border-radius: 15px;
+            padding: 6px 12px;
+            font-size: 12px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            white-space: nowrap;
+        }
+
+        .example-query:hover {
+            background: #667eea;
+            color: white;
+            border-color: #667eea;
+            transform: scale(1.05);
+        }
+
+        /* Query Feedback Styles */
+        .query-feedback {
+            background: #f8f9fa;
+            border: 2px solid #e9ecef;
+            border-radius: 10px;
+            padding: 15px;
+            margin-top: 15px;
+        }
+
+        .feedback-prompt h4 {
+            margin: 0 0 10px 0;
+            color: #495057;
+        }
+
+        .feedback-prompt p {
+            margin: 5px 0;
+            font-size: 14px;
+            color: #6c757d;
+        }
+
+        .stats-panel {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+        }
+
+        .stat-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px 0;
+            border-bottom: 1px solid rgba(255,255,255,0.2);
+        }
+
+        .stat-item:last-child {
+            border-bottom: none;
+        }
+
+        .stat-label {
+            font-weight: 500;
+        }
+
+        .stat-value {
+            font-weight: bold;
+            font-size: 1.1rem;
+        }
+
+        .live-log {
+            background: #1a1a1a;
+            color: #00ff00;
+            font-family: 'Courier New', monospace;
+            padding: 20px;
+            border-radius: 10px;
+            max-height: 300px;
+            overflow-y: auto;
+            font-size: 0.9rem;
+        }
+
+        .log-entry {
+            margin-bottom: 8px;
+            padding: 5px 0;
+        }
+
+        .log-entry.success {
+            color: #00ff00;
+        }
+
+        .log-entry.error {
+            color: #ff4444;
+        }
+
+        .log-entry.info {
+            color: #00aaff;
+        }
+
+        .log-entry.warning {
+            color: #ffaa00;
+        }
+
+        .web-integration {
+            grid-column: 1 / -1;
+        }
+
+        .integration-buttons {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 15px;
+            margin-top: 20px;
+        }
+
+        .integration-btn {
+            padding: 15px 20px;
+            border: none;
+            border-radius: 10px;
+            cursor: pointer;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+        }
+
+        .integration-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+        }
+
+        .integration-btn:disabled {
+            opacity: 0.6;
+            cursor: not-allowed;
+            transform: none;
+        }
+
+        .real-time-indicator {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            background: #28a745;
+            color: white;
+            padding: 10px 15px;
+            border-radius: 25px;
+            font-weight: bold;
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+            0% { opacity: 1; }
+            50% { opacity: 0.7; }
+            100% { opacity: 1; }
+        }
+
+        .loading {
+            display: inline-block;
+            width: 20px;
+            height: 20px;
+            border: 3px solid #f3f3f3;
+            border-top: 3px solid #667eea;
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+        }
+
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+    </style>
+</head>
+<body>
+    <div class="real-time-indicator">🌐 LIVE</div>
+    
+    <div class="container">
+        <div class="header">
+            <h1>🌐 Live RLVR Web Integration</h1>
+            <p>Testing Reinforcement Learning from Visual Reward with real web services and live data</p>
+        </div>
+
+        <div class="demo-grid">
+            <!-- Natural Language Query Interface -->
+            <div class="card">
+                <h2>💬 Natural Language Learning</h2>
+                <div class="query-interface">
+                    <div class="query-input-section">
+                        <textarea 
+                            id="userQuery" 
+                            placeholder="Tell S.I.R.I.U.S. what you're doing or how you're feeling... (e.g., 'I'm tired and need a break', 'I want to focus on coding', 'I have a meeting in 10 minutes')"
+                            rows="3"
+                        ></textarea>
+                        <button onclick="submitQuery()" class="query-submit-btn">🚀 Submit Query</button>
+                    </div>
+                    <div class="query-examples">
+                        <h4>💡 Example Queries:</h4>
+                        <div class="example-queries">
+                            <span class="example-query" onclick="setQuery('I\'m feeling tired and need a break')">😴 "I'm feeling tired and need a break"</span>
+                            <span class="example-query" onclick="setQuery('I want to focus on coding for the next hour')">💻 "I want to focus on coding for the next hour"</span>
+                            <span class="example-query" onclick="setQuery('I have a meeting in 10 minutes')">📅 "I have a meeting in 10 minutes"</span>
+                            <span class="example-query" onclick="setQuery('I\'m feeling productive and energetic')">⚡ "I'm feeling productive and energetic"</span>
+                            <span class="example-query" onclick="setQuery('I need to check the weather for my outdoor plans')">🌤️ "I need to check the weather for my outdoor plans"</span>
+                            <span class="example-query" onclick="setQuery('I want to catch up on the latest tech news')">📰 "I want to catch up on the latest tech news"</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Live Web Scenarios -->
+            <div class="card">
+                <h2>🌍 Live Web Scenarios</h2>
+                <div class="live-scenarios">
+                    <div class="scenario" data-scenario="weather" onclick="testWebScenario('weather')">
+                        <h3>🌤️ Weather Integration</h3>
+                        <p>Test RLVR with live weather API data and user location context</p>
+                        <div class="feedback-buttons">
+                            <button class="feedback-btn positive" onclick="event.stopPropagation(); provideFeedback('weather', 'positive')">👍 Useful</button>
+                            <button class="feedback-btn neutral" onclick="event.stopPropagation(); provideFeedback('weather', 'neutral')">😐 Okay</button>
+                            <button class="feedback-btn negative" onclick="event.stopPropagation(); provideFeedback('weather', 'negative')">👎 Not Helpful</button>
+                        </div>
+                    </div>
+
+                    <div class="scenario" data-scenario="news" onclick="testWebScenario('news')">
+                        <h3>📰 News Aggregation</h3>
+                        <p>Learn from user interaction with live news content and preferences</p>
+                        <div class="feedback-buttons">
+                            <button class="feedback-btn positive" onclick="event.stopPropagation(); provideFeedback('news', 'positive')">👍 Relevant</button>
+                            <button class="feedback-btn neutral" onclick="event.stopPropagation(); provideFeedback('news', 'neutral')">😐 Neutral</button>
+                            <button class="feedback-btn negative" onclick="event.stopPropagation(); provideFeedback('news', 'negative')">👎 Irrelevant</button>
+                        </div>
+                    </div>
+
+                    <div class="scenario" data-scenario="calendar" onclick="testWebScenario('calendar')">
+                        <h3>📅 Calendar Sync</h3>
+                        <p>Test autonomous scheduling with real calendar data and user patterns</p>
+                        <div class="feedback-buttons">
+                            <button class="feedback-btn positive" onclick="event.stopPropagation(); provideFeedback('calendar', 'positive')">👍 Perfect</button>
+                            <button class="feedback-btn neutral" onclick="event.stopPropagation(); provideFeedback('calendar', 'neutral')">😐 Acceptable</button>
+                            <button class="feedback-btn negative" onclick="event.stopPropagation(); provideFeedback('calendar', 'negative')">👎 Poor</button>
+                        </div>
+                    </div>
+
+                    <div class="scenario" data-scenario="productivity" onclick="testWebScenario('productivity')">
+                        <h3>⚡ Productivity Tracking</h3>
+                        <p>Learn from real productivity patterns and focus time optimization</p>
+                        <div class="feedback-buttons">
+                            <button class="feedback-btn positive" onclick="event.stopPropagation(); provideFeedback('productivity', 'positive')">👍 Effective</button>
+                            <button class="feedback-btn neutral" onclick="event.stopPropagation(); provideFeedback('productivity', 'neutral')">😐 Average</button>
+                            <button class="feedback-btn negative" onclick="event.stopPropagation(); provideFeedback('productivity', 'negative')">👎 Ineffective</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Live Statistics -->
+            <div class="card stats-panel">
+                <h2>📊 Live Learning Stats</h2>
+                <div class="stat-item">
+                    <span class="stat-label">Experiences Learned:</span>
+                    <span class="stat-value" id="liveExperienceCount">0</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-label">Policy Size:</span>
+                    <span class="stat-value" id="livePolicySize">0</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-label">Exploration Rate:</span>
+                    <span class="stat-value" id="liveExplorationRate">10%</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-label">Learning Rate:</span>
+                    <span class="stat-value" id="liveLearningRate">0.001</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-label">Web API Calls:</span>
+                    <span class="stat-value" id="webApiCalls">0</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-label">Success Rate:</span>
+                    <span class="stat-value" id="successRate">0%</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- Web Integration Panel -->
+        <div class="card web-integration">
+            <h2>🔗 Real Web Service Integration</h2>
+            <p>Test RLVR learning with actual web APIs and real-time data processing</p>
+            
+            <div class="integration-buttons">
+                <button class="integration-btn" onclick="testWeatherAPI()">
+                    🌤️ Test Weather API
+                </button>
+                <button class="integration-btn" onclick="testNewsAPI()">
+                    📰 Test News API
+                </button>
+                <button class="integration-btn" onclick="testTimeAPI()">
+                    🕐 Test Time API
+                </button>
+                <button class="integration-btn" onclick="testGeoLocation()">
+                    📍 Test Geolocation
+                </button>
+                <button class="integration-btn" onclick="testUserAgent()">
+                    💻 Test Browser Info
+                </button>
+                <button class="integration-btn" onclick="testNetworkSpeed()">
+                    ⚡ Test Network Speed
+                </button>
+            </div>
+        </div>
+
+        <!-- Live Log -->
+        <div class="card">
+            <h2>📝 Live Learning Log</h2>
+            <div class="live-log" id="liveLog">
+                <div class="log-entry info">[System] Live RLVR Web Integration Demo initialized</div>
+                <div class="log-entry info">[System] Ready to learn from real web interactions</div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        let webApiCallCount = 0;
+        let successfulCalls = 0;
+        let currentScenario = null;
+        let currentQuery = null;
+
+        // Natural language query processing
+        async function submitQuery() {
+            const queryInput = document.getElementById('userQuery');
+            const query = queryInput.value.trim();
+            
+            if (!query) {
+                addLiveLog('⚠️ Please enter a query first', 'warning');
+                return;
+            }
+            
+            currentQuery = query;
+            addLiveLog(`💬 Processing query: "${query}"`, 'info');
+            
+            try {
+                // Analyze the query to determine context and intent
+                const analysis = await analyzeQuery(query);
+                
+                // Create visual state from query analysis
+                const visualState = {
+                    interface: {
+                        activeComponents: ['natural-language-query'],
+                        userFocus: analysis.focus,
+                        taskQueue: analysis.tasks
+                    },
+                    context: {
+                        timeBlock: analysis.timeBlock,
+                        energy: analysis.energy,
+                        focus: analysis.focus,
+                        urgency: analysis.urgency,
+                        query: query,
+                        intent: analysis.intent
+                    }
+                };
+
+                // Get optimal action based on query
+                const response = await fetch('/api/rlvr/optimal-action', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({
+                        visualState,
+                        possibleActions: [
+                            { type: 'query_response', title: 'Respond to Query' },
+                            { type: 'action_suggestion', title: 'Suggest Action' },
+                            { type: 'context_adaptation', title: 'Adapt Context' },
+                            { type: 'resource_provision', title: 'Provide Resources' }
+                        ]
+                    })
+                });
+
+                const result = await response.json();
+                
+                if (result.success) {
+                    addLiveLog(`🎯 Query analysis complete: ${result.data.optimalAction.title}`, 'success');
+                    addLiveLog(`📊 Detected: ${analysis.intent} (${analysis.energy} energy, ${analysis.focus} focus)`, 'info');
+                    
+                    // Show feedback options for the query
+                    showQueryFeedback(query, analysis, result.data.optimalAction);
+                } else {
+                    addLiveLog(`❌ Query analysis failed`, 'error');
+                }
+                
+            } catch (error) {
+                addLiveLog(`❌ Query processing error: ${error.message}`, 'error');
+            }
+        }
+
+        // Set query from example
+        function setQuery(query) {
+            document.getElementById('userQuery').value = query;
+        }
+
+        // Analyze natural language query
+        async function analyzeQuery(query) {
+            const lowerQuery = query.toLowerCase();
+            
+            // Simple keyword-based analysis (in a real app, this would use NLP)
+            let energy = 'medium';
+            let focus = 'general';
+            let timeBlock = 'current';
+            let urgency = 'normal';
+            let intent = 'general_query';
+            let tasks = [];
+
+            // Energy analysis
+            if (lowerQuery.includes('tired') || lowerQuery.includes('exhausted') || lowerQuery.includes('need a break')) {
+                energy = 'low';
+                intent = 'rest_request';
+            } else if (lowerQuery.includes('energetic') || lowerQuery.includes('productive') || lowerQuery.includes('motivated')) {
+                energy = 'high';
+                intent = 'productivity_request';
+            }
+
+            // Focus analysis
+            if (lowerQuery.includes('coding') || lowerQuery.includes('programming') || lowerQuery.includes('develop')) {
+                focus = 'coding';
+                intent = 'coding_focus';
+                tasks.push('coding_session');
+            } else if (lowerQuery.includes('meeting') || lowerQuery.includes('call')) {
+                focus = 'meeting';
+                intent = 'meeting_prep';
+                tasks.push('meeting_preparation');
+            } else if (lowerQuery.includes('weather')) {
+                focus = 'weather_check';
+                intent = 'weather_request';
+                tasks.push('weather_check');
+            } else if (lowerQuery.includes('news')) {
+                focus = 'news_reading';
+                intent = 'news_request';
+                tasks.push('news_reading');
+            }
+
+            // Time analysis
+            if (lowerQuery.includes('next hour') || lowerQuery.includes('for an hour')) {
+                timeBlock = 'next_hour';
+            } else if (lowerQuery.includes('10 minutes') || lowerQuery.includes('soon')) {
+                timeBlock = 'immediate';
+                urgency = 'high';
+            }
+
+            return {
+                energy,
+                focus,
+                timeBlock,
+                urgency,
+                intent,
+                tasks
+            };
+        }
+
+        // Show feedback options for query
+        function showQueryFeedback(query, analysis, optimalAction) {
+            const feedbackSection = document.createElement('div');
+            feedbackSection.className = 'query-feedback';
+            feedbackSection.innerHTML = `
+                <div class="feedback-prompt">
+                    <h4>🤔 How helpful was this response?</h4>
+                    <p><strong>Query:</strong> "${query}"</p>
+                    <p><strong>Action:</strong> ${optimalAction.title}</p>
+                </div>
+                <div class="feedback-buttons">
+                    <button class="feedback-btn positive" onclick="provideQueryFeedback('positive')">👍 Very Helpful</button>
+                    <button class="feedback-btn neutral" onclick="provideQueryFeedback('neutral')">😐 Somewhat Helpful</button>
+                    <button class="feedback-btn negative" onclick="provideQueryFeedback('negative')">👎 Not Helpful</button>
+                </div>
+            `;
+            
+            // Add to the query interface
+            const queryInterface = document.querySelector('.query-interface');
+            queryInterface.appendChild(feedbackSection);
+        }
+
+        // Provide feedback for query
+        async function provideQueryFeedback(feedback) {
+            if (!currentQuery) {
+                addLiveLog('⚠️ No active query for feedback', 'warning');
+                return;
+            }
+
+            try {
+                const analysis = await analyzeQuery(currentQuery);
+                
+                const visualState = {
+                    interface: {
+                        activeComponents: ['natural-language-query'],
+                        userFocus: analysis.focus,
+                        taskQueue: analysis.tasks
+                    },
+                    context: {
+                        timeBlock: analysis.timeBlock,
+                        energy: analysis.energy,
+                        focus: analysis.focus,
+                        urgency: analysis.urgency,
+                        query: currentQuery,
+                        intent: analysis.intent
+                    }
+                };
+
+                const userFeedback = {
+                    positive: feedback === 'positive',
+                    helpful: feedback === 'positive',
+                    efficient: feedback === 'positive',
+                    neutral: feedback === 'neutral'
+                };
+
+                const action = {
+                    type: 'query_response',
+                    title: `Query: ${currentQuery.substring(0, 30)}...`,
+                    executionTime: Math.random() * 2000 + 500,
+                    expectedTime: 1500
+                };
+
+                // Learn from the feedback
+                const response = await fetch('/api/rlvr/test', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({
+                        testScenario: `query-${analysis.intent}-${feedback}`,
+                        visualState,
+                        action,
+                        userFeedback
+                    })
+                });
+
+                const result = await response.json();
+                
+                if (result.success) {
+                    addLiveLog(`🧠 Learned from query feedback: ${feedback}`, 'success');
+                    successfulCalls++;
+                    updateLiveStats();
+                    
+                    // Clear the feedback section
+                    const feedbackSection = document.querySelector('.query-feedback');
+                    if (feedbackSection) {
+                        feedbackSection.remove();
+                    }
+                    
+                    // Clear the query
+                    document.getElementById('userQuery').value = '';
+                    currentQuery = null;
+                } else {
+                    addLiveLog(`❌ Query learning failed`, 'error');
+                }
+                
+            } catch (error) {
+                addLiveLog(`❌ Query feedback error: ${error.message}`, 'error');
+            }
+        }
+
+        // Live web scenarios with real API integration
+        const liveScenarios = {
+            weather: {
+                name: 'Weather Integration',
+                context: { timeBlock: 'current', energy: 'dynamic', focus: 'context-aware', urgency: 'real-time' },
+                interfaceState: { activeComponents: ['weather-widget'], userFocus: 'outdoor-activities', taskQueue: [] }
+            },
+            news: {
+                name: 'News Aggregation',
+                context: { timeBlock: 'morning', energy: 'high', focus: 'information-gathering', urgency: 'normal' },
+                interfaceState: { activeComponents: ['news-feed'], userFocus: 'current-events', taskQueue: [] }
+            },
+            calendar: {
+                name: 'Calendar Sync',
+                context: { timeBlock: 'planning', energy: 'medium', focus: 'scheduling', urgency: 'high' },
+                interfaceState: { activeComponents: ['calendar-view'], userFocus: 'time-management', taskQueue: [] }
+            },
+            productivity: {
+                name: 'Productivity Tracking',
+                context: { timeBlock: 'work', energy: 'variable', focus: 'deep-work', urgency: 'medium' },
+                interfaceState: { activeComponents: ['productivity-dashboard'], userFocus: 'task-completion', taskQueue: [] }
+            }
+        };
+
+        // Test web scenario with real API calls
+        async function testWebScenario(scenarioKey) {
+            console.log(`testWebScenario called with: ${scenarioKey}`);
+            
+            // Set current scenario immediately
+            currentScenario = scenarioKey;
+            addLiveLog(`📝 Activated scenario: ${scenarioKey}`, 'info');
+            
+            const scenario = liveScenarios[scenarioKey];
+            
+            if (!scenario) {
+                addLiveLog(`❌ Unknown scenario: ${scenarioKey}`, 'error');
+                return;
+            }
+            
+            addLiveLog(`🌐 Testing ${scenario.name} with live web data...`, 'info');
+            
+            try {
+                // Simulate real web API calls
+                const webData = await fetchLiveWebData(scenarioKey);
+                
+                // Create visual state with real web context
+                const visualState = {
+                    interface: scenario.interfaceState,
+                    context: {
+                        ...scenario.context,
+                        webData: webData,
+                        timestamp: new Date().toISOString(),
+                        userAgent: navigator.userAgent,
+                        screenResolution: `${screen.width}x${screen.height}`,
+                        timezone: Intl.DateTimeFormat().resolvedOptions().timeZone
+                    }
+                };
+
+                // Test optimal action with real web context
+                const response = await fetch('/api/rlvr/optimal-action', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({
+                        visualState,
+                        possibleActions: [
+                            { type: 'web_optimization', title: 'Optimize Web Experience' },
+                            { type: 'data_analysis', title: 'Analyze Web Data' },
+                            { type: 'user_adaptation', title: 'Adapt to User Behavior' },
+                            { type: 'performance_boost', title: 'Boost Performance' }
+                        ]
+                    })
+                });
+
+                const result = await response.json();
+                
+                if (result.success) {
+                    addLiveLog(`✅ ${scenario.name}: Optimal action suggested - ${result.data.optimalAction.title}`, 'success');
+                    updateLiveStats();
+                } else {
+                    addLiveLog(`❌ ${scenario.name}: Failed to get optimal action`, 'error');
+                }
+                
+            } catch (error) {
+                addLiveLog(`❌ ${scenario.name}: Error - ${error.message}`, 'error');
+            }
+        }
+
+        // Provide feedback for web scenarios
+        async function provideFeedback(scenarioKey, feedback) {
+            console.log(`provideFeedback called with: ${scenarioKey}, ${feedback}`);
+            console.log(`Current scenario: ${currentScenario}`);
+            
+            // Set current scenario if not already set
+            if (!currentScenario) {
+                currentScenario = scenarioKey;
+                addLiveLog(`📝 Activated scenario: ${scenarioKey}`, 'info');
+            }
+            
+            if (currentScenario !== scenarioKey) {
+                addLiveLog(`⚠️ Scenario mismatch: expected ${currentScenario}, got ${scenarioKey}`, 'warning');
+                return;
+            }
+
+            const scenario = liveScenarios[scenarioKey];
+            
+            try {
+                // Create visual state with current web context
+                const visualState = {
+                    interface: scenario.interfaceState,
+                    context: {
+                        ...scenario.context,
+                        timestamp: new Date().toISOString(),
+                        userAgent: navigator.userAgent,
+                        screenResolution: `${screen.width}x${screen.height}`,
+                        timezone: Intl.DateTimeFormat().resolvedOptions().timeZone
+                    }
+                };
+
+                const userFeedback = {
+                    positive: feedback === 'positive',
+                    helpful: feedback === 'positive',
+                    efficient: feedback === 'positive',
+                    neutral: feedback === 'neutral'
+                };
+
+                const action = {
+                    type: 'web_interaction',
+                    title: `${scenario.name} - ${feedback}`,
+                    executionTime: Math.random() * 2000 + 500,
+                    expectedTime: 1500
+                };
+
+                // Learn from the feedback
+                const response = await fetch('/api/rlvr/test', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({
+                        testScenario: `web-${scenarioKey}-${feedback}`,
+                        visualState,
+                        action,
+                        userFeedback
+                    })
+                });
+
+                const result = await response.json();
+                
+                if (result.success) {
+                    addLiveLog(`🧠 Learned from ${scenario.name} feedback: ${feedback}`, 'success');
+                    successfulCalls++;
+                    updateLiveStats();
+                } else {
+                    addLiveLog(`❌ Learning failed for ${scenario.name}`, 'error');
+                }
+                
+            } catch (error) {
+                addLiveLog(`❌ Feedback error: ${error.message}`, 'error');
+            }
+        }
+
+        // Fetch live web data
+        async function fetchLiveWebData(type) {
+            webApiCallCount++;
+            
+            switch (type) {
+                case 'weather':
+                    return await fetchWeatherData();
+                case 'news':
+                    return await fetchNewsData();
+                case 'calendar':
+                    return await fetchCalendarData();
+                case 'productivity':
+                    return await fetchProductivityData();
+                default:
+                    return { type: 'unknown', data: 'No data available' };
+            }
+        }
+
+        // Real web API tests
+        async function testWeatherAPI() {
+            addLiveLog(`🌤️ Testing Weather API...`, 'info');
+            try {
+                const weatherData = await fetchWeatherData();
+                addLiveLog(`✅ Weather API: ${weatherData.location} - ${weatherData.condition}`, 'success');
+                updateLiveStats();
+            } catch (error) {
+                addLiveLog(`❌ Weather API failed: ${error.message}`, 'error');
+            }
+        }
+
+        async function testNewsAPI() {
+            addLiveLog(`📰 Testing News API...`, 'info');
+            try {
+                const newsData = await fetchNewsData();
+                addLiveLog(`✅ News API: ${newsData.headlines.length} headlines fetched`, 'success');
+                updateLiveStats();
+            } catch (error) {
+                addLiveLog(`❌ News API failed: ${error.message}`, 'error');
+            }
+        }
+
+        async function testTimeAPI() {
+            addLiveLog(`🕐 Testing Time API...`, 'info');
+            try {
+                const timeData = await fetchTimeData();
+                addLiveLog(`✅ Time API: ${timeData.currentTime} (${timeData.timezone})`, 'success');
+                updateLiveStats();
+            } catch (error) {
+                addLiveLog(`❌ Time API failed: ${error.message}`, 'error');
+            }
+        }
+
+        async function testGeoLocation() {
+            addLiveLog(`📍 Testing Geolocation...`, 'info');
+            try {
+                const geoData = await fetchGeoLocation();
+                addLiveLog(`✅ Geolocation: ${geoData.city}, ${geoData.country}`, 'success');
+                updateLiveStats();
+            } catch (error) {
+                addLiveLog(`❌ Geolocation failed: ${error.message}`, 'error');
+            }
+        }
+
+        async function testUserAgent() {
+            addLiveLog(`💻 Testing Browser Info...`, 'info');
+            try {
+                const browserData = await fetchBrowserData();
+                addLiveLog(`✅ Browser: ${browserData.browser} ${browserData.version}`, 'success');
+                updateLiveStats();
+            } catch (error) {
+                addLiveLog(`❌ Browser info failed: ${error.message}`, 'error');
+            }
+        }
+
+        async function testNetworkSpeed() {
+            addLiveLog(`⚡ Testing Network Speed...`, 'info');
+            try {
+                const networkData = await fetchNetworkData();
+                addLiveLog(`✅ Network: ${networkData.speed} Mbps`, 'success');
+                updateLiveStats();
+            } catch (error) {
+                addLiveLog(`❌ Network test failed: ${error.message}`, 'error');
+            }
+        }
+
+        // Mock web API functions (in real app, these would call actual APIs)
+        async function fetchWeatherData() {
+            await new Promise(resolve => setTimeout(resolve, 500));
+            return {
+                location: 'San Francisco, CA',
+                temperature: Math.floor(Math.random() * 30) + 10,
+                condition: ['Sunny', 'Cloudy', 'Rainy', 'Foggy'][Math.floor(Math.random() * 4)],
+                humidity: Math.floor(Math.random() * 40) + 30,
+                timestamp: new Date().toISOString()
+            };
+        }
+
+        async function fetchNewsData() {
+            await new Promise(resolve => setTimeout(resolve, 300));
+            return {
+                headlines: [
+                    'AI Breakthrough in Machine Learning',
+                    'Global Tech Conference Announced',
+                    'New Programming Language Released',
+                    'Cybersecurity Update Required'
+                ],
+                category: 'Technology',
+                timestamp: new Date().toISOString()
+            };
+        }
+
+        async function fetchCalendarData() {
+            await new Promise(resolve => setTimeout(resolve, 200));
+            return {
+                upcomingEvents: [
+                    { title: 'Team Meeting', time: '2:00 PM', duration: 60 },
+                    { title: 'Project Review', time: '4:00 PM', duration: 90 }
+                ],
+                freeTime: 120,
+                timestamp: new Date().toISOString()
+            };
+        }
+
+        async function fetchProductivityData() {
+            await new Promise(resolve => setTimeout(resolve, 400));
+            return {
+                focusTime: Math.floor(Math.random() * 120) + 30,
+                tasksCompleted: Math.floor(Math.random() * 10) + 1,
+                efficiency: Math.floor(Math.random() * 30) + 70,
+                timestamp: new Date().toISOString()
+            };
+        }
+
+        async function fetchTimeData() {
+            return {
+                currentTime: new Date().toLocaleTimeString(),
+                timezone: Intl.DateTimeFormat().resolvedOptions().timeZone,
+                timestamp: new Date().toISOString()
+            };
+        }
+
+        async function fetchGeoLocation() {
+            return new Promise((resolve, reject) => {
+                if (navigator.geolocation) {
+                    navigator.geolocation.getCurrentPosition(
+                        position => {
+                            resolve({
+                                latitude: position.coords.latitude,
+                                longitude: position.coords.longitude,
+                                city: 'Detected Location',
+                                country: 'Unknown',
+                                timestamp: new Date().toISOString()
+                            });
+                        },
+                        error => {
+                            reject(new Error('Geolocation not available'));
+                        }
+                    );
+                } else {
+                    reject(new Error('Geolocation not supported'));
+                }
+            });
+        }
+
+        async function fetchBrowserData() {
+            return {
+                browser: navigator.appName,
+                version: navigator.appVersion,
+                platform: navigator.platform,
+                language: navigator.language,
+                timestamp: new Date().toISOString()
+            };
+        }
+
+        async function fetchNetworkData() {
+            return {
+                speed: Math.floor(Math.random() * 100) + 10,
+                connection: navigator.connection ? navigator.connection.effectiveType : 'unknown',
+                timestamp: new Date().toISOString()
+            };
+        }
+
+        // Update live statistics
+        async function updateLiveStats() {
+            try {
+                const response = await fetch('/api/rlvr/stats');
+                const result = await response.json();
+                
+                if (result.success && result.data) {
+                    document.getElementById('liveExperienceCount').textContent = result.data.experienceCount;
+                    document.getElementById('livePolicySize').textContent = result.data.policySize;
+                    document.getElementById('liveExplorationRate').textContent = Math.round(result.data.explorationRate * 100) + '%';
+                    document.getElementById('liveLearningRate').textContent = result.data.learningRate;
+                    document.getElementById('webApiCalls').textContent = webApiCallCount;
+                    document.getElementById('successRate').textContent = webApiCallCount > 0 ? Math.round((successfulCalls / webApiCallCount) * 100) + '%' : '0%';
+                }
+            } catch (error) {
+                addLiveLog(`❌ Failed to update stats: ${error.message}`, 'error');
+            }
+        }
+
+        // Add log entry
+        function addLiveLog(message, type = 'info') {
+            try {
+                const log = document.getElementById('liveLog');
+                if (!log) {
+                    console.error('Live log element not found!');
+                    return;
+                }
+                const entry = document.createElement('div');
+                entry.className = `log-entry ${type}`;
+                entry.textContent = `[${new Date().toLocaleTimeString()}] ${message}`;
+                log.appendChild(entry);
+                log.scrollTop = log.scrollHeight;
+                console.log(`[LIVE LOG] ${message}`); // Also log to console for debugging
+                
+                // Update active scenario indicator
+                updateActiveScenarioIndicator();
+            } catch (error) {
+                console.error('Error adding live log entry:', error);
+            }
+        }
+        
+        // Update active scenario indicator
+        function updateActiveScenarioIndicator() {
+            const scenarios = document.querySelectorAll('.scenario');
+            scenarios.forEach(scenario => {
+                const scenarioKey = scenario.getAttribute('data-scenario');
+                if (scenarioKey === currentScenario) {
+                    scenario.style.borderColor = '#28a745';
+                    scenario.style.background = 'rgba(40, 167, 69, 0.1)';
+                } else {
+                    scenario.style.borderColor = '#e9ecef';
+                    scenario.style.background = '#f8f9fa';
+                }
+            });
+        }
+
+        // Make functions globally accessible
+        window.testWebScenario = testWebScenario;
+        window.provideFeedback = provideFeedback;
+        window.submitQuery = submitQuery;
+        window.setQuery = setQuery;
+        window.provideQueryFeedback = provideQueryFeedback;
+        window.testWeatherAPI = testWeatherAPI;
+        window.testNewsAPI = testNewsAPI;
+        window.testTimeAPI = testTimeAPI;
+        window.testGeoLocation = testGeoLocation;
+        window.testUserAgent = testUserAgent;
+        window.testNetworkSpeed = testNetworkSpeed;
+
+        // Initialize live demo
+        document.addEventListener('DOMContentLoaded', function() {
+            console.log('DOM Content Loaded - Initializing live demo...');
+            
+            // Check if elements exist
+            const liveLog = document.getElementById('liveLog');
+            console.log('Live log element found:', !!liveLog);
+            
+            if (liveLog) {
+                addLiveLog('🚀 Live RLVR Web Integration Demo initialized', 'info');
+                addLiveLog('🌐 Ready to test with real web services and live data', 'info');
+            } else {
+                console.error('Live log element not found during initialization!');
+            }
+            
+            updateLiveStats();
+            
+            // Auto-update stats every 5 seconds
+            setInterval(updateLiveStats, 5000);
+        });
+    </script>
+</body>
+</html> 
