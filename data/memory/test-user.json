@@ -28,33 +28,38 @@
   },
   "patterns": {
     "timeBlocks": {
-      "optimalHour": 13,
-      "optimalDay": 0,
-      "optimalTimeBlock": "lunch-break",
-      "optimalWeekday": "Sunday",
+      "optimalHour": 7,
+      "optimalDay": 3,
+      "optimalTimeBlock": "unknown",
+      "optimalWeekday": "Wednesday",
       "hourDistribution": {
+        "6": 5,
+        "7": 8,
+        "8": 1,
         "10": 1,
         "13": 2
       },
       "dayDistribution": {
-        "0": 3
+        "0": 3,
+        "3": 14
       },
       "timeBlockDistribution": {
-        "unknown": 1,
+        "unknown": 15,
         "lunch-break": 2
       },
       "weekdayDistribution": {
-        "Sunday": 3
+        "Sunday": 3,
+        "Wednesday": 14
       },
       "circadianRhythm": {
         "type": "morning_person",
-        "confidence": 0.722,
+        "confidence": 0.27,
         "periods": {
           "morning": {
-            "count": 1,
-            "successRate": 100,
-            "avgPerformance": 80,
-            "frequency": 1
+            "count": 15,
+            "successRate": 20,
+            "avgPerformance": 40,
+            "frequency": 15
           },
           "afternoon": {
             "count": 2,
@@ -64,7 +69,8 @@
           }
         },
         "peakHours": [
-          10,
+          7,
+          6,
           13
         ],
         "recommendations": [
@@ -83,7 +89,7 @@
           {
             "type": "peak_hours",
             "title": "Peak Performance Hours",
-            "description": "Your peak performance hours are: 10:00, 13:00",
+            "description": "Your peak performance hours are: 7:00, 6:00, 13:00",
             "priority": "high"
           }
         ]
@@ -145,6 +151,106 @@
           }
         ],
         "timestamp": "2025-07-20T11:23:46.469Z"
+      },
+      {
+        "type": "template_generation",
+        "category": "FUNDING",
+        "actionCount": 5,
+        "success": false,
+        "timestamp": "2025-07-23T04:59:26.480Z"
+      },
+      {
+        "type": "template_generation",
+        "category": "PRODUCT",
+        "actionCount": 5,
+        "success": false,
+        "timestamp": "2025-07-23T04:59:26.487Z"
+      },
+      {
+        "type": "template_generation",
+        "category": "MARKETING",
+        "actionCount": 5,
+        "success": false,
+        "timestamp": "2025-07-23T04:59:26.491Z"
+      },
+      {
+        "type": "template_generation",
+        "category": "OPERATIONS",
+        "actionCount": 5,
+        "success": false,
+        "timestamp": "2025-07-23T04:59:26.496Z"
+      },
+      {
+        "type": "template_generation",
+        "category": "PRODUCT",
+        "actionCount": 5,
+        "success": false,
+        "timestamp": "2025-07-23T04:59:26.501Z"
+      },
+      {
+        "type": "template_generation",
+        "category": "FUNDING",
+        "actionCount": 5,
+        "success": false,
+        "timestamp": "2025-07-23T05:09:36.666Z"
+      },
+      {
+        "type": "template_generation",
+        "category": "FUNDING",
+        "actionCount": 5,
+        "success": false,
+        "timestamp": "2025-07-23T05:10:14.973Z"
+      },
+      {
+        "type": "template_generation",
+        "category": "FUNDING",
+        "actionCount": 5,
+        "success": false,
+        "timestamp": "2025-07-23T05:10:37.103Z"
+      },
+      {
+        "type": "template_generation",
+        "category": "FUNDING",
+        "actionCount": 5,
+        "success": false,
+        "timestamp": "2025-07-23T05:11:04.319Z"
+      },
+      {
+        "type": "template_generation",
+        "category": "FUNDING",
+        "actionCount": 5,
+        "success": false,
+        "timestamp": "2025-07-23T05:11:13.870Z"
+      },
+      {
+        "type": "template_generation",
+        "category": "FUNDING",
+        "actionCount": 3,
+        "success": false,
+        "timestamp": "2025-07-23T05:11:43.899Z"
+      },
+      {
+        "type": "template_generation",
+        "category": "FUNDING",
+        "actionCount": 3,
+        "success": false,
+        "timestamp": "2025-07-23T05:12:49.885Z"
+      },
+      {
+        "type": "template_generation",
+        "category": "FUNDING",
+        "actionCount": 3,
+        "success": true,
+        "timestamp": "2025-07-23T05:13:10.327Z"
+      },
+      {
+        "type": "startup_plan_feedback",
+        "planId": "test-plan-123",
+        "satisfaction": 0.9,
+        "relevance": 0.8,
+        "helpfulness": 0.85,
+        "success": true,
+        "timestamp": "2025-07-23T06:00:01.802Z"
       }
     ],
     "productivity": {
@@ -208,14 +314,55 @@
         "successRate": 0,
         "avgPerformance": 60,
         "frequency": 2
+      },
+      {
+        "context": {},
+        "successRate": 20,
+        "avgPerformance": 40,
+        "frequency": 15
       }
-    ]
+    ],
+    "predictivePatterns": {
+      "transitionMatrix": {
+        "{\"actionType\":\"jira_operation\"}": {
+          "{\"timeBlock\":\"lunch-break\",\"focus\":\"meeting-prep\",\"energy\":\"medium\",\"urgency\":\"critical\"}": 1
+        },
+        "{\"timeBlock\":\"lunch-break\",\"focus\":\"meeting-prep\",\"energy\":\"medium\",\"urgency\":\"critical\"}": {
+          "{\"timeBlock\":\"lunch-break\",\"focus\":\"meeting-prep\",\"energy\":\"medium\",\"urgency\":\"critical\"}": 0.5,
+          "{\"actionType\":\"template_generation\"}": 0.5
+        },
+        "{\"actionType\":\"template_generation\"}": {
+          "{\"actionType\":\"template_generation\"}": 0.9230769230769231,
+          "{\"actionType\":\"startup_plan_feedback\"}": 0.07692307692307693
+        }
+      },
+      "sequenceCount": 16,
+      "lastUpdated": "2025-07-23T06:00:01.803Z"
+    }
   },
   "learnedBehaviors": {
     "meetingPreferences": {},
     "emailHandling": {},
     "taskPrioritization": {},
-    "communicationStyle": {}
+    "communicationStyle": {},
+    "startup_plan_feedback": {
+      "test-plan-123": {
+        "value": {
+          "satisfaction": 0.9,
+          "relevance": 0.8,
+          "helpfulness": 0.85,
+          "suggestions": [
+            "More industry-specific advice",
+            "Add more financial projections"
+          ],
+          "contentQuality": 0.9,
+          "honestyLevel": 0.9,
+          "timestamp": "2025-07-23T06:00:01.800Z"
+        },
+        "timestamp": "2025-07-23T06:00:01.801Z",
+        "confidence": 1
+      }
+    }
   },
-  "timestamp": "2025-07-20T11:23:46.470Z"
+  "timestamp": "2025-07-23T06:00:01.803Z"
 }

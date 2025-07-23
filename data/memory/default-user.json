@@ -35,13 +35,13 @@
         "commonActions": {}
       },
       "optimalHour": 7,
-      "optimalDay": 2,
+      "optimalDay": 3,
       "optimalTimeBlock": "unknown",
-      "optimalWeekday": "Tuesday",
+      "optimalWeekday": "Wednesday",
       "hourDistribution": {
-        "6": 23,
-        "7": 35,
-        "8": 1,
+        "6": 50,
+        "7": 103,
+        "8": 3,
         "9": 7,
         "10": 5,
         "13": 2
@@ -49,11 +49,12 @@
       "dayDistribution": {
         "0": 7,
         "2": 58,
+        "3": 97,
         "5": 6,
         "6": 2
       },
       "timeBlockDistribution": {
-        "unknown": 66,
+        "unknown": 163,
         "morning-focus": 5,
         "lunch-break": 2
       },
@@ -61,17 +62,18 @@
         "Friday": 6,
         "Saturday": 2,
         "Sunday": 7,
-        "Tuesday": 58
+        "Tuesday": 58,
+        "Wednesday": 97
       },
       "circadianRhythm": {
         "type": "morning_person",
-        "confidence": 0.8149577464788733,
+        "confidence": 1.0361190476190476,
         "periods": {
           "morning": {
-            "count": 71,
-            "successRate": 90.14084507042254,
-            "avgPerformance": 78.09859154929578,
-            "frequency": 71
+            "count": 168,
+            "successRate": 95.83333333333334,
+            "avgPerformance": 79.19642857142857,
+            "frequency": 168
           },
           "afternoon": {
             "count": 2,
@@ -3524,6 +3526,5051 @@
         },
         "timestamp": "2025-07-22T05:53:11.415Z",
         "success": true
+      },
+      {
+        "type": "rlvr_learning",
+        "actionType": "productivity",
+        "reward": 0.6200000000000001,
+        "visualState": {
+          "interface": {
+            "activeComponents": [
+              "autonomous-action"
+            ],
+            "userFocus": "deep-work",
+            "taskQueue": [],
+            "notifications": [],
+            "currentAction": "productivity"
+          },
+          "context": {
+            "timeBlock": null,
+            "energy": "medium",
+            "focus": "deep-work",
+            "urgency": "low",
+            "location": null,
+            "userId": "default-user",
+            "timestamp": "2025-07-23T04:38:22.406Z",
+            "currentTimeBlock": "morning-routine",
+            "upcomingEvents": [
+              {
+                "id": "event-1",
+                "title": "Team Standup",
+                "type": "meeting",
+                "start": "2025-07-23T04:48:22.406Z",
+                "end": "2025-07-23T05:03:22.406Z",
+                "minutesUntilStart": 10,
+                "participants": [
+                  "Alice",
+                  "Bob",
+                  "Charlie"
+                ]
+              },
+              {
+                "id": "event-2",
+                "title": "Project Review",
+                "type": "meeting",
+                "start": "2025-07-23T05:38:22.406Z",
+                "end": "2025-07-23T06:08:22.406Z",
+                "minutesUntilStart": 60,
+                "participants": [
+                  "Manager",
+                  "Team Lead",
+                  "Client"
+                ]
+              },
+              {
+                "id": "task-1",
+                "title": "Complete Documentation",
+                "type": "task",
+                "dueTime": "2025-07-23T07:38:22.406Z",
+                "minutesUntilDue": 180,
+                "priority": "high"
+              }
+            ],
+            "priorities": [
+              "Complete project proposal",
+              "Prepare for meeting",
+              "Reply to urgent emails"
+            ],
+            "suggestions": [
+              "Take a short break",
+              "Focus on high-priority tasks",
+              "Prepare for upcoming meeting"
+            ]
+          },
+          "history": [],
+          "timestamp": 1753245502933,
+          "encoded": [
+            17,
+            9,
+            12,
+            0,
+            6,
+            9,
+            3,
+            0,
+            12,
+            24,
+            15,
+            0,
+            0,
+            0,
+            25,
+            19,
+            22,
+            18,
+            28,
+            28
+          ]
+        },
+        "timestamp": "2025-07-23T04:38:22.935Z",
+        "success": true
+      },
+      {
+        "type": "rlvr_learning",
+        "actionType": "productivity",
+        "reward": 0.6200000000000001,
+        "visualState": {
+          "interface": {
+            "activeComponents": [
+              "autonomous-action"
+            ],
+            "userFocus": "deep-work",
+            "taskQueue": [],
+            "notifications": [],
+            "currentAction": "productivity"
+          },
+          "context": {
+            "timeBlock": null,
+            "energy": "medium",
+            "focus": "deep-work",
+            "urgency": "medium",
+            "location": null,
+            "userId": "default-user",
+            "timestamp": "2025-07-23T04:58:31.935Z",
+            "currentTimeBlock": "morning-routine",
+            "upcomingEvents": [
+              {
+                "id": "event-1",
+                "title": "Team Standup",
+                "type": "meeting",
+                "start": "2025-07-23T05:08:31.936Z",
+                "end": "2025-07-23T05:23:31.936Z",
+                "minutesUntilStart": 10,
+                "participants": [
+                  "Alice",
+                  "Bob",
+                  "Charlie"
+                ]
+              },
+              {
+                "id": "event-2",
+                "title": "Project Review",
+                "type": "meeting",
+                "start": "2025-07-23T05:58:31.936Z",
+                "end": "2025-07-23T06:28:31.936Z",
+                "minutesUntilStart": 60,
+                "participants": [
+                  "Manager",
+                  "Team Lead",
+                  "Client"
+                ]
+              },
+              {
+                "id": "task-1",
+                "title": "Complete Documentation",
+                "type": "task",
+                "dueTime": "2025-07-23T07:58:31.936Z",
+                "minutesUntilDue": 180,
+                "priority": "high"
+              }
+            ],
+            "priorities": [
+              "Complete project proposal",
+              "Prepare for meeting",
+              "Reply to urgent emails"
+            ],
+            "suggestions": [
+              "Take a short break",
+              "Focus on high-priority tasks",
+              "Prepare for upcoming meeting"
+            ]
+          },
+          "history": [],
+          "timestamp": 1753246712460,
+          "encoded": [
+            17,
+            9,
+            12,
+            0,
+            6,
+            9,
+            6,
+            0,
+            12,
+            24,
+            15,
+            0,
+            0,
+            0,
+            25,
+            19,
+            22,
+            18,
+            28,
+            28
+          ]
+        },
+        "timestamp": "2025-07-23T04:58:32.462Z",
+        "success": true
+      },
+      {
+        "type": "rlvr_learning",
+        "reward": 0.6200000000000001,
+        "visualState": {
+          "interface": {
+            "activeComponents": [
+              "template-generator"
+            ],
+            "userFocus": "FUNDING",
+            "taskQueue": [],
+            "notifications": [],
+            "currentAction": "template_generation"
+          },
+          "context": {
+            "timeBlock": null,
+            "energy": null,
+            "focus": "funding",
+            "urgency": null,
+            "location": null,
+            "databaseId": "test-database",
+            "startupStage": "early",
+            "teamSize": "5-10",
+            "industry": "tech"
+          },
+          "history": [],
+          "timestamp": 1753246766472,
+          "encoded": [
+            18,
+            7,
+            19,
+            0,
+            0,
+            7,
+            0,
+            0,
+            13,
+            5,
+            4,
+            4
+          ]
+        },
+        "timestamp": "2025-07-23T04:59:26.474Z",
+        "success": true
+      },
+      {
+        "type": "rlvr_learning",
+        "reward": 0.6200000000000001,
+        "visualState": {
+          "interface": {
+            "activeComponents": [
+              "template-generator"
+            ],
+            "userFocus": "FUNDING",
+            "taskQueue": [],
+            "notifications": [],
+            "currentAction": "template_generation"
+          },
+          "context": {
+            "timeBlock": null,
+            "energy": null,
+            "focus": "funding",
+            "urgency": null,
+            "location": null,
+            "databaseId": "test-database",
+            "startupStage": "early",
+            "teamSize": "5-10",
+            "industry": "tech"
+          },
+          "history": [],
+          "timestamp": 1753246766472,
+          "encoded": [
+            18,
+            7,
+            19,
+            0,
+            0,
+            7,
+            0,
+            0,
+            13,
+            5,
+            4,
+            4
+          ]
+        },
+        "timestamp": "2025-07-23T04:59:26.475Z",
+        "success": true
+      },
+      {
+        "type": "rlvr_learning",
+        "reward": 0.6200000000000001,
+        "visualState": {
+          "interface": {
+            "activeComponents": [
+              "template-generator"
+            ],
+            "userFocus": "FUNDING",
+            "taskQueue": [],
+            "notifications": [],
+            "currentAction": "template_generation"
+          },
+          "context": {
+            "timeBlock": null,
+            "energy": null,
+            "focus": "funding",
+            "urgency": null,
+            "location": null,
+            "databaseId": "test-database",
+            "startupStage": "early",
+            "teamSize": "5-10",
+            "industry": "tech"
+          },
+          "history": [],
+          "timestamp": 1753246766472,
+          "encoded": [
+            18,
+            7,
+            19,
+            0,
+            0,
+            7,
+            0,
+            0,
+            13,
+            5,
+            4,
+            4
+          ]
+        },
+        "timestamp": "2025-07-23T04:59:26.476Z",
+        "success": true
+      },
+      {
+        "type": "rlvr_learning",
+        "reward": 0.6200000000000001,
+        "visualState": {
+          "interface": {
+            "activeComponents": [
+              "template-generator"
+            ],
+            "userFocus": "FUNDING",
+            "taskQueue": [],
+            "notifications": [],
+            "currentAction": "template_generation"
+          },
+          "context": {
+            "timeBlock": null,
+            "energy": null,
+            "focus": "funding",
+            "urgency": null,
+            "location": null,
+            "databaseId": "test-database",
+            "startupStage": "early",
+            "teamSize": "5-10",
+            "industry": "tech"
+          },
+          "history": [],
+          "timestamp": 1753246766472,
+          "encoded": [
+            18,
+            7,
+            19,
+            0,
+            0,
+            7,
+            0,
+            0,
+            13,
+            5,
+            4,
+            4
+          ]
+        },
+        "timestamp": "2025-07-23T04:59:26.478Z",
+        "success": true
+      },
+      {
+        "type": "rlvr_learning",
+        "reward": 0.6200000000000001,
+        "visualState": {
+          "interface": {
+            "activeComponents": [
+              "template-generator"
+            ],
+            "userFocus": "FUNDING",
+            "taskQueue": [],
+            "notifications": [],
+            "currentAction": "template_generation"
+          },
+          "context": {
+            "timeBlock": null,
+            "energy": null,
+            "focus": "funding",
+            "urgency": null,
+            "location": null,
+            "databaseId": "test-database",
+            "startupStage": "early",
+            "teamSize": "5-10",
+            "industry": "tech"
+          },
+          "history": [],
+          "timestamp": 1753246766472,
+          "encoded": [
+            18,
+            7,
+            19,
+            0,
+            0,
+            7,
+            0,
+            0,
+            13,
+            5,
+            4,
+            4
+          ]
+        },
+        "timestamp": "2025-07-23T04:59:26.479Z",
+        "success": true
+      },
+      {
+        "type": "rlvr_learning",
+        "reward": 0.6200000000000001,
+        "visualState": {
+          "interface": {
+            "activeComponents": [
+              "template-generator"
+            ],
+            "userFocus": "PRODUCT",
+            "taskQueue": [],
+            "notifications": [],
+            "currentAction": "template_generation"
+          },
+          "context": {
+            "timeBlock": null,
+            "energy": null,
+            "focus": "product",
+            "urgency": null,
+            "location": null,
+            "databaseId": "test-database",
+            "startupStage": "early",
+            "teamSize": "5-10",
+            "industry": "tech"
+          },
+          "history": [],
+          "timestamp": 1753246766481,
+          "encoded": [
+            18,
+            7,
+            19,
+            0,
+            0,
+            7,
+            0,
+            0,
+            13,
+            5,
+            4,
+            4
+          ]
+        },
+        "timestamp": "2025-07-23T04:59:26.482Z",
+        "success": true
+      },
+      {
+        "type": "rlvr_learning",
+        "reward": 0.6200000000000001,
+        "visualState": {
+          "interface": {
+            "activeComponents": [
+              "template-generator"
+            ],
+            "userFocus": "PRODUCT",
+            "taskQueue": [],
+            "notifications": [],
+            "currentAction": "template_generation"
+          },
+          "context": {
+            "timeBlock": null,
+            "energy": null,
+            "focus": "product",
+            "urgency": null,
+            "location": null,
+            "databaseId": "test-database",
+            "startupStage": "early",
+            "teamSize": "5-10",
+            "industry": "tech"
+          },
+          "history": [],
+          "timestamp": 1753246766481,
+          "encoded": [
+            18,
+            7,
+            19,
+            0,
+            0,
+            7,
+            0,
+            0,
+            13,
+            5,
+            4,
+            4
+          ]
+        },
+        "timestamp": "2025-07-23T04:59:26.483Z",
+        "success": true
+      },
+      {
+        "type": "rlvr_learning",
+        "reward": 0.6200000000000001,
+        "visualState": {
+          "interface": {
+            "activeComponents": [
+              "template-generator"
+            ],
+            "userFocus": "PRODUCT",
+            "taskQueue": [],
+            "notifications": [],
+            "currentAction": "template_generation"
+          },
+          "context": {
+            "timeBlock": null,
+            "energy": null,
+            "focus": "product",
+            "urgency": null,
+            "location": null,
+            "databaseId": "test-database",
+            "startupStage": "early",
+            "teamSize": "5-10",
+            "industry": "tech"
+          },
+          "history": [],
+          "timestamp": 1753246766481,
+          "encoded": [
+            18,
+            7,
+            19,
+            0,
+            0,
+            7,
+            0,
+            0,
+            13,
+            5,
+            4,
+            4
+          ]
+        },
+        "timestamp": "2025-07-23T04:59:26.484Z",
+        "success": true
+      },
+      {
+        "type": "rlvr_learning",
+        "reward": 0.6200000000000001,
+        "visualState": {
+          "interface": {
+            "activeComponents": [
+              "template-generator"
+            ],
+            "userFocus": "PRODUCT",
+            "taskQueue": [],
+            "notifications": [],
+            "currentAction": "template_generation"
+          },
+          "context": {
+            "timeBlock": null,
+            "energy": null,
+            "focus": "product",
+            "urgency": null,
+            "location": null,
+            "databaseId": "test-database",
+            "startupStage": "early",
+            "teamSize": "5-10",
+            "industry": "tech"
+          },
+          "history": [],
+          "timestamp": 1753246766481,
+          "encoded": [
+            18,
+            7,
+            19,
+            0,
+            0,
+            7,
+            0,
+            0,
+            13,
+            5,
+            4,
+            4
+          ]
+        },
+        "timestamp": "2025-07-23T04:59:26.485Z",
+        "success": true
+      },
+      {
+        "type": "rlvr_learning",
+        "reward": 0.6200000000000001,
+        "visualState": {
+          "interface": {
+            "activeComponents": [
+              "template-generator"
+            ],
+            "userFocus": "PRODUCT",
+            "taskQueue": [],
+            "notifications": [],
+            "currentAction": "template_generation"
+          },
+          "context": {
+            "timeBlock": null,
+            "energy": null,
+            "focus": "product",
+            "urgency": null,
+            "location": null,
+            "databaseId": "test-database",
+            "startupStage": "early",
+            "teamSize": "5-10",
+            "industry": "tech"
+          },
+          "history": [],
+          "timestamp": 1753246766481,
+          "encoded": [
+            18,
+            7,
+            19,
+            0,
+            0,
+            7,
+            0,
+            0,
+            13,
+            5,
+            4,
+            4
+          ]
+        },
+        "timestamp": "2025-07-23T04:59:26.486Z",
+        "success": true
+      },
+      {
+        "type": "rlvr_learning",
+        "reward": 0.6200000000000001,
+        "visualState": {
+          "interface": {
+            "activeComponents": [
+              "template-generator"
+            ],
+            "userFocus": "MARKETING",
+            "taskQueue": [],
+            "notifications": [],
+            "currentAction": "template_generation"
+          },
+          "context": {
+            "timeBlock": null,
+            "energy": null,
+            "focus": "marketing",
+            "urgency": null,
+            "location": null,
+            "databaseId": "test-database",
+            "startupStage": "early",
+            "teamSize": "5-10",
+            "industry": "tech"
+          },
+          "history": [],
+          "timestamp": 1753246766487,
+          "encoded": [
+            18,
+            9,
+            19,
+            0,
+            0,
+            9,
+            0,
+            0,
+            13,
+            5,
+            4,
+            4
+          ]
+        },
+        "timestamp": "2025-07-23T04:59:26.487Z",
+        "success": true
+      },
+      {
+        "type": "rlvr_learning",
+        "reward": 0.6200000000000001,
+        "visualState": {
+          "interface": {
+            "activeComponents": [
+              "template-generator"
+            ],
+            "userFocus": "MARKETING",
+            "taskQueue": [],
+            "notifications": [],
+            "currentAction": "template_generation"
+          },
+          "context": {
+            "timeBlock": null,
+            "energy": null,
+            "focus": "marketing",
+            "urgency": null,
+            "location": null,
+            "databaseId": "test-database",
+            "startupStage": "early",
+            "teamSize": "5-10",
+            "industry": "tech"
+          },
+          "history": [],
+          "timestamp": 1753246766487,
+          "encoded": [
+            18,
+            9,
+            19,
+            0,
+            0,
+            9,
+            0,
+            0,
+            13,
+            5,
+            4,
+            4
+          ]
+        },
+        "timestamp": "2025-07-23T04:59:26.488Z",
+        "success": true
+      },
+      {
+        "type": "rlvr_learning",
+        "reward": 0.6200000000000001,
+        "visualState": {
+          "interface": {
+            "activeComponents": [
+              "template-generator"
+            ],
+            "userFocus": "MARKETING",
+            "taskQueue": [],
+            "notifications": [],
+            "currentAction": "template_generation"
+          },
+          "context": {
+            "timeBlock": null,
+            "energy": null,
+            "focus": "marketing",
+            "urgency": null,
+            "location": null,
+            "databaseId": "test-database",
+            "startupStage": "early",
+            "teamSize": "5-10",
+            "industry": "tech"
+          },
+          "history": [],
+          "timestamp": 1753246766487,
+          "encoded": [
+            18,
+            9,
+            19,
+            0,
+            0,
+            9,
+            0,
+            0,
+            13,
+            5,
+            4,
+            4
+          ]
+        },
+        "timestamp": "2025-07-23T04:59:26.489Z",
+        "success": true
+      },
+      {
+        "type": "rlvr_learning",
+        "reward": 0.6200000000000001,
+        "visualState": {
+          "interface": {
+            "activeComponents": [
+              "template-generator"
+            ],
+            "userFocus": "MARKETING",
+            "taskQueue": [],
+            "notifications": [],
+            "currentAction": "template_generation"
+          },
+          "context": {
+            "timeBlock": null,
+            "energy": null,
+            "focus": "marketing",
+            "urgency": null,
+            "location": null,
+            "databaseId": "test-database",
+            "startupStage": "early",
+            "teamSize": "5-10",
+            "industry": "tech"
+          },
+          "history": [],
+          "timestamp": 1753246766487,
+          "encoded": [
+            18,
+            9,
+            19,
+            0,
+            0,
+            9,
+            0,
+            0,
+            13,
+            5,
+            4,
+            4
+          ]
+        },
+        "timestamp": "2025-07-23T04:59:26.490Z",
+        "success": true
+      },
+      {
+        "type": "rlvr_learning",
+        "reward": 0.6200000000000001,
+        "visualState": {
+          "interface": {
+            "activeComponents": [
+              "template-generator"
+            ],
+            "userFocus": "MARKETING",
+            "taskQueue": [],
+            "notifications": [],
+            "currentAction": "template_generation"
+          },
+          "context": {
+            "timeBlock": null,
+            "energy": null,
+            "focus": "marketing",
+            "urgency": null,
+            "location": null,
+            "databaseId": "test-database",
+            "startupStage": "early",
+            "teamSize": "5-10",
+            "industry": "tech"
+          },
+          "history": [],
+          "timestamp": 1753246766487,
+          "encoded": [
+            18,
+            9,
+            19,
+            0,
+            0,
+            9,
+            0,
+            0,
+            13,
+            5,
+            4,
+            4
+          ]
+        },
+        "timestamp": "2025-07-23T04:59:26.490Z",
+        "success": true
+      },
+      {
+        "type": "rlvr_learning",
+        "reward": 0.6200000000000001,
+        "visualState": {
+          "interface": {
+            "activeComponents": [
+              "template-generator"
+            ],
+            "userFocus": "OPERATIONS",
+            "taskQueue": [],
+            "notifications": [],
+            "currentAction": "template_generation"
+          },
+          "context": {
+            "timeBlock": null,
+            "energy": null,
+            "focus": "operations",
+            "urgency": null,
+            "location": null,
+            "databaseId": "test-database",
+            "startupStage": "early",
+            "teamSize": "5-10",
+            "industry": "tech"
+          },
+          "history": [],
+          "timestamp": 1753246766491,
+          "encoded": [
+            18,
+            10,
+            19,
+            0,
+            0,
+            10,
+            0,
+            0,
+            13,
+            5,
+            4,
+            4
+          ]
+        },
+        "timestamp": "2025-07-23T04:59:26.492Z",
+        "success": true
+      },
+      {
+        "type": "rlvr_learning",
+        "reward": 0.6200000000000001,
+        "visualState": {
+          "interface": {
+            "activeComponents": [
+              "template-generator"
+            ],
+            "userFocus": "OPERATIONS",
+            "taskQueue": [],
+            "notifications": [],
+            "currentAction": "template_generation"
+          },
+          "context": {
+            "timeBlock": null,
+            "energy": null,
+            "focus": "operations",
+            "urgency": null,
+            "location": null,
+            "databaseId": "test-database",
+            "startupStage": "early",
+            "teamSize": "5-10",
+            "industry": "tech"
+          },
+          "history": [],
+          "timestamp": 1753246766491,
+          "encoded": [
+            18,
+            10,
+            19,
+            0,
+            0,
+            10,
+            0,
+            0,
+            13,
+            5,
+            4,
+            4
+          ]
+        },
+        "timestamp": "2025-07-23T04:59:26.493Z",
+        "success": true
+      },
+      {
+        "type": "rlvr_learning",
+        "reward": 0.6200000000000001,
+        "visualState": {
+          "interface": {
+            "activeComponents": [
+              "template-generator"
+            ],
+            "userFocus": "OPERATIONS",
+            "taskQueue": [],
+            "notifications": [],
+            "currentAction": "template_generation"
+          },
+          "context": {
+            "timeBlock": null,
+            "energy": null,
+            "focus": "operations",
+            "urgency": null,
+            "location": null,
+            "databaseId": "test-database",
+            "startupStage": "early",
+            "teamSize": "5-10",
+            "industry": "tech"
+          },
+          "history": [],
+          "timestamp": 1753246766491,
+          "encoded": [
+            18,
+            10,
+            19,
+            0,
+            0,
+            10,
+            0,
+            0,
+            13,
+            5,
+            4,
+            4
+          ]
+        },
+        "timestamp": "2025-07-23T04:59:26.493Z",
+        "success": true
+      },
+      {
+        "type": "rlvr_learning",
+        "reward": 0.6200000000000001,
+        "visualState": {
+          "interface": {
+            "activeComponents": [
+              "template-generator"
+            ],
+            "userFocus": "OPERATIONS",
+            "taskQueue": [],
+            "notifications": [],
+            "currentAction": "template_generation"
+          },
+          "context": {
+            "timeBlock": null,
+            "energy": null,
+            "focus": "operations",
+            "urgency": null,
+            "location": null,
+            "databaseId": "test-database",
+            "startupStage": "early",
+            "teamSize": "5-10",
+            "industry": "tech"
+          },
+          "history": [],
+          "timestamp": 1753246766491,
+          "encoded": [
+            18,
+            10,
+            19,
+            0,
+            0,
+            10,
+            0,
+            0,
+            13,
+            5,
+            4,
+            4
+          ]
+        },
+        "timestamp": "2025-07-23T04:59:26.494Z",
+        "success": true
+      },
+      {
+        "type": "rlvr_learning",
+        "reward": 0.6200000000000001,
+        "visualState": {
+          "interface": {
+            "activeComponents": [
+              "template-generator"
+            ],
+            "userFocus": "OPERATIONS",
+            "taskQueue": [],
+            "notifications": [],
+            "currentAction": "template_generation"
+          },
+          "context": {
+            "timeBlock": null,
+            "energy": null,
+            "focus": "operations",
+            "urgency": null,
+            "location": null,
+            "databaseId": "test-database",
+            "startupStage": "early",
+            "teamSize": "5-10",
+            "industry": "tech"
+          },
+          "history": [],
+          "timestamp": 1753246766491,
+          "encoded": [
+            18,
+            10,
+            19,
+            0,
+            0,
+            10,
+            0,
+            0,
+            13,
+            5,
+            4,
+            4
+          ]
+        },
+        "timestamp": "2025-07-23T04:59:26.495Z",
+        "success": true
+      },
+      {
+        "type": "rlvr_learning",
+        "reward": 0.6200000000000001,
+        "visualState": {
+          "interface": {
+            "activeComponents": [
+              "template-generator"
+            ],
+            "userFocus": "PRODUCT",
+            "taskQueue": [],
+            "notifications": [],
+            "currentAction": "template_generation"
+          },
+          "context": {
+            "timeBlock": null,
+            "energy": null,
+            "focus": null,
+            "urgency": null,
+            "location": null,
+            "databaseId": "test-database",
+            "startupStage": "growth",
+            "teamSize": "10-25",
+            "industry": "saas"
+          },
+          "history": [],
+          "timestamp": 1753246766496,
+          "encoded": [
+            18,
+            7,
+            19,
+            0,
+            0,
+            0,
+            0,
+            0,
+            13,
+            6,
+            5,
+            4
+          ]
+        },
+        "timestamp": "2025-07-23T04:59:26.497Z",
+        "success": true
+      },
+      {
+        "type": "rlvr_learning",
+        "reward": 0.6200000000000001,
+        "visualState": {
+          "interface": {
+            "activeComponents": [
+              "template-generator"
+            ],
+            "userFocus": "PRODUCT",
+            "taskQueue": [],
+            "notifications": [],
+            "currentAction": "template_generation"
+          },
+          "context": {
+            "timeBlock": null,
+            "energy": null,
+            "focus": null,
+            "urgency": null,
+            "location": null,
+            "databaseId": "test-database",
+            "startupStage": "growth",
+            "teamSize": "10-25",
+            "industry": "saas"
+          },
+          "history": [],
+          "timestamp": 1753246766496,
+          "encoded": [
+            18,
+            7,
+            19,
+            0,
+            0,
+            0,
+            0,
+            0,
+            13,
+            6,
+            5,
+            4
+          ]
+        },
+        "timestamp": "2025-07-23T04:59:26.498Z",
+        "success": true
+      },
+      {
+        "type": "rlvr_learning",
+        "reward": 0.6200000000000001,
+        "visualState": {
+          "interface": {
+            "activeComponents": [
+              "template-generator"
+            ],
+            "userFocus": "PRODUCT",
+            "taskQueue": [],
+            "notifications": [],
+            "currentAction": "template_generation"
+          },
+          "context": {
+            "timeBlock": null,
+            "energy": null,
+            "focus": null,
+            "urgency": null,
+            "location": null,
+            "databaseId": "test-database",
+            "startupStage": "growth",
+            "teamSize": "10-25",
+            "industry": "saas"
+          },
+          "history": [],
+          "timestamp": 1753246766496,
+          "encoded": [
+            18,
+            7,
+            19,
+            0,
+            0,
+            0,
+            0,
+            0,
+            13,
+            6,
+            5,
+            4
+          ]
+        },
+        "timestamp": "2025-07-23T04:59:26.498Z",
+        "success": true
+      },
+      {
+        "type": "rlvr_learning",
+        "reward": 0.6200000000000001,
+        "visualState": {
+          "interface": {
+            "activeComponents": [
+              "template-generator"
+            ],
+            "userFocus": "PRODUCT",
+            "taskQueue": [],
+            "notifications": [],
+            "currentAction": "template_generation"
+          },
+          "context": {
+            "timeBlock": null,
+            "energy": null,
+            "focus": null,
+            "urgency": null,
+            "location": null,
+            "databaseId": "test-database",
+            "startupStage": "growth",
+            "teamSize": "10-25",
+            "industry": "saas"
+          },
+          "history": [],
+          "timestamp": 1753246766496,
+          "encoded": [
+            18,
+            7,
+            19,
+            0,
+            0,
+            0,
+            0,
+            0,
+            13,
+            6,
+            5,
+            4
+          ]
+        },
+        "timestamp": "2025-07-23T04:59:26.499Z",
+        "success": true
+      },
+      {
+        "type": "rlvr_learning",
+        "reward": 0.6200000000000001,
+        "visualState": {
+          "interface": {
+            "activeComponents": [
+              "template-generator"
+            ],
+            "userFocus": "PRODUCT",
+            "taskQueue": [],
+            "notifications": [],
+            "currentAction": "template_generation"
+          },
+          "context": {
+            "timeBlock": null,
+            "energy": null,
+            "focus": null,
+            "urgency": null,
+            "location": null,
+            "databaseId": "test-database",
+            "startupStage": "growth",
+            "teamSize": "10-25",
+            "industry": "saas"
+          },
+          "history": [],
+          "timestamp": 1753246766496,
+          "encoded": [
+            18,
+            7,
+            19,
+            0,
+            0,
+            0,
+            0,
+            0,
+            13,
+            6,
+            5,
+            4
+          ]
+        },
+        "timestamp": "2025-07-23T04:59:26.500Z",
+        "success": true
+      },
+      {
+        "type": "rlvr_learning",
+        "actionType": "productivity",
+        "reward": 0.6200000000000001,
+        "visualState": {
+          "interface": {
+            "activeComponents": [
+              "autonomous-action"
+            ],
+            "userFocus": "deep-work",
+            "taskQueue": [],
+            "notifications": [],
+            "currentAction": "productivity"
+          },
+          "context": {
+            "timeBlock": null,
+            "energy": "medium",
+            "focus": "deep-work",
+            "urgency": "low",
+            "location": null,
+            "userId": "default-user",
+            "timestamp": "2025-07-23T05:04:31.909Z",
+            "currentTimeBlock": "morning-routine",
+            "upcomingEvents": [
+              {
+                "id": "event-1",
+                "title": "Team Standup",
+                "type": "meeting",
+                "start": "2025-07-23T05:14:31.909Z",
+                "end": "2025-07-23T05:29:31.909Z",
+                "minutesUntilStart": 10,
+                "participants": [
+                  "Alice",
+                  "Bob",
+                  "Charlie"
+                ]
+              },
+              {
+                "id": "event-2",
+                "title": "Project Review",
+                "type": "meeting",
+                "start": "2025-07-23T06:04:31.909Z",
+                "end": "2025-07-23T06:34:31.909Z",
+                "minutesUntilStart": 60,
+                "participants": [
+                  "Manager",
+                  "Team Lead",
+                  "Client"
+                ]
+              },
+              {
+                "id": "task-1",
+                "title": "Complete Documentation",
+                "type": "task",
+                "dueTime": "2025-07-23T08:04:31.909Z",
+                "minutesUntilDue": 180,
+                "priority": "high"
+              }
+            ],
+            "priorities": [
+              "Complete project proposal",
+              "Prepare for meeting",
+              "Reply to urgent emails"
+            ],
+            "suggestions": [
+              "Take a short break",
+              "Focus on high-priority tasks",
+              "Prepare for upcoming meeting"
+            ]
+          },
+          "history": [],
+          "timestamp": 1753247072417,
+          "encoded": [
+            17,
+            9,
+            12,
+            0,
+            6,
+            9,
+            3,
+            0,
+            12,
+            24,
+            15,
+            0,
+            0,
+            0,
+            25,
+            19,
+            22,
+            18,
+            28,
+            28
+          ]
+        },
+        "timestamp": "2025-07-23T05:04:32.418Z",
+        "success": true
+      },
+      {
+        "type": "rlvr_learning",
+        "reward": 0.6200000000000001,
+        "visualState": {
+          "interface": {
+            "activeComponents": [
+              "template-generator"
+            ],
+            "userFocus": "FUNDING",
+            "taskQueue": [],
+            "notifications": [],
+            "currentAction": "template_generation"
+          },
+          "context": {
+            "timeBlock": null,
+            "energy": null,
+            "focus": "funding",
+            "urgency": null,
+            "location": null,
+            "startupStage": "early",
+            "teamSize": "5-10",
+            "industry": "tech"
+          },
+          "history": [],
+          "timestamp": 1753247376655,
+          "encoded": [
+            18,
+            7,
+            19,
+            0,
+            0,
+            7,
+            0,
+            0,
+            5,
+            4,
+            4
+          ]
+        },
+        "timestamp": "2025-07-23T05:09:36.657Z",
+        "success": true
+      },
+      {
+        "type": "rlvr_learning",
+        "reward": 0.6200000000000001,
+        "visualState": {
+          "interface": {
+            "activeComponents": [
+              "template-generator"
+            ],
+            "userFocus": "FUNDING",
+            "taskQueue": [],
+            "notifications": [],
+            "currentAction": "template_generation"
+          },
+          "context": {
+            "timeBlock": null,
+            "energy": null,
+            "focus": "funding",
+            "urgency": null,
+            "location": null,
+            "startupStage": "early",
+            "teamSize": "5-10",
+            "industry": "tech"
+          },
+          "history": [],
+          "timestamp": 1753247376655,
+          "encoded": [
+            18,
+            7,
+            19,
+            0,
+            0,
+            7,
+            0,
+            0,
+            5,
+            4,
+            4
+          ]
+        },
+        "timestamp": "2025-07-23T05:09:36.660Z",
+        "success": true
+      },
+      {
+        "type": "rlvr_learning",
+        "reward": 0.6200000000000001,
+        "visualState": {
+          "interface": {
+            "activeComponents": [
+              "template-generator"
+            ],
+            "userFocus": "FUNDING",
+            "taskQueue": [],
+            "notifications": [],
+            "currentAction": "template_generation"
+          },
+          "context": {
+            "timeBlock": null,
+            "energy": null,
+            "focus": "funding",
+            "urgency": null,
+            "location": null,
+            "startupStage": "early",
+            "teamSize": "5-10",
+            "industry": "tech"
+          },
+          "history": [],
+          "timestamp": 1753247376655,
+          "encoded": [
+            18,
+            7,
+            19,
+            0,
+            0,
+            7,
+            0,
+            0,
+            5,
+            4,
+            4
+          ]
+        },
+        "timestamp": "2025-07-23T05:09:36.662Z",
+        "success": true
+      },
+      {
+        "type": "rlvr_learning",
+        "reward": 0.6200000000000001,
+        "visualState": {
+          "interface": {
+            "activeComponents": [
+              "template-generator"
+            ],
+            "userFocus": "FUNDING",
+            "taskQueue": [],
+            "notifications": [],
+            "currentAction": "template_generation"
+          },
+          "context": {
+            "timeBlock": null,
+            "energy": null,
+            "focus": "funding",
+            "urgency": null,
+            "location": null,
+            "startupStage": "early",
+            "teamSize": "5-10",
+            "industry": "tech"
+          },
+          "history": [],
+          "timestamp": 1753247376655,
+          "encoded": [
+            18,
+            7,
+            19,
+            0,
+            0,
+            7,
+            0,
+            0,
+            5,
+            4,
+            4
+          ]
+        },
+        "timestamp": "2025-07-23T05:09:36.663Z",
+        "success": true
+      },
+      {
+        "type": "rlvr_learning",
+        "reward": 0.6200000000000001,
+        "visualState": {
+          "interface": {
+            "activeComponents": [
+              "template-generator"
+            ],
+            "userFocus": "FUNDING",
+            "taskQueue": [],
+            "notifications": [],
+            "currentAction": "template_generation"
+          },
+          "context": {
+            "timeBlock": null,
+            "energy": null,
+            "focus": "funding",
+            "urgency": null,
+            "location": null,
+            "startupStage": "early",
+            "teamSize": "5-10",
+            "industry": "tech"
+          },
+          "history": [],
+          "timestamp": 1753247376655,
+          "encoded": [
+            18,
+            7,
+            19,
+            0,
+            0,
+            7,
+            0,
+            0,
+            5,
+            4,
+            4
+          ]
+        },
+        "timestamp": "2025-07-23T05:09:36.665Z",
+        "success": true
+      },
+      {
+        "type": "rlvr_learning",
+        "reward": 0.6200000000000001,
+        "visualState": {
+          "interface": {
+            "activeComponents": [
+              "template-generator"
+            ],
+            "userFocus": "FUNDING",
+            "taskQueue": [],
+            "notifications": [],
+            "currentAction": "template_generation"
+          },
+          "context": {
+            "timeBlock": null,
+            "energy": null,
+            "focus": "funding",
+            "urgency": null,
+            "location": null,
+            "startupStage": "early",
+            "teamSize": "5-10",
+            "industry": "tech"
+          },
+          "history": [],
+          "timestamp": 1753247414965,
+          "encoded": [
+            18,
+            7,
+            19,
+            0,
+            0,
+            7,
+            0,
+            0,
+            5,
+            4,
+            4
+          ]
+        },
+        "timestamp": "2025-07-23T05:10:14.966Z",
+        "success": true
+      },
+      {
+        "type": "rlvr_learning",
+        "reward": 0.6200000000000001,
+        "visualState": {
+          "interface": {
+            "activeComponents": [
+              "template-generator"
+            ],
+            "userFocus": "FUNDING",
+            "taskQueue": [],
+            "notifications": [],
+            "currentAction": "template_generation"
+          },
+          "context": {
+            "timeBlock": null,
+            "energy": null,
+            "focus": "funding",
+            "urgency": null,
+            "location": null,
+            "startupStage": "early",
+            "teamSize": "5-10",
+            "industry": "tech"
+          },
+          "history": [],
+          "timestamp": 1753247414965,
+          "encoded": [
+            18,
+            7,
+            19,
+            0,
+            0,
+            7,
+            0,
+            0,
+            5,
+            4,
+            4
+          ]
+        },
+        "timestamp": "2025-07-23T05:10:14.968Z",
+        "success": true
+      },
+      {
+        "type": "rlvr_learning",
+        "reward": 0.6200000000000001,
+        "visualState": {
+          "interface": {
+            "activeComponents": [
+              "template-generator"
+            ],
+            "userFocus": "FUNDING",
+            "taskQueue": [],
+            "notifications": [],
+            "currentAction": "template_generation"
+          },
+          "context": {
+            "timeBlock": null,
+            "energy": null,
+            "focus": "funding",
+            "urgency": null,
+            "location": null,
+            "startupStage": "early",
+            "teamSize": "5-10",
+            "industry": "tech"
+          },
+          "history": [],
+          "timestamp": 1753247414965,
+          "encoded": [
+            18,
+            7,
+            19,
+            0,
+            0,
+            7,
+            0,
+            0,
+            5,
+            4,
+            4
+          ]
+        },
+        "timestamp": "2025-07-23T05:10:14.969Z",
+        "success": true
+      },
+      {
+        "type": "rlvr_learning",
+        "reward": 0.6200000000000001,
+        "visualState": {
+          "interface": {
+            "activeComponents": [
+              "template-generator"
+            ],
+            "userFocus": "FUNDING",
+            "taskQueue": [],
+            "notifications": [],
+            "currentAction": "template_generation"
+          },
+          "context": {
+            "timeBlock": null,
+            "energy": null,
+            "focus": "funding",
+            "urgency": null,
+            "location": null,
+            "startupStage": "early",
+            "teamSize": "5-10",
+            "industry": "tech"
+          },
+          "history": [],
+          "timestamp": 1753247414965,
+          "encoded": [
+            18,
+            7,
+            19,
+            0,
+            0,
+            7,
+            0,
+            0,
+            5,
+            4,
+            4
+          ]
+        },
+        "timestamp": "2025-07-23T05:10:14.971Z",
+        "success": true
+      },
+      {
+        "type": "rlvr_learning",
+        "reward": 0.6200000000000001,
+        "visualState": {
+          "interface": {
+            "activeComponents": [
+              "template-generator"
+            ],
+            "userFocus": "FUNDING",
+            "taskQueue": [],
+            "notifications": [],
+            "currentAction": "template_generation"
+          },
+          "context": {
+            "timeBlock": null,
+            "energy": null,
+            "focus": "funding",
+            "urgency": null,
+            "location": null,
+            "startupStage": "early",
+            "teamSize": "5-10",
+            "industry": "tech"
+          },
+          "history": [],
+          "timestamp": 1753247414965,
+          "encoded": [
+            18,
+            7,
+            19,
+            0,
+            0,
+            7,
+            0,
+            0,
+            5,
+            4,
+            4
+          ]
+        },
+        "timestamp": "2025-07-23T05:10:14.972Z",
+        "success": true
+      },
+      {
+        "type": "rlvr_learning",
+        "actionType": "productivity",
+        "reward": 0.6200000000000001,
+        "visualState": {
+          "interface": {
+            "activeComponents": [
+              "autonomous-action"
+            ],
+            "userFocus": "deep-work",
+            "taskQueue": [],
+            "notifications": [],
+            "currentAction": "productivity"
+          },
+          "context": {
+            "timeBlock": null,
+            "energy": "high",
+            "focus": "deep-work",
+            "urgency": "low",
+            "location": null,
+            "userId": "default-user",
+            "timestamp": "2025-07-23T05:10:29.062Z",
+            "currentTimeBlock": "morning-routine",
+            "upcomingEvents": [
+              {
+                "id": "event-1",
+                "title": "Team Standup",
+                "type": "meeting",
+                "start": "2025-07-23T05:20:29.062Z",
+                "end": "2025-07-23T05:35:29.062Z",
+                "minutesUntilStart": 10,
+                "participants": [
+                  "Alice",
+                  "Bob",
+                  "Charlie"
+                ]
+              },
+              {
+                "id": "event-2",
+                "title": "Project Review",
+                "type": "meeting",
+                "start": "2025-07-23T06:10:29.062Z",
+                "end": "2025-07-23T06:40:29.062Z",
+                "minutesUntilStart": 60,
+                "participants": [
+                  "Manager",
+                  "Team Lead",
+                  "Client"
+                ]
+              },
+              {
+                "id": "task-1",
+                "title": "Complete Documentation",
+                "type": "task",
+                "dueTime": "2025-07-23T08:10:29.062Z",
+                "minutesUntilDue": 180,
+                "priority": "high"
+              }
+            ],
+            "priorities": [
+              "Complete project proposal",
+              "Prepare for meeting",
+              "Reply to urgent emails"
+            ],
+            "suggestions": [
+              "Take a short break",
+              "Focus on high-priority tasks",
+              "Prepare for upcoming meeting"
+            ]
+          },
+          "history": [],
+          "timestamp": 1753247429584,
+          "encoded": [
+            17,
+            9,
+            12,
+            0,
+            4,
+            9,
+            3,
+            0,
+            12,
+            24,
+            15,
+            0,
+            0,
+            0,
+            25,
+            19,
+            22,
+            18,
+            28,
+            28
+          ]
+        },
+        "timestamp": "2025-07-23T05:10:29.585Z",
+        "success": true
+      },
+      {
+        "type": "rlvr_learning",
+        "reward": 0.6200000000000001,
+        "visualState": {
+          "interface": {
+            "activeComponents": [
+              "template-generator"
+            ],
+            "userFocus": "FUNDING",
+            "taskQueue": [],
+            "notifications": [],
+            "currentAction": "template_generation"
+          },
+          "context": {
+            "timeBlock": null,
+            "energy": null,
+            "focus": "funding",
+            "urgency": null,
+            "location": null,
+            "startupStage": "early",
+            "teamSize": "5-10",
+            "industry": "tech"
+          },
+          "history": [],
+          "timestamp": 1753247437094,
+          "encoded": [
+            18,
+            7,
+            19,
+            0,
+            0,
+            7,
+            0,
+            0,
+            5,
+            4,
+            4
+          ]
+        },
+        "timestamp": "2025-07-23T05:10:37.095Z",
+        "success": true
+      },
+      {
+        "type": "rlvr_learning",
+        "reward": 0.6200000000000001,
+        "visualState": {
+          "interface": {
+            "activeComponents": [
+              "template-generator"
+            ],
+            "userFocus": "FUNDING",
+            "taskQueue": [],
+            "notifications": [],
+            "currentAction": "template_generation"
+          },
+          "context": {
+            "timeBlock": null,
+            "energy": null,
+            "focus": "funding",
+            "urgency": null,
+            "location": null,
+            "startupStage": "early",
+            "teamSize": "5-10",
+            "industry": "tech"
+          },
+          "history": [],
+          "timestamp": 1753247437094,
+          "encoded": [
+            18,
+            7,
+            19,
+            0,
+            0,
+            7,
+            0,
+            0,
+            5,
+            4,
+            4
+          ]
+        },
+        "timestamp": "2025-07-23T05:10:37.098Z",
+        "success": true
+      },
+      {
+        "type": "rlvr_learning",
+        "reward": 0.6200000000000001,
+        "visualState": {
+          "interface": {
+            "activeComponents": [
+              "template-generator"
+            ],
+            "userFocus": "FUNDING",
+            "taskQueue": [],
+            "notifications": [],
+            "currentAction": "template_generation"
+          },
+          "context": {
+            "timeBlock": null,
+            "energy": null,
+            "focus": "funding",
+            "urgency": null,
+            "location": null,
+            "startupStage": "early",
+            "teamSize": "5-10",
+            "industry": "tech"
+          },
+          "history": [],
+          "timestamp": 1753247437094,
+          "encoded": [
+            18,
+            7,
+            19,
+            0,
+            0,
+            7,
+            0,
+            0,
+            5,
+            4,
+            4
+          ]
+        },
+        "timestamp": "2025-07-23T05:10:37.099Z",
+        "success": true
+      },
+      {
+        "type": "rlvr_learning",
+        "reward": 0.6200000000000001,
+        "visualState": {
+          "interface": {
+            "activeComponents": [
+              "template-generator"
+            ],
+            "userFocus": "FUNDING",
+            "taskQueue": [],
+            "notifications": [],
+            "currentAction": "template_generation"
+          },
+          "context": {
+            "timeBlock": null,
+            "energy": null,
+            "focus": "funding",
+            "urgency": null,
+            "location": null,
+            "startupStage": "early",
+            "teamSize": "5-10",
+            "industry": "tech"
+          },
+          "history": [],
+          "timestamp": 1753247437094,
+          "encoded": [
+            18,
+            7,
+            19,
+            0,
+            0,
+            7,
+            0,
+            0,
+            5,
+            4,
+            4
+          ]
+        },
+        "timestamp": "2025-07-23T05:10:37.100Z",
+        "success": true
+      },
+      {
+        "type": "rlvr_learning",
+        "reward": 0.6200000000000001,
+        "visualState": {
+          "interface": {
+            "activeComponents": [
+              "template-generator"
+            ],
+            "userFocus": "FUNDING",
+            "taskQueue": [],
+            "notifications": [],
+            "currentAction": "template_generation"
+          },
+          "context": {
+            "timeBlock": null,
+            "energy": null,
+            "focus": "funding",
+            "urgency": null,
+            "location": null,
+            "startupStage": "early",
+            "teamSize": "5-10",
+            "industry": "tech"
+          },
+          "history": [],
+          "timestamp": 1753247437094,
+          "encoded": [
+            18,
+            7,
+            19,
+            0,
+            0,
+            7,
+            0,
+            0,
+            5,
+            4,
+            4
+          ]
+        },
+        "timestamp": "2025-07-23T05:10:37.102Z",
+        "success": true
+      },
+      {
+        "type": "rlvr_learning",
+        "reward": 0.6200000000000001,
+        "visualState": {
+          "interface": {
+            "activeComponents": [
+              "template-generator"
+            ],
+            "userFocus": "FUNDING",
+            "taskQueue": [],
+            "notifications": [],
+            "currentAction": "template_generation"
+          },
+          "context": {
+            "timeBlock": null,
+            "energy": null,
+            "focus": "funding",
+            "urgency": null,
+            "location": null,
+            "startupStage": "early",
+            "teamSize": "5-10",
+            "industry": "tech"
+          },
+          "history": [],
+          "timestamp": 1753247464310,
+          "encoded": [
+            18,
+            7,
+            19,
+            0,
+            0,
+            7,
+            0,
+            0,
+            5,
+            4,
+            4
+          ]
+        },
+        "timestamp": "2025-07-23T05:11:04.312Z",
+        "success": true
+      },
+      {
+        "type": "rlvr_learning",
+        "reward": 0.6200000000000001,
+        "visualState": {
+          "interface": {
+            "activeComponents": [
+              "template-generator"
+            ],
+            "userFocus": "FUNDING",
+            "taskQueue": [],
+            "notifications": [],
+            "currentAction": "template_generation"
+          },
+          "context": {
+            "timeBlock": null,
+            "energy": null,
+            "focus": "funding",
+            "urgency": null,
+            "location": null,
+            "startupStage": "early",
+            "teamSize": "5-10",
+            "industry": "tech"
+          },
+          "history": [],
+          "timestamp": 1753247464310,
+          "encoded": [
+            18,
+            7,
+            19,
+            0,
+            0,
+            7,
+            0,
+            0,
+            5,
+            4,
+            4
+          ]
+        },
+        "timestamp": "2025-07-23T05:11:04.314Z",
+        "success": true
+      },
+      {
+        "type": "rlvr_learning",
+        "reward": 0.6200000000000001,
+        "visualState": {
+          "interface": {
+            "activeComponents": [
+              "template-generator"
+            ],
+            "userFocus": "FUNDING",
+            "taskQueue": [],
+            "notifications": [],
+            "currentAction": "template_generation"
+          },
+          "context": {
+            "timeBlock": null,
+            "energy": null,
+            "focus": "funding",
+            "urgency": null,
+            "location": null,
+            "startupStage": "early",
+            "teamSize": "5-10",
+            "industry": "tech"
+          },
+          "history": [],
+          "timestamp": 1753247464310,
+          "encoded": [
+            18,
+            7,
+            19,
+            0,
+            0,
+            7,
+            0,
+            0,
+            5,
+            4,
+            4
+          ]
+        },
+        "timestamp": "2025-07-23T05:11:04.315Z",
+        "success": true
+      },
+      {
+        "type": "rlvr_learning",
+        "reward": 0.6200000000000001,
+        "visualState": {
+          "interface": {
+            "activeComponents": [
+              "template-generator"
+            ],
+            "userFocus": "FUNDING",
+            "taskQueue": [],
+            "notifications": [],
+            "currentAction": "template_generation"
+          },
+          "context": {
+            "timeBlock": null,
+            "energy": null,
+            "focus": "funding",
+            "urgency": null,
+            "location": null,
+            "startupStage": "early",
+            "teamSize": "5-10",
+            "industry": "tech"
+          },
+          "history": [],
+          "timestamp": 1753247464310,
+          "encoded": [
+            18,
+            7,
+            19,
+            0,
+            0,
+            7,
+            0,
+            0,
+            5,
+            4,
+            4
+          ]
+        },
+        "timestamp": "2025-07-23T05:11:04.316Z",
+        "success": true
+      },
+      {
+        "type": "rlvr_learning",
+        "reward": 0.6200000000000001,
+        "visualState": {
+          "interface": {
+            "activeComponents": [
+              "template-generator"
+            ],
+            "userFocus": "FUNDING",
+            "taskQueue": [],
+            "notifications": [],
+            "currentAction": "template_generation"
+          },
+          "context": {
+            "timeBlock": null,
+            "energy": null,
+            "focus": "funding",
+            "urgency": null,
+            "location": null,
+            "startupStage": "early",
+            "teamSize": "5-10",
+            "industry": "tech"
+          },
+          "history": [],
+          "timestamp": 1753247464310,
+          "encoded": [
+            18,
+            7,
+            19,
+            0,
+            0,
+            7,
+            0,
+            0,
+            5,
+            4,
+            4
+          ]
+        },
+        "timestamp": "2025-07-23T05:11:04.318Z",
+        "success": true
+      },
+      {
+        "type": "rlvr_learning",
+        "reward": 0.6200000000000001,
+        "visualState": {
+          "interface": {
+            "activeComponents": [
+              "template-generator"
+            ],
+            "userFocus": "FUNDING",
+            "taskQueue": [],
+            "notifications": [],
+            "currentAction": "template_generation"
+          },
+          "context": {
+            "timeBlock": null,
+            "energy": null,
+            "focus": "funding",
+            "urgency": null,
+            "location": null,
+            "startupStage": "early",
+            "teamSize": "5-10",
+            "industry": "tech"
+          },
+          "history": [],
+          "timestamp": 1753247473862,
+          "encoded": [
+            18,
+            7,
+            19,
+            0,
+            0,
+            7,
+            0,
+            0,
+            5,
+            4,
+            4
+          ]
+        },
+        "timestamp": "2025-07-23T05:11:13.862Z",
+        "success": true
+      },
+      {
+        "type": "rlvr_learning",
+        "reward": 0.6200000000000001,
+        "visualState": {
+          "interface": {
+            "activeComponents": [
+              "template-generator"
+            ],
+            "userFocus": "FUNDING",
+            "taskQueue": [],
+            "notifications": [],
+            "currentAction": "template_generation"
+          },
+          "context": {
+            "timeBlock": null,
+            "energy": null,
+            "focus": "funding",
+            "urgency": null,
+            "location": null,
+            "startupStage": "early",
+            "teamSize": "5-10",
+            "industry": "tech"
+          },
+          "history": [],
+          "timestamp": 1753247473862,
+          "encoded": [
+            18,
+            7,
+            19,
+            0,
+            0,
+            7,
+            0,
+            0,
+            5,
+            4,
+            4
+          ]
+        },
+        "timestamp": "2025-07-23T05:11:13.864Z",
+        "success": true
+      },
+      {
+        "type": "rlvr_learning",
+        "reward": 0.6200000000000001,
+        "visualState": {
+          "interface": {
+            "activeComponents": [
+              "template-generator"
+            ],
+            "userFocus": "FUNDING",
+            "taskQueue": [],
+            "notifications": [],
+            "currentAction": "template_generation"
+          },
+          "context": {
+            "timeBlock": null,
+            "energy": null,
+            "focus": "funding",
+            "urgency": null,
+            "location": null,
+            "startupStage": "early",
+            "teamSize": "5-10",
+            "industry": "tech"
+          },
+          "history": [],
+          "timestamp": 1753247473862,
+          "encoded": [
+            18,
+            7,
+            19,
+            0,
+            0,
+            7,
+            0,
+            0,
+            5,
+            4,
+            4
+          ]
+        },
+        "timestamp": "2025-07-23T05:11:13.866Z",
+        "success": true
+      },
+      {
+        "type": "rlvr_learning",
+        "reward": 0.6200000000000001,
+        "visualState": {
+          "interface": {
+            "activeComponents": [
+              "template-generator"
+            ],
+            "userFocus": "FUNDING",
+            "taskQueue": [],
+            "notifications": [],
+            "currentAction": "template_generation"
+          },
+          "context": {
+            "timeBlock": null,
+            "energy": null,
+            "focus": "funding",
+            "urgency": null,
+            "location": null,
+            "startupStage": "early",
+            "teamSize": "5-10",
+            "industry": "tech"
+          },
+          "history": [],
+          "timestamp": 1753247473862,
+          "encoded": [
+            18,
+            7,
+            19,
+            0,
+            0,
+            7,
+            0,
+            0,
+            5,
+            4,
+            4
+          ]
+        },
+        "timestamp": "2025-07-23T05:11:13.867Z",
+        "success": true
+      },
+      {
+        "type": "rlvr_learning",
+        "reward": 0.6200000000000001,
+        "visualState": {
+          "interface": {
+            "activeComponents": [
+              "template-generator"
+            ],
+            "userFocus": "FUNDING",
+            "taskQueue": [],
+            "notifications": [],
+            "currentAction": "template_generation"
+          },
+          "context": {
+            "timeBlock": null,
+            "energy": null,
+            "focus": "funding",
+            "urgency": null,
+            "location": null,
+            "startupStage": "early",
+            "teamSize": "5-10",
+            "industry": "tech"
+          },
+          "history": [],
+          "timestamp": 1753247473862,
+          "encoded": [
+            18,
+            7,
+            19,
+            0,
+            0,
+            7,
+            0,
+            0,
+            5,
+            4,
+            4
+          ]
+        },
+        "timestamp": "2025-07-23T05:11:13.869Z",
+        "success": true
+      },
+      {
+        "type": "rlvr_learning",
+        "actionType": "create_funding_tracker",
+        "reward": 0.6200000000000001,
+        "visualState": {
+          "interface": {
+            "activeComponents": [
+              "template-generator"
+            ],
+            "userFocus": "FUNDING",
+            "taskQueue": [],
+            "notifications": [],
+            "currentAction": "template_generation"
+          },
+          "context": {
+            "timeBlock": null,
+            "energy": null,
+            "focus": "funding",
+            "urgency": null,
+            "location": null,
+            "startupStage": "early",
+            "teamSize": "5-10",
+            "industry": "tech"
+          },
+          "history": [],
+          "timestamp": 1753247502564,
+          "encoded": [
+            18,
+            7,
+            19,
+            0,
+            0,
+            7,
+            0,
+            0,
+            5,
+            4,
+            4
+          ]
+        },
+        "timestamp": "2025-07-23T05:11:43.887Z",
+        "success": true
+      },
+      {
+        "type": "rlvr_learning",
+        "actionType": "create_database",
+        "reward": 0.6200000000000001,
+        "visualState": {
+          "interface": {
+            "activeComponents": [
+              "template-generator"
+            ],
+            "userFocus": "FUNDING",
+            "taskQueue": [],
+            "notifications": [],
+            "currentAction": "template_generation"
+          },
+          "context": {
+            "timeBlock": null,
+            "energy": null,
+            "focus": "funding",
+            "urgency": null,
+            "location": null,
+            "startupStage": "early",
+            "teamSize": "5-10",
+            "industry": "tech"
+          },
+          "history": [],
+          "timestamp": 1753247502564,
+          "encoded": [
+            18,
+            7,
+            19,
+            0,
+            0,
+            7,
+            0,
+            0,
+            5,
+            4,
+            4
+          ]
+        },
+        "timestamp": "2025-07-23T05:11:43.893Z",
+        "success": true
+      },
+      {
+        "type": "rlvr_learning",
+        "actionType": "add_properties",
+        "reward": 0.6200000000000001,
+        "visualState": {
+          "interface": {
+            "activeComponents": [
+              "template-generator"
+            ],
+            "userFocus": "FUNDING",
+            "taskQueue": [],
+            "notifications": [],
+            "currentAction": "template_generation"
+          },
+          "context": {
+            "timeBlock": null,
+            "energy": null,
+            "focus": "funding",
+            "urgency": null,
+            "location": null,
+            "startupStage": "early",
+            "teamSize": "5-10",
+            "industry": "tech"
+          },
+          "history": [],
+          "timestamp": 1753247502564,
+          "encoded": [
+            18,
+            7,
+            19,
+            0,
+            0,
+            7,
+            0,
+            0,
+            5,
+            4,
+            4
+          ]
+        },
+        "timestamp": "2025-07-23T05:11:43.896Z",
+        "success": true
+      },
+      {
+        "type": "rlvr_learning",
+        "actionType": "productivity",
+        "reward": 0.6200000000000001,
+        "visualState": {
+          "interface": {
+            "activeComponents": [
+              "autonomous-action"
+            ],
+            "userFocus": "shallow-work",
+            "taskQueue": [],
+            "notifications": [],
+            "currentAction": "productivity"
+          },
+          "context": {
+            "timeBlock": null,
+            "energy": "medium",
+            "focus": "shallow-work",
+            "urgency": "medium",
+            "location": null,
+            "userId": "default-user",
+            "timestamp": "2025-07-23T05:12:35.767Z",
+            "currentTimeBlock": "morning-routine",
+            "upcomingEvents": [
+              {
+                "id": "event-1",
+                "title": "Team Standup",
+                "type": "meeting",
+                "start": "2025-07-23T05:22:35.768Z",
+                "end": "2025-07-23T05:37:35.768Z",
+                "minutesUntilStart": 10,
+                "participants": [
+                  "Alice",
+                  "Bob",
+                  "Charlie"
+                ]
+              },
+              {
+                "id": "event-2",
+                "title": "Project Review",
+                "type": "meeting",
+                "start": "2025-07-23T06:12:35.768Z",
+                "end": "2025-07-23T06:42:35.768Z",
+                "minutesUntilStart": 60,
+                "participants": [
+                  "Manager",
+                  "Team Lead",
+                  "Client"
+                ]
+              },
+              {
+                "id": "task-1",
+                "title": "Complete Documentation",
+                "type": "task",
+                "dueTime": "2025-07-23T08:12:35.768Z",
+                "minutesUntilDue": 180,
+                "priority": "high"
+              }
+            ],
+            "priorities": [
+              "Complete project proposal",
+              "Prepare for meeting",
+              "Reply to urgent emails"
+            ],
+            "suggestions": [
+              "Take a short break",
+              "Focus on high-priority tasks",
+              "Prepare for upcoming meeting"
+            ]
+          },
+          "history": [],
+          "timestamp": 1753247556289,
+          "encoded": [
+            17,
+            12,
+            12,
+            0,
+            6,
+            12,
+            6,
+            0,
+            12,
+            24,
+            15,
+            0,
+            0,
+            0,
+            25,
+            19,
+            22,
+            18,
+            28,
+            28
+          ]
+        },
+        "timestamp": "2025-07-23T05:12:36.290Z",
+        "success": true
+      },
+      {
+        "type": "rlvr_learning",
+        "actionType": "create_funding_tracker",
+        "reward": 0.6200000000000001,
+        "visualState": {
+          "interface": {
+            "activeComponents": [
+              "template-generator"
+            ],
+            "userFocus": "FUNDING",
+            "taskQueue": [],
+            "notifications": [],
+            "currentAction": "template_generation"
+          },
+          "context": {
+            "timeBlock": null,
+            "energy": null,
+            "focus": "funding",
+            "urgency": null,
+            "location": null,
+            "startupStage": "early",
+            "teamSize": "5-10",
+            "industry": "tech"
+          },
+          "history": [],
+          "timestamp": 1753247569049,
+          "encoded": [
+            18,
+            7,
+            19,
+            0,
+            0,
+            7,
+            0,
+            0,
+            5,
+            4,
+            4
+          ]
+        },
+        "timestamp": "2025-07-23T05:12:49.877Z",
+        "success": true
+      },
+      {
+        "type": "rlvr_learning",
+        "actionType": "create_database",
+        "reward": 0.6200000000000001,
+        "visualState": {
+          "interface": {
+            "activeComponents": [
+              "template-generator"
+            ],
+            "userFocus": "FUNDING",
+            "taskQueue": [],
+            "notifications": [],
+            "currentAction": "template_generation"
+          },
+          "context": {
+            "timeBlock": null,
+            "energy": null,
+            "focus": "funding",
+            "urgency": null,
+            "location": null,
+            "startupStage": "early",
+            "teamSize": "5-10",
+            "industry": "tech"
+          },
+          "history": [],
+          "timestamp": 1753247569049,
+          "encoded": [
+            18,
+            7,
+            19,
+            0,
+            0,
+            7,
+            0,
+            0,
+            5,
+            4,
+            4
+          ]
+        },
+        "timestamp": "2025-07-23T05:12:49.880Z",
+        "success": true
+      },
+      {
+        "type": "rlvr_learning",
+        "actionType": "add_properties",
+        "reward": 0.6200000000000001,
+        "visualState": {
+          "interface": {
+            "activeComponents": [
+              "template-generator"
+            ],
+            "userFocus": "FUNDING",
+            "taskQueue": [],
+            "notifications": [],
+            "currentAction": "template_generation"
+          },
+          "context": {
+            "timeBlock": null,
+            "energy": null,
+            "focus": "funding",
+            "urgency": null,
+            "location": null,
+            "startupStage": "early",
+            "teamSize": "5-10",
+            "industry": "tech"
+          },
+          "history": [],
+          "timestamp": 1753247569049,
+          "encoded": [
+            18,
+            7,
+            19,
+            0,
+            0,
+            7,
+            0,
+            0,
+            5,
+            4,
+            4
+          ]
+        },
+        "timestamp": "2025-07-23T05:12:49.883Z",
+        "success": true
+      },
+      {
+        "type": "rlvr_learning",
+        "actionType": "create_funding_tracker",
+        "reward": 0.6200000000000001,
+        "visualState": {
+          "interface": {
+            "activeComponents": [
+              "template-generator"
+            ],
+            "userFocus": "FUNDING",
+            "taskQueue": [],
+            "notifications": [],
+            "currentAction": "template_generation"
+          },
+          "context": {
+            "timeBlock": null,
+            "energy": null,
+            "focus": "funding",
+            "urgency": null,
+            "location": null,
+            "startupStage": "early",
+            "teamSize": "5-10",
+            "industry": "tech"
+          },
+          "history": [],
+          "timestamp": 1753247588248,
+          "encoded": [
+            18,
+            7,
+            19,
+            0,
+            0,
+            7,
+            0,
+            0,
+            5,
+            4,
+            4
+          ]
+        },
+        "timestamp": "2025-07-23T05:13:10.318Z",
+        "success": true
+      },
+      {
+        "type": "rlvr_learning",
+        "actionType": "create_database",
+        "reward": 0.6200000000000001,
+        "visualState": {
+          "interface": {
+            "activeComponents": [
+              "template-generator"
+            ],
+            "userFocus": "FUNDING",
+            "taskQueue": [],
+            "notifications": [],
+            "currentAction": "template_generation"
+          },
+          "context": {
+            "timeBlock": null,
+            "energy": null,
+            "focus": "funding",
+            "urgency": null,
+            "location": null,
+            "startupStage": "early",
+            "teamSize": "5-10",
+            "industry": "tech"
+          },
+          "history": [],
+          "timestamp": 1753247588248,
+          "encoded": [
+            18,
+            7,
+            19,
+            0,
+            0,
+            7,
+            0,
+            0,
+            5,
+            4,
+            4
+          ]
+        },
+        "timestamp": "2025-07-23T05:13:10.322Z",
+        "success": true
+      },
+      {
+        "type": "rlvr_learning",
+        "actionType": "add_properties",
+        "reward": 0.6200000000000001,
+        "visualState": {
+          "interface": {
+            "activeComponents": [
+              "template-generator"
+            ],
+            "userFocus": "FUNDING",
+            "taskQueue": [],
+            "notifications": [],
+            "currentAction": "template_generation"
+          },
+          "context": {
+            "timeBlock": null,
+            "energy": null,
+            "focus": "funding",
+            "urgency": null,
+            "location": null,
+            "startupStage": "early",
+            "teamSize": "5-10",
+            "industry": "tech"
+          },
+          "history": [],
+          "timestamp": 1753247588248,
+          "encoded": [
+            18,
+            7,
+            19,
+            0,
+            0,
+            7,
+            0,
+            0,
+            5,
+            4,
+            4
+          ]
+        },
+        "timestamp": "2025-07-23T05:13:10.325Z",
+        "success": true
+      },
+      {
+        "type": "rlvr_learning",
+        "actionType": "create_funding_tracker",
+        "reward": 0.6200000000000001,
+        "visualState": {
+          "interface": {
+            "activeComponents": [
+              "template-generator"
+            ],
+            "userFocus": "FUNDING",
+            "taskQueue": [],
+            "notifications": [],
+            "currentAction": "template_generation"
+          },
+          "context": {
+            "timeBlock": null,
+            "energy": null,
+            "focus": "funding",
+            "urgency": null,
+            "location": null,
+            "startupStage": "early",
+            "teamSize": "5-10",
+            "industry": "tech"
+          },
+          "history": [],
+          "timestamp": 1753247609454,
+          "encoded": [
+            18,
+            7,
+            19,
+            0,
+            0,
+            7,
+            0,
+            0,
+            5,
+            4,
+            4
+          ]
+        },
+        "timestamp": "2025-07-23T05:13:32.226Z",
+        "success": true
+      },
+      {
+        "type": "rlvr_learning",
+        "actionType": "create_database",
+        "reward": 0.6200000000000001,
+        "visualState": {
+          "interface": {
+            "activeComponents": [
+              "template-generator"
+            ],
+            "userFocus": "FUNDING",
+            "taskQueue": [],
+            "notifications": [],
+            "currentAction": "template_generation"
+          },
+          "context": {
+            "timeBlock": null,
+            "energy": null,
+            "focus": "funding",
+            "urgency": null,
+            "location": null,
+            "startupStage": "early",
+            "teamSize": "5-10",
+            "industry": "tech"
+          },
+          "history": [],
+          "timestamp": 1753247609454,
+          "encoded": [
+            18,
+            7,
+            19,
+            0,
+            0,
+            7,
+            0,
+            0,
+            5,
+            4,
+            4
+          ]
+        },
+        "timestamp": "2025-07-23T05:13:32.231Z",
+        "success": true
+      },
+      {
+        "type": "rlvr_learning",
+        "actionType": "add_properties",
+        "reward": 0.6200000000000001,
+        "visualState": {
+          "interface": {
+            "activeComponents": [
+              "template-generator"
+            ],
+            "userFocus": "FUNDING",
+            "taskQueue": [],
+            "notifications": [],
+            "currentAction": "template_generation"
+          },
+          "context": {
+            "timeBlock": null,
+            "energy": null,
+            "focus": "funding",
+            "urgency": null,
+            "location": null,
+            "startupStage": "early",
+            "teamSize": "5-10",
+            "industry": "tech"
+          },
+          "history": [],
+          "timestamp": 1753247609454,
+          "encoded": [
+            18,
+            7,
+            19,
+            0,
+            0,
+            7,
+            0,
+            0,
+            5,
+            4,
+            4
+          ]
+        },
+        "timestamp": "2025-07-23T05:13:32.234Z",
+        "success": true
+      },
+      {
+        "type": "rlvr_learning",
+        "actionType": "create_product_roadmap",
+        "reward": 0.6200000000000001,
+        "visualState": {
+          "interface": {
+            "activeComponents": [
+              "template-generator"
+            ],
+            "userFocus": "PRODUCT",
+            "taskQueue": [],
+            "notifications": [],
+            "currentAction": "template_generation"
+          },
+          "context": {
+            "timeBlock": null,
+            "energy": null,
+            "focus": "product",
+            "urgency": null,
+            "location": null,
+            "startupStage": "early",
+            "teamSize": "5-10",
+            "industry": "tech"
+          },
+          "history": [],
+          "timestamp": 1753247619467,
+          "encoded": [
+            18,
+            7,
+            19,
+            0,
+            0,
+            7,
+            0,
+            0,
+            5,
+            4,
+            4
+          ]
+        },
+        "timestamp": "2025-07-23T05:13:41.437Z",
+        "success": true
+      },
+      {
+        "type": "rlvr_learning",
+        "actionType": "create_task_management",
+        "reward": 0.6200000000000001,
+        "visualState": {
+          "interface": {
+            "activeComponents": [
+              "template-generator"
+            ],
+            "userFocus": "PRODUCT",
+            "taskQueue": [],
+            "notifications": [],
+            "currentAction": "template_generation"
+          },
+          "context": {
+            "timeBlock": null,
+            "energy": null,
+            "focus": "product",
+            "urgency": null,
+            "location": null,
+            "startupStage": "early",
+            "teamSize": "5-10",
+            "industry": "tech"
+          },
+          "history": [],
+          "timestamp": 1753247619467,
+          "encoded": [
+            18,
+            7,
+            19,
+            0,
+            0,
+            7,
+            0,
+            0,
+            5,
+            4,
+            4
+          ]
+        },
+        "timestamp": "2025-07-23T05:13:41.441Z",
+        "success": true
+      },
+      {
+        "type": "rlvr_learning",
+        "actionType": "create_meeting_notes",
+        "reward": 0.6200000000000001,
+        "visualState": {
+          "interface": {
+            "activeComponents": [
+              "template-generator"
+            ],
+            "userFocus": "PRODUCT",
+            "taskQueue": [],
+            "notifications": [],
+            "currentAction": "template_generation"
+          },
+          "context": {
+            "timeBlock": null,
+            "energy": null,
+            "focus": "product",
+            "urgency": null,
+            "location": null,
+            "startupStage": "early",
+            "teamSize": "5-10",
+            "industry": "tech"
+          },
+          "history": [],
+          "timestamp": 1753247619467,
+          "encoded": [
+            18,
+            7,
+            19,
+            0,
+            0,
+            7,
+            0,
+            0,
+            5,
+            4,
+            4
+          ]
+        },
+        "timestamp": "2025-07-23T05:13:41.444Z",
+        "success": true
+      },
+      {
+        "type": "rlvr_learning",
+        "actionType": "create_customer_database",
+        "reward": 0.6200000000000001,
+        "visualState": {
+          "interface": {
+            "activeComponents": [
+              "template-generator"
+            ],
+            "userFocus": "MARKETING",
+            "taskQueue": [],
+            "notifications": [],
+            "currentAction": "template_generation"
+          },
+          "context": {
+            "timeBlock": null,
+            "energy": null,
+            "focus": "marketing",
+            "urgency": null,
+            "location": null,
+            "startupStage": "early",
+            "teamSize": "5-10",
+            "industry": "tech"
+          },
+          "history": [],
+          "timestamp": 1753247625632,
+          "encoded": [
+            18,
+            9,
+            19,
+            0,
+            0,
+            9,
+            0,
+            0,
+            5,
+            4,
+            4
+          ]
+        },
+        "timestamp": "2025-07-23T05:13:46.351Z",
+        "success": true
+      },
+      {
+        "type": "rlvr_learning",
+        "actionType": "create_goal_tracker",
+        "reward": 0.6200000000000001,
+        "visualState": {
+          "interface": {
+            "activeComponents": [
+              "template-generator"
+            ],
+            "userFocus": "MARKETING",
+            "taskQueue": [],
+            "notifications": [],
+            "currentAction": "template_generation"
+          },
+          "context": {
+            "timeBlock": null,
+            "energy": null,
+            "focus": "marketing",
+            "urgency": null,
+            "location": null,
+            "startupStage": "early",
+            "teamSize": "5-10",
+            "industry": "tech"
+          },
+          "history": [],
+          "timestamp": 1753247625632,
+          "encoded": [
+            18,
+            9,
+            19,
+            0,
+            0,
+            9,
+            0,
+            0,
+            5,
+            4,
+            4
+          ]
+        },
+        "timestamp": "2025-07-23T05:13:46.354Z",
+        "success": true
+      },
+      {
+        "type": "rlvr_learning",
+        "actionType": "add_properties",
+        "reward": 0.6200000000000001,
+        "visualState": {
+          "interface": {
+            "activeComponents": [
+              "template-generator"
+            ],
+            "userFocus": "MARKETING",
+            "taskQueue": [],
+            "notifications": [],
+            "currentAction": "template_generation"
+          },
+          "context": {
+            "timeBlock": null,
+            "energy": null,
+            "focus": "marketing",
+            "urgency": null,
+            "location": null,
+            "startupStage": "early",
+            "teamSize": "5-10",
+            "industry": "tech"
+          },
+          "history": [],
+          "timestamp": 1753247625632,
+          "encoded": [
+            18,
+            9,
+            19,
+            0,
+            0,
+            9,
+            0,
+            0,
+            5,
+            4,
+            4
+          ]
+        },
+        "timestamp": "2025-07-23T05:13:46.357Z",
+        "success": true
+      },
+      {
+        "type": "rlvr_learning",
+        "actionType": "create_task_management",
+        "reward": 0.6200000000000001,
+        "visualState": {
+          "interface": {
+            "activeComponents": [
+              "template-generator"
+            ],
+            "userFocus": "OPERATIONS",
+            "taskQueue": [],
+            "notifications": [],
+            "currentAction": "template_generation"
+          },
+          "context": {
+            "timeBlock": null,
+            "energy": null,
+            "focus": "operations",
+            "urgency": null,
+            "location": null,
+            "startupStage": "early",
+            "teamSize": "5-10",
+            "industry": "tech"
+          },
+          "history": [],
+          "timestamp": 1753247629465,
+          "encoded": [
+            18,
+            10,
+            19,
+            0,
+            0,
+            10,
+            0,
+            0,
+            5,
+            4,
+            4
+          ]
+        },
+        "timestamp": "2025-07-23T05:13:50.894Z",
+        "success": true
+      },
+      {
+        "type": "rlvr_learning",
+        "actionType": "create_meeting_notes",
+        "reward": 0.6200000000000001,
+        "visualState": {
+          "interface": {
+            "activeComponents": [
+              "template-generator"
+            ],
+            "userFocus": "OPERATIONS",
+            "taskQueue": [],
+            "notifications": [],
+            "currentAction": "template_generation"
+          },
+          "context": {
+            "timeBlock": null,
+            "energy": null,
+            "focus": "operations",
+            "urgency": null,
+            "location": null,
+            "startupStage": "early",
+            "teamSize": "5-10",
+            "industry": "tech"
+          },
+          "history": [],
+          "timestamp": 1753247629465,
+          "encoded": [
+            18,
+            10,
+            19,
+            0,
+            0,
+            10,
+            0,
+            0,
+            5,
+            4,
+            4
+          ]
+        },
+        "timestamp": "2025-07-23T05:13:50.897Z",
+        "success": true
+      },
+      {
+        "type": "rlvr_learning",
+        "actionType": "create_database",
+        "reward": 0.6200000000000001,
+        "visualState": {
+          "interface": {
+            "activeComponents": [
+              "template-generator"
+            ],
+            "userFocus": "OPERATIONS",
+            "taskQueue": [],
+            "notifications": [],
+            "currentAction": "template_generation"
+          },
+          "context": {
+            "timeBlock": null,
+            "energy": null,
+            "focus": "operations",
+            "urgency": null,
+            "location": null,
+            "startupStage": "early",
+            "teamSize": "5-10",
+            "industry": "tech"
+          },
+          "history": [],
+          "timestamp": 1753247629465,
+          "encoded": [
+            18,
+            10,
+            19,
+            0,
+            0,
+            10,
+            0,
+            0,
+            5,
+            4,
+            4
+          ]
+        },
+        "timestamp": "2025-07-23T05:13:50.901Z",
+        "success": true
+      },
+      {
+        "type": "rlvr_learning",
+        "actionType": "productivity",
+        "reward": 0.6200000000000001,
+        "visualState": {
+          "interface": {
+            "activeComponents": [
+              "autonomous-action"
+            ],
+            "userFocus": "meetings",
+            "taskQueue": [],
+            "notifications": [],
+            "currentAction": "productivity"
+          },
+          "context": {
+            "timeBlock": null,
+            "energy": "high",
+            "focus": "meetings",
+            "urgency": "medium",
+            "location": null,
+            "userId": "default-user",
+            "timestamp": "2025-07-23T05:13:56.426Z",
+            "currentTimeBlock": "morning-routine",
+            "upcomingEvents": [
+              {
+                "id": "event-1",
+                "title": "Team Standup",
+                "type": "meeting",
+                "start": "2025-07-23T05:23:56.426Z",
+                "end": "2025-07-23T05:38:56.426Z",
+                "minutesUntilStart": 10,
+                "participants": [
+                  "Alice",
+                  "Bob",
+                  "Charlie"
+                ]
+              },
+              {
+                "id": "event-2",
+                "title": "Project Review",
+                "type": "meeting",
+                "start": "2025-07-23T06:13:56.426Z",
+                "end": "2025-07-23T06:43:56.426Z",
+                "minutesUntilStart": 60,
+                "participants": [
+                  "Manager",
+                  "Team Lead",
+                  "Client"
+                ]
+              },
+              {
+                "id": "task-1",
+                "title": "Complete Documentation",
+                "type": "task",
+                "dueTime": "2025-07-23T08:13:56.426Z",
+                "minutesUntilDue": 180,
+                "priority": "high"
+              }
+            ],
+            "priorities": [
+              "Complete project proposal",
+              "Prepare for meeting",
+              "Reply to urgent emails"
+            ],
+            "suggestions": [
+              "Take a short break",
+              "Focus on high-priority tasks",
+              "Prepare for upcoming meeting"
+            ]
+          },
+          "history": [],
+          "timestamp": 1753247636948,
+          "encoded": [
+            17,
+            8,
+            12,
+            0,
+            4,
+            8,
+            6,
+            0,
+            12,
+            24,
+            15,
+            0,
+            0,
+            0,
+            25,
+            19,
+            22,
+            18,
+            28,
+            28
+          ]
+        },
+        "timestamp": "2025-07-23T05:13:56.949Z",
+        "success": true
+      },
+      {
+        "type": "rlvr_learning",
+        "actionType": "create_customer_database",
+        "reward": 0.6200000000000001,
+        "visualState": {
+          "interface": {
+            "activeComponents": [
+              "template-generator"
+            ],
+            "userFocus": "MARKETING",
+            "taskQueue": [],
+            "notifications": [],
+            "currentAction": "template_generation"
+          },
+          "context": {
+            "timeBlock": null,
+            "energy": null,
+            "focus": "marketing",
+            "urgency": null,
+            "location": null,
+            "startupStage": "scale",
+            "teamSize": "25+",
+            "industry": "saas"
+          },
+          "history": [],
+          "timestamp": 1753247641381,
+          "encoded": [
+            18,
+            9,
+            19,
+            0,
+            0,
+            9,
+            0,
+            0,
+            5,
+            3,
+            4
+          ]
+        },
+        "timestamp": "2025-07-23T05:14:02.326Z",
+        "success": true
+      },
+      {
+        "type": "rlvr_learning",
+        "actionType": "create_goal_tracker",
+        "reward": 0.6200000000000001,
+        "visualState": {
+          "interface": {
+            "activeComponents": [
+              "template-generator"
+            ],
+            "userFocus": "MARKETING",
+            "taskQueue": [],
+            "notifications": [],
+            "currentAction": "template_generation"
+          },
+          "context": {
+            "timeBlock": null,
+            "energy": null,
+            "focus": "marketing",
+            "urgency": null,
+            "location": null,
+            "startupStage": "scale",
+            "teamSize": "25+",
+            "industry": "saas"
+          },
+          "history": [],
+          "timestamp": 1753247641381,
+          "encoded": [
+            18,
+            9,
+            19,
+            0,
+            0,
+            9,
+            0,
+            0,
+            5,
+            3,
+            4
+          ]
+        },
+        "timestamp": "2025-07-23T05:14:02.329Z",
+        "success": true
+      },
+      {
+        "type": "rlvr_learning",
+        "actionType": "add_properties",
+        "reward": 0.6200000000000001,
+        "visualState": {
+          "interface": {
+            "activeComponents": [
+              "template-generator"
+            ],
+            "userFocus": "MARKETING",
+            "taskQueue": [],
+            "notifications": [],
+            "currentAction": "template_generation"
+          },
+          "context": {
+            "timeBlock": null,
+            "energy": null,
+            "focus": "marketing",
+            "urgency": null,
+            "location": null,
+            "startupStage": "scale",
+            "teamSize": "25+",
+            "industry": "saas"
+          },
+          "history": [],
+          "timestamp": 1753247641381,
+          "encoded": [
+            18,
+            9,
+            19,
+            0,
+            0,
+            9,
+            0,
+            0,
+            5,
+            3,
+            4
+          ]
+        },
+        "timestamp": "2025-07-23T05:14:02.333Z",
+        "success": true
+      },
+      {
+        "type": "rlvr_learning",
+        "actionType": "create_task_management",
+        "reward": 0.6200000000000001,
+        "visualState": {
+          "interface": {
+            "activeComponents": [
+              "template-generator"
+            ],
+            "userFocus": "OPERATIONS",
+            "taskQueue": [],
+            "notifications": [],
+            "currentAction": "template_generation"
+          },
+          "context": {
+            "timeBlock": null,
+            "energy": null,
+            "focus": "operations",
+            "urgency": null,
+            "location": null,
+            "startupStage": "scale",
+            "teamSize": "25+",
+            "industry": "saas"
+          },
+          "history": [],
+          "timestamp": 1753247660698,
+          "encoded": [
+            18,
+            10,
+            19,
+            0,
+            0,
+            10,
+            0,
+            0,
+            5,
+            3,
+            4
+          ]
+        },
+        "timestamp": "2025-07-23T05:14:23.114Z",
+        "success": true
+      },
+      {
+        "type": "rlvr_learning",
+        "actionType": "create_meeting_notes",
+        "reward": 0.6200000000000001,
+        "visualState": {
+          "interface": {
+            "activeComponents": [
+              "template-generator"
+            ],
+            "userFocus": "OPERATIONS",
+            "taskQueue": [],
+            "notifications": [],
+            "currentAction": "template_generation"
+          },
+          "context": {
+            "timeBlock": null,
+            "energy": null,
+            "focus": "operations",
+            "urgency": null,
+            "location": null,
+            "startupStage": "scale",
+            "teamSize": "25+",
+            "industry": "saas"
+          },
+          "history": [],
+          "timestamp": 1753247660698,
+          "encoded": [
+            18,
+            10,
+            19,
+            0,
+            0,
+            10,
+            0,
+            0,
+            5,
+            3,
+            4
+          ]
+        },
+        "timestamp": "2025-07-23T05:14:23.118Z",
+        "success": true
+      },
+      {
+        "type": "rlvr_learning",
+        "actionType": "create_database",
+        "reward": 0.6200000000000001,
+        "visualState": {
+          "interface": {
+            "activeComponents": [
+              "template-generator"
+            ],
+            "userFocus": "OPERATIONS",
+            "taskQueue": [],
+            "notifications": [],
+            "currentAction": "template_generation"
+          },
+          "context": {
+            "timeBlock": null,
+            "energy": null,
+            "focus": "operations",
+            "urgency": null,
+            "location": null,
+            "startupStage": "scale",
+            "teamSize": "25+",
+            "industry": "saas"
+          },
+          "history": [],
+          "timestamp": 1753247660698,
+          "encoded": [
+            18,
+            10,
+            19,
+            0,
+            0,
+            10,
+            0,
+            0,
+            5,
+            3,
+            4
+          ]
+        },
+        "timestamp": "2025-07-23T05:14:23.121Z",
+        "success": true
+      },
+      {
+        "type": "rlvr_learning",
+        "actionType": "create_product_roadmap",
+        "reward": 0.6200000000000001,
+        "visualState": {
+          "interface": {
+            "activeComponents": [
+              "template-generator"
+            ],
+            "userFocus": "PRODUCT",
+            "taskQueue": [],
+            "notifications": [],
+            "currentAction": "template_generation"
+          },
+          "context": {
+            "timeBlock": null,
+            "energy": null,
+            "focus": "product",
+            "urgency": null,
+            "location": null,
+            "startupStage": "growth",
+            "teamSize": "5-10",
+            "industry": "tech"
+          },
+          "history": [],
+          "timestamp": 1753247710831,
+          "encoded": [
+            18,
+            7,
+            19,
+            0,
+            0,
+            7,
+            0,
+            0,
+            6,
+            4,
+            4
+          ]
+        },
+        "timestamp": "2025-07-23T05:15:13.704Z",
+        "success": true
+      },
+      {
+        "type": "rlvr_learning",
+        "actionType": "create_task_management",
+        "reward": 0.6200000000000001,
+        "visualState": {
+          "interface": {
+            "activeComponents": [
+              "template-generator"
+            ],
+            "userFocus": "PRODUCT",
+            "taskQueue": [],
+            "notifications": [],
+            "currentAction": "template_generation"
+          },
+          "context": {
+            "timeBlock": null,
+            "energy": null,
+            "focus": "product",
+            "urgency": null,
+            "location": null,
+            "startupStage": "growth",
+            "teamSize": "5-10",
+            "industry": "tech"
+          },
+          "history": [],
+          "timestamp": 1753247710831,
+          "encoded": [
+            18,
+            7,
+            19,
+            0,
+            0,
+            7,
+            0,
+            0,
+            6,
+            4,
+            4
+          ]
+        },
+        "timestamp": "2025-07-23T05:15:13.708Z",
+        "success": true
+      },
+      {
+        "type": "rlvr_learning",
+        "actionType": "create_meeting_notes",
+        "reward": 0.6200000000000001,
+        "visualState": {
+          "interface": {
+            "activeComponents": [
+              "template-generator"
+            ],
+            "userFocus": "PRODUCT",
+            "taskQueue": [],
+            "notifications": [],
+            "currentAction": "template_generation"
+          },
+          "context": {
+            "timeBlock": null,
+            "energy": null,
+            "focus": "product",
+            "urgency": null,
+            "location": null,
+            "startupStage": "growth",
+            "teamSize": "5-10",
+            "industry": "tech"
+          },
+          "history": [],
+          "timestamp": 1753247710831,
+          "encoded": [
+            18,
+            7,
+            19,
+            0,
+            0,
+            7,
+            0,
+            0,
+            6,
+            4,
+            4
+          ]
+        },
+        "timestamp": "2025-07-23T05:15:13.712Z",
+        "success": true
+      },
+      {
+        "type": "rlvr_learning",
+        "actionType": "productivity",
+        "reward": 0.6200000000000001,
+        "visualState": {
+          "interface": {
+            "activeComponents": [
+              "autonomous-action"
+            ],
+            "userFocus": "deep-work",
+            "taskQueue": [],
+            "notifications": [],
+            "currentAction": "productivity"
+          },
+          "context": {
+            "timeBlock": null,
+            "energy": "high",
+            "focus": "deep-work",
+            "urgency": "high",
+            "location": null,
+            "userId": "default-user",
+            "timestamp": "2025-07-23T05:20:36.798Z",
+            "currentTimeBlock": "morning-routine",
+            "upcomingEvents": [
+              {
+                "id": "event-1",
+                "title": "Team Standup",
+                "type": "meeting",
+                "start": "2025-07-23T05:30:36.798Z",
+                "end": "2025-07-23T05:45:36.798Z",
+                "minutesUntilStart": 10,
+                "participants": [
+                  "Alice",
+                  "Bob",
+                  "Charlie"
+                ]
+              },
+              {
+                "id": "event-2",
+                "title": "Project Review",
+                "type": "meeting",
+                "start": "2025-07-23T06:20:36.798Z",
+                "end": "2025-07-23T06:50:36.798Z",
+                "minutesUntilStart": 60,
+                "participants": [
+                  "Manager",
+                  "Team Lead",
+                  "Client"
+                ]
+              },
+              {
+                "id": "task-1",
+                "title": "Complete Documentation",
+                "type": "task",
+                "dueTime": "2025-07-23T08:20:36.798Z",
+                "minutesUntilDue": 180,
+                "priority": "high"
+              }
+            ],
+            "priorities": [
+              "Complete project proposal",
+              "Prepare for meeting",
+              "Reply to urgent emails"
+            ],
+            "suggestions": [
+              "Take a short break",
+              "Focus on high-priority tasks",
+              "Prepare for upcoming meeting"
+            ]
+          },
+          "history": [],
+          "timestamp": 1753248037330,
+          "encoded": [
+            17,
+            9,
+            12,
+            0,
+            4,
+            9,
+            4,
+            0,
+            12,
+            24,
+            15,
+            0,
+            0,
+            0,
+            25,
+            19,
+            22,
+            18,
+            28,
+            28
+          ]
+        },
+        "timestamp": "2025-07-23T05:20:37.332Z",
+        "success": true
+      },
+      {
+        "type": "rlvr_learning",
+        "actionType": "productivity",
+        "reward": 0.6200000000000001,
+        "visualState": {
+          "interface": {
+            "activeComponents": [
+              "autonomous-action"
+            ],
+            "userFocus": "shallow-work",
+            "taskQueue": [],
+            "notifications": [],
+            "currentAction": "productivity"
+          },
+          "context": {
+            "timeBlock": null,
+            "energy": "medium",
+            "focus": "shallow-work",
+            "urgency": "low",
+            "location": null,
+            "userId": "default-user",
+            "timestamp": "2025-07-23T05:26:36.772Z",
+            "currentTimeBlock": "morning-routine",
+            "upcomingEvents": [
+              {
+                "id": "event-1",
+                "title": "Team Standup",
+                "type": "meeting",
+                "start": "2025-07-23T05:36:36.772Z",
+                "end": "2025-07-23T05:51:36.772Z",
+                "minutesUntilStart": 10,
+                "participants": [
+                  "Alice",
+                  "Bob",
+                  "Charlie"
+                ]
+              },
+              {
+                "id": "event-2",
+                "title": "Project Review",
+                "type": "meeting",
+                "start": "2025-07-23T06:26:36.772Z",
+                "end": "2025-07-23T06:56:36.772Z",
+                "minutesUntilStart": 60,
+                "participants": [
+                  "Manager",
+                  "Team Lead",
+                  "Client"
+                ]
+              },
+              {
+                "id": "task-1",
+                "title": "Complete Documentation",
+                "type": "task",
+                "dueTime": "2025-07-23T08:26:36.772Z",
+                "minutesUntilDue": 180,
+                "priority": "high"
+              }
+            ],
+            "priorities": [
+              "Complete project proposal",
+              "Prepare for meeting",
+              "Reply to urgent emails"
+            ],
+            "suggestions": [
+              "Take a short break",
+              "Focus on high-priority tasks",
+              "Prepare for upcoming meeting"
+            ]
+          },
+          "history": [],
+          "timestamp": 1753248397280,
+          "encoded": [
+            17,
+            12,
+            12,
+            0,
+            6,
+            12,
+            3,
+            0,
+            12,
+            24,
+            15,
+            0,
+            0,
+            0,
+            25,
+            19,
+            22,
+            18,
+            28,
+            28
+          ]
+        },
+        "timestamp": "2025-07-23T05:26:37.282Z",
+        "success": true
+      },
+      {
+        "type": "rlvr_learning",
+        "actionType": "productivity",
+        "reward": 0.6200000000000001,
+        "visualState": {
+          "interface": {
+            "activeComponents": [
+              "autonomous-action"
+            ],
+            "userFocus": "deep-work",
+            "taskQueue": [],
+            "notifications": [],
+            "currentAction": "productivity"
+          },
+          "context": {
+            "timeBlock": null,
+            "energy": "high",
+            "focus": "deep-work",
+            "urgency": "high",
+            "location": null,
+            "userId": "default-user",
+            "timestamp": "2025-07-23T05:30:54.717Z",
+            "currentTimeBlock": "morning-routine",
+            "upcomingEvents": [
+              {
+                "id": "event-1",
+                "title": "Team Standup",
+                "type": "meeting",
+                "start": "2025-07-23T05:40:54.717Z",
+                "end": "2025-07-23T05:55:54.717Z",
+                "minutesUntilStart": 10,
+                "participants": [
+                  "Alice",
+                  "Bob",
+                  "Charlie"
+                ]
+              },
+              {
+                "id": "event-2",
+                "title": "Project Review",
+                "type": "meeting",
+                "start": "2025-07-23T06:30:54.717Z",
+                "end": "2025-07-23T07:00:54.717Z",
+                "minutesUntilStart": 60,
+                "participants": [
+                  "Manager",
+                  "Team Lead",
+                  "Client"
+                ]
+              },
+              {
+                "id": "task-1",
+                "title": "Complete Documentation",
+                "type": "task",
+                "dueTime": "2025-07-23T08:30:54.717Z",
+                "minutesUntilDue": 180,
+                "priority": "high"
+              }
+            ],
+            "priorities": [
+              "Complete project proposal",
+              "Prepare for meeting",
+              "Reply to urgent emails"
+            ],
+            "suggestions": [
+              "Take a short break",
+              "Focus on high-priority tasks",
+              "Prepare for upcoming meeting"
+            ]
+          },
+          "history": [],
+          "timestamp": 1753248655241,
+          "encoded": [
+            17,
+            9,
+            12,
+            0,
+            4,
+            9,
+            4,
+            0,
+            12,
+            24,
+            15,
+            0,
+            0,
+            0,
+            25,
+            19,
+            22,
+            18,
+            28,
+            28
+          ]
+        },
+        "timestamp": "2025-07-23T05:30:55.242Z",
+        "success": true
+      },
+      {
+        "type": "rlvr_learning",
+        "actionType": "productivity",
+        "reward": 0.6200000000000001,
+        "visualState": {
+          "interface": {
+            "activeComponents": [
+              "autonomous-action"
+            ],
+            "userFocus": "deep-work",
+            "taskQueue": [],
+            "notifications": [],
+            "currentAction": "productivity"
+          },
+          "context": {
+            "timeBlock": null,
+            "energy": "high",
+            "focus": "deep-work",
+            "urgency": "medium",
+            "location": null,
+            "userId": "default-user",
+            "timestamp": "2025-07-23T05:36:54.700Z",
+            "currentTimeBlock": "morning-routine",
+            "upcomingEvents": [
+              {
+                "id": "event-1",
+                "title": "Team Standup",
+                "type": "meeting",
+                "start": "2025-07-23T05:46:54.700Z",
+                "end": "2025-07-23T06:01:54.700Z",
+                "minutesUntilStart": 10,
+                "participants": [
+                  "Alice",
+                  "Bob",
+                  "Charlie"
+                ]
+              },
+              {
+                "id": "event-2",
+                "title": "Project Review",
+                "type": "meeting",
+                "start": "2025-07-23T06:36:54.700Z",
+                "end": "2025-07-23T07:06:54.700Z",
+                "minutesUntilStart": 60,
+                "participants": [
+                  "Manager",
+                  "Team Lead",
+                  "Client"
+                ]
+              },
+              {
+                "id": "task-1",
+                "title": "Complete Documentation",
+                "type": "task",
+                "dueTime": "2025-07-23T08:36:54.700Z",
+                "minutesUntilDue": 180,
+                "priority": "high"
+              }
+            ],
+            "priorities": [
+              "Complete project proposal",
+              "Prepare for meeting",
+              "Reply to urgent emails"
+            ],
+            "suggestions": [
+              "Take a short break",
+              "Focus on high-priority tasks",
+              "Prepare for upcoming meeting"
+            ]
+          },
+          "history": [],
+          "timestamp": 1753249015207,
+          "encoded": [
+            17,
+            9,
+            12,
+            0,
+            4,
+            9,
+            6,
+            0,
+            12,
+            24,
+            15,
+            0,
+            0,
+            0,
+            25,
+            19,
+            22,
+            18,
+            28,
+            28
+          ]
+        },
+        "timestamp": "2025-07-23T05:36:55.208Z",
+        "success": true
+      },
+      {
+        "type": "rlvr_learning",
+        "actionType": "productivity",
+        "reward": 0.6200000000000001,
+        "visualState": {
+          "interface": {
+            "activeComponents": [
+              "autonomous-action"
+            ],
+            "userFocus": "deep-work",
+            "taskQueue": [],
+            "notifications": [],
+            "currentAction": "productivity"
+          },
+          "context": {
+            "timeBlock": null,
+            "energy": "high",
+            "focus": "deep-work",
+            "urgency": "low",
+            "location": null,
+            "userId": "default-user",
+            "timestamp": "2025-07-23T05:38:21.879Z",
+            "currentTimeBlock": "morning-routine",
+            "upcomingEvents": [
+              {
+                "id": "event-1",
+                "title": "Team Standup",
+                "type": "meeting",
+                "start": "2025-07-23T05:48:21.879Z",
+                "end": "2025-07-23T06:03:21.879Z",
+                "minutesUntilStart": 10,
+                "participants": [
+                  "Alice",
+                  "Bob",
+                  "Charlie"
+                ]
+              },
+              {
+                "id": "event-2",
+                "title": "Project Review",
+                "type": "meeting",
+                "start": "2025-07-23T06:38:21.879Z",
+                "end": "2025-07-23T07:08:21.879Z",
+                "minutesUntilStart": 60,
+                "participants": [
+                  "Manager",
+                  "Team Lead",
+                  "Client"
+                ]
+              },
+              {
+                "id": "task-1",
+                "title": "Complete Documentation",
+                "type": "task",
+                "dueTime": "2025-07-23T08:38:21.879Z",
+                "minutesUntilDue": 180,
+                "priority": "high"
+              }
+            ],
+            "priorities": [
+              "Complete project proposal",
+              "Prepare for meeting",
+              "Reply to urgent emails"
+            ],
+            "suggestions": [
+              "Take a short break",
+              "Focus on high-priority tasks",
+              "Prepare for upcoming meeting"
+            ]
+          },
+          "history": [],
+          "timestamp": 1753249102406,
+          "encoded": [
+            17,
+            9,
+            12,
+            0,
+            4,
+            9,
+            3,
+            0,
+            12,
+            24,
+            15,
+            0,
+            0,
+            0,
+            25,
+            19,
+            22,
+            18,
+            28,
+            28
+          ]
+        },
+        "timestamp": "2025-07-23T05:38:22.407Z",
+        "success": true
+      },
+      {
+        "type": "rlvr_learning",
+        "actionType": "productivity",
+        "reward": 0.6200000000000001,
+        "visualState": {
+          "interface": {
+            "activeComponents": [
+              "autonomous-action"
+            ],
+            "userFocus": "meetings",
+            "taskQueue": [],
+            "notifications": [],
+            "currentAction": "productivity"
+          },
+          "context": {
+            "timeBlock": null,
+            "energy": "medium",
+            "focus": "meetings",
+            "urgency": "low",
+            "location": null,
+            "userId": "default-user",
+            "timestamp": "2025-07-23T05:42:53.233Z",
+            "currentTimeBlock": "morning-routine",
+            "upcomingEvents": [
+              {
+                "id": "event-1",
+                "title": "Team Standup",
+                "type": "meeting",
+                "start": "2025-07-23T05:52:53.233Z",
+                "end": "2025-07-23T06:07:53.233Z",
+                "minutesUntilStart": 10,
+                "participants": [
+                  "Alice",
+                  "Bob",
+                  "Charlie"
+                ]
+              },
+              {
+                "id": "event-2",
+                "title": "Project Review",
+                "type": "meeting",
+                "start": "2025-07-23T06:42:53.233Z",
+                "end": "2025-07-23T07:12:53.233Z",
+                "minutesUntilStart": 60,
+                "participants": [
+                  "Manager",
+                  "Team Lead",
+                  "Client"
+                ]
+              },
+              {
+                "id": "task-1",
+                "title": "Complete Documentation",
+                "type": "task",
+                "dueTime": "2025-07-23T08:42:53.233Z",
+                "minutesUntilDue": 180,
+                "priority": "high"
+              }
+            ],
+            "priorities": [
+              "Complete project proposal",
+              "Prepare for meeting",
+              "Reply to urgent emails"
+            ],
+            "suggestions": [
+              "Take a short break",
+              "Focus on high-priority tasks",
+              "Prepare for upcoming meeting"
+            ]
+          },
+          "history": [],
+          "timestamp": 1753249373763,
+          "encoded": [
+            17,
+            8,
+            12,
+            0,
+            6,
+            8,
+            3,
+            0,
+            12,
+            24,
+            15,
+            0,
+            0,
+            0,
+            25,
+            19,
+            22,
+            18,
+            28,
+            28
+          ]
+        },
+        "timestamp": "2025-07-23T05:42:53.766Z",
+        "success": true
+      },
+      {
+        "type": "rlvr_learning",
+        "actionType": "productivity",
+        "reward": 0.6200000000000001,
+        "visualState": {
+          "interface": {
+            "activeComponents": [
+              "autonomous-action"
+            ],
+            "userFocus": "break",
+            "taskQueue": [],
+            "notifications": [],
+            "currentAction": "productivity"
+          },
+          "context": {
+            "timeBlock": null,
+            "energy": "high",
+            "focus": "break",
+            "urgency": "high",
+            "location": null,
+            "userId": "default-user",
+            "timestamp": "2025-07-23T05:49:30.718Z",
+            "currentTimeBlock": "morning-routine",
+            "upcomingEvents": [
+              {
+                "id": "event-1",
+                "title": "Team Standup",
+                "type": "meeting",
+                "start": "2025-07-23T05:59:30.718Z",
+                "end": "2025-07-23T06:14:30.718Z",
+                "minutesUntilStart": 10,
+                "participants": [
+                  "Alice",
+                  "Bob",
+                  "Charlie"
+                ]
+              },
+              {
+                "id": "event-2",
+                "title": "Project Review",
+                "type": "meeting",
+                "start": "2025-07-23T06:49:30.718Z",
+                "end": "2025-07-23T07:19:30.718Z",
+                "minutesUntilStart": 60,
+                "participants": [
+                  "Manager",
+                  "Team Lead",
+                  "Client"
+                ]
+              },
+              {
+                "id": "task-1",
+                "title": "Complete Documentation",
+                "type": "task",
+                "dueTime": "2025-07-23T08:49:30.718Z",
+                "minutesUntilDue": 180,
+                "priority": "high"
+              }
+            ],
+            "priorities": [
+              "Complete project proposal",
+              "Prepare for meeting",
+              "Reply to urgent emails"
+            ],
+            "suggestions": [
+              "Take a short break",
+              "Focus on high-priority tasks",
+              "Prepare for upcoming meeting"
+            ]
+          },
+          "history": [],
+          "timestamp": 1753249771244,
+          "encoded": [
+            17,
+            5,
+            12,
+            0,
+            4,
+            5,
+            4,
+            0,
+            12,
+            24,
+            15,
+            0,
+            0,
+            0,
+            25,
+            19,
+            22,
+            18,
+            28,
+            28
+          ]
+        },
+        "timestamp": "2025-07-23T05:49:31.246Z",
+        "success": true
+      },
+      {
+        "type": "rlvr_learning",
+        "actionType": "productivity",
+        "reward": 0.6200000000000001,
+        "visualState": {
+          "interface": {
+            "activeComponents": [
+              "autonomous-action"
+            ],
+            "userFocus": "break",
+            "taskQueue": [],
+            "notifications": [],
+            "currentAction": "productivity"
+          },
+          "context": {
+            "timeBlock": null,
+            "energy": "medium",
+            "focus": "break",
+            "urgency": "low",
+            "location": null,
+            "userId": "default-user",
+            "timestamp": "2025-07-23T05:51:54.958Z",
+            "currentTimeBlock": "morning-routine",
+            "upcomingEvents": [
+              {
+                "id": "event-1",
+                "title": "Team Standup",
+                "type": "meeting",
+                "start": "2025-07-23T06:01:54.958Z",
+                "end": "2025-07-23T06:16:54.958Z",
+                "minutesUntilStart": 10,
+                "participants": [
+                  "Alice",
+                  "Bob",
+                  "Charlie"
+                ]
+              },
+              {
+                "id": "event-2",
+                "title": "Project Review",
+                "type": "meeting",
+                "start": "2025-07-23T06:51:54.958Z",
+                "end": "2025-07-23T07:21:54.958Z",
+                "minutesUntilStart": 60,
+                "participants": [
+                  "Manager",
+                  "Team Lead",
+                  "Client"
+                ]
+              },
+              {
+                "id": "task-1",
+                "title": "Complete Documentation",
+                "type": "task",
+                "dueTime": "2025-07-23T08:51:54.958Z",
+                "minutesUntilDue": 180,
+                "priority": "high"
+              }
+            ],
+            "priorities": [
+              "Complete project proposal",
+              "Prepare for meeting",
+              "Reply to urgent emails"
+            ],
+            "suggestions": [
+              "Take a short break",
+              "Focus on high-priority tasks",
+              "Prepare for upcoming meeting"
+            ]
+          },
+          "history": [],
+          "timestamp": 1753249915482,
+          "encoded": [
+            17,
+            5,
+            12,
+            0,
+            6,
+            5,
+            3,
+            0,
+            12,
+            24,
+            15,
+            0,
+            0,
+            0,
+            25,
+            19,
+            22,
+            18,
+            28,
+            28
+          ]
+        },
+        "timestamp": "2025-07-23T05:51:55.484Z",
+        "success": true
+      },
+      {
+        "type": "rlvr_learning",
+        "actionType": "productivity",
+        "reward": 0.6200000000000001,
+        "visualState": {
+          "interface": {
+            "activeComponents": [
+              "autonomous-action"
+            ],
+            "userFocus": "meetings",
+            "taskQueue": [],
+            "notifications": [],
+            "currentAction": "productivity"
+          },
+          "context": {
+            "timeBlock": null,
+            "energy": "medium",
+            "focus": "meetings",
+            "urgency": "medium",
+            "location": null,
+            "userId": "default-user",
+            "timestamp": "2025-07-23T05:53:26.789Z",
+            "currentTimeBlock": "morning-routine",
+            "upcomingEvents": [
+              {
+                "id": "event-1",
+                "title": "Team Standup",
+                "type": "meeting",
+                "start": "2025-07-23T06:03:26.790Z",
+                "end": "2025-07-23T06:18:26.790Z",
+                "minutesUntilStart": 10,
+                "participants": [
+                  "Alice",
+                  "Bob",
+                  "Charlie"
+                ]
+              },
+              {
+                "id": "event-2",
+                "title": "Project Review",
+                "type": "meeting",
+                "start": "2025-07-23T06:53:26.790Z",
+                "end": "2025-07-23T07:23:26.790Z",
+                "minutesUntilStart": 60,
+                "participants": [
+                  "Manager",
+                  "Team Lead",
+                  "Client"
+                ]
+              },
+              {
+                "id": "task-1",
+                "title": "Complete Documentation",
+                "type": "task",
+                "dueTime": "2025-07-23T08:53:26.790Z",
+                "minutesUntilDue": 180,
+                "priority": "high"
+              }
+            ],
+            "priorities": [
+              "Complete project proposal",
+              "Prepare for meeting",
+              "Reply to urgent emails"
+            ],
+            "suggestions": [
+              "Take a short break",
+              "Focus on high-priority tasks",
+              "Prepare for upcoming meeting"
+            ]
+          },
+          "history": [],
+          "timestamp": 1753250007319,
+          "encoded": [
+            17,
+            8,
+            12,
+            0,
+            6,
+            8,
+            6,
+            0,
+            12,
+            24,
+            15,
+            0,
+            0,
+            0,
+            25,
+            19,
+            22,
+            18,
+            28,
+            28
+          ]
+        },
+        "timestamp": "2025-07-23T05:53:27.322Z",
+        "success": true
+      },
+      {
+        "type": "rlvr_learning",
+        "actionType": "startup_plan_generation",
+        "reward": 0.6200000000000001,
+        "visualState": {
+          "interface": {
+            "activeComponents": [
+              "startup-plan-generator"
+            ],
+            "userFocus": "feedback",
+            "taskQueue": [],
+            "notifications": [],
+            "currentAction": "feedback_capture"
+          },
+          "context": {
+            "timeBlock": null,
+            "energy": "high",
+            "focus": "startup_planning",
+            "urgency": "normal",
+            "location": null
+          },
+          "history": [],
+          "timestamp": 1753250401804,
+          "encoded": [
+            22,
+            8,
+            16,
+            0,
+            4,
+            16,
+            6,
+            0
+          ]
+        },
+        "timestamp": "2025-07-23T06:00:01.805Z",
+        "success": true
+      },
+      {
+        "type": "rlvr_learning",
+        "actionType": "productivity",
+        "reward": 0.6200000000000001,
+        "visualState": {
+          "interface": {
+            "activeComponents": [
+              "autonomous-action"
+            ],
+            "userFocus": "deep-work",
+            "taskQueue": [],
+            "notifications": [],
+            "currentAction": "productivity"
+          },
+          "context": {
+            "timeBlock": null,
+            "energy": "high",
+            "focus": "deep-work",
+            "urgency": "medium",
+            "location": null,
+            "userId": "default-user",
+            "timestamp": "2025-07-23T06:00:52.277Z",
+            "currentTimeBlock": "morning-routine",
+            "upcomingEvents": [
+              {
+                "id": "event-1",
+                "title": "Team Standup",
+                "type": "meeting",
+                "start": "2025-07-23T06:10:52.277Z",
+                "end": "2025-07-23T06:25:52.277Z",
+                "minutesUntilStart": 10,
+                "participants": [
+                  "Alice",
+                  "Bob",
+                  "Charlie"
+                ]
+              },
+              {
+                "id": "event-2",
+                "title": "Project Review",
+                "type": "meeting",
+                "start": "2025-07-23T07:00:52.277Z",
+                "end": "2025-07-23T07:30:52.277Z",
+                "minutesUntilStart": 60,
+                "participants": [
+                  "Manager",
+                  "Team Lead",
+                  "Client"
+                ]
+              },
+              {
+                "id": "task-1",
+                "title": "Complete Documentation",
+                "type": "task",
+                "dueTime": "2025-07-23T09:00:52.277Z",
+                "minutesUntilDue": 180,
+                "priority": "high"
+              }
+            ],
+            "priorities": [
+              "Complete project proposal",
+              "Prepare for meeting",
+              "Reply to urgent emails"
+            ],
+            "suggestions": [
+              "Take a short break",
+              "Focus on high-priority tasks",
+              "Prepare for upcoming meeting"
+            ]
+          },
+          "history": [],
+          "timestamp": 1753250452799,
+          "encoded": [
+            17,
+            9,
+            12,
+            0,
+            4,
+            9,
+            6,
+            0,
+            12,
+            24,
+            15,
+            0,
+            0,
+            0,
+            25,
+            19,
+            22,
+            18,
+            28,
+            28
+          ]
+        },
+        "timestamp": "2025-07-23T06:00:52.800Z",
+        "success": true
       }
     ],
     "productivity": {
@@ -3607,9 +8654,9 @@
     "optimalContexts": [
       {
         "context": {},
-        "successRate": 96.96969696969697,
-        "avgPerformance": 78.48484848484848,
-        "frequency": 66
+        "successRate": 98.77300613496932,
+        "avgPerformance": 79.38650306748467,
+        "frequency": 163
       },
       {
         "context": {
@@ -3671,8 +8718,8 @@
           "{\"actionType\":\"rlvr_learning\"}": 1
         }
       },
-      "sequenceCount": 72,
-      "lastUpdated": "2025-07-22T05:53:11.415Z"
+      "sequenceCount": 169,
+      "lastUpdated": "2025-07-23T06:00:52.800Z"
     }
   },
   "learnedBehaviors": {
@@ -3723,6 +8770,214 @@
           }
         },
         "timestamp": "2025-07-22T05:53:11.413Z",
+        "confidence": 1
+      },
+      "action-1753245442372-49deqk8lc": {
+        "value": {
+          "actionId": "action-1753245442372-49deqk8lc",
+          "actionType": "productivity",
+          "title": "Meeting Preparation",
+          "success": true,
+          "timestamp": "2025-07-23T04:38:22.926Z",
+          "context": {
+            "urgency": "low",
+            "focus": "deep-work",
+            "energy": "medium"
+          }
+        },
+        "timestamp": "2025-07-23T04:38:22.930Z",
+        "confidence": 1
+      },
+      "action-1753246651904-sun8nrrbb": {
+        "value": {
+          "actionId": "action-1753246651904-sun8nrrbb",
+          "actionType": "productivity",
+          "title": "Meeting Preparation",
+          "success": true,
+          "timestamp": "2025-07-23T05:04:32.412Z",
+          "context": {
+            "urgency": "low",
+            "focus": "deep-work",
+            "energy": "medium"
+          }
+        },
+        "timestamp": "2025-07-23T05:04:32.415Z",
+        "confidence": 1
+      },
+      "action-1753247369036-6xe9mptr0": {
+        "value": {
+          "actionId": "action-1753247369036-6xe9mptr0",
+          "actionType": "productivity",
+          "title": "Meeting Preparation",
+          "success": true,
+          "timestamp": "2025-07-23T05:10:29.582Z",
+          "context": {
+            "urgency": "low",
+            "focus": "deep-work",
+            "energy": "high"
+          }
+        },
+        "timestamp": "2025-07-23T05:10:29.583Z",
+        "confidence": 1
+      },
+      "action-1753247495739-on6a08ev8": {
+        "value": {
+          "actionId": "action-1753247495739-on6a08ev8",
+          "actionType": "productivity",
+          "title": "Meeting Preparation",
+          "success": true,
+          "timestamp": "2025-07-23T05:12:36.286Z",
+          "context": {
+            "urgency": "medium",
+            "focus": "shallow-work",
+            "energy": "medium"
+          }
+        },
+        "timestamp": "2025-07-23T05:12:36.288Z",
+        "confidence": 1
+      },
+      "action-1753247576398-phmr9yhe0": {
+        "value": {
+          "actionId": "action-1753247576398-phmr9yhe0",
+          "actionType": "productivity",
+          "title": "Meeting Preparation",
+          "success": true,
+          "timestamp": "2025-07-23T05:13:56.946Z",
+          "context": {
+            "urgency": "medium",
+            "focus": "meetings",
+            "energy": "high"
+          }
+        },
+        "timestamp": "2025-07-23T05:13:56.947Z",
+        "confidence": 1
+      },
+      "action-1753247976767-alqr1jqkm": {
+        "value": {
+          "actionId": "action-1753247976767-alqr1jqkm",
+          "actionType": "productivity",
+          "title": "Meeting Preparation",
+          "success": true,
+          "timestamp": "2025-07-23T05:26:37.273Z",
+          "context": {
+            "urgency": "low",
+            "focus": "shallow-work",
+            "energy": "medium"
+          }
+        },
+        "timestamp": "2025-07-23T05:26:37.277Z",
+        "confidence": 1
+      },
+      "action-1753248594692-m4cspuoq0": {
+        "value": {
+          "actionId": "action-1753248594692-m4cspuoq0",
+          "actionType": "productivity",
+          "title": "Meeting Preparation",
+          "success": true,
+          "timestamp": "2025-07-23T05:36:55.202Z",
+          "context": {
+            "urgency": "medium",
+            "focus": "deep-work",
+            "energy": "high"
+          }
+        },
+        "timestamp": "2025-07-23T05:36:55.204Z",
+        "confidence": 1
+      },
+      "action-1753249041851-q9phdj2yy": {
+        "value": {
+          "actionId": "action-1753249041851-q9phdj2yy",
+          "actionType": "productivity",
+          "title": "Meeting Preparation",
+          "success": true,
+          "timestamp": "2025-07-23T05:38:22.401Z",
+          "context": {
+            "urgency": "low",
+            "focus": "deep-work",
+            "energy": "high"
+          }
+        },
+        "timestamp": "2025-07-23T05:38:22.403Z",
+        "confidence": 1
+      },
+      "action-1753249313197-3qjfm138q": {
+        "value": {
+          "actionId": "action-1753249313197-3qjfm138q",
+          "actionType": "productivity",
+          "title": "Meeting Preparation",
+          "success": true,
+          "timestamp": "2025-07-23T05:42:53.756Z",
+          "context": {
+            "urgency": "low",
+            "focus": "meetings",
+            "energy": "medium"
+          }
+        },
+        "timestamp": "2025-07-23T05:42:53.760Z",
+        "confidence": 1
+      },
+      "action-1753249710688-14wyu4exd": {
+        "value": {
+          "actionId": "action-1753249710688-14wyu4exd",
+          "actionType": "productivity",
+          "title": "Meeting Preparation",
+          "success": true,
+          "timestamp": "2025-07-23T05:49:31.238Z",
+          "context": {
+            "urgency": "high",
+            "focus": "break",
+            "energy": "high"
+          }
+        },
+        "timestamp": "2025-07-23T05:49:31.241Z",
+        "confidence": 1
+      },
+      "action-1753249854934-6e0ql0ti4": {
+        "value": {
+          "actionId": "action-1753249854934-6e0ql0ti4",
+          "actionType": "productivity",
+          "title": "Meeting Preparation",
+          "success": true,
+          "timestamp": "2025-07-23T05:51:55.477Z",
+          "context": {
+            "urgency": "low",
+            "focus": "break",
+            "energy": "medium"
+          }
+        },
+        "timestamp": "2025-07-23T05:51:55.479Z",
+        "confidence": 1
+      },
+      "action-1753249946753-19tnm04yc": {
+        "value": {
+          "actionId": "action-1753249946753-19tnm04yc",
+          "actionType": "productivity",
+          "title": "Meeting Preparation",
+          "success": true,
+          "timestamp": "2025-07-23T05:53:27.312Z",
+          "context": {
+            "urgency": "medium",
+            "focus": "meetings",
+            "energy": "medium"
+          }
+        },
+        "timestamp": "2025-07-23T05:53:27.315Z",
+        "confidence": 1
+      },
+      "action-1753250392247-e037p0npf": {
+        "value": {
+          "actionId": "action-1753250392247-e037p0npf",
+          "actionType": "productivity",
+          "title": "Meeting Preparation",
+          "success": true,
+          "timestamp": "2025-07-23T06:00:52.795Z",
+          "context": {
+            "urgency": "medium",
+            "focus": "deep-work",
+            "energy": "high"
+          }
+        },
+        "timestamp": "2025-07-23T06:00:52.797Z",
         "confidence": 1
       }
     },
@@ -3873,5 +9128,5 @@
       }
     }
   },
-  "timestamp": "2025-07-22T05:53:11.417Z"
+  "timestamp": "2025-07-23T06:00:52.800Z"
 }
