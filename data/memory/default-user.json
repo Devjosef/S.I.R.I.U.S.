@@ -41,7 +41,7 @@
       "hourDistribution": {
         "6": 50,
         "7": 103,
-        "8": 3,
+        "8": 6,
         "9": 7,
         "10": 5,
         "13": 2
@@ -49,12 +49,12 @@
       "dayDistribution": {
         "0": 7,
         "2": 58,
-        "3": 97,
+        "3": 100,
         "5": 6,
         "6": 2
       },
       "timeBlockDistribution": {
-        "unknown": 163,
+        "unknown": 166,
         "morning-focus": 5,
         "lunch-break": 2
       },
@@ -63,17 +63,17 @@
         "Saturday": 2,
         "Sunday": 7,
         "Tuesday": 58,
-        "Wednesday": 97
+        "Wednesday": 100
       },
       "circadianRhythm": {
         "type": "morning_person",
-        "confidence": 1.0361190476190476,
+        "confidence": 1.0424678362573099,
         "periods": {
           "morning": {
-            "count": 168,
-            "successRate": 95.83333333333334,
-            "avgPerformance": 79.19642857142857,
-            "frequency": 168
+            "count": 171,
+            "successRate": 95.90643274853801,
+            "avgPerformance": 79.21052631578948,
+            "frequency": 171
           },
           "afternoon": {
             "count": 2,
@@ -8571,6 +8571,300 @@
         },
         "timestamp": "2025-07-23T06:00:52.800Z",
         "success": true
+      },
+      {
+        "type": "rlvr_learning",
+        "actionType": "productivity",
+        "reward": 0.6200000000000001,
+        "visualState": {
+          "interface": {
+            "activeComponents": [
+              "autonomous-action"
+            ],
+            "userFocus": "break",
+            "taskQueue": [],
+            "notifications": [],
+            "currentAction": "productivity"
+          },
+          "context": {
+            "timeBlock": null,
+            "energy": "high",
+            "focus": "break",
+            "urgency": "low",
+            "location": null,
+            "userId": "default-user",
+            "timestamp": "2025-07-23T06:17:14.633Z",
+            "currentTimeBlock": "morning-routine",
+            "upcomingEvents": [
+              {
+                "id": "event-1",
+                "title": "Team Standup",
+                "type": "meeting",
+                "start": "2025-07-23T06:27:14.633Z",
+                "end": "2025-07-23T06:42:14.633Z",
+                "minutesUntilStart": 10,
+                "participants": [
+                  "Alice",
+                  "Bob",
+                  "Charlie"
+                ]
+              },
+              {
+                "id": "event-2",
+                "title": "Project Review",
+                "type": "meeting",
+                "start": "2025-07-23T07:17:14.633Z",
+                "end": "2025-07-23T07:47:14.633Z",
+                "minutesUntilStart": 60,
+                "participants": [
+                  "Manager",
+                  "Team Lead",
+                  "Client"
+                ]
+              },
+              {
+                "id": "task-1",
+                "title": "Complete Documentation",
+                "type": "task",
+                "dueTime": "2025-07-23T09:17:14.633Z",
+                "minutesUntilDue": 180,
+                "priority": "high"
+              }
+            ],
+            "priorities": [
+              "Complete project proposal",
+              "Prepare for meeting",
+              "Reply to urgent emails"
+            ],
+            "suggestions": [
+              "Take a short break",
+              "Focus on high-priority tasks",
+              "Prepare for upcoming meeting"
+            ]
+          },
+          "history": [],
+          "timestamp": 1753251435160,
+          "encoded": [
+            17,
+            5,
+            12,
+            0,
+            4,
+            5,
+            3,
+            0,
+            12,
+            24,
+            15,
+            0,
+            0,
+            0,
+            25,
+            19,
+            22,
+            18,
+            28,
+            28
+          ]
+        },
+        "timestamp": "2025-07-23T06:17:15.163Z",
+        "success": true
+      },
+      {
+        "type": "rlvr_learning",
+        "actionType": "productivity",
+        "reward": 0.6200000000000001,
+        "visualState": {
+          "interface": {
+            "activeComponents": [
+              "autonomous-action"
+            ],
+            "userFocus": "shallow-work",
+            "taskQueue": [],
+            "notifications": [],
+            "currentAction": "productivity"
+          },
+          "context": {
+            "timeBlock": null,
+            "energy": "high",
+            "focus": "shallow-work",
+            "urgency": "medium",
+            "location": null,
+            "userId": "default-user",
+            "timestamp": "2025-07-23T06:20:38.645Z",
+            "currentTimeBlock": "morning-routine",
+            "upcomingEvents": [
+              {
+                "id": "event-1",
+                "title": "Team Standup",
+                "type": "meeting",
+                "start": "2025-07-23T06:30:38.645Z",
+                "end": "2025-07-23T06:45:38.645Z",
+                "minutesUntilStart": 10,
+                "participants": [
+                  "Alice",
+                  "Bob",
+                  "Charlie"
+                ]
+              },
+              {
+                "id": "event-2",
+                "title": "Project Review",
+                "type": "meeting",
+                "start": "2025-07-23T07:20:38.645Z",
+                "end": "2025-07-23T07:50:38.645Z",
+                "minutesUntilStart": 60,
+                "participants": [
+                  "Manager",
+                  "Team Lead",
+                  "Client"
+                ]
+              },
+              {
+                "id": "task-1",
+                "title": "Complete Documentation",
+                "type": "task",
+                "dueTime": "2025-07-23T09:20:38.645Z",
+                "minutesUntilDue": 180,
+                "priority": "high"
+              }
+            ],
+            "priorities": [
+              "Complete project proposal",
+              "Prepare for meeting",
+              "Reply to urgent emails"
+            ],
+            "suggestions": [
+              "Take a short break",
+              "Focus on high-priority tasks",
+              "Prepare for upcoming meeting"
+            ]
+          },
+          "history": [],
+          "timestamp": 1753251639171,
+          "encoded": [
+            17,
+            12,
+            12,
+            0,
+            4,
+            12,
+            6,
+            0,
+            12,
+            24,
+            15,
+            0,
+            0,
+            0,
+            25,
+            19,
+            22,
+            18,
+            28,
+            28
+          ]
+        },
+        "timestamp": "2025-07-23T06:20:39.172Z",
+        "success": true
+      },
+      {
+        "type": "rlvr_learning",
+        "actionType": "productivity",
+        "reward": 0.6200000000000001,
+        "visualState": {
+          "interface": {
+            "activeComponents": [
+              "autonomous-action"
+            ],
+            "userFocus": "meetings",
+            "taskQueue": [],
+            "notifications": [],
+            "currentAction": "productivity"
+          },
+          "context": {
+            "timeBlock": null,
+            "energy": "high",
+            "focus": "meetings",
+            "urgency": "low",
+            "location": null,
+            "userId": "default-user",
+            "timestamp": "2025-07-23T06:39:02.633Z",
+            "currentTimeBlock": "morning-routine",
+            "upcomingEvents": [
+              {
+                "id": "event-1",
+                "title": "Team Standup",
+                "type": "meeting",
+                "start": "2025-07-23T06:49:02.633Z",
+                "end": "2025-07-23T07:04:02.633Z",
+                "minutesUntilStart": 10,
+                "participants": [
+                  "Alice",
+                  "Bob",
+                  "Charlie"
+                ]
+              },
+              {
+                "id": "event-2",
+                "title": "Project Review",
+                "type": "meeting",
+                "start": "2025-07-23T07:39:02.633Z",
+                "end": "2025-07-23T08:09:02.633Z",
+                "minutesUntilStart": 60,
+                "participants": [
+                  "Manager",
+                  "Team Lead",
+                  "Client"
+                ]
+              },
+              {
+                "id": "task-1",
+                "title": "Complete Documentation",
+                "type": "task",
+                "dueTime": "2025-07-23T09:39:02.633Z",
+                "minutesUntilDue": 180,
+                "priority": "high"
+              }
+            ],
+            "priorities": [
+              "Complete project proposal",
+              "Prepare for meeting",
+              "Reply to urgent emails"
+            ],
+            "suggestions": [
+              "Take a short break",
+              "Focus on high-priority tasks",
+              "Prepare for upcoming meeting"
+            ]
+          },
+          "history": [],
+          "timestamp": 1753252743140,
+          "encoded": [
+            17,
+            8,
+            12,
+            0,
+            4,
+            8,
+            3,
+            0,
+            12,
+            24,
+            15,
+            0,
+            0,
+            0,
+            25,
+            19,
+            22,
+            18,
+            28,
+            28
+          ]
+        },
+        "timestamp": "2025-07-23T06:39:03.142Z",
+        "success": true
       }
     ],
     "productivity": {
@@ -8654,9 +8948,9 @@
     "optimalContexts": [
       {
         "context": {},
-        "successRate": 98.77300613496932,
-        "avgPerformance": 79.38650306748467,
-        "frequency": 163
+        "successRate": 98.79518072289156,
+        "avgPerformance": 79.39759036144578,
+        "frequency": 166
       },
       {
         "context": {
@@ -8718,8 +9012,8 @@
           "{\"actionType\":\"rlvr_learning\"}": 1
         }
       },
-      "sequenceCount": 169,
-      "lastUpdated": "2025-07-23T06:00:52.800Z"
+      "sequenceCount": 172,
+      "lastUpdated": "2025-07-23T06:39:03.144Z"
     }
   },
   "learnedBehaviors": {
@@ -8979,6 +9273,54 @@
         },
         "timestamp": "2025-07-23T06:00:52.797Z",
         "confidence": 1
+      },
+      "action-1753251374587-5zk2na19i": {
+        "value": {
+          "actionId": "action-1753251374587-5zk2na19i",
+          "actionType": "productivity",
+          "title": "Meeting Preparation",
+          "success": true,
+          "timestamp": "2025-07-23T06:17:15.153Z",
+          "context": {
+            "urgency": "low",
+            "focus": "break",
+            "energy": "high"
+          }
+        },
+        "timestamp": "2025-07-23T06:17:15.157Z",
+        "confidence": 1
+      },
+      "action-1753251578616-4gkvifen6": {
+        "value": {
+          "actionId": "action-1753251578616-4gkvifen6",
+          "actionType": "productivity",
+          "title": "Meeting Preparation",
+          "success": true,
+          "timestamp": "2025-07-23T06:20:39.166Z",
+          "context": {
+            "urgency": "medium",
+            "focus": "shallow-work",
+            "energy": "high"
+          }
+        },
+        "timestamp": "2025-07-23T06:20:39.168Z",
+        "confidence": 1
+      },
+      "action-1753252682601-57wz64n1z": {
+        "value": {
+          "actionId": "action-1753252682601-57wz64n1z",
+          "actionType": "productivity",
+          "title": "Circadian Rhythm Analysis",
+          "success": true,
+          "timestamp": "2025-07-23T06:39:03.134Z",
+          "context": {
+            "urgency": "low",
+            "focus": "meetings",
+            "energy": "high"
+          }
+        },
+        "timestamp": "2025-07-23T06:39:03.136Z",
+        "confidence": 1
       }
     },
     "trigger_optimization": {
@@ -9128,5 +9470,5 @@
       }
     }
   },
-  "timestamp": "2025-07-23T06:00:52.800Z"
+  "timestamp": "2025-07-23T06:39:03.144Z"
 }

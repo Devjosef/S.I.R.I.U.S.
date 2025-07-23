@@ -13,6 +13,20 @@ import { body, query } from 'express-validator';
 
 // Validation middleware
 import validate from '../middleware/validator.js';
+import { google } from 'googleapis';
+
+export function getOAuthClient(userId) {
+  // You may want to load user-specific tokens from your DB here
+  // For now, just create a new OAuth2 client with your credentials
+  const oauth2Client = new google.auth.OAuth2(
+    process.env.GOOGLE_CLIENT_ID,
+    process.env.GOOGLE_CLIENT_SECRET,
+    process.env.GOOGLE_REDIRECT_URI
+  );
+  // Optionally: set credentials if you have them for the user
+  // oauth2Client.setCredentials({ access_token, refresh_token, ... });
+  return oauth2Client;
+}
 
 const router = Router();
 

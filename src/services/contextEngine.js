@@ -101,11 +101,13 @@ export class ContextEngine {
       
       // Learn from this analysis
       this.learnFromContext(context);
-      
+      context.userId = userId; // <-- Always include userId in context
       return context;
     } catch (error) {
       console.error('Error analyzing context:', error);
-      return new ContextSummary();
+      const fallback = new ContextSummary();
+      fallback.userId = userId; // <-- Add userId to fallback as well
+      return fallback;
     }
   }
 

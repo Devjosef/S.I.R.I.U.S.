@@ -8,7 +8,15 @@
  */
 
 // Autonomous action engine integration
-import autonomousActionEngine from '../services/autonomousActionEngine.js';
+import autonomousActionEngine, {
+  AutonomousAction,
+  SmartTrigger,
+  ActionPriority,
+  ActionTypes
+} from '../services/autonomousActionEngine.js';
+
+// Context engine for analysis
+import contextEngine from '../services/contextEngine.js';
 
 // Internal utilities
 import logger from '../utils/logger.js';
@@ -389,6 +397,28 @@ export const triggerAction = async (req, res, next) => {
                 'Setting up video call',
                 'Reviewing agenda'
               ]
+            };
+          }
+        );
+        break;
+        
+      case 'circadian_analysis':
+        action = new AutonomousAction(
+          ActionTypes.PRODUCTIVITY,
+          'Circadian Rhythm Analysis',
+          'Analyze your work patterns to optimize productivity timing',
+          async (context, userId) => {
+            const workPatterns = await autonomousActionEngine.analyzeCircadianWorkPatterns(userId);
+            
+            return {
+              message: 'Circadian rhythm analysis completed',
+              patterns: workPatterns,
+              recommendations: autonomousActionEngine.generateCircadianRecommendations(workPatterns),
+              circadian: {
+                analysis: 'Based on 24-24.2 hour human rhythm',
+                timezone: 'Adapted to your local timezone',
+                confidence: workPatterns.confidence
+              }
             };
           }
         );

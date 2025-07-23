@@ -234,6 +234,11 @@ export class AutonomousActionEngine {
     this.isRunning = false;
     this.checkInterval = 60000; // Check every minute
     this.checkTimer = null;
+    
+    // Work time tracking for neuroscience triggers
+    this.workStartTimes = new Map();
+    this.lastBreakTimes = new Map();
+    this.circadianData = new Map();
   }
 
   /**
@@ -569,59 +574,389 @@ export class AutonomousActionEngine {
   }
 
   /**
-   * Create default triggers for new users
+   * Create neuroscience-backed default triggers
    */
   createDefaultTriggers() {
-    // Example: Create a meeting preparation trigger
-    const meetingPrepCondition = {
+    // 1. 4-Hour Neuroscience Hard Stop (Maximum effective work period)
+    const fourHourStopCondition = {
       evaluate: (context) => {
-        // Check if there's an upcoming meeting in the next 15 minutes
-        return context.upcomingEvents && 
-               context.upcomingEvents.some(event => 
-                 event.type === 'meeting' && 
-                 event.minutesUntilStart <= 15 && 
-                 event.minutesUntilStart > 0
-               );
+        const userId = context.userId;
+        const now = new Date();
+        const workStartTime = this.getWorkStartTime(userId);
+        if (!workStartTime) return false;
+        
+        const workDuration = now - workStartTime;
+        const fourHoursMs = 4 * 60 * 60 * 1000; // 4 hours in milliseconds
+        
+        return workDuration >= fourHoursMs;
       }
     };
     
-    const meetingPrepAction = new AutonomousAction(
-      ActionTypes.PRODUCTIVITY,
-      'Meeting Preparation',
-      'Prepare for your upcoming meeting with relevant documents and notes',
+    const fourHourStopAction = new AutonomousAction(
+      ActionTypes.WELLNESS,
+      'Neuroscience 4-Hour Stop',
+      'You\'ve reached the maximum effective 4-hour work period. Time for a significant break.',
       async (context, userId) => {
-        // Find the upcoming meeting
-        const meeting = context.upcomingEvents.find(event => 
-          event.type === 'meeting' && 
-          event.minutesUntilStart <= 15 && 
-          event.minutesUntilStart > 0
-        );
-        
-        if (!meeting) return { message: 'No upcoming meeting found' };
-        
-        // In a real app, this would:
-        // 1. Find relevant documents
-        // 2. Prepare a summary
-        // 3. Set up quick actions
-        
+        this.resetWorkStartTime(userId);
         return {
-          message: `Prepared for meeting: ${meeting.title}`,
-          meeting: meeting.title,
-          startsIn: `${meeting.minutesUntilStart} minutes`,
-          documents: ['Last meeting notes', 'Related project files']
+          message: '4-hour neuroscience limit reached. Take a significant break.',
+          actions: [
+            'Step away from work completely',
+            'Go for a walk or exercise',
+            'Have a proper meal',
+            'Rest your brain for at least 1 hour',
+            'Consider switching to non-cognitive tasks'
+          ],
+          neuroscience: {
+            reason: 'Maximum effective cognitive work period reached',
+            recommendation: 'Significant break required for brain recovery',
+            duration: 'Minimum 1 hour break recommended'
+          }
         };
       }
     );
     
-    const meetingPrepTrigger = new SmartTrigger(
-      meetingPrepCondition,
-      meetingPrepAction,
+    const fourHourStopTrigger = new SmartTrigger(
+      fourHourStopCondition,
+      fourHourStopAction,
+      ActionPriority.CRITICAL
+    );
+    
+    // 2. 25-Minute Pomodoro with Energy Boost Break
+    const pomodoroCondition = {
+      evaluate: (context) => {
+        const userId = context.userId;
+        const now = new Date();
+        const lastBreak = this.getLastBreakTime(userId);
+        if (!lastBreak) return false;
+        
+        const timeSinceBreak = now - lastBreak;
+        const pomodoroMs = 25 * 60 * 1000; // 25 minutes
+        
+        return timeSinceBreak >= pomodoroMs;
+      }
+    };
+    
+    const pomodoroAction = new AutonomousAction(
+      ActionTypes.WELLNESS,
+      'Pomodoro Energy Boost Break',
+      'Take a 5-minute energy boost break after 25 minutes of focused work',
+      async (context, userId) => {
+        this.setLastBreakTime(userId);
+        return {
+          message: 'Pomodoro break time! Boost your energy.',
+          actions: [
+            'Stand up and stretch',
+            'Get a glass of water',
+            'Take 5 deep breaths',
+            'Look away from screen for 20 seconds',
+            'Do a quick 2-minute walk'
+          ],
+          pomodoro: {
+            workDuration: '25 minutes completed',
+            breakDuration: '5 minutes',
+            nextSession: 'Ready for next 25-minute focus block'
+          }
+        };
+      }
+    );
+    
+    const pomodoroTrigger = new SmartTrigger(
+      pomodoroCondition,
+      pomodoroAction,
+      ActionPriority.MEDIUM
+    );
+    
+    // 3. Smart Critical Task Detection (Email/Communication based)
+    const criticalTaskCondition = {
+      evaluate: (context) => {
+        // Check for explicit urgency indicators in communications
+        const urgentEmails = context.context?.emails?.filter(email => 
+          email.subject?.toLowerCase().includes('urgent') ||
+          email.subject?.toLowerCase().includes('asap') ||
+          email.subject?.toLowerCase().includes('emergency') ||
+          email.subject?.toLowerCase().includes('critical') ||
+          email.priority === 'high' ||
+          email.priority === 'urgent'
+        ) || [];
+        
+        const urgentMessages = context.context?.messages?.filter(msg => 
+          msg.content?.toLowerCase().includes('urgent') ||
+          msg.content?.toLowerCase().includes('asap') ||
+          msg.content?.toLowerCase().includes('emergency') ||
+          msg.content?.toLowerCase().includes('critical')
+        ) || [];
+        
+        return urgentEmails.length > 0 || urgentMessages.length > 0;
+      }
+    };
+    
+    const criticalTaskAction = new AutonomousAction(
+      ActionTypes.NOTIFICATION,
+      'Explicit Urgency Alert',
+      'Critical communication detected requiring immediate attention',
+      async (context, userId) => {
+        const urgentItems = [];
+        
+        // Collect urgent emails
+        const urgentEmails = context.context?.emails?.filter(email => 
+          email.subject?.toLowerCase().includes('urgent') ||
+          email.subject?.toLowerCase().includes('asap') ||
+          email.subject?.toLowerCase().includes('emergency') ||
+          email.subject?.toLowerCase().includes('critical')
+        ) || [];
+        
+        urgentEmails.forEach(email => {
+          urgentItems.push(`📧 ${email.subject} (${email.from})`);
+        });
+        
+        return {
+          message: 'Explicit urgency detected in communications',
+          urgentItems,
+          actions: [
+            'Review urgent communications immediately',
+            'Prioritize response to urgent items',
+            'Consider escalation if needed',
+            'Update stakeholders on status'
+          ],
+          urgency: {
+            source: 'Explicit communication indicators',
+            confidence: 'High (explicit keywords detected)',
+            recommendedAction: 'Immediate review required'
+          }
+        };
+      }
+    );
+    
+    const criticalTaskTrigger = new SmartTrigger(
+      criticalTaskCondition,
+      criticalTaskAction,
       ActionPriority.HIGH
     );
     
-    this.addTrigger(meetingPrepTrigger);
+    // 4. Circadian Rhythm-Based Work Pattern Analysis
+    const circadianAnalysisCondition = {
+      evaluate: (context) => {
+        // Analyze work patterns every hour to detect optimal times
+        const now = new Date();
+        const hour = now.getHours();
+        
+        // Only analyze during typical work hours
+        return hour >= 6 && hour <= 22;
+      }
+    };
     
-    // More default triggers would be added here
+    const circadianAnalysisAction = new AutonomousAction(
+      ActionTypes.PRODUCTIVITY,
+      'Circadian Rhythm Analysis',
+      'Analyze your work patterns to optimize productivity timing',
+      async (context, userId) => {
+        const workPatterns = await this.analyzeCircadianWorkPatterns(userId);
+        
+        return {
+          message: 'Circadian rhythm analysis completed',
+          patterns: workPatterns,
+          recommendations: this.generateCircadianRecommendations(workPatterns),
+          circadian: {
+            analysis: 'Based on 24-24.2 hour human rhythm',
+            timezone: 'Adapted to your local timezone',
+            confidence: workPatterns.confidence
+          }
+        };
+      }
+    );
+    
+    const circadianAnalysisTrigger = new SmartTrigger(
+      circadianAnalysisCondition,
+      circadianAnalysisAction,
+      ActionPriority.LOW
+    );
+    
+    // Add all triggers
+    this.addTrigger(fourHourStopTrigger);
+    this.addTrigger(pomodoroTrigger);
+    this.addTrigger(criticalTaskTrigger);
+    this.addTrigger(circadianAnalysisTrigger);
+    
+    console.log('🧠 Neuroscience-backed triggers created');
+  }
+
+  /**
+   * Work time tracking methods for neuroscience triggers
+   */
+  getWorkStartTime(userId) {
+    return this.workStartTimes.get(userId);
+  }
+
+  setWorkStartTime(userId) {
+    this.workStartTimes.set(userId, new Date());
+  }
+
+  resetWorkStartTime(userId) {
+    this.workStartTimes.delete(userId);
+  }
+
+  getLastBreakTime(userId) {
+    return this.lastBreakTimes.get(userId);
+  }
+
+  setLastBreakTime(userId) {
+    this.lastBreakTimes.set(userId, new Date());
+  }
+
+  /**
+   * Circadian rhythm analysis based on 24-24.2 hour human rhythm
+   */
+  async analyzeCircadianWorkPatterns(userId) {
+    try {
+      const memory = await memoryService.loadMemory(userId);
+      const interactions = memory.patterns?.interactions || [];
+      
+      if (interactions.length < 10) {
+        return {
+          confidence: 'low',
+          message: 'Insufficient data for circadian analysis'
+        };
+      }
+
+      // Analyze work patterns by hour
+      const hourlyWork = {};
+      const hourlyProductivity = {};
+      
+      interactions.forEach(interaction => {
+        const timestamp = new Date(interaction.timestamp);
+        const hour = timestamp.getHours();
+        
+        if (!hourlyWork[hour]) {
+          hourlyWork[hour] = 0;
+          hourlyProductivity[hour] = [];
+        }
+        
+        hourlyWork[hour]++;
+        
+        // Calculate productivity score
+        const productivity = this.calculateProductivityScore(interaction);
+        hourlyProductivity[hour].push(productivity);
+      });
+
+      // Find peak productivity hours
+      const peakHours = Object.entries(hourlyProductivity)
+        .map(([hour, scores]) => ({
+          hour: parseInt(hour),
+          avgProductivity: scores.reduce((a, b) => a + b, 0) / scores.length,
+          workCount: hourlyWork[hour]
+        }))
+        .filter(item => item.workCount >= 3) // Minimum 3 interactions for confidence
+        .sort((a, b) => b.avgProductivity - a.avgProductivity)
+        .slice(0, 3);
+
+      // Determine circadian type based on peak hours
+      const circadianType = this.determineCircadianType(peakHours);
+      
+      // Get timezone-adjusted recommendations
+      const timezone = Intl.DateTimeFormat().resolvedOptions().timeZone;
+      const recommendations = this.getTimezoneAdjustedRecommendations(peakHours, timezone);
+
+      return {
+        confidence: 'high',
+        peakHours,
+        circadianType,
+        timezone,
+        recommendations,
+        totalInteractions: interactions.length,
+        analysisPeriod: '24-24.2 hour human rhythm'
+      };
+    } catch (error) {
+      console.error('Error analyzing circadian patterns:', error);
+      return {
+        confidence: 'error',
+        message: 'Failed to analyze circadian patterns'
+      };
+    }
+  }
+
+  /**
+   * Calculate productivity score for an interaction
+   */
+  calculateProductivityScore(interaction) {
+    let score = 0.5; // Base score
+    
+    // Adjust based on success
+    if (interaction.success === true) score += 0.3;
+    if (interaction.success === false) score -= 0.2;
+    
+    // Adjust based on focus type
+    if (interaction.focus === 'deep-work') score += 0.2;
+    if (interaction.focus === 'meeting-prep') score += 0.1;
+    if (interaction.focus === 'break') score -= 0.1;
+    
+    // Adjust based on energy
+    if (interaction.energy === 'high') score += 0.1;
+    if (interaction.energy === 'low') score -= 0.1;
+    
+    return Math.max(0, Math.min(1, score));
+  }
+
+  /**
+   * Determine circadian type based on peak hours
+   */
+  determineCircadianType(peakHours) {
+    if (peakHours.length === 0) return 'unknown';
+    
+    const avgPeakHour = peakHours.reduce((sum, item) => sum + item.hour, 0) / peakHours.length;
+    
+    if (avgPeakHour >= 5 && avgPeakHour <= 11) return 'morning_person';
+    if (avgPeakHour >= 12 && avgPeakHour <= 17) return 'afternoon_person';
+    if (avgPeakHour >= 18 && avgPeakHour <= 22) return 'evening_person';
+    if (avgPeakHour >= 23 || avgPeakHour <= 4) return 'night_owl';
+    
+    return 'balanced';
+  }
+
+  /**
+   * Get timezone-adjusted recommendations
+   */
+  getTimezoneAdjustedRecommendations(peakHours, timezone) {
+    const recommendations = [];
+    
+    if (peakHours.length > 0) {
+      const bestHour = peakHours[0].hour;
+      
+      recommendations.push({
+        type: 'optimal_work_time',
+        title: 'Optimal Work Window',
+        description: `Your peak productivity is around ${bestHour}:00`,
+        priority: 'high'
+      });
+      
+      recommendations.push({
+        type: 'schedule_optimization',
+        title: 'Schedule Important Tasks',
+        description: `Schedule complex tasks during your peak hours: ${peakHours.map(p => p.hour + ':00').join(', ')}`,
+        priority: 'medium'
+      });
+    }
+    
+    // Add general circadian recommendations
+    recommendations.push({
+      type: 'circadian_health',
+      title: 'Circadian Health',
+      description: 'Maintain consistent sleep/wake cycles for optimal 24-24.2 hour rhythm',
+      priority: 'medium'
+    });
+    
+    return recommendations;
+  }
+
+  /**
+   * Generate circadian recommendations
+   */
+  generateCircadianRecommendations(workPatterns) {
+    if (workPatterns.confidence === 'low') {
+      return ['Continue using S.I.R.I.U.S. to gather more data for circadian analysis'];
+    }
+    
+    return workPatterns.recommendations || [];
   }
 }
 
