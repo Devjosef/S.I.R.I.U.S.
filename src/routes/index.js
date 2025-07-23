@@ -20,6 +20,7 @@ import jiraRoutes from './jiraRoutes.js';
 import multiPlatformRoutes from './multiPlatformRoutes.js';
 import n8nRoutes from './n8nRoutes.js';
 import notionRoutes from './notionRoutes.js';
+
 import oauthRoutes from './oauthRoutes.js';
 import pineconeRoutes from './pineconeRoutes.js';
 import trelloRoutes from './trelloRoutes.js';
@@ -121,6 +122,7 @@ router.use('/jira', jiraRoutes);
 router.use('/multi-platform', multiPlatformRoutes);
 router.use('/n8n', n8nRoutes);
 router.use('/notion', notionRoutes);
+
 router.use('/oauth', oauthRoutes);
 router.use('/pinecone', pineconeRoutes);
 router.use('/trello', trelloRoutes);

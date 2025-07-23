@@ -357,10 +357,15 @@ class RLVRLearningAgent {
   getBestAction(state, possibleActions) {
     const stateKey = JSON.stringify(state.encoded);
     
+    logger.debug({
+      possibleActionsCount: possibleActions.length,
+      possibleActions: possibleActions.map(a => ({ type: a.type, title: a.title }))
+    }, 'Getting best action from possible actions');
+    
     // Exploration: random action
     if (Math.random() < this.explorationRate) {
       const randomAction = possibleActions[Math.floor(Math.random() * possibleActions.length)];
-      logger.debug({ action: randomAction.type }, 'Exploration action selected');
+      logger.debug({ action: randomAction?.type, actionObj: randomAction }, 'Exploration action selected');
       return randomAction;
     }
     

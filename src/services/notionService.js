@@ -226,6 +226,65 @@ export const createPage = async (userId, pageData) => {
 };
 
 /**
+ * Create a new page within another page
+ * @param {string} userId - User identifier
+ * @param {Object} pageData - Page data with parentPageId
+ * @returns {Promise<Object>} - Created page
+ */
+export const createPageInPage = async (userId, pageData) => {
+  try {
+    const response = await notionRequest('/pages', {
+      method: 'POST',
+      body: JSON.stringify({
+        parent: {
+          type: 'page_id',
+          page_id: pageData.parentPageId
+        },
+        properties: {
+          title: {
+            title: [
+              {
+                text: {
+                  content: pageData.title
+                }
+              }
+            ]
+          }
+        },
+        children: [
+          {
+            object: 'block',
+            type: 'paragraph',
+            paragraph: {
+              rich_text: [
+                {
+                  type: 'text',
+                  text: {
+                    content: pageData.description || ''
+                  }
+                }
+              ]
+            }
+          }
+        ]
+      })
+    });
+    
+    return {
+      id: response.id,
+      title: pageData.title,
+      description: pageData.description,
+      url: response.url,
+      status: 'created'
+    };
+    
+  } catch (error) {
+    console.error('Error creating Notion page in page:', error);
+    throw new Error('Failed to create page in page');
+  }
+};
+
+/**
  * Update a page
  * @param {string} userId - User identifier
  * @param {string} pageId - Page ID
@@ -445,6 +504,34 @@ const getMockPages = () => {
   ];
 };
 
+/**
+ * Append blocks to a page
+ * @param {string} pageId - Page ID
+ * @param {Array} blocks - Array of block objects
+ * @returns {Promise<Object>} - Append result
+ */
+export const appendBlocksToPage = async (pageId, blocks) => {
+  try {
+    const response = await notionRequest(`/blocks/${pageId}/children`, {
+      method: 'PATCH',
+      body: JSON.stringify({
+        children: blocks
+      })
+    });
+    
+    return {
+      success: true,
+      message: 'Blocks appended successfully',
+      blocks: response.results || [],
+      pageId
+    };
+    
+  } catch (error) {
+    console.error('Error appending blocks to Notion page:', error);
+    throw error;
+  }
+};
+
 export default {
   getDatabases,
   getPagesFromDatabase,
@@ -452,5 +539,6 @@ export default {
   getPageContent,
   createPage,
   updatePage,
-  deletePage
+  deletePage,
+  appendBlocksToPage
 }; 
