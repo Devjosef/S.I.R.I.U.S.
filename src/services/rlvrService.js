@@ -519,14 +519,19 @@ export class RLVRService {
   
   /**
    * Get learning statistics
+   * Returns learning statistics from the agent, including experience count,
+   * policy size, exploration rate, learning rate, and serialized policy data.
+
    * @returns {Object} - Learning statistics
    */
   static getLearningStats() {
+    const serializedPolicy = Array.from(rlvrAgent.policy.entries())
     return {
       experienceCount: rlvrAgent.experienceBuffer.length,
       policySize: rlvrAgent.policy.size,
       explorationRate: rlvrAgent.explorationRate,
-      learningRate: rlvrAgent.learningRate
+      learningRate: rlvrAgent.learningRate,
+      policy: serializedPolicy
     };
   }
 }
