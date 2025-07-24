@@ -14,6 +14,8 @@ import { fileURLToPath } from 'url';
 import { dirname, join } from 'path';
 import fs from 'fs';
 import os from 'os';
+import pino from 'pino';
+const logger = pino();
 
 /**
  * Environment detection
@@ -38,6 +40,7 @@ const getRootDir = () => {
     const __dirname = dirname(__filename);
     return join(__dirname, '../..');
   } catch (err) {
+    logger.warn('⚠️ Warning: Failed to resolve root directory from import.meta.url. Falling back to process.cwd(). This may cause unexpected behavior.');
     return process.cwd();
   }
 };
@@ -155,20 +158,20 @@ const missingConfigs = requiredConfigs
   .map(item => item.key);
 
 if (missingConfigs.length > 0) {
-  console.warn(`⚠️ Missing required configuration: ${missingConfigs.join(', ')}`);
-  console.warn('Some features may not work correctly.');
+  logger.warn(`⚠️ Missing required configuration: ${missingConfigs.join(', ')}`);
+  logger.warn('Some features may not work correctly.');
 }
 
 // Log minimal configuration info
-console.log(`Environment: ${ENV.PRODUCTION ? 'production' : ENV.TEST ? 'test' : 'development'}`);
-console.log(`Platform: ${ENV.REPLIT ? 'Replit' : 'Local'}`);
-console.log(`Worker Threads: ${config.WORKERS.ENABLED ? 'Enabled (max: ' + config.WORKERS.MAX_THREADS + ')' : 'Disabled'}`);
+logger.info(`Environment: ${ENV.PRODUCTION ? 'production' : ENV.TEST ? 'test' : 'development'}`);
+logger.info(`Platform: ${ENV.REPLIT ? 'Replit' : 'Local'}`);
+logger.info(`Worker Threads: ${config.WORKERS.ENABLED ? 'Enabled (max: ' + config.WORKERS.MAX_THREADS + ')' : 'Disabled'}`);
 
-// Debug API keys (only show first/last few characters for security)
-if (config.NOTION.API_KEY) {
-  console.log(`Notion API Key: ${config.NOTION.API_KEY.substring(0, 4)}...${config.NOTION.API_KEY.substring(config.NOTION.API_KEY.length - 4)}`);
+// Debug API keys (only show presence, never the value)
+if (process.env.NOTION_API_KEY) {
+  logger.info('Notion API Key: [HIDDEN]');
 } else {
-  console.log('⚠️ Notion API Key not found in environment variables');
+  logger.warn('⚠️ Notion API Key not found in environment variables');
 }
 
 export default config; 
