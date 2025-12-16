@@ -1,6 +1,6 @@
 # Contributing to S.I.R.I.U.S.
 
-Thank you for your interest in contributing! S.I.R.I.U.S. is an open source, privacy-first AI assistant, and we welcome your ideas, bug reports, and code.
+Thank you for your interest in contributing! S.I.R.I.U.S. is an open source research project, mainly focusing on privacy & personal assistance.
 
 ## How to Contribute
 
@@ -12,7 +12,7 @@ Thank you for your interest in contributing! S.I.R.I.U.S. is an open source, pri
    - Create a new branch for your change: `git checkout -b feature/my-feature`.
 
 3. **Make Your Changes**
-   - Follow the existing code style: clean, modular, privacy-first, and accessible.
+   - Follow the existing code style: clean, modular, privacy first, and accessible.
    - Add or update documentation as needed.
    - Test your changes locally.
 
