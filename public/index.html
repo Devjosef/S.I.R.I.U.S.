@@ -1,0 +1,311 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="S.I.R.I.U.S. - Personal Assistant Engine">
+  <link rel="manifest" href="/manifest.json">
+  <link rel="icon" type="image/svg+xml" href="/icons/sirius-logo-static.svg">
+  <meta name="theme-color" content="#00c6ff">
+  <title>S.I.R.I.U.S. Engine</title>
+  
+  <script defer src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js"></script>
+  
+  <style>
+    :root {
+      --primary: #00c6ff;
+      --primary-dark: #0073b1;
+      --glow: #00c6ff;
+      --background: #000;
+      --text: #fff;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Courier New', monospace;
+      background-color: var(--background);
+      color: var(--text);
+      min-height: 100vh;
+      overflow-x: hidden;
+    }
+
+    .container {
+      position: relative;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      padding: 20px;
+    }
+
+    .logo-container {
+      position: relative;
+      width: 200px;
+      height: 200px;
+      margin: 32px auto;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      animation: logoFloat 3s ease-in-out infinite;
+    }
+
+    .sirius-logo {
+      width: 150px;
+      height: 150px;
+      filter: drop-shadow(0 0 20px var(--glow));
+    }
+
+    @keyframes logoFloat {
+      0%, 100% { transform: translateY(0px); }
+      50% { transform: translateY(-10px); }
+    }
+
+    .title {
+      font-size: 2.5rem;
+      font-weight: bold;
+      margin-bottom: 16px;
+      letter-spacing: 0.2em;
+      text-align: center;
+    }
+
+    .status-display {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 16px;
+      margin: 32px 0;
+      max-width: 800px;
+      width: 100%;
+    }
+
+    .status-card {
+      background: rgba(0, 198, 255, 0.1);
+      border: 1px solid var(--glow);
+      border-radius: 8px;
+      padding: 16px;
+      text-align: center;
+    }
+
+    .status-label {
+      font-size: 0.9rem;
+      color: var(--glow);
+      margin-bottom: 8px;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+    }
+
+    .status-value {
+      font-size: 1.2rem;
+      font-weight: bold;
+      color: var(--text);
+    }
+
+    .data-stream {
+      max-width: 800px;
+      width: 100%;
+      margin: 32px 0;
+      background: rgba(0, 0, 0, 0.8);
+      border: 1px solid var(--glow);
+      border-radius: 8px;
+      padding: 16px;
+      max-height: 300px;
+      overflow-y: auto;
+    }
+
+    .data-stream-title {
+      font-size: 1.1rem;
+      color: var(--glow);
+      margin-bottom: 16px;
+      text-align: center;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+    }
+
+    .binary-progress {
+      width: 100%;
+      height: 24px;
+      background: rgba(0, 0, 0, 0.5);
+      border: 1px solid var(--glow);
+      border-radius: 4px;
+      margin-bottom: 16px;
+      overflow: hidden;
+    }
+
+    .binary-stream {
+      display: flex;
+      height: 100%;
+      animation: binaryFlow 10s linear infinite;
+      white-space: nowrap;
+      width: max-content;
+      min-width: 100%;
+    }
+
+    .binary-digit {
+      width: 16px;
+      height: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 12px;
+      font-weight: bold;
+      color: var(--glow);
+      text-shadow: 0 0 4px var(--glow);
+      flex-shrink: 0;
+      border-right: 1px solid rgba(0, 198, 255, 0.2);
+    }
+
+    .binary-digit.one {
+      color: var(--text);
+      background: var(--glow);
+    }
+
+    @keyframes binaryFlow {
+      0% { transform: translateX(100%); }
+      100% { transform: translateX(-100%); }
+    }
+
+    .data-entry {
+      font-size: 0.9rem;
+      margin-bottom: 8px;
+      padding: 8px;
+      background: rgba(0, 198, 255, 0.05);
+      border-left: 3px solid var(--glow);
+      border-radius: 4px;
+    }
+
+    @media (max-width: 768px) {
+      .title { font-size: 2rem; }
+      .status-display { grid-template-columns: 1fr; gap: 12px; }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="container" x-data="siriusInterface()" x-init="init()">
+    <div class="logo-container">
+      <img src="/icons/sirius-logo-animated.svg" alt="S.I.R.I.U.S. Logo" class="sirius-logo">
+    </div>
+
+    <h1 class="title">S.I.R.I.U.S.</h1>
+
+    <div class="status-display">
+      <div class="status-card">
+        <div class="status-label">Parser Engine</div>
+        <div class="status-value" x-text="status.parserEngine"></div>
+      </div>
+      <div class="status-card">
+        <div class="status-label">Request Router</div>
+        <div class="status-value" x-text="status.requestRouter"></div>
+      </div>
+      <div class="status-card">
+        <div class="status-label">Local Cache</div>
+        <div class="status-value" x-text="status.localCache"></div>
+      </div>
+    </div>
+
+    <div class="data-stream">
+      <div class="data-stream-title">System Activity</div>
+      
+      <div class="binary-progress">
+        <div class="binary-stream">
+          <template x-for="digit in binaryStream" :key="digit.id">
+            <div class="binary-digit" :class="{ one: digit.value === 1 }" x-text="digit.value"></div>
+          </template>
+        </div>
+      </div>
+      
+      <template x-for="entry in dataStream.slice(-10)" :key="entry.id">
+        <div class="data-entry" x-text="entry.message"></div>
+      </template>
+    </div>
+  </div>
+
+  <script>
+    function siriusInterface() {
+      return {
+        status: {
+          parserEngine: 'Online',
+          requestRouter: 'Active',
+          localCache: 'Connected'
+        },
+        dataStream: [],
+        binaryStream: [],
+
+        init() {
+          this.startDataStream();
+          this.initializeWebSocket();
+          this.generateBinaryStream();
+          this.syncSystemStatus();
+        },
+
+        generateBinaryStream() {
+          const binaryLength = 100;
+          this.binaryStream = Array.from({ length: binaryLength }, (_, i) => ({
+            id: i,
+            value: Math.random() > 0.5 ? 1 : 0
+          }));
+          
+          setInterval(() => {
+            this.binaryStream = this.binaryStream.map(digit => ({
+              ...digit,
+              value: Math.random() > 0.5 ? 1 : 0
+            }));
+          }, 2000);
+        },
+
+        startDataStream() {
+          const logs = [
+            'System initialized',
+            'Validation modules active',
+            'Database ready'
+          ];
+          logs.forEach((msg, idx) => {
+            setTimeout(() => { this.addDataStream(msg); }, idx * 800);
+          });
+        },
+
+        initializeWebSocket() {
+          try {
+            const ws = new WebSocket(`ws://${window.location.host}/ws`);
+            ws.onopen = () => this.addDataStream('WebSocket connected');
+            ws.onmessage = (event) => {
+              const data = JSON.parse(event.data);
+              this.addDataStream(data.message);
+            };
+          } catch (e) {
+            this.addDataStream('WebSocket unavailable');
+          }
+        },
+
+        async syncSystemStatus() {
+          setInterval(async () => {
+            try {
+              const res = await fetch('/api/status');
+              if (res.ok) {
+                const info = await res.json();
+                this.status.requestRouter = info.status === 'online' ? 'Active' : 'Offline';
+              }
+            } catch (err) {
+              this.status.requestRouter = 'Offline';
+            }
+          }, 10000);
+        },
+
+        addDataStream(message) {
+          this.dataStream.push({
+            id: Date.now() + Math.random(),
+            message,
+            timestamp: new Date().toLocaleTimeString()
+          });
+          if (this.dataStream.length > 50) this.dataStream.shift();
+        }
+      };
+    }
+  </script>
+</body>
+</html>
