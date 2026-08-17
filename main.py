@@ -83,13 +83,11 @@ async def get_manifest():
         "display": "standalone"
     })
 
-# Add explicit HEAD support for Render's automated health checks
 @app.head("/")
 @app.get("/")
 async def serve_index():
     if os.path.exists("public/index.html"):
         return FileResponse("public/index.html")
-    # If no static frontend exists, return a simple JSON response for root
     return JSONResponse({"status": "online", "message": "S.I.R.I.U.S. Engine API"})
 
 @app.get("/{file_path:path}")
