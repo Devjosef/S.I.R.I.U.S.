@@ -83,11 +83,14 @@ async def get_manifest():
         "display": "standalone"
     })
 
+# Add explicit HEAD support for Render's automated health checks
+@app.head("/")
 @app.get("/")
 async def serve_index():
     if os.path.exists("public/index.html"):
         return FileResponse("public/index.html")
-    raise HTTPException(status_code=404, detail="Frontend index.html missing")
+    # If no static frontend exists, return a simple JSON response for root
+    return JSONResponse({"status": "online", "message": "S.I.R.I.U.S. Engine API"})
 
 @app.get("/{file_path:path}")
 async def serve_static_assets(file_path: str):
@@ -98,4 +101,5 @@ async def serve_static_assets(file_path: str):
 
 if __name__ == "__main__":
     import uvicorn
-    uvicorn.run("main:app", host="127.0.0.1", port=8000, reload=True)
+    port = int(os.environ.get("PORT", 8000))
+    uvicorn.run("main:app", host="0.0.0.0", port=port)
