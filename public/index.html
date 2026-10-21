@@ -216,7 +216,7 @@
     </div>
 
     <div class="data-stream">
-      <div class="data-stream-title">System Activity Log</div>
+      <div class="data-stream-title">Activity Stream</div>
       <template x-for="entry in dataStream.slice().reverse()" :key="entry.id">
         <div class="data-entry" x-text="entry.message"></div>
       </template>
@@ -235,7 +235,7 @@
         dataStream: [],
 
         init() {
-          this.addDataStream('System initialized');
+          this.addDataStream('Engine online');
           this.initializeWebSocket();
           this.syncSystemStatus();
         },
@@ -254,13 +254,18 @@
 
             const data = await res.json();
             if (res.ok) {
-              const item = data.data;
-              if (data.route === 'finances') {
-                this.addDataStream(`✓ Logged ${item.type}: $${item.amount.toFixed(2)} — ${item.category}`);
+              if (data.route === 'query') {
+                this.addDataStream(`${data.data.message}`);
+              } else if (data.route === 'finances' && Array.isArray(data.data) && data.data.length > 0) {
+                const item = data.data[0];
+                this.addDataStream(`✓ Logged ${item.type || 'expense'}: $${item.amount.toFixed(2)} — ${item.category}`);
+              } else if (data.route === 'finances_batch' && Array.isArray(data.data)) {
+                this.addDataStream(`✓ Logged ${data.data.length} financial entries.`);
               } else if (data.route === 'calendar') {
+                const item = data.data;
                 this.addDataStream(`✓ Reminder set: "${item.title}" for ${item.date_str}`);
               } else {
-                this.addDataStream(`✓ Saved successfully.`);
+                this.addDataStream(`✓ Action processed successfully.`);
               }
             } else {
               this.addDataStream(`✗ ${data.detail}`);
@@ -302,7 +307,7 @@
           try {
             const wsProtocol = window.location.protocol === 'https:' ? 'wss:' : 'ws:';
             const ws = new WebSocket(`${wsProtocol}//${window.location.host}/ws`);
-            ws.onopen = () => this.addDataStream('WebSocket connection established');
+            ws.onopen = () => this.addDataStream('WebSocket connected');
             ws.onmessage = (event) => {
               const data = JSON.parse(event.data);
               this.addDataStream(data.message);
