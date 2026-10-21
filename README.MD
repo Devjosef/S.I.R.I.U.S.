@@ -2,6 +2,8 @@
 
 S.I.R.I.U.S. Engine is a reductionist personal assistant pipeline built in Python with FastAPI, Pydantic, SQLite, and an Alpine.js web front end. It is designed to run locally on your network, process voice or typed commands, store data persistently in SQLite, and stream activity updates in real time using WebSockets.
 
+![S.I.R.I.U.S. Interface Demo](./sirius-demo.gif)
+
 ## Architecture
 
 The application structure consists of:
