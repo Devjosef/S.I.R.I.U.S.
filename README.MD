@@ -43,7 +43,7 @@ python test.pipeline.py
 
 ## Supported Input Syntax
 
-The engine supports order-agnostic, human-tolerant natural language parsing for quick logging and querying:
+The engine supports order-agnostic, human natural language parsing for quick logging and querying:
 
 | Input Type | Syntax Pattern | Example |
 | :--- | :--- | :--- |
