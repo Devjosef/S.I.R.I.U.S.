@@ -258,7 +258,9 @@
                 this.addDataStream(`${data.data.message}`);
               } else if (data.route === 'finances' && Array.isArray(data.data) && data.data.length > 0) {
                 const item = data.data[0];
-                this.addDataStream(`✓ Logged ${item.type || 'expense'}: $${item.amount.toFixed(2)} — ${item.category}`);
+                const textToCheck = (item.category + ' ' + (item.raw_text || '')).toLowerCase();
+                const symbol = (textToCheck.includes('euro') || textToCheck.includes('€')) ? '€' : '$';
+                this.addDataStream(`✓ Logged ${item.type || 'expense'}: ${symbol}${item.amount.toFixed(2)} — ${item.category}`);
               } else if (data.route === 'finances_batch' && Array.isArray(data.data)) {
                 this.addDataStream(`✓ Logged ${data.data.length} financial entries.`);
               } else if (data.route === 'calendar') {
