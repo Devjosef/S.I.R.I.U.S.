@@ -1,11 +1,18 @@
 import os
 from fastapi import FastAPI, HTTPException, WebSocket, WebSocketDisconnect
 from fastapi.middleware.cors import CORSMiddleware
+from fastapi.staticfiles import StaticFiles
 from starlette.responses import FileResponse, JSONResponse
 from pydantic import BaseModel
 
 from app.core.parser import AssistantParser
-from app.core.storage import init_db, save_financial_metric, save_calendar_event
+from app.core.storage import (
+    init_db, 
+    save_financial_metric, 
+    save_calendar_event,
+    get_financial_summary,
+    get_calendar_summary
+)
 
 init_db()
 
@@ -37,9 +44,18 @@ async def process_assistant_command(payload: CommandRequest):
             return {
                 "status": "success",
                 "route": "finances",
-                "data": parsed_obj.model_dump()
+                "data": [parsed_obj.model_dump()]
             }
         
+        elif class_name == "MultiFinancialMetric":
+            for item in parsed_obj.items:
+                save_financial_metric(item)
+            return {
+                "status": "success",
+                "route": "finances_batch",
+                "data": [item.model_dump() for item in parsed_obj.items]
+            }
+
         elif class_name == "CalendarEvent":
             save_calendar_event(parsed_obj)
             return {
@@ -47,6 +63,18 @@ async def process_assistant_command(payload: CommandRequest):
                 "route": "calendar",
                 "data": parsed_obj.model_dump()
             }
+            
+        elif class_name == "QueryCommand":
+            if parsed_obj.target == "spend":
+                rows = get_financial_summary(5)
+                formatted = [f"${r[1]:.2f} — {r[2]}" for r in rows]
+                return {"status": "success", "route": "query", "data": {"message": "Recent Spend: " + " | ".join(formatted)}}
+            elif parsed_obj.target == "calendar":
+                rows = get_calendar_summary(5)
+                formatted = [f"\"{r[0]}\" on {r[1]}" for r in rows]
+                return {"status": "success", "route": "query", "data": {"message": "Upcoming: " + " | ".join(formatted)}}
+            elif parsed_obj.target == "all":
+                return {"status": "success", "route": "query", "data": {"message": "System operational. Local cache connected."}}
             
     except ValueError as val_err:
         raise HTTPException(status_code=400, detail=str(val_err))
@@ -61,7 +89,6 @@ async def get_status():
         "storage": "SQLite Local Cache"
     }
 
-# Explicitly handle and accept the frontend live stream connection
 @app.websocket("/ws")
 async def websocket_endpoint(websocket: WebSocket):
     await websocket.accept()
@@ -90,12 +117,8 @@ async def serve_index():
         return FileResponse("public/index.html")
     return JSONResponse({"status": "online", "message": "S.I.R.I.U.S. Engine API"})
 
-@app.get("/{file_path:path}")
-async def serve_static_assets(file_path: str):
-    local_path = os.path.join("public", file_path)
-    if os.path.exists(local_path) and os.path.isfile(local_path):
-        return FileResponse(local_path)
-    raise HTTPException(status_code=404, detail="Asset not found")
+if os.path.exists("public"):
+    app.mount("/", StaticFiles(directory="public", html=True), name="public")
 
 if __name__ == "__main__":
     import uvicorn

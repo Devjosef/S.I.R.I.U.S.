@@ -46,9 +46,9 @@
 
     .logo-container {
       position: relative;
-      width: 200px;
-      height: 200px;
-      margin: 32px auto;
+      width: 180px;
+      height: 180px;
+      margin: 20px auto;
       display: flex;
       justify-content: center;
       align-items: center;
@@ -56,29 +56,64 @@
     }
 
     .sirius-logo {
-      width: 150px;
-      height: 150px;
-      filter: drop-shadow(0 0 20px var(--glow));
+      width: 140px;
+      height: 140px;
+      filter: drop-shadow(0 0 18px var(--glow));
     }
 
     @keyframes logoFloat {
       0%, 100% { transform: translateY(0px); }
-      50% { transform: translateY(-10px); }
+      50% { transform: translateY(-8px); }
     }
 
     .title {
-      font-size: 2.5rem;
+      font-size: 2.2rem;
       font-weight: bold;
       margin-bottom: 16px;
       letter-spacing: 0.2em;
       text-align: center;
     }
 
+    .command-box {
+      max-width: 800px;
+      width: 100%;
+      margin: 16px 0;
+      display: flex;
+      gap: 8px;
+    }
+
+    .command-input {
+      flex: 1;
+      background: rgba(0, 198, 255, 0.05);
+      border: 1px solid var(--glow);
+      border-radius: 4px;
+      padding: 12px 16px;
+      color: #fff;
+      font-family: 'Courier New', monospace;
+      font-size: 1rem;
+      outline: none;
+    }
+
+    .command-input:focus {
+      box-shadow: 0 0 10px var(--glow);
+    }
+
+    .command-btn {
+      background: var(--glow);
+      color: #000;
+      border: none;
+      border-radius: 4px;
+      padding: 0 20px;
+      font-weight: bold;
+      font-family: 'Courier New', monospace;
+      cursor: pointer;
+    }
+
     .status-display {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
       gap: 16px;
-      margin: 32px 0;
+      margin: 16px 0;
       max-width: 800px;
       width: 100%;
     }
@@ -92,7 +127,7 @@
     }
 
     .status-label {
-      font-size: 0.9rem;
+      font-size: 0.85rem;
       color: var(--glow);
       margin-bottom: 8px;
       text-transform: uppercase;
@@ -100,7 +135,7 @@
     }
 
     .status-value {
-      font-size: 1.2rem;
+      font-size: 1.1rem;
       font-weight: bold;
       color: var(--text);
     }
@@ -108,69 +143,26 @@
     .data-stream {
       max-width: 800px;
       width: 100%;
-      margin: 32px 0;
+      margin: 16px 0;
       background: rgba(0, 0, 0, 0.8);
       border: 1px solid var(--glow);
       border-radius: 8px;
       padding: 16px;
-      max-height: 300px;
+      max-height: 250px;
       overflow-y: auto;
     }
 
     .data-stream-title {
-      font-size: 1.1rem;
+      font-size: 1rem;
       color: var(--glow);
-      margin-bottom: 16px;
+      margin-bottom: 12px;
       text-align: center;
       text-transform: uppercase;
       letter-spacing: 0.1em;
     }
 
-    .binary-progress {
-      width: 100%;
-      height: 24px;
-      background: rgba(0, 0, 0, 0.5);
-      border: 1px solid var(--glow);
-      border-radius: 4px;
-      margin-bottom: 16px;
-      overflow: hidden;
-    }
-
-    .binary-stream {
-      display: flex;
-      height: 100%;
-      animation: binaryFlow 10s linear infinite;
-      white-space: nowrap;
-      width: max-content;
-      min-width: 100%;
-    }
-
-    .binary-digit {
-      width: 16px;
-      height: 100%;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 12px;
-      font-weight: bold;
-      color: var(--glow);
-      text-shadow: 0 0 4px var(--glow);
-      flex-shrink: 0;
-      border-right: 1px solid rgba(0, 198, 255, 0.2);
-    }
-
-    .binary-digit.one {
-      color: var(--text);
-      background: var(--glow);
-    }
-
-    @keyframes binaryFlow {
-      0% { transform: translateX(100%); }
-      100% { transform: translateX(-100%); }
-    }
-
     .data-entry {
-      font-size: 0.9rem;
+      font-size: 0.85rem;
       margin-bottom: 8px;
       padding: 8px;
       background: rgba(0, 198, 255, 0.05);
@@ -179,8 +171,12 @@
     }
 
     @media (max-width: 768px) {
-      .title { font-size: 2rem; }
-      .status-display { grid-template-columns: 1fr; gap: 12px; }
+      .title { font-size: 1.6rem; }
+      .status-display { grid-template-columns: 1fr; gap: 8px; }
+      .command-box { flex-direction: column; }
+      .command-btn { padding: 12px; }
+      .logo-container { width: 140px; height: 140px; }
+      .sirius-logo { width: 110px; height: 110px; }
     }
   </style>
 </head>
@@ -192,6 +188,17 @@
     </div>
 
     <h1 class="title">S.I.R.I.U.S.</h1>
+
+    <form class="command-box" @submit.prevent="sendCommand()">
+      <input 
+        type="text" 
+        class="command-input" 
+        placeholder="e.g. 12 water or cal: 2026-11-01 meeting" 
+        x-model="inputCommand"
+      />
+      <button type="button" class="command-btn" @click="startVoiceRecognition()" title="Voice Input" style="background: transparent; border: 1px solid var(--glow); color: var(--glow);">🎙️</button>
+      <button type="submit" class="command-btn">EXECUTE</button>
+    </form>
 
     <div class="status-display">
       <div class="status-card">
@@ -209,17 +216,8 @@
     </div>
 
     <div class="data-stream">
-      <div class="data-stream-title">System Activity</div>
-      
-      <div class="binary-progress">
-        <div class="binary-stream">
-          <template x-for="digit in binaryStream" :key="digit.id">
-            <div class="binary-digit" :class="{ one: digit.value === 1 }" x-text="digit.value"></div>
-          </template>
-        </div>
-      </div>
-      
-      <template x-for="entry in dataStream.slice(-10)" :key="entry.id">
+      <div class="data-stream-title">System Activity Log</div>
+      <template x-for="entry in dataStream.slice().reverse()" :key="entry.id">
         <div class="data-entry" x-text="entry.message"></div>
       </template>
     </div>
@@ -228,79 +226,108 @@
   <script>
     function siriusInterface() {
       return {
+        inputCommand: '',
         status: {
           parserEngine: 'Online',
           requestRouter: 'Active',
           localCache: 'Connected'
         },
         dataStream: [],
-        binaryStream: [],
 
         init() {
-          this.startDataStream();
+          this.addDataStream('System initialized');
           this.initializeWebSocket();
-          this.generateBinaryStream();
           this.syncSystemStatus();
         },
 
-        generateBinaryStream() {
-          const binaryLength = 100;
-          this.binaryStream = Array.from({ length: binaryLength }, (_, i) => ({
-            id: i,
-            value: Math.random() > 0.5 ? 1 : 0
-          }));
-          
-          setInterval(() => {
-            this.binaryStream = this.binaryStream.map(digit => ({
-              ...digit,
-              value: Math.random() > 0.5 ? 1 : 0
-            }));
-          }, 2000);
+        async sendCommand() {
+          if (!this.inputCommand.trim()) return;
+          const cmd = this.inputCommand;
+          this.inputCommand = '';
+
+          try {
+            const res = await fetch('/api/command', {
+              method: 'POST',
+              headers: { 'Content-Type': 'application/json' },
+              body: JSON.stringify({ command: cmd })
+            });
+
+            const data = await res.json();
+            if (res.ok) {
+              const item = data.data;
+              if (data.route === 'finances') {
+                this.addDataStream(`✓ Logged ${item.type}: $${item.amount.toFixed(2)} — ${item.category}`);
+              } else if (data.route === 'calendar') {
+                this.addDataStream(`✓ Reminder set: "${item.title}" for ${item.date_str}`);
+              } else {
+                this.addDataStream(`✓ Saved successfully.`);
+              }
+            } else {
+              this.addDataStream(`✗ ${data.detail}`);
+            }
+          } catch (e) {
+            this.addDataStream(`✗ NETWORK ERROR: Unable to reach engine`);
+          }
         },
 
-        startDataStream() {
-          const logs = [
-            'System initialized',
-            'Validation modules active',
-            'Database ready'
-          ];
-          logs.forEach((msg, idx) => {
-            setTimeout(() => { this.addDataStream(msg); }, idx * 800);
-          });
+        startVoiceRecognition() {
+          const SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition;
+          if (!SpeechRecognition) {
+            this.addDataStream('✗ Voice recognition not supported on this browser');
+            return;
+          }
+
+          const recognition = new SpeechRecognition();
+          recognition.lang = 'en-US';
+          recognition.interimResults = false;
+          recognition.maxAlternatives = 1;
+
+          this.addDataStream('🎙️ Listening...');
+
+          recognition.onresult = (event) => {
+            const speechText = event.results[0][0].transcript;
+            this.inputCommand = speechText;
+            this.addDataStream(`✓ Heard: "${speechText}"`);
+            this.sendCommand();
+          };
+
+          recognition.onerror = (event) => {
+            this.addDataStream(`✗ Voice error: ${event.error}`);
+          };
+
+          recognition.start();
         },
 
         initializeWebSocket() {
           try {
-            const ws = new WebSocket(`ws://${window.location.host}/ws`);
-            ws.onopen = () => this.addDataStream('WebSocket connected');
+            const wsProtocol = window.location.protocol === 'https:' ? 'wss:' : 'ws:';
+            const ws = new WebSocket(`${wsProtocol}//${window.location.host}/ws`);
+            ws.onopen = () => this.addDataStream('WebSocket connection established');
             ws.onmessage = (event) => {
               const data = JSON.parse(event.data);
               this.addDataStream(data.message);
             };
           } catch (e) {
-            this.addDataStream('WebSocket unavailable');
+            this.addDataStream('WebSocket offline');
           }
         },
 
         async syncSystemStatus() {
-          setInterval(async () => {
-            try {
-              const res = await fetch('/api/status');
-              if (res.ok) {
-                const info = await res.json();
-                this.status.requestRouter = info.status === 'online' ? 'Active' : 'Offline';
-              }
-            } catch (err) {
-              this.status.requestRouter = 'Offline';
+          try {
+            const res = await fetch('/api/status');
+            if (res.ok) {
+              const info = await res.json();
+              this.status.requestRouter = info.status === 'online' ? 'Active' : 'Offline';
             }
-          }, 10000);
+          } catch (err) {
+            this.status.requestRouter = 'Offline';
+          }
         },
 
         addDataStream(message) {
           this.dataStream.push({
             id: Date.now() + Math.random(),
-            message,
-            timestamp: new Date().toLocaleTimeString()
+            message
           });
           if (this.dataStream.length > 50) this.dataStream.shift();
         }

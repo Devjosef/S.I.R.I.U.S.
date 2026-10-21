@@ -1,15 +1,11 @@
 import sqlite3
-from datetime import datetime
-from app.core.parser import FinancialMetric, CalendarEvent
 
 DB_FILE = "assistant_local.db"
 
 def init_db():
-    """Initializes the local SQLite database tables if they do not exist."""
     conn = sqlite3.connect(DB_FILE)
     cursor = conn.cursor()
     
-
     cursor.execute("""
         CREATE TABLE IF NOT EXISTS finances (
             id INTEGER PRIMARY KEY AUTOINCREMENT,
@@ -34,7 +30,7 @@ def init_db():
     conn.commit()
     conn.close()
 
-def save_financial_metric(metric: FinancialMetric):
+def save_financial_metric(metric):
     conn = sqlite3.connect(DB_FILE)
     cursor = conn.cursor()
     cursor.execute(
@@ -44,7 +40,7 @@ def save_financial_metric(metric: FinancialMetric):
     conn.commit()
     conn.close()
 
-def save_calendar_event(event: CalendarEvent):
+def save_calendar_event(event):
     conn = sqlite3.connect(DB_FILE)
     cursor = conn.cursor()
     cursor.execute(
@@ -53,3 +49,19 @@ def save_calendar_event(event: CalendarEvent):
     )
     conn.commit()
     conn.close()
+
+def get_financial_summary(limit=5):
+    conn = sqlite3.connect(DB_FILE)
+    cursor = conn.cursor()
+    cursor.execute("SELECT type, amount, category, timestamp FROM finances ORDER BY id DESC LIMIT ?", (limit,))
+    rows = cursor.fetchall()
+    conn.close()
+    return rows
+
+def get_calendar_summary(limit=5):
+    conn = sqlite3.connect(DB_FILE)
+    cursor = conn.cursor()
+    cursor.execute("SELECT title, date_str FROM calendar_events ORDER BY id DESC LIMIT ?", (limit,))
+    rows = cursor.fetchall()
+    conn.close()
+    return rows

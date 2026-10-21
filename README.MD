@@ -1,51 +1,56 @@
 # S.I.R.I.U.S. Engine
 
-> **Reductionist Personal Assistant Local Pipeline**
+S.I.R.I.U.S. Engine is a reductionist personal assistant pipeline built in Python with FastAPI, Pydantic, SQLite, and an Alpine.js web front end. It is designed to run locally on your network, process voice or typed commands, store data persistently in SQLite, and stream activity updates in real time using WebSockets.
 
-S.I.R.I.U.S. is a streamlined, lightweight personal assistant core rebuilt entirely in Python. It handles rigorous text parsing, manages local cache data persistence, and drives a live user interface via standard WebSockets.
+## Architecture
 
----
+The application structure consists of:
 
-## System Architecture
+- `main.py` — central FastAPI server and router.
+- `app/core/parser.py` — natural-language intent and grammar parser.
+- `app/core/storage.py` — SQLite database abstraction layer.
+- `public/index.html` — user dashboard.
 
-The engine runs completely decoupled across four primary application files and is verified by an isolated test suite:
+## Installation
 
-*   **`main.py`**: The central FastAPI application core. It manages the REST API endpoints, acts as the WebSocket stream hub, and serves the frontend assets dynamically.
-*   **`parser.py`**: The natural language intent parsing layer. Backed by Pydantic validation rules, it sanitizes inputs and routes commands using strict regular expressions.
-*   **`storage.py`**: The data layer. Manages a local SQLite cache database to ensure persistent tracking of system metrics and scheduled entries.
-*   **`public/index.html`**: The real-time visual system dashboard powered by Alpine.js, displaying engine states and a flowing binary data stream.
+Install the required dependencies:
 
----
-
-## Quick Start
-
-### 1. Install Dependencies
-Ensure you have your environment ready with FastAPI, Uvicorn, and Pydantic:
 ```bash
 pip install fastapi uvicorn pydantic
 ```
-### 2. Run the Engine
-Fire up the local pipeline server:
 
-```Bash
-python main.py
-The application will automatically spin up at http://127.0.0.1:8000.
+## Running the Server
+
+Start the local pipeline server:
+
+```bash
+uvicorn main:app --host 0.0.0.0 --port 8000 --reload
 ```
 
-### 3. Run Automated Diagnostics
-To verify processing logic and database integrity, execute the included local test scripts:
+Then access the interface at:
 
-```Bash
-# Audit the parser routing rules
+- Local machine: `http://localhost:8000`
+- Mobile devices on the same network: `http://<your-local-network-ip>:8000`
+
+## Testing
+
+To verify the processing logic and database integrity, run:
+
+```bash
 python test.parser.py
-
-# Simulate the full end-to-end data pipeline
 python test.pipeline.py
 ```
 
-### Command Protocols
-The parsing engine actively listens for specific syntax routes:
+## Supported Input Syntax
 
-Financial Tracking: spend: [amount] [category] or income: [amount] [category]
+The engine supports order-agnostic, human-tolerant natural language parsing for quick logging and querying:
 
-Calendar Tracking: cal: [YYYY-MM-DD] [event title]
+| Input Type | Syntax Pattern | Example |
+| :--- | :--- | :--- |
+| **Financial (Spend)** | `[amount] [item]` or `[item] [amount]` | `12.50 water` or `coffee 4` |
+| **Financial (Income)** | `inc: [amount] [source]` | `inc: 1500 salary` |
+| **Multi-Item Batch** | `[item] [amount], [item] [amount]` | `milk 3, bread 4, eggs 5` |
+| **Calendar Event** | `cal: [YYYY-MM-DD] [title]` | `cal: 2026-11-01 team sync` |
+| **State Query** | `show [target]` | `show spend`, `show cal`, `show all` |
+
+*Note: The parser automatically handles currency symbols (like `$`, `€`, `£`, `kr`) and localized number formatting natively.*
